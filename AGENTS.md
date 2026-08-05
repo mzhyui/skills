@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository contains independently usable Codex skills:
+This repository contains independently usable skills for both **Codex and Claude Code**:
 
 - `anchor-plans/` — scope-anchoring workflow for complex plans.
 - `edit-paper-with-history/` — scoped paper-editing workflow and templates.
@@ -10,19 +10,22 @@ This repository contains independently usable Codex skills:
 - `maintain-server-task-status/` — server/task-status instructions, probes, and schemas.
 - `record-coding-progress/` — durable progress documentation workflow, tool, references, and tests.
 
-Each skill keeps its main contract in `SKILL.md` and optional agent metadata in `agents/openai.yaml`. Keep new skill-specific code, references, tests, and assets inside that skill directory.
+Each skill keeps its main contract in `SKILL.md`, Codex metadata in `agents/openai.yaml`, and its Claude Code subagent definition in `claude/agent.md` (the installed skill auto-exposes the `/name` slash command). Keep new skill-specific code, references, tests, and assets inside that skill directory. The only repo-root code is the cross-cutting `scripts/install_skill.py` installer and its `tests/`.
 
 ## Build, Test, and Development Commands
 
 There is no compilation or packaging step. From the repository root:
 
 ```bash
+python3 -m unittest discover -s tests -p 'test_*.py'          # installer
 python3 -m unittest discover -s paper-math-auditor/tests -p 'test_*.py'
 python3 -m unittest discover -s record-coding-progress/tests -p 'test_*.py'
-python3 -m py_compile paper-math-auditor/scripts/sympy_audit.py maintain-server-task-status/scripts/status_ledger.py maintain-server-task-status/scripts/status_probe.py record-coding-progress/scripts/record_tool.py
+python3 -m py_compile paper-math-auditor/scripts/sympy_audit.py maintain-server-task-status/scripts/status_ledger.py maintain-server-task-status/scripts/status_probe.py record-coding-progress/scripts/record_tool.py scripts/install_skill.py
 ```
 
-The `unittest` commands run the two existing suites; `py_compile` catches syntax errors. Use `python3 <script> --help` to inspect an interface before invoking it. Keep dependencies in the surrounding environment; do not vendor caches or virtual environments.
+The `unittest` commands run the test suites; `py_compile` catches syntax errors. Use `python3 <script> --help` to inspect an interface before invoking it. Keep dependencies in the surrounding environment; do not vendor caches or virtual environments.
+
+Installing a skill into Claude Code: `python3 scripts/install_skill.py <name-or-url> [--dest DIR] [--force] [--dry-run]` (see `README.md`).
 
 ## Coding Style & Naming Conventions
 
