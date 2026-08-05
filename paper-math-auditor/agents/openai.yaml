@@ -1,0 +1,7 @@
+interface:
+  display_name: "Paper Math Auditor"
+  short_description: "Audit paper math with evidence"
+  default_prompt: "Use $paper-math-auditor to audit the equations, proofs, and assumptions in this manuscript."
+
+policy:
+  allow_implicit_invocation: true

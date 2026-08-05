@@ -1,0 +1,7 @@
+interface:
+  display_name: "Anchor Plans"
+  short_description: "Anchor complex plans before execution"
+  default_prompt: "Use $anchor-plans to scope and structure this execution plan."
+
+policy:
+  allow_implicit_invocation: true

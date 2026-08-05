@@ -1,0 +1,4 @@
+interface:
+  display_name: "Edit Paper with History"
+  short_description: "Scoped paper edits with exact change history"
+  default_prompt: "Use $edit-paper-with-history to revise a confirmed paper section and record every exact before-and-after change."

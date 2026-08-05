@@ -1,0 +1,4 @@
+interface:
+  display_name: "Server Task Status Ledger"
+  short_description: "Refresh and record compute-task status"
+  default_prompt: "Use $maintain-server-task-status to check this machine or task and update its durable status record."
