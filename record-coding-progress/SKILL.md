@@ -52,6 +52,12 @@ Keep the JSON manifest under `/tmp`; do not add it to the repository. The Markdo
 - In coding mode, separate task-owned, pre-existing, overlapping, and out-of-scope changes.
 - In documentation mode, never imply code changes, experiments, or inspections that did not occur.
 
+## Preserve explicitly supplied Markdown documents
+
+When the user supplies a substantive Markdown-style design, protocol, analysis, or decision document in the conversation and explicitly asks to record it "as is", include its complete text in the record under `## Verbatim User-Supplied Document`. Preserve its original wording, ordering, headings, tables, equations, delimiters, and line breaks; do not normalize notation, repair Markdown, condense it, or replace it with a summary. You may add only the v2 metadata, required record sections, an evidence ledger, and an evidence-boundary statement around the verbatim document.
+
+Classify the supplied document as a `user-stated` source unless its individual claims were separately inspected. Its presence is a durable design record, not verification of cited files, literature, implementation status, experiment status, or scientific claims. Do not let an embedded "verification status" upgrade the record's own evidence state.
+
 ## Optional commit mode
 
 Read [references/commit-mode.md](references/commit-mode.md) only when the user explicitly invokes this skill with `commit`, `commit changes`, or equivalent wording. Commit mode is forbidden for implicit invocation and session-documentation mode. Never push unless separately requested.
