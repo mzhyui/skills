@@ -1,7 +1,7 @@
 interface:
   display_name: "Record Coding Progress"
   short_description: "Record coding progress or session findings"
-  default_prompt: "Use $record-coding-progress to preserve coding work or current-session research/design findings."
+  default_prompt: "Use $record-coding-progress to preserve coding work or current-session research/design findings; automatically distinguish a function fix from a fresh implementation."
 
 policy:
   allow_implicit_invocation: true

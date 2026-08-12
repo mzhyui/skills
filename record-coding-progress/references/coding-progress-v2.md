@@ -7,7 +7,7 @@ Use this mode for a material implementation result. Keep the record complete but
 Create a temporary manifest before editing:
 
 ```text
-python3 <skill-path>/scripts/record_tool.py start --mode coding-progress --repo <repository> --output <temporary-manifest>
+python3 <skill-path>/scripts/record_tool.py start --mode coding-progress --implementation-kind <function-fix|fresh-implementation> --repo <repository> --output <temporary-manifest>
 ```
 
 If recording begins late, use `--baseline-head <verified-hash>` only when the baseline is known; otherwise pass `--baseline-unavailable`. Never substitute the current `HEAD` for an unknown baseline. Add sources and observed checks during the task, then finalize with repeated explicit scopes:
@@ -27,6 +27,7 @@ Use these metadata lines exactly:
 
 - Record format: `2`
 - Mode: `coding-progress`
+- Implementation class: `function-fix` or `fresh-implementation`
 - Date: `YYYY-MM-DD`
 - Project: <repository>
 - Status: `completed`, `partial`, or `blocked`
@@ -49,9 +50,9 @@ Add `## Interface and Behavior Changes` only when an API, CLI, schema, protocol,
 ## Content contract
 
 - **Outcome:** direct verdict, deliverables, limitations.
-- **Task and Scope:** request, target, starting state, constraints, decisions, assumptions, exclusions.
-- **Implementation:** concise execution sequence plus a table of repository-relative core paths, symbols, behavioral changes, and roles.
-- **Validation:** one subsection per manifest check. Use `### <ID> - <result>`, reproduce the exact command in a `text` code fence, and state the observed summary. Record `not-run` reasons.
+- **Task and Scope:** request, target, starting state, constraints, decisions, assumptions, exclusions. For a `function-fix`, identify the evidence-backed pre-existing contract and the defect boundary. For a `fresh-implementation`, identify the confirmed plan source (a file source or relevant current context), the applicable plan detail, and the original implementation status.
+- **Implementation:** concise execution sequence plus a table of repository-relative core paths, symbols, behavioral changes, and roles. A `function-fix` must use `### Preserved Contract` and `### Corrective Change`; state the contract kept and focus on the changes made. A `fresh-implementation` must use `### Plan and Starting Status` and `### Core Functions and Result`; state what was planned, what existed before, the core functions, and the implementation result.
+- **Validation:** begin with `### Test Result`, stating the observed test outcome or `Not run: <reason>`. Then use one subsection per manifest check. Use `### <ID> - <result>`, reproduce the exact command in a `text` code fence, and state the observed summary. Record `not-run` reasons.
 - **Evidence Ledger:** map every `E*` and `V*` ID used by a material claim to one class (`verified`, `user-stated`, `inferred`, or `proposed`), its locator/check, and the supported conclusion. Validation observations are `verified` even when their result is not a pass.
 - **Git Custody:** branch, baseline/final HEAD, history relation, commits since baseline, explicit scopes, task-owned changes, pre-existing changes, overlaps, outside-scope changes, ownership caveats, and the manifest's exact scoped-diff token (`files=N; insertions=N; deletions=N; binary_files=N; untracked_files=N`). Do not call a commit task-owned without separate evidence. Use `unavailable` rather than inference; unborn repositories have no HEAD.
 - **Evidence Boundary:** what the work establishes and does not establish.

@@ -17,6 +17,7 @@ from typing import Any, Iterable
 
 SCHEMA_VERSION = 2
 MODES = ("coding-progress", "session-documentation")
+IMPLEMENTATION_KINDS = ("function-fix", "fresh-implementation")
 CHECK_RESULTS = ("pass", "fail", "partial", "not-run")
 SOURCE_KINDS = ("user", "repository", "artifact", "web")
 EVIDENCE_CLASSES = ("verified", "user-stated", "inferred", "proposed")
@@ -270,6 +271,9 @@ def command_start(args: argparse.Namespace) -> None:
         "finalized_at": None,
     }
     if args.mode == "coding-progress":
+        if not args.implementation_kind:
+            raise RecordError("--implementation-kind is required in coding-progress mode")
+        manifest["implementation_kind"] = args.implementation_kind
         if args.baseline_head and args.baseline_unavailable:
             raise RecordError("--baseline-head and --baseline-unavailable are mutually exclusive")
         root = git_root(repository)
@@ -295,8 +299,10 @@ def command_start(args: argparse.Namespace) -> None:
                 ),
                 "final": None,
             }
-    elif args.baseline_head or args.baseline_unavailable:
-        raise RecordError("baseline options are valid only in coding-progress mode")
+    elif args.baseline_head or args.baseline_unavailable or args.implementation_kind:
+        raise RecordError(
+            "baseline and implementation-kind options are valid only in coding-progress mode"
+        )
 
     save_manifest(output, manifest)
     git_data = manifest.get("git", {})
@@ -304,11 +310,15 @@ def command_start(args: argparse.Namespace) -> None:
         baseline = git_data["baseline"]
         baseline_value = baseline["baseline_head"] or "unavailable"
         print(
-            f"created {output}; mode={args.mode}; baseline={baseline_value}; "
+            f"created {output}; mode={args.mode}; "
+            f"implementation_kind={manifest['implementation_kind']}; baseline={baseline_value}; "
             f"dirty_paths={len(baseline['status_paths'])}"
         )
     else:
-        print(f"created {output}; mode={args.mode}; git=not-recorded")
+        suffix = f"; implementation_kind={manifest['implementation_kind']}" if (
+            manifest["mode"] == "coding-progress"
+        ) else ""
+        print(f"created {output}; mode={args.mode}{suffix}; git=not-recorded")
 
 
 def command_add_source(args: argparse.Namespace) -> None:
@@ -463,6 +473,10 @@ def section_text(text: str, heading: str) -> str:
     return match.group(1) if match else ""
 
 
+def has_level_three_heading(text: str, heading: str) -> bool:
+    return bool(re.search(rf"^###\s+{re.escape(heading)}\s*$", text, re.MULTILINE))
+
+
 def evidence_id_has_class(text: str, evidence_id: str) -> bool:
     for line in text.splitlines():
         if re.search(rf"\b{re.escape(evidence_id)}\b", line) and any(
@@ -538,6 +552,35 @@ def validate_note(manifest: dict[str, Any], note: Path) -> list[str]:
         if "git" in manifest:
             errors.append("session-documentation manifest must not contain Git evidence")
         return errors
+
+    implementation_kind = manifest.get("implementation_kind")
+    if implementation_kind is not None:
+        if implementation_kind not in IMPLEMENTATION_KINDS:
+            errors.append("manifest implementation_kind is unsupported")
+        elif metadata_value(text, "Implementation class") != implementation_kind:
+            errors.append(
+                "metadata Implementation class must match manifest implementation_kind: "
+                f"{implementation_kind}"
+            )
+        else:
+            implementation = section_text(text, "Implementation")
+            required_implementation_headings = (
+                ("Preserved Contract", "Corrective Change")
+                if implementation_kind == "function-fix"
+                else ("Plan and Starting Status", "Core Functions and Result")
+            )
+            for heading in required_implementation_headings:
+                if not has_level_three_heading(implementation, heading):
+                    errors.append(
+                        f"{implementation_kind} records require implementation heading: "
+                        f"### {heading}"
+                    )
+            validation = section_text(text, "Validation")
+            if not has_level_three_heading(validation, "Test Result"):
+                errors.append(
+                    "coding records with implementation_kind require validation heading: "
+                    "### Test Result"
+                )
 
     for check in manifest["checks"]:
         if check["id"] not in text:
@@ -626,6 +669,7 @@ def command_validate(args: argparse.Namespace) -> None:
         raise SystemExit(1)
     print(
         f"valid record v{SCHEMA_VERSION}; mode={manifest['mode']}; "
+        f"implementation_kind={manifest.get('implementation_kind', 'legacy')}; "
         f"sources={len(manifest['sources'])}; checks={len(manifest['checks'])}"
     )
 
@@ -636,6 +680,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     start = subparsers.add_parser("start", help="create a temporary evidence manifest")
     start.add_argument("--mode", choices=MODES, required=True)
+    start.add_argument("--implementation-kind", choices=IMPLEMENTATION_KINDS)
     start.add_argument("--repo", required=True)
     start.add_argument("--output", required=True)
     start.add_argument("--baseline-head")

@@ -62,6 +62,8 @@ class RecordToolTests(unittest.TestCase):
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -117,6 +119,7 @@ class RecordToolTests(unittest.TestCase):
 
 - Record format: `2`
 - Mode: `coding-progress`
+- Implementation class: `function-fix`
 - Date: `2026-07-29`
 - Project: {repo}
 - Status: `completed`
@@ -132,9 +135,19 @@ Task scope: task.txt. Outside scope: preexisting.txt and outside.txt.
 
 ## Implementation
 
+### Preserved Contract
+
+The task.txt input and output contract remains unchanged [E1].
+
+### Corrective Change
+
 Changed task.txt.
 
 ## Validation
+
+### Test Result
+
+Pass: the recorded unit test passed.
 
 ### V1 - pass
 
@@ -171,6 +184,142 @@ None.
             )
             run_tool("validate", "--manifest", str(manifest), "--note", str(note))
 
+    def test_fresh_implementation_requires_plan_status_core_result_and_test_headings(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = root / "manifest.json"
+            run_tool(
+                "start",
+                "--mode",
+                "coding-progress",
+                "--implementation-kind",
+                "fresh-implementation",
+                "--repo",
+                str(root),
+                "--output",
+                str(manifest),
+            )
+            run_tool(
+                "add-source",
+                "--manifest",
+                str(manifest),
+                "--kind",
+                "user",
+                "--locator",
+                "confirmed plan in current conversation",
+            )
+            run_tool(
+                "add-check",
+                "--manifest",
+                str(manifest),
+                "--command",
+                "python -m unittest",
+                "--result",
+                "pass",
+                "--summary",
+                "1 test passed",
+            )
+            run_tool("finish", "--manifest", str(manifest))
+            note = root / "note.md"
+            note.write_text(
+                f"""# Fresh implementation record
+
+- Record format: `2`
+- Mode: `coding-progress`
+- Implementation class: `fresh-implementation`
+- Date: `2026-08-10`
+- Project: {root}
+- Status: `completed`
+- Evidence state: `mixed`
+
+## Outcome
+
+Implemented the planned capability [E1].
+
+## Task and Scope
+
+Plan source: confirmed plan in current conversation [E1]. Original status: unimplemented.
+
+## Implementation
+
+### Plan and Starting Status
+
+The confirmed plan was to add the capability; it was unimplemented before this work [E1].
+
+### Core Functions and Result
+
+The core record function now implements the capability.
+
+## Validation
+
+### Test Result
+
+Pass: the unit test completed successfully.
+
+### V1 - pass
+
+```text
+python -m unittest
+```
+
+Observed: 1 test passed.
+
+## Evidence Ledger
+
+- E1 [user-stated]: confirmed plan in current conversation.
+- V1 [verified]: validation.
+
+## Git Custody
+
+Git evidence is unavailable because the project is not a Git checkout.
+
+## Evidence Boundary
+
+Establishes the recorded implementation and test only.
+
+## Next Steps
+
+None.
+""",
+                encoding="utf-8",
+            )
+            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+            note.write_text(
+                note.read_text(encoding="utf-8").replace(
+                    "### Core Functions and Result",
+                    "### Implementation Result",
+                ),
+                encoding="utf-8",
+            )
+            result = run_tool(
+                "validate",
+                "--manifest",
+                str(manifest),
+                "--note",
+                str(note),
+                expect=1,
+            )
+            self.assertIn(
+                "fresh-implementation records require implementation heading: "
+                "### Core Functions and Result",
+                result.stderr,
+            )
+
+    def test_coding_start_requires_implementation_kind(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            result = run_tool(
+                "start",
+                "--mode",
+                "coding-progress",
+                "--repo",
+                str(root),
+                "--output",
+                str(root / "manifest.json"),
+                expect=2,
+            )
+            self.assertIn("--implementation-kind is required", result.stderr)
+
     def test_validator_rejects_false_check_result(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -180,6 +329,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -442,6 +593,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(root),
                 "--output",
@@ -477,6 +630,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -486,6 +641,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -512,6 +669,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -573,6 +732,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -599,6 +760,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -633,6 +796,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -660,6 +825,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -693,6 +860,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",
@@ -791,6 +960,8 @@ None.
                 "start",
                 "--mode",
                 "coding-progress",
+                "--implementation-kind",
+                "function-fix",
                 "--repo",
                 str(repo),
                 "--output",

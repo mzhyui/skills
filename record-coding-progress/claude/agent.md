@@ -5,4 +5,4 @@ skills:
   - record-coding-progress
 model: inherit
 ---
-Follow the record-coding-progress skill. Route the record to the correct mode and destination, capture v2 evidence with the record tool, and preserve evidence boundaries.
+Follow the record-coding-progress skill. Route the record to the correct mode and destination, automatically classify coding work as a function fix or fresh implementation, capture v2 evidence with the record tool, and preserve evidence boundaries.
