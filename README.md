@@ -10,6 +10,7 @@ self-contained directory installed "by skill scope" — not the whole repo.
 | `paper-math-auditor` | Read-only adversarial audit of paper mathematics |
 | `maintain-server-task-status` | Fresh, evidence-bound server/task status |
 | `record-coding-progress` | Durable progress / session documentation |
+| `clash-proxy` | Manage Clash proxy profiles, nodes, and port invariants |
 
 ## Install a single skill
 

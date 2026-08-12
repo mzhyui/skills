@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A collection of **independently usable skills for both Codex and Claude Code**, each a self-contained directory. There is no application, no build, and no shared runtime — each skill is a standalone prompt/instruction package that agents load by name.
 
-Skills: `anchor-plans`, `edit-paper-with-history`, `paper-math-auditor`, `maintain-server-task-status`, `record-coding-progress`.
+Skills: `anchor-plans`, `edit-paper-with-history`, `paper-math-auditor`, `maintain-server-task-status`, `record-coding-progress`, `clash-proxy`.
 
 `AGENTS.md` at the repo root is the authoritative style/process contract — read it and follow it for any skill work.
 

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Clash Proxy Manager"
+  short_description: "Switch and validate Clash proxy profiles"
+  default_prompt: "Use $clash-proxy to inspect, switch, or repair this machine's Clash proxy configuration."
+
+policy:
+  allow_implicit_invocation: true
