@@ -37,11 +37,23 @@ Keep the capture temporary. Do not add snapshots, manifests, or draft history re
 
 Make the requested paper edit without crossing a confirmed boundary. Preserve user changes outside the captured scope and follow repository-specific manuscript instructions.
 
-Write revised manuscript prose in an academic-paper register. State the research question, method, evidence, interpretation, or limitation directly; do not frame prose as a software interface, validation log, or technical report. In titles, headings, captions, tables, and narrative, avoid schema-like field names and process-status wording such as `is_valid`, `input_requirement`, `pass_status`, `status: passed`, or checklist-style verdicts unless quoting or defining an indispensable artifact exactly. Translate the underlying idea into reader-facing prose (for example, "the setting satisfies the stated assumptions" or "the result meets the pre-specified criterion").
-
-Prefer language that explains what the paper establishes in its stated setting over language that advertises a system, release, interface, or workflow. Retain precise implementation terms when needed for reproducibility, but introduce and explain them as scientific objects rather than product features.
-
 For a multi-file session, edit only the confirmed scope in each listed file. A conceptual need for synchronization does not authorize editing an unlisted source.
+
+### Optional revision interval marks
+
+Do not insert revision marks by default. Insert them only when the user explicitly requests marked revisions, and include that request in the scope declaration.
+
+For manuscripts that define `\revisionmarkson`, `\revisionmarksoff`, `\revbegin{<id>}`, and `\revend{<id>}`:
+
+- enable the marks with `\revisionmarkson` only in a confirmed preamble scope;
+- when the preamble defines `\revisionmarkson` itself, place the enabling call only after `\newif\ifrevisionmarks`, `\newcommand{\revisionmarkson}{...}`, `\newcommand{\revbegin}{...}`, and `\newcommand{\revend}{...}`; retain the initial false state until those definitions are complete;
+- preserve LaTeX comment semantics: when `%%` separates prose source lines, make `%%` the final content on its physical line and start the next prose or revision-mark command on the following line; never write `%% <prose>` or `%% <revision command>` on one line unless deliberately commenting out the remainder;
+- place every `\revbegin` and `\revend` on an uncommented source line, and ensure that an interval crossing `%%` delimiters keeps all intended prose outside the comment portion of each line;
+- wrap every changed interval, and no unchanged surrounding text, as `\revbegin{<short-stable-id>}<edited text>\revend{<short-stable-id>}`;
+- use the same short, stable identifier at both boundaries of an interval;
+- retain or disable the markers only as requested; do not silently leave visible revision markup in a normal manuscript build.
+
+Report whether revision marks were inserted and whether they were enabled for rendering.
 
 If an out-of-scope or concurrent modification appears:
 
@@ -92,6 +104,7 @@ Before finishing, verify:
 - each scope has an original summary and core idea;
 - the exact before-and-after entries reproduce the complete session diff within the confirmed scope;
 - no session-owned change falls outside the confirmed scope;
+- every `%%` used as a prose separator in a marked edit terminates its physical source line, so no intended prose or revision command is accidentally commented out;
 - no hash, Git custody claim, commit, or push was added unless separately requested.
 
 Report the edited paths and the new history-record path to the user.
