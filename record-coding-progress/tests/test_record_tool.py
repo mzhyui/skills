@@ -10,6 +10,8 @@ from pathlib import Path
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "record_tool.py"
+sys.path.insert(0, str(SCRIPT.parent))
+import record_tool as record_module  # noqa: E402
 
 
 def run_tool(*args: str, expect: int = 0) -> subprocess.CompletedProcess[str]:
@@ -51,6 +53,214 @@ class RecordToolTests(unittest.TestCase):
         git(repo, "add", "task.txt", "preexisting.txt")
         git(repo, "commit", "-q", "-m", "initial")
         return repo
+
+    def start_v3(
+        self,
+        root: Path,
+        repo: Path,
+        *,
+        mode: str = "coding-progress",
+        task_type: str = "feature",
+        initial_status: str = "in-progress",
+        implementation_kind: str = "fresh-implementation",
+        extra: tuple[str, ...] = (),
+    ) -> Path:
+        manifest = root / f"{mode}-{task_type}-{len(list(root.glob('*.json')))}.json"
+        args = [
+            "start",
+            "--record-format",
+            "3",
+            "--mode",
+            mode,
+            "--task-type",
+            task_type,
+            "--task-slug",
+            "v3-test",
+            "--record-date",
+            "2026-09-03",
+            "--initial-status",
+            initial_status,
+            "--repo",
+            str(repo),
+            "--output",
+            str(manifest),
+        ]
+        if mode == "coding-progress":
+            args.extend(("--implementation-kind", implementation_kind))
+        args.extend(extra)
+        run_tool(*args)
+        return manifest
+
+    def write_v3_note(self, manifest_path: Path, note: Path) -> None:
+        data = json.loads(manifest_path.read_text(encoding="utf-8"))
+        components = ", ".join(data["components"]) or "None"
+        labels = ", ".join(data["labels"]) or "None"
+        metadata = [
+            "# V3 test record",
+            "",
+            "- Record format: `3`",
+            f"- Record ID: `{data['record_id']}`",
+            f"- Mode: `{data['mode']}`",
+            f"- Task type: `{data['task_type']}`",
+            f"- Task slug: `{data['task_slug']}`",
+        ]
+        if data["mode"] == "coding-progress":
+            metadata.append(f"- Implementation class: `{data['implementation_kind']}`")
+        metadata.extend(
+            [
+                f"- Date: `{data['record_date']}`",
+                f"- Project: {data['repository']}",
+                f"- Priority: `{data['priority']}`",
+                f"- Owner: {data['owner']}",
+                f"- Components: {components}",
+                f"- Labels: {labels}",
+                f"- Status category: `{data['status_category']}`",
+                f"- Status: `{data['status']}`",
+                f"- Resolution: `{data['resolution']}`",
+                f"- Created at: `{data['created_at']}`",
+                f"- Started at: `{data['started_at']}`",
+                f"- Updated at: `{data['updated_at']}`",
+                f"- Completed at: `{data['completed_at'] or 'Not applicable'}`",
+                f"- Due date: `{data['due_date'] or 'Not applicable'}`",
+                f"- Evidence state: `{data['evidence_state']}`",
+                f"- Validation state: `{data['validation_state']}`",
+                "",
+                "## Outcome",
+                "",
+                "Recorded outcome [E1]." if data["sources"] else "Recorded outcome.",
+                "",
+            ]
+        )
+        lifecycle = [
+            "## Lifecycle",
+            "",
+            f"Current blocker: {data.get('blocked_reason') or 'None'}",
+            "",
+            "| ID | At | Action | From | To | Actor | Reason |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
+        ]
+        lifecycle.extend(
+            f"| {event['id']} | {event['at']} | {event['action']} | {event['from']} | "
+            f"{event['to']} | {event['actor']} | {event['reason']} |"
+            for event in data["lifecycle"]
+        )
+        lifecycle.extend(
+            [
+                "",
+                "| ID | Type | Target |",
+                "| --- | --- | --- |",
+                *(f"| {link['id']} | {link['type']} | {link['target']} |" for link in data["links"]),
+            ]
+        )
+        if not data["links"]:
+            lifecycle.append("| None | None | None |")
+        body = [*metadata, *lifecycle, ""]
+        if data["mode"] == "coding-progress":
+            body.extend(["## Task and Scope", "", "Bounded v3 test scope.", "", "## Implementation", ""])
+            if data["implementation_kind"] == "function-fix":
+                body.extend(
+                    [
+                        "### Preserved Contract",
+                        "",
+                        "Contract preserved.",
+                        "",
+                        "### Corrective Change",
+                        "",
+                        "Correction applied.",
+                        "",
+                    ]
+                )
+            else:
+                body.extend(
+                    [
+                        "### Plan and Starting Status",
+                        "",
+                        "Plan source and starting status recorded.",
+                        "",
+                        "### Core Functions and Result",
+                        "",
+                        "Core result recorded.",
+                        "",
+                    ]
+                )
+            body.extend(["## Validation", "", "### Test Result", "", f"Aggregate: {data['validation_state']}.", ""])
+            for check in data["checks"]:
+                body.extend(
+                    [
+                        f"### {check['id']} - {check['result']}",
+                        "",
+                        "```text",
+                        check["command"],
+                        "```",
+                        "",
+                        f"Observed: {check['summary']}.",
+                        "",
+                    ]
+                )
+        else:
+            body.extend(
+                [
+                    "## Context and Scope",
+                    "",
+                    "Bounded session scope.",
+                    "",
+                    "## Findings and Decisions",
+                    "",
+                    "Finding recorded [E1].",
+                    "",
+                ]
+            )
+        body.extend(["## Evidence Ledger", ""])
+        for source in data["sources"]:
+            body.append(f"- {source['id']} [verified]: {source['locator']}")
+        for check in data["checks"]:
+            body.append(f"- {check['id']} [verified]: {check['summary']}")
+        if not data["sources"] and not data["checks"]:
+            body.append("None.")
+        body.append("")
+        if data["mode"] == "coding-progress":
+            body.extend(["## Git Custody", ""])
+            git_data = data["git"]
+            if not git_data["available"]:
+                body.extend(["Git evidence is unavailable.", ""])
+            else:
+                baseline = git_data["baseline"]
+                final = git_data["final"]
+                summary = final["scoped_diff"]
+                body.extend(
+                    [
+                        f"- Branch: {final['branch']}",
+                        f"- Baseline HEAD: {baseline['baseline_head'] or 'unavailable'}",
+                        f"- Final HEAD: {final['head'] or 'unavailable'}",
+                        f"- History relation: {final['history_relation']}",
+                        f"- Task paths: {', '.join(final['task_paths']) or 'None'}",
+                        f"- Task-owned paths: {', '.join(final['task_owned_changed_paths']) or 'None'}",
+                        f"- Pre-existing paths: {', '.join(final['preexisting_paths']) or 'None'}",
+                        f"- Pre-existing overlap: {', '.join(final['preexisting_overlap']) or 'None'}",
+                        f"- Outside-scope paths: {', '.join(final['outside_scope_changed_paths']) or 'None'}",
+                        f"- Record path: {final['record_path'] or 'None'}",
+                        "- Scoped diff: "
+                        f"files={summary['files']}; insertions={summary['insertions']}; "
+                        f"deletions={summary['deletions']}; binary_files={summary['binary_files']}; "
+                        f"untracked_files={summary['untracked_files']}",
+                        "",
+                    ]
+                )
+                for commit in final["commits_since_baseline"]:
+                    body.append(f"- Commit: {commit['hash']} {commit['subject']}")
+        body.extend(
+            [
+                "## Evidence Boundary",
+                "",
+                "Establishes only the recorded evidence.",
+                "",
+                "## Next Steps",
+                "",
+                "None.",
+                "",
+            ]
+        )
+        note.write_text("\n".join(body), encoding="utf-8")
 
     def test_coding_manifest_classifies_scope_and_validates_note(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
@@ -986,6 +1196,483 @@ None.
                 ["staged.txt", "untracked.txt"],
             )
             self.assertEqual(data["git"]["final"]["scoped_diff"]["untracked_files"], 1)
+
+    def test_v3_coding_lifecycle_links_and_note_validation(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            repo = self.make_repo(root)
+            manifest = self.start_v3(
+                root,
+                repo,
+                task_type="bug",
+                implementation_kind="function-fix",
+                extra=(
+                    "--priority",
+                    "high",
+                    "--owner",
+                    "Codex",
+                    "--component",
+                    "workflow",
+                    "--component",
+                    "workflow",
+                    "--label",
+                    "v3",
+                    "--due-date",
+                    "2026-09-10",
+                ),
+            )
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertRegex(data["record_id"], r"^RCP-\d{8}T\d{6}Z-[0-9a-f]{8}$")
+            self.assertEqual(data["components"], ["workflow"])
+            run_tool(
+                "add-source",
+                "--manifest",
+                str(manifest),
+                "--kind",
+                "repository",
+                "--locator",
+                "task.txt",
+            )
+            run_tool(
+                "add-check",
+                "--manifest",
+                str(manifest),
+                "--command",
+                "python3 -m unittest",
+                "--result",
+                "pass",
+                "--summary",
+                "18 tests passed",
+            )
+            run_tool(
+                "add-check",
+                "--manifest",
+                str(manifest),
+                "--command",
+                "ruff check",
+                "--result",
+                "not-run",
+                "--summary",
+                "ruff unavailable",
+            )
+            run_tool(
+                "add-link",
+                "--manifest",
+                str(manifest),
+                "--type",
+                "parent",
+                "--target",
+                "RCP-20260901T000000Z-00000000",
+            )
+            run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "validating",
+                "--actor",
+                "Codex",
+                "--reason",
+                "implementation complete",
+            )
+            run_tool(
+                "finish",
+                "--manifest",
+                str(manifest),
+                "--status",
+                "done",
+                "--resolution",
+                "completed",
+                "--evidence-state",
+                "verified",
+                "--actor",
+                "Codex",
+                "--reason",
+                "validation complete",
+                "--task-path",
+                "task.txt",
+            )
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertEqual(data["status_category"], "done")
+            self.assertEqual(data["validation_state"], "pass")
+            self.assertEqual(data["completed_at"], data["finalized_at"])
+            note = root / "v3.md"
+            self.write_v3_note(manifest, note)
+            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+
+    def test_v3_session_documentation_validates_without_git_or_checks(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = self.start_v3(
+                root,
+                root,
+                mode="session-documentation",
+                task_type="research",
+                initial_status="proposed",
+                extra=("--started-at", "unavailable"),
+            )
+            run_tool(
+                "add-source",
+                "--manifest",
+                str(manifest),
+                "--kind",
+                "user",
+                "--locator",
+                "current research discussion",
+            )
+            run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "in-progress",
+                "--actor",
+                "Codex",
+                "--reason",
+                "research started",
+            )
+            run_tool(
+                "finish",
+                "--manifest",
+                str(manifest),
+                "--status",
+                "done",
+                "--resolution",
+                "completed",
+                "--evidence-state",
+                "mixed",
+                "--actor",
+                "Codex",
+                "--reason",
+                "documentation concluded",
+            )
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertEqual(data["validation_state"], "not-applicable")
+            self.assertNotIn("git", data)
+            note = root / "session-v3.md"
+            self.write_v3_note(manifest, note)
+            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+
+    def test_v3_rejects_wrong_task_type_slug_date_and_timestamp(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            for flag, value, expected in (
+                ("--task-type", "research", "not valid for coding-progress"),
+                ("--task-slug", "Bad Slug", "--task-slug"),
+                ("--record-date", "2026-02-30", "record date"),
+                ("--started-at", "2026-09-03T10:00:00", "timezone"),
+            ):
+                args = [
+                    "start",
+                    "--record-format",
+                    "3",
+                    "--mode",
+                    "coding-progress",
+                    "--task-type",
+                    "feature",
+                    "--task-slug",
+                    "valid-slug",
+                    "--record-date",
+                    "2026-09-03",
+                    "--implementation-kind",
+                    "fresh-implementation",
+                    "--repo",
+                    str(root),
+                    "--output",
+                    str(root / f"{flag[2:]}.json"),
+                ]
+                index = args.index(flag) if flag in args else -1
+                if index >= 0:
+                    args[index + 1] = value
+                else:
+                    args.extend((flag, value))
+                result = run_tool(*args, expect=2)
+                self.assertIn(expected, result.stderr)
+
+    def test_every_v3_transition_pair_matches_the_transition_table(self) -> None:
+        base_time = "2026-09-03T00:00:00Z"
+        for current in record_module.V3_STATUSES:
+            for target in record_module.V3_STATUSES:
+                manifest = {
+                    "schema_version": 3,
+                    "status": current,
+                    "status_category": record_module.STATUS_CATEGORIES[current],
+                    "resolution": "unresolved",
+                    "completed_at": None,
+                    "blocked_reason": "blocked" if current == "blocked" else None,
+                    "created_at": base_time,
+                    "updated_at": base_time,
+                    "lifecycle": [],
+                }
+                resolution = "completed" if target == "done" else "canceled" if target == "canceled" else None
+                allowed = target in record_module.ALLOWED_TRANSITIONS[current]
+                if allowed:
+                    record_module.apply_transition(
+                        manifest,
+                        target=target,
+                        actor="test",
+                        reason="matrix test",
+                        resolution=resolution,
+                        at=base_time,
+                    )
+                    self.assertEqual(manifest["status"], target)
+                else:
+                    with self.assertRaises(record_module.RecordError):
+                        record_module.apply_transition(
+                            manifest,
+                            target=target,
+                            actor="test",
+                            reason="matrix test",
+                            resolution=resolution,
+                            at=base_time,
+                        )
+
+    def test_v3_requires_compatible_terminal_resolution_and_blocker_reason(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = self.start_v3(root, root)
+            missing_resolution = run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "done",
+                "--actor",
+                "Codex",
+                "--reason",
+                "done",
+                expect=2,
+            )
+            self.assertIn("resolution is not valid", missing_resolution.stderr)
+            blank_blocker = run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "blocked",
+                "--actor",
+                "Codex",
+                "--reason",
+                " ",
+                expect=2,
+            )
+            self.assertIn("--reason must be non-empty", blank_blocker.stderr)
+            wrong_cancel = run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "canceled",
+                "--actor",
+                "Codex",
+                "--reason",
+                "cancel",
+                "--resolution",
+                "completed",
+                expect=2,
+            )
+            self.assertIn("resolution is not valid", wrong_cancel.stderr)
+            out_of_order = run_tool(
+                "transition",
+                "--manifest",
+                str(manifest),
+                "--to",
+                "validating",
+                "--actor",
+                "Codex",
+                "--reason",
+                "backdated transition",
+                "--at",
+                "2000-01-01T00:00:00Z",
+                expect=2,
+            )
+            self.assertIn("precedes the last update", out_of_order.stderr)
+
+    def test_v3_resume_and_refresh_preserve_history_and_lifecycle_times(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            repo = self.make_repo(root)
+            manifest = self.start_v3(root, repo)
+            run_tool(
+                "finish",
+                "--manifest",
+                str(manifest),
+                "--status",
+                "blocked",
+                "--evidence-state",
+                "verified",
+                "--actor",
+                "Codex",
+                "--reason",
+                "dependency unavailable",
+                "--task-path",
+                "task.txt",
+            )
+            before = json.loads(manifest.read_text(encoding="utf-8"))
+            run_tool(
+                "finish",
+                "--manifest",
+                str(manifest),
+                "--refresh",
+                "--task-path",
+                "task.txt",
+            )
+            refreshed = json.loads(manifest.read_text(encoding="utf-8"))
+            for field in ("created_at", "updated_at", "finalized_at", "completed_at", "lifecycle"):
+                self.assertEqual(refreshed[field], before[field])
+            run_tool(
+                "resume",
+                "--manifest",
+                str(manifest),
+                "--actor",
+                "Codex",
+                "--reason",
+                "dependency restored",
+            )
+            resumed = json.loads(manifest.read_text(encoding="utf-8"))
+            self.assertEqual(resumed["status"], "in-progress")
+            self.assertEqual(resumed["resolution"], "unresolved")
+            self.assertIsNone(resumed["finalized_at"])
+            self.assertIsNone(resumed["git"]["final"])
+            self.assertEqual(len(resumed["lifecycle"]), len(before["lifecycle"]) + 1)
+
+    def test_v3_link_rejects_duplicate_self_and_second_parent(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = self.start_v3(root, root)
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            self_link = run_tool(
+                "add-link",
+                "--manifest",
+                str(manifest),
+                "--type",
+                "relates-to",
+                "--target",
+                data["record_id"],
+                expect=2,
+            )
+            self.assertIn("cannot link to itself", self_link.stderr)
+            run_tool("add-link", "--manifest", str(manifest), "--type", "parent", "--target", "parent-a")
+            duplicate = run_tool(
+                "add-link",
+                "--manifest",
+                str(manifest),
+                "--type",
+                "parent",
+                "--target",
+                "parent-a",
+                expect=2,
+            )
+            self.assertIn("duplicate link", duplicate.stderr)
+            second_parent = run_tool(
+                "add-link",
+                "--manifest",
+                str(manifest),
+                "--type",
+                "parent",
+                "--target",
+                "parent-b",
+                expect=2,
+            )
+            self.assertIn("only one parent", second_parent.stderr)
+
+    def test_v3_validation_states_are_derived(self) -> None:
+        base = {"mode": "coding-progress", "checks": []}
+        self.assertEqual(record_module.validation_state(base), "not-run")
+        base["checks"] = [{"result": "not-run"}]
+        self.assertEqual(record_module.validation_state(base), "not-run")
+        base["checks"] = [{"result": "pass"}, {"result": "not-run"}]
+        self.assertEqual(record_module.validation_state(base), "pass")
+        base["checks"] = [{"result": "pass"}, {"result": "partial"}]
+        self.assertEqual(record_module.validation_state(base), "partial")
+        base["checks"] = [{"result": "partial"}, {"result": "fail"}]
+        self.assertEqual(record_module.validation_state(base), "fail")
+        self.assertEqual(
+            record_module.validation_state({"mode": "session-documentation", "checks": []}),
+            "not-applicable",
+        )
+
+    def test_v3_validator_rejects_metadata_and_lifecycle_tampering(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = self.start_v3(root, root)
+            run_tool(
+                "finish",
+                "--manifest",
+                str(manifest),
+                "--status",
+                "done",
+                "--resolution",
+                "completed",
+                "--evidence-state",
+                "unverified",
+                "--actor",
+                "Codex",
+                "--reason",
+                "record complete",
+            )
+            note = root / "valid.md"
+            self.write_v3_note(manifest, note)
+            content = note.read_text(encoding="utf-8")
+            note.write_text(content.replace("- Status: `done`", "- Status: `blocked`"), encoding="utf-8")
+            result = run_tool("validate", "--manifest", str(manifest), "--note", str(note), expect=1)
+            self.assertIn("metadata Status must match manifest", result.stderr)
+            note.write_text(content.replace("record-tool", "tampered-actor", 1), encoding="utf-8")
+            result = run_tool("validate", "--manifest", str(manifest), "--note", str(note), expect=1)
+            self.assertIn("lifecycle event L1", result.stderr)
+            tampered_manifest = root / "tampered.json"
+            data = json.loads(manifest.read_text(encoding="utf-8"))
+            data["lifecycle"][-1]["from"] = "proposed"
+            tampered_manifest.write_text(json.dumps(data), encoding="utf-8")
+            note.write_text(content, encoding="utf-8")
+            result = run_tool(
+                "validate",
+                "--manifest",
+                str(tampered_manifest),
+                "--note",
+                str(note),
+                expect=1,
+            )
+            self.assertIn("does not continue the status chain", result.stderr)
+
+    def test_list_filters_mixed_record_versions_without_writing(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "v1.md").write_text(
+                "# Legacy\n\n- Date: `2026-08-01`\n- Repository: demo\n- Status: `partial`\n",
+                encoding="utf-8",
+            )
+            (root / "v2.md").write_text(
+                "# V2\n\n- Record format: `2`\n- Mode: `coding-progress`\n- Date: `2026-08-02`\n"
+                "- Project: demo\n- Status: `completed`\n",
+                encoding="utf-8",
+            )
+            (root / "v3.md").write_text(
+                "# V3\n\n- Record format: `3`\n- Record ID: `RCP-20260903T000000Z-12345678`\n"
+                "- Mode: `coding-progress`\n- Task type: `feature`\n- Date: `2026-09-03`\n"
+                "- Project: demo\n- Priority: `high`\n- Components: workflow, cli\n- Labels: v3\n"
+                "- Status: `done`\n- Resolution: `completed`\n",
+                encoding="utf-8",
+            )
+            result = run_tool("list", "--root", str(root), "--json")
+            rows = json.loads(result.stdout)
+            self.assertEqual([row["record_format"] for row in rows], ["1", "2", "3"])
+            self.assertEqual(rows[0]["task_type"], "unavailable")
+            filtered = run_tool(
+                "list",
+                "--root",
+                str(root),
+                "--task-type",
+                "feature",
+                "--component",
+                "workflow",
+                "--since",
+                "2026-09-01",
+                "--json",
+            )
+            selected = json.loads(filtered.stdout)
+            self.assertEqual([row["path"] for row in selected], ["v3.md"])
+            self.assertEqual(sorted(path.name for path in root.iterdir()), ["v1.md", "v2.md", "v3.md"])
 
 
 if __name__ == "__main__":
