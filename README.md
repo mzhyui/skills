@@ -11,6 +11,7 @@ self-contained directory installed "by skill scope" — not the whole repo.
 | `maintain-server-task-status` | Fresh, evidence-bound server/task status |
 | `record-coding-progress` | Durable progress / session documentation |
 | `clash-proxy` | Manage Clash proxy profiles, nodes, and port invariants |
+| `scientific-figure` | Create, reference-match, and revise scientific figures |
 
 ## Install a single skill
 
@@ -42,9 +43,13 @@ after installing.
 python3 -m unittest discover -s tests -p 'test_*.py'                 # installer
 python3 -m unittest discover -s paper-math-auditor/tests -p 'test_*.py'
 python3 -m unittest discover -s record-coding-progress/tests -p 'test_*.py'
+python3 -m unittest discover -s scientific-figure/tests -p 'test_*.py'
 ```
 
 Each skill's Claude subagent definition lives in `claude/agent.md`; Codex
 metadata stays in `agents/openai.yaml`. The `/name` slash command is provided
 automatically by the installed skill. See `AGENTS.md` for the full
 conventions.
+
+## TODO
+- TODO 2026-10-10 git.V.34571: record-coding-progress should a progress reader to catch the important information

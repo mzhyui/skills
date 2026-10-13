@@ -9,6 +9,7 @@ This repository contains independently usable skills for both **Codex and Claude
 - `paper-math-auditor/` — mathematical-audit instructions, scripts, references, and tests.
 - `maintain-server-task-status/` — server/task-status instructions, probes, and schemas.
 - `record-coding-progress/` — durable progress documentation workflow, tool, references, and tests.
+- `scientific-figure/` — source-grounded, editable scientific framework figures with render validation and archival examples.
 
 Each skill keeps its main contract in `SKILL.md`, Codex metadata in `agents/openai.yaml`, and its Claude Code subagent definition in `claude/agent.md` (the installed skill auto-exposes the `/name` slash command). Keep new skill-specific code, references, tests, and assets inside that skill directory. The only repo-root code is the cross-cutting `scripts/install_skill.py` installer and its `tests/`.
 
@@ -20,7 +21,9 @@ There is no compilation or packaging step. From the repository root:
 python3 -m unittest discover -s tests -p 'test_*.py'          # installer
 python3 -m unittest discover -s paper-math-auditor/tests -p 'test_*.py'
 python3 -m unittest discover -s record-coding-progress/tests -p 'test_*.py'
+python3 -m unittest discover -s scientific-figure/tests -p 'test_*.py'
 python3 -m py_compile paper-math-auditor/scripts/sympy_audit.py maintain-server-task-status/scripts/status_ledger.py maintain-server-task-status/scripts/status_probe.py record-coding-progress/scripts/record_tool.py scripts/install_skill.py
+python3 -m py_compile scientific-figure/scripts/render_check.py scientific-figure/assets/example-workflow.py scientific-figure/examples/*/generate_figure.py
 ```
 
 The `unittest` commands run the test suites; `py_compile` catches syntax errors. Use `python3 <script> --help` to inspect an interface before invoking it. Keep dependencies in the surrounding environment; do not vendor caches or virtual environments.
@@ -33,7 +36,7 @@ Use Python 3, four-space indentation, type hints, small functions, and concise d
 
 ## Testing Guidelines
 
-Add focused `unittest` cases under the relevant skill’s `tests/` directory, with filenames matching `test_*.py` and descriptive `test_<behavior>` methods. Cover accepted inputs, rejection paths, boundary conditions, and safety-sensitive behavior. Run both discovery commands before submitting changes.
+Add focused `unittest` cases under the relevant skill’s `tests/` directory, with filenames matching `test_*.py` and descriptive `test_<behavior>` methods. Cover accepted inputs, rejection paths, boundary conditions, and safety-sensitive behavior. Run the discovery commands above before submitting changes.
 
 ## Commit & Pull Request Guidelines
 

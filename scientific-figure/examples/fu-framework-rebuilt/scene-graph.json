@@ -1,0 +1,1864 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "view_box": [
+      0,
+      0,
+      1280,
+      460
+    ],
+    "width_in": 13.333333333333334,
+    "background": "white"
+  },
+  "style_profile": "style-profile.md",
+  "source": "source/fu_framework.svg",
+  "typography": {
+    "family": "Tinos",
+    "min_font_pt": 8.25
+  },
+  "panels": [
+    {
+      "id": "training",
+      "box": [
+        16,
+        12,
+        408,
+        436
+      ]
+    },
+    {
+      "id": "unlearning",
+      "box": [
+        436,
+        12,
+        408,
+        436
+      ]
+    },
+    {
+      "id": "verification",
+      "box": [
+        856,
+        12,
+        408,
+        436
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "noise-card",
+      "spec_id": "noise-card",
+      "panel": "training",
+      "kind": "operation",
+      "box": [
+        197,
+        118,
+        89,
+        192
+      ]
+    },
+    {
+      "id": "shuffler-card",
+      "spec_id": "shuffler-card",
+      "panel": "training",
+      "kind": "operation",
+      "box": [
+        322,
+        131,
+        83,
+        171
+      ]
+    },
+    {
+      "id": "client-1-card",
+      "spec_id": "client-1-card",
+      "panel": "training",
+      "kind": "input",
+      "box": [
+        34,
+        159,
+        119,
+        36
+      ]
+    },
+    {
+      "id": "client-2-card",
+      "spec_id": "client-2-card",
+      "panel": "training",
+      "kind": "input",
+      "box": [
+        34,
+        197,
+        119,
+        36
+      ]
+    },
+    {
+      "id": "client-j-card",
+      "spec_id": "client-j-card",
+      "panel": "training",
+      "kind": "input",
+      "box": [
+        34,
+        235,
+        119,
+        36
+      ]
+    },
+    {
+      "id": "client-n-card",
+      "spec_id": "client-n-card",
+      "panel": "training",
+      "kind": "input",
+      "box": [
+        34,
+        273,
+        119,
+        36
+      ]
+    },
+    {
+      "id": "history-card",
+      "spec_id": "history-card",
+      "panel": "training",
+      "kind": "representation",
+      "box": [
+        34,
+        332,
+        372,
+        62
+      ]
+    },
+    {
+      "id": "withdrawal-card",
+      "spec_id": "withdrawal-card",
+      "panel": "unlearning",
+      "kind": "input",
+      "box": [
+        452,
+        88,
+        115,
+        47
+      ]
+    },
+    {
+      "id": "request-card",
+      "spec_id": "request-card",
+      "panel": "unlearning",
+      "kind": "operation",
+      "box": [
+        596,
+        88,
+        232,
+        47
+      ]
+    },
+    {
+      "id": "recomputation-card",
+      "spec_id": "recomputation-card",
+      "panel": "unlearning",
+      "kind": "operation",
+      "box": [
+        452,
+        154,
+        376,
+        93
+      ]
+    },
+    {
+      "id": "replay-card",
+      "spec_id": "replay-card",
+      "panel": "unlearning",
+      "kind": "operation",
+      "box": [
+        452,
+        267,
+        376,
+        44
+      ]
+    },
+    {
+      "id": "recovery-card",
+      "spec_id": "recovery-card",
+      "panel": "unlearning",
+      "kind": "operation",
+      "box": [
+        452,
+        330,
+        376,
+        44
+      ]
+    },
+    {
+      "id": "model-card",
+      "spec_id": "model-card",
+      "panel": "unlearning",
+      "kind": "output",
+      "box": [
+        484,
+        399,
+        312,
+        35
+      ]
+    },
+    {
+      "id": "withdrawn-evaluation",
+      "spec_id": "withdrawn-evaluation",
+      "panel": "verification",
+      "kind": "operation",
+      "box": [
+        873,
+        126,
+        374,
+        82
+      ]
+    },
+    {
+      "id": "clean-evaluation",
+      "spec_id": "clean-evaluation",
+      "panel": "verification",
+      "kind": "operation",
+      "box": [
+        873,
+        221,
+        374,
+        82
+      ]
+    },
+    {
+      "id": "diagnostic-card",
+      "spec_id": "diagnostic-card",
+      "panel": "verification",
+      "kind": "decision",
+      "box": [
+        915,
+        319,
+        290,
+        58
+      ]
+    },
+    {
+      "id": "passed-card",
+      "spec_id": "passed-card",
+      "panel": "verification",
+      "kind": "output",
+      "box": [
+        873,
+        396,
+        180,
+        45
+      ]
+    },
+    {
+      "id": "failed-card",
+      "spec_id": "failed-card",
+      "panel": "verification",
+      "kind": "output",
+      "box": [
+        1067,
+        396,
+        180,
+        45
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "client-1-to-noise",
+      "spec_id": "client-1-to-noise",
+      "source_anchor": "client-1-to-noise",
+      "points": [
+        [
+          156,
+          178
+        ],
+        [
+          193,
+          178
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "client-1-card",
+      "target": "noise-card"
+    },
+    {
+      "id": "message-1-to-shuffler",
+      "spec_id": "message-1-to-shuffler",
+      "source_anchor": "message-1-to-shuffler",
+      "points": [
+        [
+          289,
+          178
+        ],
+        [
+          318,
+          178
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "noise-card",
+      "target": "shuffler-card"
+    },
+    {
+      "id": "client-2-to-noise",
+      "spec_id": "client-2-to-noise",
+      "source_anchor": "client-2-to-noise",
+      "points": [
+        [
+          156,
+          216
+        ],
+        [
+          193,
+          216
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "client-2-card",
+      "target": "noise-card"
+    },
+    {
+      "id": "message-2-to-shuffler",
+      "spec_id": "message-2-to-shuffler",
+      "source_anchor": "message-2-to-shuffler",
+      "points": [
+        [
+          289,
+          216
+        ],
+        [
+          318,
+          216
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "noise-card",
+      "target": "shuffler-card"
+    },
+    {
+      "id": "client-j-to-noise",
+      "spec_id": "client-j-to-noise",
+      "source_anchor": "client-j-to-noise",
+      "points": [
+        [
+          156,
+          254
+        ],
+        [
+          193,
+          254
+        ]
+      ],
+      "color": "red",
+      "type": "data",
+      "source": "client-j-card",
+      "target": "noise-card"
+    },
+    {
+      "id": "message-j-to-shuffler",
+      "spec_id": "message-j-to-shuffler",
+      "source_anchor": "message-j-to-shuffler",
+      "points": [
+        [
+          289,
+          254
+        ],
+        [
+          318,
+          254
+        ]
+      ],
+      "color": "red",
+      "type": "data",
+      "source": "noise-card",
+      "target": "shuffler-card"
+    },
+    {
+      "id": "client-n-to-noise",
+      "spec_id": "client-n-to-noise",
+      "source_anchor": "client-n-to-noise",
+      "points": [
+        [
+          156,
+          292
+        ],
+        [
+          193,
+          292
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "client-n-card",
+      "target": "noise-card"
+    },
+    {
+      "id": "message-n-to-shuffler",
+      "spec_id": "message-n-to-shuffler",
+      "source_anchor": "message-n-to-shuffler",
+      "points": [
+        [
+          289,
+          292
+        ],
+        [
+          318,
+          292
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "noise-card",
+      "target": "shuffler-card"
+    },
+    {
+      "id": "shuffler-to-history",
+      "spec_id": "shuffler-to-history",
+      "source_anchor": "shuffler-to-history",
+      "points": [
+        [
+          363.5,
+          306
+        ],
+        [
+          363.5,
+          327
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "shuffler-card",
+      "target": "history-card"
+    },
+    {
+      "id": "withdrawal-to-request",
+      "spec_id": "withdrawal-to-request",
+      "source_anchor": "withdrawal-to-request",
+      "points": [
+        [
+          571,
+          111
+        ],
+        [
+          590,
+          111
+        ]
+      ],
+      "color": "red",
+      "type": "control",
+      "source": "withdrawal-card",
+      "target": "request-card"
+    },
+    {
+      "id": "request-to-recomputation",
+      "spec_id": "request-to-recomputation",
+      "source_anchor": "request-to-recomputation",
+      "points": [
+        [
+          712,
+          137
+        ],
+        [
+          712,
+          149
+        ]
+      ],
+      "color": "blue",
+      "type": "control",
+      "source": "request-card",
+      "target": "recomputation-card"
+    },
+    {
+      "id": "recomputation-to-replay",
+      "spec_id": "recomputation-to-replay",
+      "source_anchor": "recomputation-to-replay",
+      "points": [
+        [
+          640,
+          250
+        ],
+        [
+          640,
+          263
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "recomputation-card",
+      "target": "replay-card"
+    },
+    {
+      "id": "replay-to-recovery",
+      "spec_id": "replay-to-recovery",
+      "source_anchor": "replay-to-recovery",
+      "points": [
+        [
+          640,
+          314
+        ],
+        [
+          640,
+          326
+        ]
+      ],
+      "color": "blue",
+      "type": "data",
+      "source": "replay-card",
+      "target": "recovery-card"
+    },
+    {
+      "id": "recovery-to-model",
+      "spec_id": "recovery-to-model",
+      "source_anchor": "recovery-to-model",
+      "points": [
+        [
+          640,
+          377
+        ],
+        [
+          640,
+          395
+        ]
+      ],
+      "color": "green",
+      "type": "data",
+      "source": "recovery-card",
+      "target": "model-card"
+    },
+    {
+      "id": "withdrawn-samples-to-model",
+      "spec_id": "withdrawn-samples-to-model",
+      "source_anchor": "withdrawn-samples-to-model",
+      "points": [
+        [
+          953,
+          163
+        ],
+        [
+          980,
+          163
+        ]
+      ],
+      "color": "red",
+      "type": "data",
+      "source": "withdrawn-sample-icon",
+      "target": "withdrawn-model-icon"
+    },
+    {
+      "id": "withdrawn-model-to-result",
+      "spec_id": "withdrawn-model-to-result",
+      "source_anchor": "withdrawn-model-to-result",
+      "points": [
+        [
+          1056,
+          163
+        ],
+        [
+          1080,
+          163
+        ]
+      ],
+      "color": "green",
+      "type": "data",
+      "source": "withdrawn-model-icon",
+      "target": "mia-heading"
+    },
+    {
+      "id": "clean-samples-to-model",
+      "spec_id": "clean-samples-to-model",
+      "source_anchor": "clean-samples-to-model",
+      "points": [
+        [
+          953,
+          258
+        ],
+        [
+          980,
+          258
+        ]
+      ],
+      "color": "green",
+      "type": "data",
+      "source": "clean-sample-icon",
+      "target": "clean-model-icon"
+    },
+    {
+      "id": "clean-model-to-result",
+      "spec_id": "clean-model-to-result",
+      "source_anchor": "clean-model-to-result",
+      "points": [
+        [
+          1056,
+          258
+        ],
+        [
+          1080,
+          258
+        ]
+      ],
+      "color": "green",
+      "type": "data",
+      "source": "clean-model-icon",
+      "target": "utility-heading"
+    },
+    {
+      "id": "evaluations-to-diagnostic",
+      "spec_id": "evaluations-to-diagnostic",
+      "source_anchor": "evaluations-to-diagnostic",
+      "points": [
+        [
+          1060,
+          306
+        ],
+        [
+          1060,
+          315
+        ]
+      ],
+      "color": "green",
+      "type": "data",
+      "source": "evaluation-heading",
+      "target": "diagnostic-card"
+    },
+    {
+      "id": "diagnostic-yes",
+      "spec_id": "diagnostic-yes",
+      "source_anchor": "diagnostic-yes",
+      "points": [
+        [
+          990,
+          363
+        ],
+        [
+          972,
+          391
+        ]
+      ],
+      "color": "green",
+      "type": "control",
+      "source": "diagnostic-card",
+      "target": "passed-card"
+    },
+    {
+      "id": "diagnostic-no",
+      "spec_id": "diagnostic-no",
+      "source_anchor": "diagnostic-no",
+      "points": [
+        [
+          1130,
+          363
+        ],
+        [
+          1148,
+          391
+        ]
+      ],
+      "color": "red",
+      "type": "control",
+      "source": "diagnostic-card",
+      "target": "failed-card"
+    }
+  ],
+  "labels": [
+    {
+      "id": "training-number",
+      "source_anchor": "training-number",
+      "parent": "training",
+      "text": "1",
+      "position": [
+        42,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "training-title",
+      "source_anchor": "training-title",
+      "parent": "training",
+      "text": "Federated training",
+      "position": [
+        63,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "training-subtitle",
+      "source_anchor": "training-subtitle",
+      "parent": "training",
+      "text": "Client-side randomization and stored reports",
+      "position": [
+        34,
+        74
+      ],
+      "font_size": 13.5,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "unlearning-number",
+      "source_anchor": "unlearning-number",
+      "parent": "unlearning",
+      "text": "2",
+      "position": [
+        462,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "unlearning-title",
+      "source_anchor": "unlearning-title",
+      "parent": "unlearning",
+      "text": "Client unlearning",
+      "position": [
+        483,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "unlearning-subtitle",
+      "source_anchor": "unlearning-subtitle",
+      "parent": "unlearning",
+      "text": "Exclude, replay, and privately repair",
+      "position": [
+        454,
+        74
+      ],
+      "font_size": 13.5,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "verification-number",
+      "source_anchor": "verification-number",
+      "parent": "verification",
+      "text": "3",
+      "position": [
+        882,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "verification-title",
+      "source_anchor": "verification-title",
+      "parent": "verification",
+      "text": "Removal verification",
+      "position": [
+        903,
+        46
+      ],
+      "font_size": 23,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "verification-subtitle",
+      "source_anchor": "verification-subtitle",
+      "parent": "verification",
+      "text": "Evaluate retained utility and removal evidence",
+      "position": [
+        874,
+        74
+      ],
+      "font_size": 13.5,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "clients-heading",
+      "source_anchor": "clients-heading",
+      "parent": "training",
+      "text": "Participating clients",
+      "position": [
+        96,
+        105
+      ],
+      "font_size": 15,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "randomize-heading",
+      "source_anchor": "randomize-heading",
+      "parent": "training",
+      "text": "Randomize & aggregate",
+      "position": [
+        295,
+        105
+      ],
+      "font_size": 15,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "noise-heading",
+      "source_anchor": "noise-heading",
+      "parent": "noise-card",
+      "text": "ε0-LDP",
+      "position": [
+        241.5,
+        140
+      ],
+      "font_size": 18,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "ε",
+          "shift": "baseline"
+        },
+        {
+          "text": "0",
+          "shift": "sub"
+        },
+        {
+          "text": "-LDP",
+          "shift": "baseline"
+        }
+      ]
+    },
+    {
+      "id": "noise-subtitle",
+      "source_anchor": "noise-subtitle",
+      "parent": "noise-card",
+      "text": "randomization",
+      "position": [
+        241.5,
+        157
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "shuffler-heading",
+      "source_anchor": "shuffler-heading",
+      "parent": "shuffler-card",
+      "text": "Shuffler",
+      "position": [
+        363.5,
+        229
+      ],
+      "font_size": 17,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "shuffler-line-1",
+      "source_anchor": "shuffler-line-1",
+      "parent": "shuffler-card",
+      "text": "optional",
+      "position": [
+        363.5,
+        251
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "shuffler-line-2",
+      "source_anchor": "shuffler-line-2",
+      "parent": "shuffler-card",
+      "text": "permutation",
+      "position": [
+        363.5,
+        270
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "client-1-label",
+      "source_anchor": "client-1-label",
+      "parent": "client-1-card",
+      "text": "C1",
+      "position": [
+        96,
+        173
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "C",
+          "shift": "baseline"
+        },
+        {
+          "text": "1",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "client-1-role",
+      "source_anchor": "client-1-role",
+      "parent": "client-1-card",
+      "text": "client",
+      "position": [
+        96,
+        192
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "message-1-label",
+      "source_anchor": "message-1-label",
+      "parent": "noise-card",
+      "text": "g̃i(t)",
+      "position": [
+        249,
+        184
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "g̃",
+          "shift": "baseline"
+        },
+        {
+          "text": "i",
+          "shift": "sub"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        }
+      ]
+    },
+    {
+      "id": "client-2-label",
+      "source_anchor": "client-2-label",
+      "parent": "client-2-card",
+      "text": "C2",
+      "position": [
+        96,
+        211
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "C",
+          "shift": "baseline"
+        },
+        {
+          "text": "2",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "client-2-role",
+      "source_anchor": "client-2-role",
+      "parent": "client-2-card",
+      "text": "client",
+      "position": [
+        96,
+        230
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "message-2-label",
+      "source_anchor": "message-2-label",
+      "parent": "noise-card",
+      "text": "g̃i(t)",
+      "position": [
+        249,
+        222
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "g̃",
+          "shift": "baseline"
+        },
+        {
+          "text": "i",
+          "shift": "sub"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        }
+      ]
+    },
+    {
+      "id": "client-j-label",
+      "source_anchor": "client-j-label",
+      "parent": "client-j-card",
+      "text": "Cj",
+      "position": [
+        96,
+        249
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "C",
+          "shift": "baseline"
+        },
+        {
+          "text": "j",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "client-j-role",
+      "source_anchor": "client-j-role",
+      "parent": "client-j-card",
+      "text": "leaving",
+      "position": [
+        96,
+        268
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "message-j-label",
+      "source_anchor": "message-j-label",
+      "parent": "noise-card",
+      "text": "g̃i(t)",
+      "position": [
+        249,
+        260
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "g̃",
+          "shift": "baseline"
+        },
+        {
+          "text": "i",
+          "shift": "sub"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        }
+      ]
+    },
+    {
+      "id": "client-n-label",
+      "source_anchor": "client-n-label",
+      "parent": "client-n-card",
+      "text": "Cn",
+      "position": [
+        96,
+        287
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "C",
+          "shift": "baseline"
+        },
+        {
+          "text": "n",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "client-n-role",
+      "source_anchor": "client-n-role",
+      "parent": "client-n-card",
+      "text": "client",
+      "position": [
+        96,
+        306
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "message-n-label",
+      "source_anchor": "message-n-label",
+      "parent": "noise-card",
+      "text": "g̃i(t)",
+      "position": [
+        249,
+        298
+      ],
+      "font_size": 19,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "g̃",
+          "shift": "baseline"
+        },
+        {
+          "text": "i",
+          "shift": "sub"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        }
+      ]
+    },
+    {
+      "id": "history-heading",
+      "source_anchor": "history-heading",
+      "parent": "history-card",
+      "text": "Server history",
+      "position": [
+        84,
+        352
+      ],
+      "font_size": 18,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "history-description",
+      "source_anchor": "history-description",
+      "parent": "history-card",
+      "text": "Round aggregates and retained reports",
+      "position": [
+        84,
+        369
+      ],
+      "font_size": 13.5,
+      "alignment": "start",
+      "math_runs": []
+    },
+    {
+      "id": "history-equation",
+      "source_anchor": "history-equation",
+      "parent": "history-card",
+      "text": "{ ḡ(t), { g̃i(t) } }  t = 1, …, T",
+      "position": [
+        237,
+        388
+      ],
+      "font_size": 18,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "{ ḡ",
+          "shift": "baseline"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        },
+        {
+          "text": ", { g̃",
+          "shift": "baseline"
+        },
+        {
+          "text": "i",
+          "shift": "sub"
+        },
+        {
+          "text": "(t)",
+          "shift": "super"
+        },
+        {
+          "text": " } }  t = 1, …, T",
+          "shift": "baseline"
+        }
+      ]
+    },
+    {
+      "id": "privacy-boundary-1",
+      "source_anchor": "privacy-boundary-1",
+      "parent": "training",
+      "text": "Privacy boundary: each client perturbs",
+      "position": [
+        220,
+        415
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "privacy-boundary-2",
+      "source_anchor": "privacy-boundary-2",
+      "parent": "training",
+      "text": "its update locally.",
+      "position": [
+        220,
+        433
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "withdrawal-heading",
+      "source_anchor": "withdrawal-heading",
+      "parent": "withdrawal-card",
+      "text": "Client Cj",
+      "position": [
+        522,
+        107
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "Client C",
+          "shift": "baseline"
+        },
+        {
+          "text": "j",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "withdrawal-description",
+      "source_anchor": "withdrawal-description",
+      "parent": "withdrawal-card",
+      "text": "withdraws",
+      "position": [
+        522,
+        125
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "request-heading",
+      "source_anchor": "request-heading",
+      "parent": "request-card",
+      "text": "Unlearning request",
+      "position": [
+        712,
+        107
+      ],
+      "font_size": 17,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "request-description",
+      "source_anchor": "request-description",
+      "parent": "request-card",
+      "text": "Remove Cj from training history",
+      "position": [
+        712,
+        125
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "Remove C",
+          "shift": "baseline"
+        },
+        {
+          "text": "j",
+          "shift": "sub"
+        },
+        {
+          "text": " from training history",
+          "shift": "baseline"
+        }
+      ]
+    },
+    {
+      "id": "recomputation-heading",
+      "source_anchor": "recomputation-heading",
+      "parent": "recomputation-card",
+      "text": "Server-side recomputation",
+      "position": [
+        640,
+        173
+      ],
+      "font_size": 18,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "recomputation-description",
+      "source_anchor": "recomputation-description",
+      "parent": "recomputation-card",
+      "text": "Reconstruct each round aggregate without Cj",
+      "position": [
+        640,
+        197
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "Reconstruct each round aggregate without C",
+          "shift": "baseline"
+        },
+        {
+          "text": "j",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "recomputation-retained",
+      "source_anchor": "recomputation-retained",
+      "parent": "recomputation-card",
+      "text": "Decode and average retained messages",
+      "position": [
+        640,
+        217
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "recomputation-clip",
+      "source_anchor": "recomputation-clip",
+      "parent": "recomputation-card",
+      "text": "Apply aggregate clipping afterward",
+      "position": [
+        640,
+        237
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "replay-heading",
+      "source_anchor": "replay-heading",
+      "parent": "replay-card",
+      "text": "History replay",
+      "position": [
+        667,
+        285
+      ],
+      "font_size": 18,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "replay-description",
+      "source_anchor": "replay-description",
+      "parent": "replay-card",
+      "text": "Restart from the original initialization",
+      "position": [
+        667,
+        304
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "recovery-heading",
+      "source_anchor": "recovery-heading",
+      "parent": "recovery-card",
+      "text": "Private recovery / fine-tuning",
+      "position": [
+        640,
+        348
+      ],
+      "font_size": 18,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "recovery-description",
+      "source_anchor": "recovery-description",
+      "parent": "recovery-card",
+      "text": "Fresh locally randomized client gradients",
+      "position": [
+        640,
+        367
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "model-heading",
+      "source_anchor": "model-heading",
+      "parent": "model-card",
+      "text": "Unlearned model θ−j",
+      "position": [
+        665,
+        424
+      ],
+      "font_size": 21,
+      "alignment": "middle",
+      "math_runs": [
+        {
+          "text": "Unlearned model θ",
+          "shift": "baseline"
+        },
+        {
+          "text": "−j",
+          "shift": "sub"
+        }
+      ]
+    },
+    {
+      "id": "evaluation-heading",
+      "source_anchor": "evaluation-heading",
+      "parent": "verification",
+      "text": "Post-unlearning evaluation",
+      "position": [
+        1060,
+        106
+      ],
+      "font_size": 17,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "withdrawn-samples-heading",
+      "source_anchor": "withdrawn-samples-heading",
+      "parent": "withdrawn-evaluation",
+      "text": "Withdrawn",
+      "position": [
+        918,
+        187
+      ],
+      "font_size": 15,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "withdrawn-samples-description",
+      "source_anchor": "withdrawn-samples-description",
+      "parent": "withdrawn-evaluation",
+      "text": "client samples",
+      "position": [
+        918,
+        203
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "mia-heading",
+      "source_anchor": "mia-heading",
+      "parent": "withdrawn-evaluation",
+      "text": "MIA diagnostic",
+      "position": [
+        1162,
+        154
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "mia-value",
+      "source_anchor": "mia-value",
+      "parent": "withdrawn-evaluation",
+      "text": "AUC / balanced acc.",
+      "position": [
+        1162,
+        173
+      ],
+      "font_size": 14.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "mia-description",
+      "source_anchor": "mia-description",
+      "parent": "withdrawn-evaluation",
+      "text": "Compare with retraining",
+      "position": [
+        1162,
+        191
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "clean-samples-heading",
+      "source_anchor": "clean-samples-heading",
+      "parent": "clean-evaluation",
+      "text": "Clean test",
+      "position": [
+        918,
+        282
+      ],
+      "font_size": 15,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "clean-samples-description",
+      "source_anchor": "clean-samples-description",
+      "parent": "clean-evaluation",
+      "text": "samples",
+      "position": [
+        918,
+        298
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "utility-heading",
+      "source_anchor": "utility-heading",
+      "parent": "clean-evaluation",
+      "text": "Retained utility",
+      "position": [
+        1162,
+        249
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "utility-value",
+      "source_anchor": "utility-value",
+      "parent": "clean-evaluation",
+      "text": "Clean accuracy",
+      "position": [
+        1162,
+        268
+      ],
+      "font_size": 15.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "utility-description",
+      "source_anchor": "utility-description",
+      "parent": "clean-evaluation",
+      "text": "vs. reference model",
+      "position": [
+        1162,
+        286
+      ],
+      "font_size": 13.5,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "diagnostic-heading",
+      "source_anchor": "diagnostic-heading",
+      "parent": "diagnostic-card",
+      "text": "Removal diagnostic",
+      "position": [
+        1060,
+        349
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "diagnostic-description",
+      "source_anchor": "diagnostic-description",
+      "parent": "diagnostic-card",
+      "text": "Passes criteria?",
+      "position": [
+        1060,
+        364
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "diagnostic-yes-label",
+      "source_anchor": "diagnostic-yes-label",
+      "parent": "verification",
+      "text": "yes",
+      "position": [
+        958,
+        382
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "diagnostic-no-label",
+      "source_anchor": "diagnostic-no-label",
+      "parent": "verification",
+      "text": "no",
+      "position": [
+        1164,
+        382
+      ],
+      "font_size": 14,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "passed-heading",
+      "source_anchor": "passed-heading",
+      "parent": "passed-card",
+      "text": "Diagnostic passed",
+      "position": [
+        963,
+        411
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "passed-description-1",
+      "source_anchor": "passed-description-1",
+      "parent": "passed-card",
+      "text": "Empirical removal",
+      "position": [
+        963,
+        425
+      ],
+      "font_size": 12,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "passed-description-2",
+      "source_anchor": "passed-description-2",
+      "parent": "passed-card",
+      "text": "evidence",
+      "position": [
+        963,
+        437
+      ],
+      "font_size": 12,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "failed-heading",
+      "source_anchor": "failed-heading",
+      "parent": "failed-card",
+      "text": "Not passed",
+      "position": [
+        1157,
+        411
+      ],
+      "font_size": 16,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "failed-description-1",
+      "source_anchor": "failed-description-1",
+      "parent": "failed-card",
+      "text": "Fails or is inconclusive",
+      "position": [
+        1157,
+        425
+      ],
+      "font_size": 12,
+      "alignment": "middle",
+      "math_runs": []
+    },
+    {
+      "id": "failed-description-2",
+      "source_anchor": "failed-description-2",
+      "parent": "failed-card",
+      "text": "under the criteria",
+      "position": [
+        1157,
+        437
+      ],
+      "font_size": 12,
+      "alignment": "middle",
+      "math_runs": []
+    }
+  ],
+  "icons": [
+    {
+      "id": "shuffler-icon",
+      "parent": "shuffler-card",
+      "role": "optional permutation",
+      "primitive": "node wiring",
+      "box": [
+        334,
+        151,
+        58,
+        44
+      ]
+    },
+    {
+      "id": "client-1-icon",
+      "parent": "client-1-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        41,
+        165,
+        19.599999999999998,
+        25.2
+      ]
+    },
+    {
+      "id": "client-2-icon",
+      "parent": "client-2-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        41,
+        203,
+        19.599999999999998,
+        25.2
+      ]
+    },
+    {
+      "id": "client-j-icon",
+      "parent": "client-j-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        41,
+        241,
+        19.599999999999998,
+        25.2
+      ]
+    },
+    {
+      "id": "client-n-icon",
+      "parent": "client-n-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        41,
+        279,
+        19.599999999999998,
+        25.2
+      ]
+    },
+    {
+      "id": "history-icon",
+      "parent": "history-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        46,
+        347,
+        25.2,
+        32.4
+      ]
+    },
+    {
+      "id": "withdrawal-icon",
+      "parent": "withdrawal-card",
+      "role": "stored data",
+      "primitive": "vector database",
+      "box": [
+        460,
+        99,
+        17.64,
+        22.68
+      ]
+    },
+    {
+      "id": "replay-model",
+      "parent": "replay-card",
+      "role": "schematic model; layer count is decorative",
+      "primitive": "perspective slabs",
+      "box": [
+        467,
+        273.5,
+        41.0,
+        29.5
+      ]
+    },
+    {
+      "id": "unlearned-model-icon",
+      "parent": "model-card",
+      "role": "schematic model; layer count is decorative",
+      "primitive": "perspective slabs",
+      "box": [
+        498,
+        403.27,
+        35.26,
+        25.37
+      ]
+    },
+    {
+      "id": "withdrawn-sample-icon",
+      "parent": "withdrawn-evaluation",
+      "role": "sample collection",
+      "primitive": "vector document stack",
+      "box": [
+        893,
+        136,
+        39,
+        39
+      ]
+    },
+    {
+      "id": "withdrawn-model-icon",
+      "parent": "withdrawn-evaluation",
+      "role": "schematic model; layer count is decorative",
+      "primitive": "perspective slabs",
+      "box": [
+        988,
+        140.42,
+        63.96,
+        46.02
+      ]
+    },
+    {
+      "id": "clean-sample-icon",
+      "parent": "clean-evaluation",
+      "role": "sample collection",
+      "primitive": "vector document stack",
+      "box": [
+        893,
+        231,
+        39,
+        39
+      ]
+    },
+    {
+      "id": "clean-model-icon",
+      "parent": "clean-evaluation",
+      "role": "schematic model; layer count is decorative",
+      "primitive": "perspective slabs",
+      "box": [
+        988,
+        235.42,
+        63.96,
+        46.02
+      ]
+    }
+  ]
+}

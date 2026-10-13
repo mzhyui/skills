@@ -1,0 +1,424 @@
+{
+  "source": "/home/mzhyui/git/plot/examples/workflow/figure.svg",
+  "status": "mechanical_checks_passed",
+  "errors": [],
+  "warnings": [],
+  "scientific_review": "not_performed",
+  "visual_review": "not_performed",
+  "limitations": [
+    "Checks do not establish scientific fidelity or visual quality.",
+    "Font audit handles presentation/inline absolute sizes without transforms; CSS and relative sizes require manual review.",
+    "Bounds and text intersections are heuristics; masks, clipping, hidden CSS, filters, strokes, and markers require visual inspection.",
+    "Font availability/substitution, glyph correctness, arrows, scene-graph consistency, and raster resolution need separate review.",
+    "The 96 dpi preview approximates manuscript scale; actual display zoom/density can differ."
+  ],
+  "source_sha256": "3abd94b436bb7b30409575bc6c4d8b243f3a20c26c53f13a1f8439080be31e39",
+  "font_samples": [
+    {
+      "id": "title-abstraction",
+      "size_pt": 9.1
+    },
+    {
+      "id": "number-abstraction",
+      "size_pt": 9.1
+    },
+    {
+      "id": "action-abstraction",
+      "size_pt": 8.4
+    },
+    {
+      "id": "output-abstraction",
+      "size_pt": 9.1
+    },
+    {
+      "id": "detail-abstraction",
+      "size_pt": 8.4
+    },
+    {
+      "id": "title-composition",
+      "size_pt": 9.1
+    },
+    {
+      "id": "number-composition",
+      "size_pt": 9.1
+    },
+    {
+      "id": "action-composition",
+      "size_pt": 8.4
+    },
+    {
+      "id": "output-composition",
+      "size_pt": 9.1
+    },
+    {
+      "id": "detail-composition",
+      "size_pt": 8.4
+    },
+    {
+      "id": "title-validation",
+      "size_pt": 9.1
+    },
+    {
+      "id": "number-validation",
+      "size_pt": 9.1
+    },
+    {
+      "id": "action-validation",
+      "size_pt": 8.4
+    },
+    {
+      "id": "output-validation",
+      "size_pt": 9.1
+    },
+    {
+      "id": "detail-validation",
+      "size_pt": 8.4
+    },
+    {
+      "id": "revision-label",
+      "size_pt": 8.4
+    },
+    {
+      "id": "illustrative-label",
+      "size_pt": 8.4
+    }
+  ],
+  "editable_text_count": 17,
+  "target": {
+    "width_in": 7,
+    "height_in": 3.013888888888889,
+    "dpi": 300,
+    "min_font_pt": 8
+  },
+  "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+  "commands": [
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/examples/workflow/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/examples/workflow/exports/figure.pdf"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/examples/workflow/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/examples/workflow/exports/figure.png",
+      "--export-dpi=300"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/examples/workflow/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/examples/workflow/exports/figure-size-preview.png",
+      "--export-dpi=96"
+    ]
+  ],
+  "renderer_messages": [
+    "** (inkscape:14): WARNING **: 00:21:04.604: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:22): WARNING **: 00:21:04.797: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:30): WARNING **: 00:21:04.940: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:6): WARNING **: 00:21:04.471: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function."
+  ],
+  "rendered_bounds_px": {
+    "background": [
+      0.0,
+      0.0,
+      672.0,
+      289.333
+    ],
+    "render-check-2": [
+      8.72667,
+      8.72667,
+      206.547,
+      229.88
+    ],
+    "render-check-3": [
+      15.8667,
+      22.4,
+      20.5333,
+      20.5333
+    ],
+    "render-check-4": [
+      23.66,
+      162.727,
+      176.68,
+      51.6133
+    ],
+    "render-check-5": [
+      90.86,
+      62.3933,
+      50.68,
+      58.1467
+    ],
+    "render-check-6": [
+      81.9933,
+      57.26,
+      50.68,
+      58.1467
+    ],
+    "render-check-7": [
+      90.86,
+      71.26,
+      31.08,
+      1.21333
+    ],
+    "render-check-8": [
+      90.86,
+      81.06,
+      25.48,
+      1.21333
+    ],
+    "render-check-9": [
+      90.86,
+      90.86,
+      32.48,
+      1.21333
+    ],
+    "render-check-10": [
+      90.86,
+      100.66,
+      21.28,
+      1.21333
+    ],
+    "title-abstraction": [
+      42.8709,
+      28.1148,
+      143.698,
+      9.3903
+    ],
+    "number-abstraction": [
+      23.2807,
+      28.0214,
+      6.23848,
+      8.84525
+    ],
+    "action-abstraction": [
+      32.0496,
+      136.157,
+      160.453,
+      8.66797
+    ],
+    "output-abstraction": [
+      38.6461,
+      173.248,
+      146.874,
+      11.8371
+    ],
+    "detail-abstraction": [
+      41.8578,
+      192.157,
+      140.071,
+      8.66797
+    ],
+    "render-check-16": [
+      232.727,
+      8.72667,
+      206.547,
+      229.88
+    ],
+    "render-check-17": [
+      239.867,
+      22.4,
+      20.5333,
+      20.5333
+    ],
+    "render-check-18": [
+      247.66,
+      162.727,
+      176.68,
+      51.6133
+    ],
+    "render-check-19": [
+      288.727,
+      65.66,
+      33.88,
+      21.7467
+    ],
+    "render-check-20": [
+      349.393,
+      65.66,
+      33.88,
+      21.7467
+    ],
+    "render-check-21": [
+      318.593,
+      102.993,
+      33.88,
+      21.7467
+    ],
+    "render-check-22": [
+      321.393,
+      74.6667,
+      26.4133,
+      3.73333
+    ],
+    "render-check-23": [
+      333.667,
+      86.1933,
+      33.2733,
+      15.2133
+    ],
+    "title-composition": [
+      266.604,
+      28.1148,
+      151.329,
+      11.7423
+    ],
+    "number-composition": [
+      246.872,
+      27.8615,
+      6.42806,
+      9.00521
+    ],
+    "action-composition": [
+      260.179,
+      136.157,
+      151.397,
+      10.8391
+    ],
+    "output-composition": [
+      256.816,
+      173.248,
+      158.533,
+      11.8371
+    ],
+    "detail-composition": [
+      252.727,
+      192.157,
+      167.098,
+      8.66797
+    ],
+    "render-check-29": [
+      456.727,
+      8.72667,
+      206.547,
+      229.88
+    ],
+    "render-check-30": [
+      463.867,
+      22.4,
+      20.5333,
+      20.5333
+    ],
+    "render-check-31": [
+      471.66,
+      162.727,
+      176.68,
+      51.6133
+    ],
+    "render-check-32": [
+      517.393,
+      61.46,
+      85.2133,
+      60.9467
+    ],
+    "render-check-33": [
+      517.393,
+      75.46,
+      85.2133,
+      1.21333
+    ],
+    "render-check-34": [
+      524.067,
+      67.6667,
+      2.8,
+      2.8
+    ],
+    "render-check-35": [
+      531.067,
+      67.6667,
+      2.8,
+      2.8
+    ],
+    "render-check-36": [
+      538.067,
+      67.6667,
+      2.8,
+      2.8
+    ],
+    "render-check-37": [
+      539.7,
+      86.1,
+      41.5333,
+      26.1333
+    ],
+    "title-validation": [
+      491.114,
+      28.1148,
+      136.684,
+      9.3903
+    ],
+    "number-validation": [
+      470.724,
+      27.8615,
+      6.66504,
+      9.17702
+    ],
+    "action-validation": [
+      487.29,
+      136.157,
+      145.923,
+      10.8391
+    ],
+    "output-validation": [
+      483.773,
+      173.248,
+      152.751,
+      11.7423
+    ],
+    "detail-validation": [
+      493.005,
+      192.157,
+      134.258,
+      10.8391
+    ],
+    "specify-to-compose": [
+      215.927,
+      141.867,
+      15.2133,
+      3.73333
+    ],
+    "compose-to-validate": [
+      439.927,
+      141.867,
+      15.2133,
+      3.73333
+    ],
+    "revise-layout": [
+      334.133,
+      239.26,
+      226.473,
+      21.28
+    ],
+    "revision-label": [
+      341.675,
+      271.957,
+      216.453,
+      10.8391
+    ],
+    "illustrative-label": [
+      10.4326,
+      271.957,
+      193.195,
+      10.8391
+    ]
+  },
+  "outputs": {
+    "svg": {
+      "file": "figure.svg",
+      "sha256": "13691897e4c054a9e2f32b7968c0561d68cb278e62092e0db3327c946f707b7c"
+    },
+    "pdf": {
+      "file": "figure.pdf",
+      "sha256": "0fd5febfae10154fd92c99f515b3fcdd1cbb37b917a59e6b7c187f37775f9b4e"
+    },
+    "png": {
+      "file": "figure.png",
+      "sha256": "aa35b95e38ffc9facfac6df7f9d57fc4ac420e279c5f0f612fed8ad391f7be78"
+    },
+    "size_preview": {
+      "file": "figure-size-preview.png",
+      "sha256": "e802145ee0ffca375df0bd4addf15f5b4a12f4abb986470a749bf2c0a184728b"
+    }
+  }
+}

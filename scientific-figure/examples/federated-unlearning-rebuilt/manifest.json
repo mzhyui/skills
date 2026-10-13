@@ -1,0 +1,24 @@
+{
+  "source": {
+    "path": "../\u56fe\u72472.png",
+    "sha256": "bdd66580da64f2d098e355be4f93bc62985dadd225acca718998357d0e324b6d"
+  },
+  "files": {
+    "README.md": "b7154e15a329cd417b7dc44c15fc8d612041aafd07288b895048dbae9341fc1e",
+    "diagram-spec.md": "36bfe9286bc500213986876fd91b292e8e581a97ac87d8ea4003d9ea8c0490b2",
+    "exports/figure-size-preview.png": "42b8d05af8e2dc14f54898ddd553356d6dcddfa2e58305d42a972a03bc2bf56d",
+    "exports/figure.pdf": "d5bd84f57364349b2dc251d209a9a19cf193eea035c5d82b4731be9e10c4fc94",
+    "exports/figure.png": "ff262ffc6f7ff2971c47c9920015660ee7b310d982b785a7234450031d9765c7",
+    "exports/figure.svg": "b51ed489d3214cc0612c628551a260da799b15278b5d8c2310d44334aee77b3f",
+    "exports/grayscale-preview.png": "c2ac9b0a636bb4873322b6c679e2ba0d33092d52d5efe3caed13a29f1098caba",
+    "exports/pdf-preview.png": "c1bd3be1ee87718c6ef912e2c7fb1de987d5bf53de661d90210ec25736e9b27b",
+    "exports/render-report.json": "aa39c34f42af74e8b7a3b47810ab86b1501fd5a0ee81c796d721f6bf766c01d4",
+    "figure.svg": "2f35ba9f644cfa3ec3c49bbac8c6b14bdc8ed97797b45084af97fd1248a2dbb8",
+    "generate_figure.py": "b33248fa925569b8e88d68952cc3a12fffd6032292f9680dcbad9e9f328ae377",
+    "preview.png": "25829d3819eff39f0d7a052c783a07456950e26e64fa333b9666e4d39ad2dd81",
+    "reference-comparison.png": "c37a778bddd6e3cdca87299f6234f78213a190168fb056649db65f9140c1dd84",
+    "scene-graph.json": "ef00af409d57fcbbdb7578c32aa616112279b6bb478528e12dad0f6d0711fbec",
+    "style-profile.md": "8f203424cf397d33cae3fca8d1230b4ebb3b638e6eb1cfffac99f400e30e3232",
+    "validation.md": "d7bc0b4768acbcbce8283ca2ddcbe598edf1d571aa6333fd269ff2cb1528243f"
+  }
+}

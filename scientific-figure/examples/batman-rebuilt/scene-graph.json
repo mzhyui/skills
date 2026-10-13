@@ -1,0 +1,5704 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "../图片.png",
+    "sha256": "6010ec8bf304bac996a1da654c2a573c13bee7c2b3a510565f883805dc9bfd84"
+  },
+  "style_profile": "style-profile.md",
+  "canvas": {
+    "view_box": [
+      0,
+      0,
+      2011,
+      1021
+    ],
+    "width_in": 14,
+    "background": "white"
+  },
+  "typography": {
+    "heading": "Liberation Serif",
+    "annotation": "Comic Neue",
+    "math": "TeX Gyre Termes"
+  },
+  "panels": [
+    {
+      "id": "background",
+      "spec_id": "background"
+    },
+    {
+      "id": "attacker-client",
+      "spec_id": "attacker-client"
+    },
+    {
+      "id": "malicious-knowledge",
+      "spec_id": "malicious-knowledge"
+    },
+    {
+      "id": "benign-knowledge",
+      "spec_id": "benign-knowledge"
+    },
+    {
+      "id": "alignment-panel",
+      "spec_id": "alignment-panel"
+    },
+    {
+      "id": "inter-panel-flows",
+      "spec_id": "inter-panel-flows"
+    },
+    {
+      "id": "federated-training",
+      "spec_id": "federated-training"
+    },
+    {
+      "id": "legend",
+      "spec_id": "legend"
+    }
+  ],
+  "labels": [
+    {
+      "id": "batman-title",
+      "parent": "attacker-client",
+      "text": "Batman",
+      "position": [
+        160,
+        108
+      ],
+      "font_size": 55,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "#636c68"
+    },
+    {
+      "id": "poisoned-data",
+      "parent": "attacker-client",
+      "text": "Poisoned Data",
+      "position": [
+        199,
+        430
+      ],
+      "font_size": 32,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "#c00000"
+    },
+    {
+      "id": "clean-data",
+      "parent": "attacker-client",
+      "text": "Clean Data",
+      "position": [
+        198,
+        709
+      ],
+      "font_size": 32,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "attacker-label",
+      "parent": "attacker-client",
+      "text": "Attacker Client",
+      "position": [
+        211,
+        797
+      ],
+      "font_size": 38,
+      "font_family": "Liberation Serif",
+      "alignment": "middle",
+      "fill": "#888888"
+    },
+    {
+      "id": "malicious-title",
+      "parent": "malicious-knowledge",
+      "text": "Malicious Knowledge",
+      "position": [
+        628,
+        119
+      ],
+      "font_size": 42,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "malicious-parameter",
+      "parent": "malicious-knowledge",
+      "text": "Malicious Parameter",
+      "position": [
+        448,
+        187
+      ],
+      "font_size": 28,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#a7a7a7"
+    },
+    {
+      "id": "svd-label",
+      "parent": "malicious-knowledge",
+      "text": "Singular Value Decomposition",
+      "position": [
+        672,
+        403
+      ],
+      "font_size": 32,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "decomposition-equals",
+      "parent": "malicious-knowledge",
+      "text": "=",
+      "position": [
+        929,
+        315
+      ],
+      "font_size": 64,
+      "font_family": "Liberation Serif",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "redundant-title",
+      "parent": "malicious-knowledge",
+      "text": "Redundant",
+      "position": [
+        962,
+        183
+      ],
+      "font_size": 31,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#9bbbd8"
+    },
+    {
+      "id": "redundant-no-svd",
+      "parent": "malicious-knowledge",
+      "text": "No SVD",
+      "position": [
+        1070,
+        208
+      ],
+      "font_size": 21,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#9bbbd8"
+    },
+    {
+      "id": "redundant-svd",
+      "parent": "malicious-knowledge",
+      "text": "SVD",
+      "position": [
+        1042,
+        236
+      ],
+      "font_size": 21,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#9bbbd8"
+    },
+    {
+      "id": "tac-decrease-prefix",
+      "parent": "malicious-knowledge",
+      "text": "TAC",
+      "position": [
+        962,
+        264
+      ],
+      "font_size": 23,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "tac-decrease",
+      "parent": "malicious-knowledge",
+      "text": "Decrease",
+      "position": [
+        1009,
+        264
+      ],
+      "font_size": 21,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#609126"
+    },
+    {
+      "id": "decomposition-plus",
+      "parent": "malicious-knowledge",
+      "text": "+",
+      "position": [
+        1046,
+        310
+      ],
+      "font_size": 56,
+      "font_family": "Liberation Serif",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "important-title",
+      "parent": "malicious-knowledge",
+      "text": "Important",
+      "position": [
+        964,
+        342
+      ],
+      "font_size": 31,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "white"
+    },
+    {
+      "id": "important-no-svd",
+      "parent": "malicious-knowledge",
+      "text": "No SVD",
+      "position": [
+        1047,
+        365
+      ],
+      "font_size": 20,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "white"
+    },
+    {
+      "id": "important-svd",
+      "parent": "malicious-knowledge",
+      "text": "SVD",
+      "position": [
+        1076,
+        387
+      ],
+      "font_size": 20,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "white"
+    },
+    {
+      "id": "tac-increase-prefix",
+      "parent": "malicious-knowledge",
+      "text": "TAC",
+      "position": [
+        963,
+        421
+      ],
+      "font_size": 23,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "tac-increase",
+      "parent": "malicious-knowledge",
+      "text": "Increase",
+      "position": [
+        1010,
+        421
+      ],
+      "font_size": 21,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#bd6513"
+    },
+    {
+      "id": "benign-title",
+      "parent": "benign-knowledge",
+      "text": "Benign Knowledge",
+      "position": [
+        651,
+        540
+      ],
+      "font_size": 42,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "clean-model-label",
+      "parent": "benign-knowledge",
+      "text": "Clean model",
+      "position": [
+        480,
+        589
+      ],
+      "font_size": 31,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "clean-gap",
+      "parent": "benign-knowledge",
+      "text": "Gap",
+      "position": [
+        640,
+        619
+      ],
+      "font_size": 37,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#565e65"
+    },
+    {
+      "id": "truth-label-1",
+      "parent": "benign-knowledge",
+      "text": "Truth",
+      "position": [
+        609,
+        715
+      ],
+      "font_size": 27,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "#76af3e"
+    },
+    {
+      "id": "truth-label-2",
+      "parent": "benign-knowledge",
+      "text": "Label",
+      "position": [
+        609,
+        745
+      ],
+      "font_size": 27,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "#76af3e"
+    },
+    {
+      "id": "attack-label-1",
+      "parent": "benign-knowledge",
+      "text": "Attack",
+      "position": [
+        700,
+        715
+      ],
+      "font_size": 27,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "#ad68b4"
+    },
+    {
+      "id": "attack-label-2",
+      "parent": "benign-knowledge",
+      "text": "Label",
+      "position": [
+        700,
+        745
+      ],
+      "font_size": 27,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "#ad68b4"
+    },
+    {
+      "id": "clean-parameter-label",
+      "parent": "benign-knowledge",
+      "text": "Clean Parameter",
+      "position": [
+        608,
+        788
+      ],
+      "font_size": 35,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "w-benign-a",
+      "parent": "benign-knowledge",
+      "text": "W",
+      "position": [
+        841,
+        595
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "w-benign-b",
+      "parent": "benign-knowledge",
+      "text": "W",
+      "position": [
+        902,
+        634
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "w-attack",
+      "parent": "benign-knowledge",
+      "text": "W",
+      "position": [
+        977,
+        736
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "previous-global-weight",
+      "parent": "benign-knowledge",
+      "text": "Wgt−1",
+      "position": [
+        822,
+        708
+      ],
+      "font_size": 32,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "black",
+      "math_runs": [
+        [
+          "W",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "g",
+          "sub",
+          0.7,
+          false
+        ],
+        [
+          "t−1",
+          "super",
+          0.7,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "benign-clients-label",
+      "parent": "benign-knowledge",
+      "text": "Benign",
+      "position": [
+        749,
+        630
+      ],
+      "font_size": 30,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#70ad43"
+    },
+    {
+      "id": "attack-clients-label",
+      "parent": "benign-knowledge",
+      "text": "Attack",
+      "position": [
+        1018,
+        734
+      ],
+      "font_size": 31,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#a16daf"
+    },
+    {
+      "id": "global-gap",
+      "parent": "benign-knowledge",
+      "text": "Gap",
+      "position": [
+        978,
+        687
+      ],
+      "font_size": 37,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#565e65"
+    },
+    {
+      "id": "updated-global-weight",
+      "parent": "benign-knowledge",
+      "text": "Wgt",
+      "position": [
+        1107,
+        586
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "W",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "g",
+          "sub",
+          0.7,
+          false
+        ],
+        [
+          "t",
+          "super",
+          0.7,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "global-parameter-label",
+      "parent": "benign-knowledge",
+      "text": "Global Parameter",
+      "position": [
+        971,
+        788
+      ],
+      "font_size": 35,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "alignment-title",
+      "parent": "alignment-panel",
+      "text": "Alignment in Malicious Null Space",
+      "position": [
+        1596,
+        117
+      ],
+      "font_size": 41,
+      "font_family": "Liberation Serif",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "before-performance-label",
+      "parent": "alignment-panel",
+      "text": "Attack Performance",
+      "position": [
+        1395,
+        174
+      ],
+      "font_size": 29,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "initial-delta",
+      "parent": "alignment-panel",
+      "text": "Δ",
+      "position": [
+        1427,
+        287
+      ],
+      "font_size": 31,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "before-parameter-label",
+      "parent": "alignment-panel",
+      "text": "Parameter Space",
+      "position": [
+        1435,
+        415
+      ],
+      "font_size": 29,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "after-performance-label",
+      "parent": "alignment-panel",
+      "text": "Attack Performance",
+      "position": [
+        1764,
+        174
+      ],
+      "font_size": 29,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "projected-delta",
+      "parent": "alignment-panel",
+      "text": "ΔP",
+      "position": [
+        1820,
+        220
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "Δ",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "P",
+          "baseline",
+          1,
+          true
+        ]
+      ]
+    },
+    {
+      "id": "after-parameter-label",
+      "parent": "alignment-panel",
+      "text": "Parameter Space",
+      "position": [
+        1804,
+        415
+      ],
+      "font_size": 29,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "keep-label",
+      "parent": "alignment-panel",
+      "text": "Keep",
+      "position": [
+        1574,
+        257
+      ],
+      "font_size": 29,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "#d40000"
+    },
+    {
+      "id": "eq6",
+      "parent": "alignment-panel",
+      "text": "Eq. (6)",
+      "position": [
+        1916,
+        435
+      ],
+      "font_size": 20,
+      "font_family": "Liberation Serif",
+      "alignment": "end",
+      "fill": "#888888"
+    },
+    {
+      "id": "projection-delta-label",
+      "parent": "alignment-panel",
+      "text": "Projection Δ",
+      "position": [
+        1613,
+        496
+      ],
+      "font_size": 28,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "null-space-title",
+      "parent": "alignment-panel",
+      "text": "Null Space",
+      "position": [
+        1407,
+        538
+      ],
+      "font_size": 42,
+      "font_family": "Liberation Serif",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "null-svd-label",
+      "parent": "alignment-panel",
+      "text": "SVD",
+      "position": [
+        1357,
+        739
+      ],
+      "font_size": 32,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "singular-value-label",
+      "parent": "alignment-panel",
+      "text": "Singular Value",
+      "position": [
+        1536,
+        584
+      ],
+      "font_size": 32,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "singular-x1",
+      "parent": "alignment-panel",
+      "text": "x1",
+      "position": [
+        1446,
+        617
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "x",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "1",
+          "sub",
+          0.72,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "singular-ellipsis",
+      "parent": "alignment-panel",
+      "text": "⋱",
+      "position": [
+        1481,
+        641
+      ],
+      "font_size": 32,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "singular-xn",
+      "parent": "alignment-panel",
+      "text": "xn",
+      "position": [
+        1463,
+        655
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "x",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "n",
+          "sub",
+          0.72,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "zero-top",
+      "parent": "alignment-panel",
+      "text": "0",
+      "position": [
+        1534,
+        698
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "zero-ellipsis",
+      "parent": "alignment-panel",
+      "text": "⋱",
+      "position": [
+        1547,
+        718
+      ],
+      "font_size": 29,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "zero-bottom",
+      "parent": "alignment-panel",
+      "text": "0",
+      "position": [
+        1572,
+        729
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "null-projector",
+      "parent": "alignment-panel",
+      "text": "Ũ0Ũ0T = P",
+      "position": [
+        1661,
+        607
+      ],
+      "font_size": 40,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "Ũ",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "0",
+          "sub",
+          0.65,
+          false
+        ],
+        [
+          "Ũ",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "0",
+          "sub",
+          0.65,
+          false
+        ],
+        [
+          "T",
+          "super",
+          0.65,
+          true
+        ],
+        [
+          " = ",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "P",
+          "baseline",
+          1.3,
+          true
+        ]
+      ]
+    },
+    {
+      "id": "eq4",
+      "parent": "alignment-panel",
+      "text": "Eq. (4)",
+      "position": [
+        1878,
+        713
+      ],
+      "font_size": 20,
+      "font_family": "Liberation Serif",
+      "alignment": "end",
+      "fill": "#888888"
+    },
+    {
+      "id": "eq3",
+      "parent": "inter-panel-flows",
+      "text": "Eq. (3)",
+      "position": [
+        1203,
+        284
+      ],
+      "font_size": 20,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "#888888"
+    },
+    {
+      "id": "eq5",
+      "parent": "inter-panel-flows",
+      "text": "Eq. (5)",
+      "position": [
+        1203,
+        614
+      ],
+      "font_size": 20,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "#888888"
+    },
+    {
+      "id": "distribute-label",
+      "parent": "federated-training",
+      "text": "Distribute",
+      "position": [
+        56,
+        901
+      ],
+      "font_size": 31,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "aggregate-label",
+      "parent": "federated-training",
+      "text": "Aggregate",
+      "position": [
+        311,
+        955
+      ],
+      "font_size": 33,
+      "font_family": "Comic Neue",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "benign-client-one",
+      "parent": "federated-training",
+      "text": "Benign Client",
+      "position": [
+        411,
+        897
+      ],
+      "font_size": 38,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "#888888"
+    },
+    {
+      "id": "benign-client-two",
+      "parent": "federated-training",
+      "text": "Benign Client",
+      "position": [
+        674,
+        899
+      ],
+      "font_size": 38,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "#888888"
+    },
+    {
+      "id": "clients-ellipsis",
+      "parent": "federated-training",
+      "text": "⋯",
+      "position": [
+        648,
+        954
+      ],
+      "font_size": 66,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "#cfcecd"
+    },
+    {
+      "id": "global-model-label",
+      "parent": "federated-training",
+      "text": "Global model",
+      "position": [
+        1034,
+        992
+      ],
+      "font_size": 41,
+      "font_family": "Comic Neue",
+      "alignment": "middle",
+      "fill": "black"
+    },
+    {
+      "id": "legend-alignment",
+      "parent": "legend",
+      "text": "Alignment",
+      "position": [
+        1320,
+        902
+      ],
+      "font_size": 37,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "legend-projection",
+      "parent": "legend",
+      "text": "Projection",
+      "position": [
+        1322,
+        960
+      ],
+      "font_size": 37,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "legend-training",
+      "parent": "legend",
+      "text": "Training Flow",
+      "position": [
+        1689,
+        901
+      ],
+      "font_size": 37,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    },
+    {
+      "id": "legend-parameter",
+      "parent": "legend",
+      "text": "Parameter Flow",
+      "position": [
+        1670,
+        963
+      ],
+      "font_size": 37,
+      "font_family": "Liberation Serif",
+      "alignment": "start",
+      "fill": "black"
+    }
+  ],
+  "edges": [
+    {
+      "id": "poison-training",
+      "from": "poisoned-data",
+      "to": "malicious-parameter",
+      "type": "training",
+      "points": [
+        [
+          327,
+          315
+        ],
+        [
+          422,
+          315
+        ]
+      ],
+      "source_anchor": "reference pixels near (327,315)"
+    },
+    {
+      "id": "clean-training",
+      "from": "clean-data",
+      "to": "clean-model-label",
+      "type": "training",
+      "points": [
+        [
+          328,
+          644
+        ],
+        [
+          437,
+          644
+        ]
+      ],
+      "source_anchor": "reference pixels near (328,644)"
+    },
+    {
+      "id": "malicious-parameter-flow",
+      "from": "important-title",
+      "to": "alignment-panel",
+      "type": "parameter",
+      "points": [
+        [
+          1155,
+          373
+        ],
+        [
+          1256,
+          373
+        ]
+      ],
+      "source_anchor": "reference pixels near (1155,373)"
+    },
+    {
+      "id": "benign-parameter-flow",
+      "from": "global-parameter-label",
+      "to": "alignment-panel",
+      "type": "parameter",
+      "points": [
+        [
+          1183,
+          637
+        ],
+        [
+          1255,
+          637
+        ]
+      ],
+      "source_anchor": "reference pixels near (1183,637)"
+    }
+  ],
+  "assets": [
+    {
+      "id": "batman",
+      "file": "assets/batman.png",
+      "source_crop": [
+        55,
+        41,
+        182,
+        148
+      ],
+      "pixel_size": [
+        127,
+        107
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "poisoned-photos",
+      "file": "assets/poisoned-photos.png",
+      "source_crop": [
+        111,
+        235,
+        287,
+        394
+      ],
+      "pixel_size": [
+        176,
+        159
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "clean-photos",
+      "file": "assets/clean-photos.png",
+      "source_crop": [
+        111,
+        511,
+        286,
+        665
+      ],
+      "pixel_size": [
+        175,
+        154
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "malicious-book",
+      "file": "assets/malicious-book.png",
+      "source_crop": [
+        522,
+        57,
+        606,
+        151
+      ],
+      "pixel_size": [
+        84,
+        94
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "benign-book",
+      "file": "assets/benign-book.png",
+      "source_crop": [
+        543,
+        477,
+        627,
+        560
+      ],
+      "pixel_size": [
+        84,
+        83
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "sleeping",
+      "file": "assets/sleeping.png",
+      "source_crop": [
+        1101,
+        219,
+        1163,
+        280
+      ],
+      "pixel_size": [
+        62,
+        61
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "working",
+      "file": "assets/working.png",
+      "source_crop": [
+        1101,
+        383,
+        1163,
+        445
+      ],
+      "pixel_size": [
+        62,
+        62
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "distribute",
+      "file": "assets/distribute.png",
+      "source_crop": [
+        87,
+        905,
+        173,
+        996
+      ],
+      "pixel_size": [
+        86,
+        91
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    },
+    {
+      "id": "aggregate",
+      "file": "assets/aggregate.png",
+      "source_crop": [
+        235,
+        870,
+        308,
+        946
+      ],
+      "pixel_size": [
+        73,
+        76
+      ],
+      "treatment": "original raster crop; near-background transparency for icons"
+    }
+  ],
+  "equations": [
+    {
+      "id": "previous-global-weight",
+      "parent": "benign-knowledge",
+      "text": "Wgt−1",
+      "position": [
+        822,
+        708
+      ],
+      "font_size": 32,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "middle",
+      "fill": "black",
+      "math_runs": [
+        [
+          "W",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "g",
+          "sub",
+          0.7,
+          false
+        ],
+        [
+          "t−1",
+          "super",
+          0.7,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "updated-global-weight",
+      "parent": "benign-knowledge",
+      "text": "Wgt",
+      "position": [
+        1107,
+        586
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "W",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "g",
+          "sub",
+          0.7,
+          false
+        ],
+        [
+          "t",
+          "super",
+          0.7,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "projected-delta",
+      "parent": "alignment-panel",
+      "text": "ΔP",
+      "position": [
+        1820,
+        220
+      ],
+      "font_size": 34,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "Δ",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "P",
+          "baseline",
+          1,
+          true
+        ]
+      ]
+    },
+    {
+      "id": "singular-x1",
+      "parent": "alignment-panel",
+      "text": "x1",
+      "position": [
+        1446,
+        617
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "x",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "1",
+          "sub",
+          0.72,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "singular-xn",
+      "parent": "alignment-panel",
+      "text": "xn",
+      "position": [
+        1463,
+        655
+      ],
+      "font_size": 33,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "x",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "n",
+          "sub",
+          0.72,
+          false
+        ]
+      ]
+    },
+    {
+      "id": "null-projector",
+      "parent": "alignment-panel",
+      "text": "Ũ0Ũ0T = P",
+      "position": [
+        1661,
+        607
+      ],
+      "font_size": 40,
+      "font_family": "TeX Gyre Termes",
+      "alignment": "start",
+      "fill": "black",
+      "math_runs": [
+        [
+          "Ũ",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "0",
+          "sub",
+          0.65,
+          false
+        ],
+        [
+          "Ũ",
+          "baseline",
+          1,
+          true
+        ],
+        [
+          "0",
+          "sub",
+          0.65,
+          false
+        ],
+        [
+          "T",
+          "super",
+          0.65,
+          true
+        ],
+        [
+          " = ",
+          "baseline",
+          1,
+          false
+        ],
+        [
+          "P",
+          "baseline",
+          1.3,
+          true
+        ]
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "id": "arrow-black-1",
+      "parent": "arrow-black",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "black",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-black-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "arrow-purple-1",
+      "parent": "arrow-purple",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "#6a486e",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-purple-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "arrow-gray-1",
+      "parent": "arrow-gray",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "#cfcecd",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-gray-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "arrow-brown-1",
+      "parent": "arrow-brown",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "#b37a47",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-brown-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "arrow-teal-1",
+      "parent": "arrow-teal",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "#a3c3c4",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-teal-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "arrow-gold-1",
+      "parent": "arrow-gold",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 10 5 L 0 10 Z",
+        "fill": "#ecb03d",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "arrow-gold-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "diagonal-hatch-1",
+      "parent": "diagonal-hatch",
+      "primitive": "rect",
+      "spec_id": null,
+      "geometry_and_style": {
+        "x": "0",
+        "y": "0",
+        "width": "11",
+        "height": "11",
+        "fill": "#ffffff",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "diagonal-hatch-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "diagonal-hatch-2",
+      "parent": "diagonal-hatch",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M -3 3 L 3 -3 M 0 11 L 11 0 M 8 14 L 14 8",
+        "fill": "none",
+        "stroke": "#cbdce5",
+        "stroke-width": "4",
+        "id": "diagonal-hatch-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "cross-hatch-1",
+      "parent": "cross-hatch",
+      "primitive": "rect",
+      "spec_id": null,
+      "geometry_and_style": {
+        "x": "0",
+        "y": "0",
+        "width": "7",
+        "height": "7",
+        "fill": "#d9e8cf",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "cross-hatch-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "cross-hatch-2",
+      "parent": "cross-hatch",
+      "primitive": "path",
+      "spec_id": null,
+      "geometry_and_style": {
+        "d": "M 0 0 L 7 7 M 7 0 L 0 7",
+        "fill": "none",
+        "stroke": "#f5f8ef",
+        "stroke-width": "1.5",
+        "id": "cross-hatch-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clip-svd-left-1",
+      "parent": "clip-svd-left",
+      "primitive": "rect",
+      "spec_id": null,
+      "geometry_and_style": {
+        "x": "452",
+        "y": "217",
+        "width": "115",
+        "height": "150",
+        "fill": "none",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "21",
+        "id": "clip-svd-left-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clip-svd-mid-1",
+      "parent": "clip-svd-mid",
+      "primitive": "rect",
+      "spec_id": null,
+      "geometry_and_style": {
+        "x": "588",
+        "y": "231",
+        "width": "119",
+        "height": "118",
+        "fill": "none",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "10",
+        "id": "clip-svd-mid-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clip-svd-right-1",
+      "parent": "clip-svd-right",
+      "primitive": "rect",
+      "spec_id": null,
+      "geometry_and_style": {
+        "x": "725",
+        "y": "229",
+        "width": "157",
+        "height": "121",
+        "fill": "none",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "10",
+        "id": "clip-svd-right-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "background-1",
+      "parent": "background",
+      "primitive": "rect",
+      "spec_id": "background",
+      "geometry_and_style": {
+        "x": "0",
+        "y": "0",
+        "width": "2011",
+        "height": "1021",
+        "fill": "white",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "background-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "background-2",
+      "parent": "background",
+      "primitive": "rect",
+      "spec_id": "background",
+      "geometry_and_style": {
+        "x": "47",
+        "y": "33",
+        "width": "1927",
+        "height": "798",
+        "fill": "#f4f8ff",
+        "stroke": "#a2afb9",
+        "stroke-width": "3.5",
+        "rx": "9",
+        "id": "background-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "background-3",
+      "parent": "background",
+      "primitive": "rect",
+      "spec_id": "background",
+      "geometry_and_style": {
+        "x": "47",
+        "y": "845",
+        "width": "1927",
+        "height": "161",
+        "fill": "#fcfefe",
+        "stroke": "#858585",
+        "stroke-width": "3",
+        "rx": "9",
+        "stroke-dasharray": "14 10",
+        "id": "background-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "background-4",
+      "parent": "background",
+      "primitive": "line",
+      "spec_id": "background",
+      "geometry_and_style": {
+        "x1": "1172",
+        "y1": "846",
+        "x2": "1172",
+        "y2": "1005",
+        "stroke": "#858585",
+        "stroke-width": "3",
+        "stroke-dasharray": "14 10",
+        "id": "background-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "batman-image",
+      "parent": "attacker-client",
+      "primitive": "image",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "batman-image",
+        "x": "55",
+        "y": "41",
+        "width": "127",
+        "height": "107",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "batman-title",
+      "parent": "attacker-client",
+      "primitive": "text",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "batman-title",
+        "x": "160",
+        "y": "108",
+        "font-family": "Liberation Serif",
+        "font-size": "55",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#636c68",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attacker-client-1",
+      "parent": "attacker-client",
+      "primitive": "line",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "x1": "160",
+        "y1": "115",
+        "x2": "344",
+        "y2": "115",
+        "stroke": "#636c68",
+        "stroke-width": "3",
+        "id": "attacker-client-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attacker-client-2",
+      "parent": "attacker-client",
+      "primitive": "rect",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "x": "78",
+        "y": "199",
+        "width": "237",
+        "height": "540",
+        "fill": "white",
+        "stroke": "#858585",
+        "stroke-width": "3.4",
+        "rx": "24",
+        "stroke-dasharray": "14 10",
+        "id": "attacker-client-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attacker-client-3",
+      "parent": "attacker-client",
+      "primitive": "line",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "x1": "78",
+        "y1": "469",
+        "x2": "315",
+        "y2": "469",
+        "stroke": "#858585",
+        "stroke-width": "3",
+        "stroke-dasharray": "13 5",
+        "id": "attacker-client-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "poisoned-photos-image",
+      "parent": "attacker-client",
+      "primitive": "image",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "poisoned-photos-image",
+        "x": "111",
+        "y": "235",
+        "width": "176",
+        "height": "159",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-photos-image",
+      "parent": "attacker-client",
+      "primitive": "image",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "clean-photos-image",
+        "x": "111",
+        "y": "511",
+        "width": "175",
+        "height": "154",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "poisoned-data",
+      "parent": "attacker-client",
+      "primitive": "text",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "poisoned-data",
+        "x": "199",
+        "y": "430",
+        "font-family": "Comic Neue",
+        "font-size": "32",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "#c00000",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-data",
+      "parent": "attacker-client",
+      "primitive": "text",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "clean-data",
+        "x": "198",
+        "y": "709",
+        "font-family": "Comic Neue",
+        "font-size": "32",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attacker-label",
+      "parent": "attacker-client",
+      "primitive": "text",
+      "spec_id": "attacker-client",
+      "geometry_and_style": {
+        "id": "attacker-label",
+        "x": "211",
+        "y": "797",
+        "font-family": "Liberation Serif",
+        "font-size": "38",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-1",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "388",
+        "y": "65",
+        "width": "781",
+        "height": "394",
+        "fill": "none",
+        "stroke": "#a6a6a6",
+        "stroke-width": "3.5",
+        "rx": "18",
+        "id": "malicious-knowledge-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-book-image",
+      "parent": "malicious-knowledge",
+      "primitive": "image",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "malicious-book-image",
+        "x": "522",
+        "y": "57",
+        "width": "84",
+        "height": "94",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-title",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "malicious-title",
+        "x": "628",
+        "y": "119",
+        "font-family": "Liberation Serif",
+        "font-size": "42",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-parameter",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "malicious-parameter",
+        "x": "448",
+        "y": "187",
+        "font-family": "Comic Neue",
+        "font-size": "28",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#a7a7a7",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-2",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "433",
+        "y": "204",
+        "width": "469",
+        "height": "209",
+        "fill": "none",
+        "stroke": "#aaa",
+        "stroke-width": "2",
+        "rx": "0",
+        "id": "malicious-knowledge-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-3",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "452",
+        "y": "217",
+        "width": "115",
+        "height": "150",
+        "fill": "#9bbbd8",
+        "stroke": "#6396c6",
+        "stroke-width": "3.5",
+        "rx": "21",
+        "id": "malicious-knowledge-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-4",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "511",
+        "y": "217",
+        "width": "56",
+        "height": "150",
+        "fill": "url(#diagonal-hatch)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "clip-path": "url(#clip-svd-left)",
+        "id": "malicious-knowledge-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-5",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "452",
+        "y": "217",
+        "width": "115",
+        "height": "150",
+        "fill": "none",
+        "stroke": "#6396c6",
+        "stroke-width": "3.5",
+        "rx": "21",
+        "id": "malicious-knowledge-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-6",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "588",
+        "y": "231",
+        "width": "119",
+        "height": "118",
+        "fill": "#f4f8ff",
+        "stroke": "#6396c6",
+        "stroke-width": "3",
+        "rx": "10",
+        "id": "malicious-knowledge-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-7",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "589",
+        "y": "232",
+        "width": "59",
+        "height": "58",
+        "fill": "#9bbbd8",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "clip-path": "url(#clip-svd-mid)",
+        "id": "malicious-knowledge-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-8",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "648",
+        "y": "290",
+        "width": "59",
+        "height": "59",
+        "fill": "url(#diagonal-hatch)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "clip-path": "url(#clip-svd-mid)",
+        "id": "malicious-knowledge-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-9",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "588",
+        "y": "231",
+        "width": "119",
+        "height": "118",
+        "fill": "none",
+        "stroke": "#6396c6",
+        "stroke-width": "3",
+        "rx": "10",
+        "id": "malicious-knowledge-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-10",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "725",
+        "y": "229",
+        "width": "157",
+        "height": "121",
+        "fill": "#9bbbd8",
+        "stroke": "#6396c6",
+        "stroke-width": "3.5",
+        "rx": "10",
+        "id": "malicious-knowledge-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-11",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "725",
+        "y": "290",
+        "width": "157",
+        "height": "60",
+        "fill": "url(#diagonal-hatch)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "clip-path": "url(#clip-svd-right)",
+        "id": "malicious-knowledge-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-12",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "725",
+        "y": "229",
+        "width": "157",
+        "height": "121",
+        "fill": "none",
+        "stroke": "#6396c6",
+        "stroke-width": "3.5",
+        "rx": "10",
+        "id": "malicious-knowledge-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "svd-label",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "svd-label",
+        "x": "672",
+        "y": "403",
+        "font-family": "Comic Neue",
+        "font-size": "32",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "decomposition-equals",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "decomposition-equals",
+        "x": "929",
+        "y": "315",
+        "font-family": "Liberation Serif",
+        "font-size": "64",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-13",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "952",
+        "y": "153",
+        "width": "200",
+        "height": "118",
+        "fill": "url(#diagonal-hatch)",
+        "stroke": "#b0d3dc",
+        "stroke-width": "3.5",
+        "rx": "14",
+        "id": "malicious-knowledge-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "redundant-title",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "redundant-title",
+        "x": "962",
+        "y": "183",
+        "font-family": "Comic Neue",
+        "font-size": "31",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#9bbbd8",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-14",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "954",
+        "y": "190",
+        "width": "108",
+        "height": "21",
+        "fill": "url(#cross-hatch)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "malicious-knowledge-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-15",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "954",
+        "y": "213",
+        "width": "73",
+        "height": "21",
+        "fill": "#baa0c0",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "malicious-knowledge-15"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "redundant-no-svd",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "redundant-no-svd",
+        "x": "1070",
+        "y": "208",
+        "font-family": "Comic Neue",
+        "font-size": "21",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#9bbbd8",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "redundant-svd",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "redundant-svd",
+        "x": "1042",
+        "y": "236",
+        "font-family": "Comic Neue",
+        "font-size": "21",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#9bbbd8",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-16",
+      "parent": "malicious-knowledge",
+      "primitive": "line",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x1": "1023",
+        "y1": "223",
+        "x2": "969",
+        "y2": "223",
+        "stroke": "#ffd28e",
+        "stroke-width": "2",
+        "marker-end": "url(#arrow-gold)",
+        "id": "malicious-knowledge-16"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "tac-decrease-prefix",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "tac-decrease-prefix",
+        "x": "962",
+        "y": "264",
+        "font-family": "Comic Neue",
+        "font-size": "23",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "tac-decrease",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "tac-decrease",
+        "x": "1009",
+        "y": "264",
+        "font-family": "Comic Neue",
+        "font-size": "21",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#609126",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "sleeping-image",
+      "parent": "malicious-knowledge",
+      "primitive": "image",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "sleeping-image",
+        "x": "1101",
+        "y": "219",
+        "width": "62",
+        "height": "61",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "decomposition-plus",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "decomposition-plus",
+        "x": "1046",
+        "y": "310",
+        "font-family": "Liberation Serif",
+        "font-size": "56",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-17",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "951",
+        "y": "311",
+        "width": "202",
+        "height": "117",
+        "fill": "#9bbbd8",
+        "stroke": "#6396c6",
+        "stroke-width": "3.5",
+        "rx": "13",
+        "id": "malicious-knowledge-17"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "important-title",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "important-title",
+        "x": "964",
+        "y": "342",
+        "font-family": "Comic Neue",
+        "font-size": "31",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "white",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-18",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "954",
+        "y": "350",
+        "width": "85",
+        "height": "18",
+        "fill": "url(#cross-hatch)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "malicious-knowledge-18"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-19",
+      "parent": "malicious-knowledge",
+      "primitive": "rect",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x": "954",
+        "y": "372",
+        "width": "116",
+        "height": "18",
+        "fill": "#ad88b6",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "malicious-knowledge-19"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "important-no-svd",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "important-no-svd",
+        "x": "1047",
+        "y": "365",
+        "font-family": "Comic Neue",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "white",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "important-svd",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "important-svd",
+        "x": "1076",
+        "y": "387",
+        "font-family": "Comic Neue",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "white",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-knowledge-20",
+      "parent": "malicious-knowledge",
+      "primitive": "line",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "x1": "980",
+        "y1": "380",
+        "x2": "1066",
+        "y2": "380",
+        "stroke": "#ffcd85",
+        "stroke-width": "2.5",
+        "marker-end": "url(#arrow-gold)",
+        "id": "malicious-knowledge-20"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "tac-increase-prefix",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "tac-increase-prefix",
+        "x": "963",
+        "y": "421",
+        "font-family": "Comic Neue",
+        "font-size": "23",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "tac-increase",
+      "parent": "malicious-knowledge",
+      "primitive": "text",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "tac-increase",
+        "x": "1010",
+        "y": "421",
+        "font-family": "Comic Neue",
+        "font-size": "21",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#bd6513",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "working-image",
+      "parent": "malicious-knowledge",
+      "primitive": "image",
+      "spec_id": "malicious-knowledge",
+      "geometry_and_style": {
+        "id": "working-image",
+        "x": "1101",
+        "y": "383",
+        "width": "62",
+        "height": "62",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-1",
+      "parent": "benign-knowledge",
+      "primitive": "rect",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x": "388",
+        "y": "488",
+        "width": "785",
+        "height": "320",
+        "fill": "none",
+        "stroke": "#a6a6a6",
+        "stroke-width": "3.5",
+        "rx": "19",
+        "id": "benign-knowledge-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-book-image",
+      "parent": "benign-knowledge",
+      "primitive": "image",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "benign-book-image",
+        "x": "544",
+        "y": "477",
+        "width": "84",
+        "height": "83",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-title",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "benign-title",
+        "x": "651",
+        "y": "540",
+        "font-family": "Liberation Serif",
+        "font-size": "42",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-model-label",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "clean-model-label",
+        "x": "480",
+        "y": "589",
+        "font-family": "Comic Neue",
+        "font-size": "31",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-1",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "629.63",
+        "x2": "499.5",
+        "y2": "611",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-2",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "629.63",
+        "x2": "499.5",
+        "y2": "649.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-3",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "629.63",
+        "x2": "499.5",
+        "y2": "688.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-4",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "669.32",
+        "x2": "499.5",
+        "y2": "611",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-5",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "669.32",
+        "x2": "499.5",
+        "y2": "649.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-6",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "459",
+        "y1": "669.32",
+        "x2": "499.5",
+        "y2": "688.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-7",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "611",
+        "x2": "540",
+        "y2": "629.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-8",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "611",
+        "x2": "540",
+        "y2": "669.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-9",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "649.88",
+        "x2": "540",
+        "y2": "629.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-10",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "649.88",
+        "x2": "540",
+        "y2": "669.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-11",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "688.76",
+        "x2": "540",
+        "y2": "629.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-12",
+      "parent": "clean-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "499.5",
+        "y1": "688.76",
+        "x2": "540",
+        "y2": "669.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "clean-network-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-13",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "459",
+        "cy": "629.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-14",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "459",
+        "cy": "669.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-15",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "499.5",
+        "cy": "611",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-15"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-16",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "499.5",
+        "cy": "649.88",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-16"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-17",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "499.5",
+        "cy": "688.76",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-17"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-18",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "540",
+        "cy": "629.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-18"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-network-19",
+      "parent": "clean-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "540",
+        "cy": "669.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#aed490",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "clean-network-19"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-2",
+      "parent": "benign-knowledge",
+      "primitive": "rect",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x": "577",
+        "y": "585",
+        "width": "148",
+        "height": "48",
+        "fill": "url(#gap-gradient)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "benign-knowledge-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-3",
+      "parent": "benign-knowledge",
+      "primitive": "rect",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x": "593",
+        "y": "586",
+        "width": "31",
+        "height": "95",
+        "fill": "#9bbbd8",
+        "stroke": "#4e70a5",
+        "stroke-width": "2.5",
+        "rx": "0",
+        "id": "benign-knowledge-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-4",
+      "parent": "benign-knowledge",
+      "primitive": "rect",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x": "673",
+        "y": "633",
+        "width": "29",
+        "height": "48",
+        "fill": "#9bbbd8",
+        "stroke": "#4e70a5",
+        "stroke-width": "2.5",
+        "rx": "0",
+        "id": "benign-knowledge-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-5",
+      "parent": "benign-knowledge",
+      "primitive": "path",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "d": "M 573 568 V 682 H 720",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "4",
+        "marker-end": "url(#arrow-black)",
+        "id": "benign-knowledge-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-6",
+      "parent": "benign-knowledge",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "573",
+        "y1": "680",
+        "x2": "573",
+        "y2": "567",
+        "stroke": "black",
+        "stroke-width": "3",
+        "marker-end": "url(#arrow-black)",
+        "id": "benign-knowledge-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-gap",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "clean-gap",
+        "x": "640",
+        "y": "619",
+        "font-family": "Comic Neue",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#565e65",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "truth-label-1",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "truth-label-1",
+        "x": "609",
+        "y": "715",
+        "font-family": "Comic Neue",
+        "font-size": "27",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "#76af3e",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "truth-label-2",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "truth-label-2",
+        "x": "609",
+        "y": "745",
+        "font-family": "Comic Neue",
+        "font-size": "27",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "#76af3e",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attack-label-1",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "attack-label-1",
+        "x": "700",
+        "y": "715",
+        "font-family": "Comic Neue",
+        "font-size": "27",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "#ad68b4",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attack-label-2",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "attack-label-2",
+        "x": "700",
+        "y": "745",
+        "font-family": "Comic Neue",
+        "font-size": "27",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "#ad68b4",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-7",
+      "parent": "benign-knowledge",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "728",
+        "y1": "565",
+        "x2": "777",
+        "y2": "801",
+        "stroke": "#8b8b8b",
+        "stroke-width": "5",
+        "stroke-dasharray": "20 13",
+        "id": "benign-knowledge-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-parameter-label",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "clean-parameter-label",
+        "x": "608",
+        "y": "788",
+        "font-family": "Comic Neue",
+        "font-size": "35",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-8",
+      "parent": "benign-knowledge",
+      "primitive": "rect",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x": "774",
+        "y": "648",
+        "width": "379",
+        "height": "51",
+        "fill": "url(#gap-gradient)",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "0",
+        "id": "benign-knowledge-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-9",
+      "parent": "benign-knowledge",
+      "primitive": "path",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "d": "M 822 696 Q 850 628 841 584 M 822 696 Q 883 679 902 624 M 822 696 Q 885 745 977 725",
+        "fill": "none",
+        "stroke": "#aaaaaa",
+        "stroke-width": "1.5",
+        "id": "benign-knowledge-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-10",
+      "parent": "benign-knowledge",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "844",
+        "y1": "689",
+        "x2": "984",
+        "y2": "632",
+        "stroke": "black",
+        "stroke-width": "1",
+        "marker-end": "url(#arrow-black)",
+        "id": "benign-knowledge-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-11",
+      "parent": "benign-knowledge",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "841",
+        "cy": "584",
+        "rx": "26",
+        "ry": "24",
+        "fill": "#e9f2e0",
+        "stroke": "black",
+        "stroke-width": "2.5",
+        "id": "benign-knowledge-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-12",
+      "parent": "benign-knowledge",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "902",
+        "cy": "623",
+        "rx": "26",
+        "ry": "24",
+        "fill": "#e9f2e0",
+        "stroke": "black",
+        "stroke-width": "2.5",
+        "id": "benign-knowledge-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-13",
+      "parent": "benign-knowledge",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "822",
+        "cy": "698",
+        "rx": "38",
+        "ry": "34",
+        "fill": "#f4f8ff",
+        "stroke": "black",
+        "stroke-width": "2.5",
+        "id": "benign-knowledge-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-knowledge-14",
+      "parent": "benign-knowledge",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "977",
+        "cy": "725",
+        "rx": "26",
+        "ry": "24",
+        "fill": "#d1bdd6",
+        "stroke": "black",
+        "stroke-width": "2.5",
+        "id": "benign-knowledge-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "w-benign-a",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "w-benign-a",
+        "x": "841",
+        "y": "595",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "34",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "w-benign-b",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "w-benign-b",
+        "x": "902",
+        "y": "634",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "34",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "w-attack",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "w-attack",
+        "x": "977",
+        "y": "736",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "34",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "previous-global-weight",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "previous-global-weight",
+        "x": "822",
+        "y": "708",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "32",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-clients-label",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "benign-clients-label",
+        "x": "749",
+        "y": "630",
+        "font-family": "Comic Neue",
+        "font-size": "30",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#70ad43",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "attack-clients-label",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "attack-clients-label",
+        "x": "1018",
+        "y": "734",
+        "font-family": "Comic Neue",
+        "font-size": "31",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#a16daf",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-gap",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "global-gap",
+        "x": "978",
+        "y": "687",
+        "font-family": "Comic Neue",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#565e65",
+        "font-style": "italic"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-1",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "584.63",
+        "x2": "1042.5",
+        "y2": "566",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-2",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "584.63",
+        "x2": "1042.5",
+        "y2": "604.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-3",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "584.63",
+        "x2": "1042.5",
+        "y2": "643.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-4",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "624.32",
+        "x2": "1042.5",
+        "y2": "566",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-5",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "624.32",
+        "x2": "1042.5",
+        "y2": "604.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-6",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1002",
+        "y1": "624.32",
+        "x2": "1042.5",
+        "y2": "643.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-7",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "566",
+        "x2": "1083",
+        "y2": "584.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-8",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "566",
+        "x2": "1083",
+        "y2": "624.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-9",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "604.88",
+        "x2": "1083",
+        "y2": "584.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-10",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "604.88",
+        "x2": "1083",
+        "y2": "624.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-11",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "643.76",
+        "x2": "1083",
+        "y2": "584.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-12",
+      "parent": "updated-global-network",
+      "primitive": "line",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "x1": "1042.5",
+        "y1": "643.76",
+        "x2": "1083",
+        "y2": "624.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "updated-global-network-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-13",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1002",
+        "cy": "584.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-14",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1002",
+        "cy": "624.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-15",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1042.5",
+        "cy": "566",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-15"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-16",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1042.5",
+        "cy": "604.88",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-16"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-17",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1042.5",
+        "cy": "643.76",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-17"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-18",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1083",
+        "cy": "584.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-18"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-network-19",
+      "parent": "updated-global-network",
+      "primitive": "ellipse",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "cx": "1083",
+        "cy": "624.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "updated-global-network-19"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "updated-global-weight",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "updated-global-weight",
+        "x": "1107",
+        "y": "586",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "34",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-parameter-label",
+      "parent": "benign-knowledge",
+      "primitive": "text",
+      "spec_id": "benign-knowledge",
+      "geometry_and_style": {
+        "id": "global-parameter-label",
+        "x": "971",
+        "y": "788",
+        "font-family": "Comic Neue",
+        "font-size": "35",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-1",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1254",
+        "y": "61",
+        "width": "684",
+        "height": "753",
+        "fill": "#fffdf6",
+        "stroke": "#837d70",
+        "stroke-width": "3.5",
+        "rx": "27",
+        "id": "alignment-panel-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-title",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "alignment-title",
+        "x": "1596",
+        "y": "117",
+        "font-family": "Liberation Serif",
+        "font-size": "41",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "before-performance-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "before-performance-label",
+        "x": "1395",
+        "y": "174",
+        "font-family": "Comic Neue",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-2",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1282",
+        "y": "201",
+        "width": "16",
+        "height": "177",
+        "fill": "url(#attack-gradient)",
+        "stroke": "#918b84",
+        "stroke-width": "1.5",
+        "rx": "0",
+        "id": "alignment-panel-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-3",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1316 200 V 381 H 1547",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "4.5",
+        "marker-end": "url(#arrow-black)",
+        "id": "alignment-panel-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-4",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1316",
+        "y1": "381",
+        "x2": "1316",
+        "y2": "200",
+        "stroke": "black",
+        "stroke-width": "4",
+        "marker-end": "url(#arrow-black)",
+        "id": "alignment-panel-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-5",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1318",
+        "y1": "231",
+        "x2": "1479",
+        "y2": "231",
+        "stroke": "#b593c0",
+        "stroke-width": "2",
+        "stroke-dasharray": "9 7",
+        "id": "alignment-panel-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-6",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1330 220 Q 1319 231 1330 243 L 1335 243 Q 1327 232 1335 220 Z M 1327 229 H 1347 V 234 H 1327 Z",
+        "fill": "#d6bfd8",
+        "stroke": "#312635",
+        "stroke-width": "1.2",
+        "id": "alignment-panel-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-7",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1348",
+        "cy": "231",
+        "rx": "2.5",
+        "ry": "5",
+        "fill": "#d6bfd8",
+        "stroke": "#312635",
+        "stroke-width": "1",
+        "id": "alignment-panel-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-8",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1386",
+        "cy": "325",
+        "rx": "58",
+        "ry": "47",
+        "fill": "#fce9bc",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-9",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1484",
+        "cy": "230",
+        "rx": "57",
+        "ry": "47",
+        "fill": "#bc99c4",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "before-malicious-icon",
+      "parent": "alignment-panel",
+      "primitive": "image",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "before-malicious-icon",
+        "x": "1450",
+        "y": "190",
+        "width": "68",
+        "height": "76",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "before-benign-icon",
+      "parent": "alignment-panel",
+      "primitive": "image",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "before-benign-icon",
+        "x": "1348",
+        "y": "282",
+        "width": "73",
+        "height": "72",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-10",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1473",
+        "y1": "270",
+        "x2": "1426",
+        "y2": "323",
+        "stroke": "#a87651",
+        "stroke-width": "5",
+        "marker-end": "url(#arrow-brown)",
+        "id": "alignment-panel-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "initial-delta",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "initial-delta",
+        "x": "1427",
+        "y": "287",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "31",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "before-parameter-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "before-parameter-label",
+        "x": "1435",
+        "y": "415",
+        "font-family": "Comic Neue",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-11",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1365",
+        "cy": "358",
+        "rx": "9",
+        "ry": "9",
+        "fill": "#ffdf55",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-12",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1362",
+        "cy": "356",
+        "rx": "1.1",
+        "ry": "1.7",
+        "fill": "#805f21",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-13",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1368",
+        "cy": "356",
+        "rx": "1.1",
+        "ry": "1.7",
+        "fill": "#805f21",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-14",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1361 360 Q 1365 365 1369 360",
+        "fill": "none",
+        "stroke": "#805f21",
+        "stroke-width": "1.5",
+        "id": "alignment-panel-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "after-performance-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "after-performance-label",
+        "x": "1764",
+        "y": "174",
+        "font-family": "Comic Neue",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-15",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1651",
+        "y": "201",
+        "width": "16",
+        "height": "177",
+        "fill": "url(#attack-gradient)",
+        "stroke": "#918b84",
+        "stroke-width": "1.5",
+        "rx": "0",
+        "id": "alignment-panel-15"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-16",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1685 200 V 381 H 1916",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "4.5",
+        "marker-end": "url(#arrow-black)",
+        "id": "alignment-panel-16"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-17",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1685",
+        "y1": "381",
+        "x2": "1685",
+        "y2": "200",
+        "stroke": "black",
+        "stroke-width": "4",
+        "marker-end": "url(#arrow-black)",
+        "id": "alignment-panel-17"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-18",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1687",
+        "y1": "231",
+        "x2": "1848",
+        "y2": "231",
+        "stroke": "#b593c0",
+        "stroke-width": "2",
+        "stroke-dasharray": "9 7",
+        "id": "alignment-panel-18"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-19",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1699 220 Q 1688 231 1699 243 L 1704 243 Q 1696 232 1704 220 Z M 1696 229 H 1716 V 234 H 1696 Z",
+        "fill": "#d6bfd8",
+        "stroke": "#312635",
+        "stroke-width": "1.2",
+        "id": "alignment-panel-19"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-20",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1717",
+        "cy": "231",
+        "rx": "2.5",
+        "ry": "5",
+        "fill": "#d6bfd8",
+        "stroke": "#312635",
+        "stroke-width": "1",
+        "id": "alignment-panel-20"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-21",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1758 200 C 1830 172 1848 215 1828 264 C 1804 300 1849 321 1801 342 C 1732 382 1687 367 1695 318 C 1700 270 1760 259 1745 230 Z",
+        "fill": "url(#attack-gradient)",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "alignment-panel-21"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "after-malicious-icon",
+      "parent": "alignment-panel",
+      "primitive": "image",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "after-malicious-icon",
+        "x": "1754",
+        "y": "189",
+        "width": "68",
+        "height": "76",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "after-benign-icon",
+      "parent": "alignment-panel",
+      "primitive": "image",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "after-benign-icon",
+        "x": "1708",
+        "y": "276",
+        "width": "73",
+        "height": "72",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-22",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1873 241 L 1865 254 L 1887 262 L 1899 258 L 1912 238 L 1893 242 L 1886 255 Z M 1867 228 Q 1860 213 1872 202 Q 1882 183 1895 200 Q 1918 197 1912 223 Q 1896 232 1891 241",
+        "fill": "none",
+        "stroke": "#bb87cb",
+        "stroke-width": "1.8",
+        "stroke-dasharray": "6 5",
+        "id": "alignment-panel-22"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-23",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1858",
+        "y1": "230",
+        "x2": "1824",
+        "y2": "230",
+        "stroke": "#6a486e",
+        "stroke-width": "3",
+        "marker-end": "url(#arrow-purple)",
+        "id": "alignment-panel-23"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "projected-delta",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "projected-delta",
+        "x": "1820",
+        "y": "220",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "34",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "after-parameter-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "after-parameter-label",
+        "x": "1804",
+        "y": "415",
+        "font-family": "Comic Neue",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-24",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1726",
+        "cy": "350",
+        "rx": "9",
+        "ry": "9",
+        "fill": "#ffdf55",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-24"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-25",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1723",
+        "cy": "348",
+        "rx": "1.1",
+        "ry": "1.7",
+        "fill": "#805f21",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-25"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-26",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1729",
+        "cy": "348",
+        "rx": "1.1",
+        "ry": "1.7",
+        "fill": "#805f21",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-26"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-27",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1722 352 Q 1726 357 1730 352",
+        "fill": "none",
+        "stroke": "#805f21",
+        "stroke-width": "1.5",
+        "id": "alignment-panel-27"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-28",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1548",
+        "y1": "233",
+        "x2": "1653",
+        "y2": "233",
+        "stroke": "#dc0000",
+        "stroke-width": "2",
+        "stroke-dasharray": "9 6 2 6",
+        "id": "alignment-panel-28"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "keep-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "keep-label",
+        "x": "1574",
+        "y": "257",
+        "font-family": "Comic Neue",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#d40000",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-29",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1563 286 H 1620 V 274 L 1645 299 L 1620 324 V 311 H 1563 L 1575 299 Z",
+        "fill": "url(#align-gradient)",
+        "stroke": "#aea5b3",
+        "stroke-width": "2.5",
+        "id": "alignment-panel-29"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "eq6",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "eq6",
+        "x": "1916",
+        "y": "435",
+        "font-family": "Liberation Serif",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "end",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-30",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1417 445 Q 1460 433 1485 495",
+        "fill": "none",
+        "stroke": "#d0cfcd",
+        "stroke-width": "10",
+        "marker-end": "url(#arrow-gray)",
+        "id": "alignment-panel-30"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-31",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1706 504 Q 1759 522 1771 449",
+        "fill": "none",
+        "stroke": "#d0cfcd",
+        "stroke-width": "10",
+        "marker-end": "url(#arrow-gray)",
+        "id": "alignment-panel-31"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "projection-delta-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "projection-delta-label",
+        "x": "1613",
+        "y": "496",
+        "font-family": "Comic Neue",
+        "font-size": "28",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-32",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1284",
+        "y": "519",
+        "width": "631",
+        "height": "264",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "3.5",
+        "rx": "19",
+        "stroke-dasharray": "14 10",
+        "id": "alignment-panel-32"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-33",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1290",
+        "y": "485",
+        "width": "235",
+        "height": "75",
+        "fill": "#f5e7d0",
+        "stroke": "none",
+        "stroke-width": "1",
+        "rx": "12",
+        "id": "alignment-panel-33"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "null-space-title",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "null-space-title",
+        "x": "1407",
+        "y": "538",
+        "font-family": "Liberation Serif",
+        "font-size": "42",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-34",
+      "parent": "alignment-panel",
+      "primitive": "ellipse",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "cx": "1355",
+        "cy": "651",
+        "rx": "49",
+        "ry": "47",
+        "fill": "#bc99c4",
+        "stroke": "none",
+        "stroke-width": "1",
+        "id": "alignment-panel-34"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "null-malicious-icon",
+      "parent": "alignment-panel",
+      "primitive": "image",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "null-malicious-icon",
+        "x": "1322",
+        "y": "612",
+        "width": "67",
+        "height": "76",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "null-svd-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "null-svd-label",
+        "x": "1357",
+        "y": "739",
+        "font-family": "Comic Neue",
+        "font-size": "32",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "singular-value-label",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "singular-value-label",
+        "x": "1536",
+        "y": "584",
+        "font-family": "Comic Neue",
+        "font-size": "32",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-35",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1452 597 Q 1436 597 1436 611 V 653 Q 1436 668 1423 670 Q 1436 672 1436 687 V 728 Q 1436 743 1452 743",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "3",
+        "id": "alignment-panel-35"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-36",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1599 598 Q 1615 598 1615 613 V 656 Q 1615 671 1629 673 Q 1615 675 1615 690 V 728 Q 1615 743 1599 743",
+        "fill": "none",
+        "stroke": "black",
+        "stroke-width": "3",
+        "id": "alignment-panel-36"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "singular-x1",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "singular-x1",
+        "x": "1446",
+        "y": "617",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "33",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "singular-ellipsis",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "singular-ellipsis",
+        "x": "1481",
+        "y": "641",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "32",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "singular-xn",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "singular-xn",
+        "x": "1463",
+        "y": "655",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "33",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-37",
+      "parent": "alignment-panel",
+      "primitive": "rect",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x": "1529",
+        "y": "665",
+        "width": "72",
+        "height": "76",
+        "fill": "#f2e4f4",
+        "stroke": "#b18cbe",
+        "stroke-width": "3.5",
+        "rx": "0",
+        "stroke-dasharray": "14 7 3 7",
+        "id": "alignment-panel-37"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "zero-top",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "zero-top",
+        "x": "1534",
+        "y": "698",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "33",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "zero-ellipsis",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "zero-ellipsis",
+        "x": "1547",
+        "y": "718",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "29",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "zero-bottom",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "zero-bottom",
+        "x": "1572",
+        "y": "729",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "33",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "null-projector",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "null-projector",
+        "x": "1661",
+        "y": "607",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "40",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-38",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1662 733 L 1725 681 L 1900 685 L 1838 738 Z",
+        "fill": "#bdacc2",
+        "stroke": "none",
+        "stroke-width": "2",
+        "id": "alignment-panel-38"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-39",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1747",
+        "y1": "699",
+        "x2": "1747",
+        "y2": "649",
+        "stroke": "#eab348",
+        "stroke-width": "3",
+        "stroke-dasharray": "12 7",
+        "marker-end": "url(#arrow-gold)",
+        "id": "alignment-panel-39"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-40",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1854",
+        "y1": "701",
+        "x2": "1749",
+        "y2": "648",
+        "stroke": "#ae784c",
+        "stroke-width": "4",
+        "marker-end": "url(#arrow-brown)",
+        "id": "alignment-panel-40"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-41",
+      "parent": "alignment-panel",
+      "primitive": "line",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "x1": "1854",
+        "y1": "702",
+        "x2": "1750",
+        "y2": "700",
+        "stroke": "#735378",
+        "stroke-width": "4",
+        "marker-end": "url(#arrow-purple)",
+        "id": "alignment-panel-41"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "alignment-panel-42",
+      "parent": "alignment-panel",
+      "primitive": "path",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "d": "M 1578 755 C 1619 773 1664 739 1646 738 C 1618 735 1665 770 1706 749",
+        "fill": "none",
+        "stroke": "#9d889f",
+        "stroke-width": "3",
+        "marker-end": "url(#arrow-purple)",
+        "id": "alignment-panel-42"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "eq4",
+      "parent": "alignment-panel",
+      "primitive": "text",
+      "spec_id": "alignment-panel",
+      "geometry_and_style": {
+        "id": "eq4",
+        "x": "1878",
+        "y": "713",
+        "font-family": "Liberation Serif",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "end",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "poison-training",
+      "parent": "inter-panel-flows",
+      "primitive": "path",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "d": "M 327 304.19 H 384.0 V 291.5 L 422 315 L 384.0 338.5 V 325.81 H 327 Z",
+        "fill": "#7d91bb",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "poison-training"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clean-training",
+      "parent": "inter-panel-flows",
+      "primitive": "path",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "d": "M 328 633.19 H 393.4 V 620.5 L 437 644 L 393.4 667.5 V 654.81 H 328 Z",
+        "fill": "#7d91bb",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "clean-training"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "malicious-parameter-flow",
+      "parent": "inter-panel-flows",
+      "primitive": "path",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "d": "M 1155 362.19 H 1215.6 V 349.5 L 1256 373 L 1215.6 396.5 V 383.81 H 1155 Z",
+        "fill": "#f2ce92",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "malicious-parameter-flow"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-parameter-flow",
+      "parent": "inter-panel-flows",
+      "primitive": "path",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "d": "M 1183 626.19 H 1226.2 V 613.5 L 1255 637 L 1226.2 660.5 V 647.81 H 1183 Z",
+        "fill": "#f2ce92",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "benign-parameter-flow"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "eq3",
+      "parent": "inter-panel-flows",
+      "primitive": "text",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "id": "eq3",
+        "x": "1203",
+        "y": "284",
+        "font-family": "Liberation Serif",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "eq5",
+      "parent": "inter-panel-flows",
+      "primitive": "text",
+      "spec_id": "inter-panel-flows",
+      "geometry_and_style": {
+        "id": "eq5",
+        "x": "1203",
+        "y": "614",
+        "font-family": "Liberation Serif",
+        "font-size": "20",
+        "font-weight": "normal",
+        "text-anchor": "start",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "distribute-label",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "distribute-label",
+        "x": "56",
+        "y": "901",
+        "font-family": "Comic Neue",
+        "font-size": "31",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "distribute-image",
+      "parent": "federated-training",
+      "primitive": "image",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "distribute-image",
+        "x": "87",
+        "y": "905",
+        "width": "86",
+        "height": "91",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "aggregate-image",
+      "parent": "federated-training",
+      "primitive": "image",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "aggregate-image",
+        "x": "235",
+        "y": "870",
+        "width": "73",
+        "height": "76",
+        "preserveAspectRatio": "xMidYMid meet"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "aggregate-label",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "aggregate-label",
+        "x": "311",
+        "y": "955",
+        "font-family": "Comic Neue",
+        "font-size": "33",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-1",
+      "parent": "federated-training",
+      "primitive": "path",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "d": "M 906 979 H 203 V 807",
+        "fill": "none",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-2",
+      "parent": "federated-training",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "228",
+        "y1": "804",
+        "x2": "228",
+        "y2": "968",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-3",
+      "parent": "federated-training",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "491",
+        "y1": "918",
+        "x2": "491",
+        "y2": "968",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-4",
+      "parent": "federated-training",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "813",
+        "y1": "918",
+        "x2": "813",
+        "y2": "968",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-5",
+      "parent": "federated-training",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "513",
+        "y1": "977",
+        "x2": "513",
+        "y2": "918",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "federated-training-6",
+      "parent": "federated-training",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "781",
+        "y1": "977",
+        "x2": "781",
+        "y2": "918",
+        "stroke": "#a3c3c4",
+        "stroke-width": "3.5",
+        "marker-end": "url(#arrow-teal)",
+        "id": "federated-training-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-client-one",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "benign-client-one",
+        "x": "411",
+        "y": "897",
+        "font-family": "Liberation Serif",
+        "font-size": "38",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "benign-client-two",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "benign-client-two",
+        "x": "674",
+        "y": "899",
+        "font-family": "Liberation Serif",
+        "font-size": "38",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "#888888",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "clients-ellipsis",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "clients-ellipsis",
+        "x": "648",
+        "y": "954",
+        "font-family": "TeX Gyre Termes",
+        "font-size": "66",
+        "font-weight": "normal",
+        "text-anchor": "middle",
+        "fill": "#cfcecd",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-1",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "889.63",
+        "x2": "1024.5",
+        "y2": "871",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-2",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "889.63",
+        "x2": "1024.5",
+        "y2": "909.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-2"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-3",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "889.63",
+        "x2": "1024.5",
+        "y2": "948.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-3"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-4",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "929.32",
+        "x2": "1024.5",
+        "y2": "871",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-4"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-5",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "929.32",
+        "x2": "1024.5",
+        "y2": "909.88",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-5"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-6",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "984",
+        "y1": "929.32",
+        "x2": "1024.5",
+        "y2": "948.76",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-6"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-7",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "871",
+        "x2": "1065",
+        "y2": "889.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-7"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-8",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "871",
+        "x2": "1065",
+        "y2": "929.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-8"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-9",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "909.88",
+        "x2": "1065",
+        "y2": "889.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-9"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-10",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "909.88",
+        "x2": "1065",
+        "y2": "929.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-10"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-11",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "948.76",
+        "x2": "1065",
+        "y2": "889.63",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-11"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-12",
+      "parent": "global-model-network",
+      "primitive": "line",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "x1": "1024.5",
+        "y1": "948.76",
+        "x2": "1065",
+        "y2": "929.32",
+        "stroke": "#111111",
+        "stroke-width": "4",
+        "id": "global-model-network-12"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-13",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "984",
+        "cy": "889.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-13"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-14",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "984",
+        "cy": "929.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-14"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-15",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "1024.5",
+        "cy": "871",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-15"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-16",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "1024.5",
+        "cy": "909.88",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-16"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-17",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "1024.5",
+        "cy": "948.76",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-17"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-18",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "1065",
+        "cy": "889.63",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-18"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-network-19",
+      "parent": "global-model-network",
+      "primitive": "ellipse",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "cx": "1065",
+        "cy": "929.32",
+        "rx": "12",
+        "ry": "12",
+        "fill": "#ffda62",
+        "stroke": "#101010",
+        "stroke-width": "4.5",
+        "id": "global-model-network-19"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "global-model-label",
+      "parent": "federated-training",
+      "primitive": "text",
+      "spec_id": "federated-training",
+      "geometry_and_style": {
+        "id": "global-model-label",
+        "x": "1034",
+        "y": "992",
+        "font-family": "Comic Neue",
+        "font-size": "41",
+        "font-weight": "bold",
+        "text-anchor": "middle",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-1",
+      "parent": "legend",
+      "primitive": "path",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "d": "M 1207 881 H 1265 V 869 L 1285 891 L 1265 912 V 901 H 1207 L 1218 891 Z",
+        "fill": "url(#align-gradient)",
+        "stroke": "#aaa1b0",
+        "stroke-width": "2.5",
+        "id": "legend-1"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-projection-arrow",
+      "parent": "legend",
+      "primitive": "path",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "d": "M 1207 938.8 H 1257.4 V 928.0 L 1291 948 L 1257.4 968.0 V 957.2 H 1207 Z",
+        "fill": "#cecdcc",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "legend-projection-arrow"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-training-arrow",
+      "parent": "legend",
+      "primitive": "path",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "d": "M 1557 881.03 H 1606.8 V 870.5 L 1640 890 L 1606.8 909.5 V 898.97 H 1557 Z",
+        "fill": "#7d91bb",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "legend-training-arrow"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-parameter-arrow",
+      "parent": "legend",
+      "primitive": "path",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "d": "M 1561 943.03 H 1610.8 V 932.5 L 1644 952 L 1610.8 971.5 V 960.97 H 1561 Z",
+        "fill": "#f2ce92",
+        "stroke": "none",
+        "stroke-width": "3",
+        "id": "legend-parameter-arrow"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-alignment",
+      "parent": "legend",
+      "primitive": "text",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "id": "legend-alignment",
+        "x": "1320",
+        "y": "902",
+        "font-family": "Liberation Serif",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-projection",
+      "parent": "legend",
+      "primitive": "text",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "id": "legend-projection",
+        "x": "1322",
+        "y": "960",
+        "font-family": "Liberation Serif",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-training",
+      "parent": "legend",
+      "primitive": "text",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "id": "legend-training",
+        "x": "1689",
+        "y": "901",
+        "font-family": "Liberation Serif",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    },
+    {
+      "id": "legend-parameter",
+      "parent": "legend",
+      "primitive": "text",
+      "spec_id": "legend",
+      "geometry_and_style": {
+        "id": "legend-parameter",
+        "x": "1670",
+        "y": "963",
+        "font-family": "Liberation Serif",
+        "font-size": "37",
+        "font-weight": "bold",
+        "text-anchor": "start",
+        "fill": "black",
+        "font-style": "normal"
+      },
+      "role": "reference-reconstruction"
+    }
+  ]
+}

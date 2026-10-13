@@ -1,0 +1,1850 @@
+{
+  "source": "/home/mzhyui/git/plot/figures/batman-rebuilt/figure.svg",
+  "status": "rendered_with_warnings",
+  "errors": [],
+  "warnings": [
+    "Raster image present; check effective resolution and disclose mixed vector/raster content."
+  ],
+  "scientific_review": "not_performed",
+  "visual_review": "not_performed",
+  "limitations": [
+    "Checks do not establish scientific fidelity or visual quality.",
+    "Font audit handles presentation/inline absolute sizes without transforms; CSS and relative sizes require manual review.",
+    "Bounds and text intersections are heuristics; masks, clipping, hidden CSS, filters, strokes, and markers require visual inspection.",
+    "Font availability/substitution, glyph correctness, arrows, scene-graph consistency, and raster resolution need separate review.",
+    "The 96 dpi preview approximates manuscript scale; actual display zoom/density can differ."
+  ],
+  "source_sha256": "b198e2347f99cc7b5ad4332607e5900b0a0df5df5d859913533f3647289a08a6",
+  "font_samples": [
+    {
+      "id": "batman-title",
+      "size_pt": 27.568
+    },
+    {
+      "id": "poisoned-data",
+      "size_pt": 16.04
+    },
+    {
+      "id": "clean-data",
+      "size_pt": 16.04
+    },
+    {
+      "id": "attacker-label",
+      "size_pt": 19.047
+    },
+    {
+      "id": "malicious-title",
+      "size_pt": 21.052
+    },
+    {
+      "id": "malicious-parameter",
+      "size_pt": 14.035
+    },
+    {
+      "id": "svd-label",
+      "size_pt": 16.04
+    },
+    {
+      "id": "decomposition-equals",
+      "size_pt": 32.08
+    },
+    {
+      "id": "redundant-title",
+      "size_pt": 15.539
+    },
+    {
+      "id": "redundant-no-svd",
+      "size_pt": 10.526
+    },
+    {
+      "id": "redundant-svd",
+      "size_pt": 10.526
+    },
+    {
+      "id": "tac-decrease-prefix",
+      "size_pt": 11.529
+    },
+    {
+      "id": "tac-decrease",
+      "size_pt": 10.526
+    },
+    {
+      "id": "decomposition-plus",
+      "size_pt": 28.07
+    },
+    {
+      "id": "important-title",
+      "size_pt": 15.539
+    },
+    {
+      "id": "important-no-svd",
+      "size_pt": 10.025
+    },
+    {
+      "id": "important-svd",
+      "size_pt": 10.025
+    },
+    {
+      "id": "tac-increase-prefix",
+      "size_pt": 11.529
+    },
+    {
+      "id": "tac-increase",
+      "size_pt": 10.526
+    },
+    {
+      "id": "benign-title",
+      "size_pt": 21.052
+    },
+    {
+      "id": "clean-model-label",
+      "size_pt": 15.539
+    },
+    {
+      "id": "clean-gap",
+      "size_pt": 18.546
+    },
+    {
+      "id": "truth-label-1",
+      "size_pt": 13.534
+    },
+    {
+      "id": "truth-label-2",
+      "size_pt": 13.534
+    },
+    {
+      "id": "attack-label-1",
+      "size_pt": 13.534
+    },
+    {
+      "id": "attack-label-2",
+      "size_pt": 13.534
+    },
+    {
+      "id": "clean-parameter-label",
+      "size_pt": 17.544
+    },
+    {
+      "id": "w-benign-a",
+      "size_pt": 17.042
+    },
+    {
+      "id": "w-benign-b",
+      "size_pt": 17.042
+    },
+    {
+      "id": "w-attack",
+      "size_pt": 17.042
+    },
+    {
+      "id": "previous-global-weight",
+      "size_pt": 16.04
+    },
+    {
+      "id": "tspan",
+      "size_pt": 16.04
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.228
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.228
+    },
+    {
+      "id": "benign-clients-label",
+      "size_pt": 15.037
+    },
+    {
+      "id": "attack-clients-label",
+      "size_pt": 15.539
+    },
+    {
+      "id": "global-gap",
+      "size_pt": 18.546
+    },
+    {
+      "id": "updated-global-weight",
+      "size_pt": 17.042
+    },
+    {
+      "id": "tspan",
+      "size_pt": 17.042
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.93
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.93
+    },
+    {
+      "id": "global-parameter-label",
+      "size_pt": 17.544
+    },
+    {
+      "id": "alignment-title",
+      "size_pt": 20.551
+    },
+    {
+      "id": "before-performance-label",
+      "size_pt": 14.536
+    },
+    {
+      "id": "initial-delta",
+      "size_pt": 15.539
+    },
+    {
+      "id": "before-parameter-label",
+      "size_pt": 14.536
+    },
+    {
+      "id": "after-performance-label",
+      "size_pt": 14.536
+    },
+    {
+      "id": "projected-delta",
+      "size_pt": 17.042
+    },
+    {
+      "id": "tspan",
+      "size_pt": 17.042
+    },
+    {
+      "id": "tspan",
+      "size_pt": 17.042
+    },
+    {
+      "id": "after-parameter-label",
+      "size_pt": 14.536
+    },
+    {
+      "id": "keep-label",
+      "size_pt": 14.536
+    },
+    {
+      "id": "eq6",
+      "size_pt": 10.025
+    },
+    {
+      "id": "projection-delta-label",
+      "size_pt": 14.035
+    },
+    {
+      "id": "null-space-title",
+      "size_pt": 21.052
+    },
+    {
+      "id": "null-svd-label",
+      "size_pt": 16.04
+    },
+    {
+      "id": "singular-value-label",
+      "size_pt": 16.04
+    },
+    {
+      "id": "singular-x1",
+      "size_pt": 16.541
+    },
+    {
+      "id": "tspan",
+      "size_pt": 16.541
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.91
+    },
+    {
+      "id": "singular-ellipsis",
+      "size_pt": 16.04
+    },
+    {
+      "id": "singular-xn",
+      "size_pt": 16.541
+    },
+    {
+      "id": "tspan",
+      "size_pt": 16.541
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.91
+    },
+    {
+      "id": "zero-top",
+      "size_pt": 16.541
+    },
+    {
+      "id": "zero-ellipsis",
+      "size_pt": 14.536
+    },
+    {
+      "id": "zero-bottom",
+      "size_pt": 16.541
+    },
+    {
+      "id": "null-projector",
+      "size_pt": 20.05
+    },
+    {
+      "id": "tspan",
+      "size_pt": 20.05
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.032
+    },
+    {
+      "id": "tspan",
+      "size_pt": 20.05
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.032
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.032
+    },
+    {
+      "id": "tspan",
+      "size_pt": 20.05
+    },
+    {
+      "id": "tspan",
+      "size_pt": 26.065
+    },
+    {
+      "id": "eq4",
+      "size_pt": 10.025
+    },
+    {
+      "id": "eq3",
+      "size_pt": 10.025
+    },
+    {
+      "id": "eq5",
+      "size_pt": 10.025
+    },
+    {
+      "id": "distribute-label",
+      "size_pt": 15.539
+    },
+    {
+      "id": "aggregate-label",
+      "size_pt": 16.541
+    },
+    {
+      "id": "benign-client-one",
+      "size_pt": 19.047
+    },
+    {
+      "id": "benign-client-two",
+      "size_pt": 19.047
+    },
+    {
+      "id": "clients-ellipsis",
+      "size_pt": 33.082
+    },
+    {
+      "id": "global-model-label",
+      "size_pt": 20.551
+    },
+    {
+      "id": "legend-alignment",
+      "size_pt": 18.546
+    },
+    {
+      "id": "legend-projection",
+      "size_pt": 18.546
+    },
+    {
+      "id": "legend-training",
+      "size_pt": 18.546
+    },
+    {
+      "id": "legend-parameter",
+      "size_pt": 18.546
+    }
+  ],
+  "editable_text_count": 69,
+  "target": {
+    "width_in": 14.0,
+    "height_in": 7.107906514172054,
+    "dpi": 300.0,
+    "min_font_pt": 8.0
+  },
+  "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+  "commands": [
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure.pdf"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure.png",
+      "--export-dpi=300.0"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/batman-rebuilt/exports/figure-size-preview.png",
+      "--export-dpi=96"
+    ]
+  ],
+  "renderer_messages": [
+    "** (inkscape:2427979): WARNING **: 01:17:59.464: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2427990): WARNING **: 01:17:59.682: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2428007): WARNING **: 01:18:00.295: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2428017): WARNING **: 01:18:00.535: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function."
+  ],
+  "rendered_bounds_px": {
+    "background-1": [
+      0.0,
+      0.0,
+      1344.0,
+      682.359
+    ],
+    "background-2": [
+      30.2417,
+      20.8851,
+      1290.2,
+      535.662
+    ],
+    "background-3": [
+      30.4088,
+      563.731,
+      1289.88,
+      109.605
+    ],
+    "background-4": [
+      782.273,
+      565.402,
+      2.00497,
+      106.264
+    ],
+    "batman-image": [
+      36.7578,
+      27.4013,
+      84.8772,
+      71.5107
+    ],
+    "batman-title": [
+      106.591,
+      48.1105,
+      119.068,
+      24.4454
+    ],
+    "attacker-client-1": [
+      106.932,
+      75.8548,
+      122.972,
+      2.00497
+    ],
+    "attacker-client-2": [
+      50.9931,
+      131.86,
+      160.665,
+      363.169
+    ],
+    "attacker-client-3": [
+      52.1293,
+      312.442,
+      158.393,
+      2.00497
+    ],
+    "poisoned-photos-image": [
+      74.184,
+      157.056,
+      117.625,
+      106.264
+    ],
+    "clean-photos-image": [
+      74.184,
+      341.514,
+      116.957,
+      102.922
+    ],
+    "poisoned-data": [
+      69.2652,
+      272.922,
+      127.57,
+      14.7994
+    ],
+    "clean-data": [
+      83.161,
+      459.385,
+      97.6929,
+      14.7994
+    ],
+    "attacker-label": [
+      57.2197,
+      515.033,
+      167.73,
+      17.8692
+    ],
+    "malicious-knowledge-1": [
+      258.14,
+      42.2715,
+      524.3,
+      265.659
+    ],
+    "malicious-book-image": [
+      348.865,
+      38.0945,
+      56.1392,
+      62.8225
+    ],
+    "malicious-title": [
+      420.187,
+      60.0545,
+      256.875,
+      25.6711
+    ],
+    "malicious-parameter": [
+      300.176,
+      112.233,
+      162.13,
+      13.0056
+    ],
+    "malicious-knowledge-2": [
+      288.716,
+      135.67,
+      314.781,
+      141.016
+    ],
+    "malicious-knowledge-3": [
+      300.913,
+      143.857,
+      79.1964,
+      102.588
+    ],
+    "malicious-knowledge-4": [
+      341.514,
+      145.026,
+      37.4262,
+      100.249
+    ],
+    "malicious-knowledge-5": [
+      300.913,
+      143.857,
+      79.1964,
+      102.588
+    ],
+    "malicious-knowledge-6": [
+      391.972,
+      153.38,
+      81.5356,
+      80.8672
+    ],
+    "malicious-knowledge-7": [
+      393.643,
+      155.051,
+      39.4311,
+      38.7628
+    ],
+    "malicious-knowledge-8": [
+      433.074,
+      193.814,
+      39.4311,
+      39.4311
+    ],
+    "malicious-knowledge-9": [
+      391.972,
+      153.38,
+      81.5356,
+      80.8672
+    ],
+    "malicious-knowledge-10": [
+      483.365,
+      151.877,
+      107.266,
+      83.2064
+    ],
+    "malicious-knowledge-11": [
+      484.535,
+      193.814,
+      104.927,
+      40.0995
+    ],
+    "malicious-knowledge-12": [
+      483.365,
+      151.877,
+      107.266,
+      83.2064
+    ],
+    "svd-label": [
+      313.289,
+      254.877,
+      270.794,
+      18.3709
+    ],
+    "decomposition-equals": [
+      610.942,
+      190.974,
+      19.9035,
+      10.6932
+    ],
+    "malicious-knowledge-13": [
+      635.075,
+      101.084,
+      136.004,
+      81.2014
+    ],
+    "redundant-title": [
+      644.482,
+      108.298,
+      93.0861,
+      14.3369
+    ],
+    "malicious-knowledge-14": [
+      637.581,
+      126.982,
+      72.179,
+      14.0348
+    ],
+    "malicious-knowledge-15": [
+      637.581,
+      142.353,
+      48.7877,
+      14.0348
+    ],
+    "redundant-no-svd": [
+      715.633,
+      129.398,
+      44.4696,
+      9.8384
+    ],
+    "redundant-svd": [
+      696.506,
+      148.111,
+      23.5223,
+      9.8384
+    ],
+    "malicious-knowledge-16": [
+      646.27,
+      145.695,
+      37.4262,
+      6.68324
+    ],
+    "tac-decrease-prefix": [
+      643.02,
+      165.954,
+      23.7643,
+      10.5909
+    ],
+    "tac-decrease": [
+      675.392,
+      167.034,
+      52.9252,
+      9.62788
+    ],
+    "sleeping-image": [
+      735.825,
+      146.363,
+      41.4361,
+      40.7678
+    ],
+    "decomposition-plus": [
+      690.378,
+      186.037,
+      17.3973,
+      17.4339
+    ],
+    "malicious-knowledge-17": [
+      634.407,
+      206.679,
+      137.341,
+      80.5331
+    ],
+    "important-title": [
+      644.928,
+      214.686,
+      89.1497,
+      17.6725
+    ],
+    "malicious-knowledge-18": [
+      637.581,
+      233.913,
+      56.8076,
+      12.0298
+    ],
+    "malicious-knowledge-19": [
+      637.581,
+      248.617,
+      77.5256,
+      12.0298
+    ],
+    "important-no-svd": [
+      700.236,
+      234.782,
+      42.352,
+      9.36991
+    ],
+    "important-svd": [
+      719.224,
+      249.485,
+      22.4022,
+      9.36991
+    ],
+    "malicious-knowledge-20": [
+      654.958,
+      249.786,
+      59.1467,
+      8.35405
+    ],
+    "tac-increase-prefix": [
+      643.688,
+      270.881,
+      23.7643,
+      10.5909
+    ],
+    "tac-increase": [
+      675.457,
+      271.961,
+      51.1989,
+      9.62788
+    ],
+    "working-image": [
+      735.825,
+      255.968,
+      41.4361,
+      41.4361
+    ],
+    "benign-knowledge-1": [
+      258.14,
+      324.973,
+      526.974,
+      216.203
+    ],
+    "benign-book-image": [
+      363.568,
+      318.791,
+      56.1392,
+      55.4709
+    ],
+    "benign-title": [
+      435.545,
+      341.419,
+      224.173,
+      25.6711
+    ],
+    "clean-model-label": [
+      266.442,
+      379.389,
+      108.086,
+      14.5441
+    ],
+    "clean-network-1": [
+      306.202,
+      407.132,
+      28.1843,
+      14.8795
+    ],
+    "clean-network-2": [
+      306.163,
+      419.601,
+      28.2627,
+      15.9246
+    ],
+    "clean-network-3": [
+      305.658,
+      420.042,
+      29.2727,
+      41.0287
+    ],
+    "clean-network-4": [
+      305.663,
+      407.584,
+      29.2629,
+      40.5015
+    ],
+    "clean-network-5": [
+      306.182,
+      433.126,
+      28.2239,
+      15.4023
+    ],
+    "clean-network-6": [
+      306.182,
+      446.118,
+      28.2239,
+      15.4023
+    ],
+    "clean-network-7": [
+      333.269,
+      407.132,
+      28.1843,
+      14.8795
+    ],
+    "clean-network-8": [
+      332.73,
+      407.584,
+      29.2629,
+      40.5015
+    ],
+    "clean-network-9": [
+      333.23,
+      419.601,
+      28.2627,
+      15.9246
+    ],
+    "clean-network-10": [
+      333.25,
+      433.126,
+      28.2239,
+      15.4023
+    ],
+    "clean-network-11": [
+      332.725,
+      420.042,
+      29.2727,
+      41.0287
+    ],
+    "clean-network-12": [
+      333.25,
+      446.118,
+      28.2239,
+      15.4023
+    ],
+    "clean-network-13": [
+      297.237,
+      411.273,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-14": [
+      297.237,
+      437.799,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-15": [
+      324.304,
+      398.822,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-16": [
+      324.304,
+      424.807,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-17": [
+      324.304,
+      450.791,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-18": [
+      351.371,
+      411.273,
+      19.0472,
+      19.0472
+    ],
+    "clean-network-19": [
+      351.371,
+      437.799,
+      19.0472,
+      19.0472
+    ],
+    "benign-knowledge-2": [
+      385.623,
+      390.97,
+      98.912,
+      32.0796
+    ],
+    "benign-knowledge-3": [
+      395.481,
+      390.803,
+      22.3889,
+      65.1616
+    ],
+    "benign-knowledge-4": [
+      448.947,
+      422.214,
+      21.0522,
+      33.7504
+    ],
+    "benign-knowledge-5": [
+      381.613,
+      379.608,
+      102.254,
+      82.8722
+    ],
+    "benign-knowledge-6": [
+      377.937,
+      376.935,
+      10.0249,
+      77.5256
+    ],
+    "clean-gap": [
+      428.914,
+      396.952,
+      40.9495,
+      21.2661
+    ],
+    "truth-label-1": [
+      386.853,
+      465.563,
+      39.2473,
+      12.4509
+    ],
+    "truth-label-2": [
+      388.171,
+      485.613,
+      37.7677,
+      12.5411
+    ],
+    "attack-label-1": [
+      444.802,
+      465.527,
+      46.3931,
+      12.5772
+    ],
+    "attack-label-2": [
+      448.988,
+      485.613,
+      37.7677,
+      12.5411
+    ],
+    "benign-knowledge-7": [
+      484.904,
+      377.264,
+      36.0197,
+      158.404
+    ],
+    "clean-parameter-label": [
+      323.512,
+      510.827,
+      166.476,
+      16.1868
+    ],
+    "benign-knowledge-8": [
+      517.283,
+      433.074,
+      253.295,
+      34.0845
+    ],
+    "benign-knowledge-9": [
+      548.899,
+      390.201,
+      104.16,
+      98.7059
+    ],
+    "benign-knowledge-10": [
+      563.94,
+      421.841,
+      94.3104,
+      38.9434
+    ],
+    "benign-knowledge-11": [
+      543.849,
+      373.426,
+      36.4237,
+      33.7504
+    ],
+    "benign-knowledge-12": [
+      584.617,
+      399.491,
+      36.4237,
+      33.7504
+    ],
+    "benign-knowledge-13": [
+      523.131,
+      442.932,
+      52.4635,
+      47.1169
+    ],
+    "benign-knowledge-14": [
+      634.741,
+      467.66,
+      36.4237,
+      33.7504
+    ],
+    "w-benign-a": [
+      551.449,
+      382.61,
+      21.0642,
+      15.2926
+    ],
+    "w-benign-b": [
+      592.217,
+      408.675,
+      21.0642,
+      15.2926
+    ],
+    "w-attack": [
+      642.341,
+      476.844,
+      21.0642,
+      15.2926
+    ],
+    "previous-global-weight": [
+      531.928,
+      454.499,
+      34.7999,
+      26.2154
+    ],
+    "benign-clients-label": [
+      502.239,
+      407.531,
+      56.8009,
+      17.2829
+    ],
+    "attack-clients-label": [
+      680.913,
+      476.4,
+      53.2661,
+      14.4405
+    ],
+    "global-gap": [
+      654.808,
+      442.398,
+      40.9495,
+      21.2661
+    ],
+    "updated-global-network-1": [
+      669.102,
+      377.057,
+      28.1843,
+      14.8795
+    ],
+    "updated-global-network-2": [
+      669.063,
+      389.527,
+      28.2627,
+      15.9246
+    ],
+    "updated-global-network-3": [
+      668.558,
+      389.967,
+      29.2727,
+      41.0287
+    ],
+    "updated-global-network-4": [
+      668.563,
+      377.509,
+      29.2629,
+      40.5015
+    ],
+    "updated-global-network-5": [
+      669.082,
+      403.051,
+      28.2239,
+      15.4023
+    ],
+    "updated-global-network-6": [
+      669.082,
+      416.043,
+      28.2239,
+      15.4023
+    ],
+    "updated-global-network-7": [
+      696.169,
+      377.057,
+      28.1843,
+      14.8795
+    ],
+    "updated-global-network-8": [
+      695.63,
+      377.509,
+      29.2629,
+      40.5015
+    ],
+    "updated-global-network-9": [
+      696.13,
+      389.527,
+      28.2627,
+      15.9246
+    ],
+    "updated-global-network-10": [
+      696.15,
+      403.051,
+      28.2239,
+      15.4023
+    ],
+    "updated-global-network-11": [
+      695.625,
+      389.967,
+      29.2727,
+      41.0287
+    ],
+    "updated-global-network-12": [
+      696.15,
+      416.043,
+      28.2239,
+      15.4023
+    ],
+    "updated-global-network-13": [
+      660.137,
+      381.199,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-14": [
+      660.137,
+      407.725,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-15": [
+      687.204,
+      368.748,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-16": [
+      687.204,
+      394.732,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-17": [
+      687.204,
+      420.717,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-18": [
+      714.271,
+      381.199,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-network-19": [
+      714.271,
+      407.725,
+      19.0472,
+      19.0472
+    ],
+    "updated-global-weight": [
+      739.949,
+      373.339,
+      28.8128,
+      26.311
+    ],
+    "global-parameter-label": [
+      562.032,
+      510.804,
+      174.64,
+      16.2102
+    ],
+    "alignment-panel-1": [
+      836.909,
+      39.5982,
+      459.473,
+      505.587
+    ],
+    "alignment-title": [
+      863.671,
+      59.1816,
+      405.507,
+      25.0599
+    ],
+    "before-performance-label": [
+      851.221,
+      103.051,
+      162.067,
+      13.5088
+    ],
+    "alignment-panel-2": [
+      856.29,
+      133.832,
+      11.6957,
+      119.296
+    ],
+    "alignment-panel-3": [
+      878.011,
+      133.665,
+      158.894,
+      128.485
+    ],
+    "alignment-panel-4": [
+      872.831,
+      130.992,
+      13.3665,
+      123.64
+    ],
+    "alignment-panel-5": [
+      880.851,
+      153.715,
+      107.6,
+      1.33665
+    ],
+    "alignment-panel-6": [
+      884.794,
+      146.63,
+      15.8393,
+      16.1734
+    ],
+    "alignment-panel-7": [
+      898.896,
+      150.707,
+      4.00995,
+      7.35157
+    ],
+    "alignment-panel-8": [
+      887.535,
+      185.794,
+      77.5256,
+      62.8225
+    ],
+    "alignment-panel-9": [
+      953.699,
+      122.303,
+      76.189,
+      62.8225
+    ],
+    "before-malicious-icon": [
+      969.07,
+      126.982,
+      45.446,
+      50.7926
+    ],
+    "before-benign-icon": [
+      900.901,
+      188.467,
+      48.7877,
+      48.1193
+    ],
+    "alignment-panel-10": [
+      950.813,
+      179.339,
+      34.8784,
+      39.0299
+    ],
+    "initial-delta": [
+      954.237,
+      176.664,
+      12.5759,
+      15.1449
+    ],
+    "before-parameter-label": [
+      889.65,
+      264.253,
+      139.759,
+      16.9393
+    ],
+    "alignment-panel-11": [
+      906.248,
+      233.245,
+      12.0298,
+      12.0298
+    ],
+    "alignment-panel-12": [
+      909.522,
+      236.787,
+      1.47031,
+      2.2723
+    ],
+    "alignment-panel-13": [
+      913.532,
+      236.787,
+      1.47031,
+      2.2723
+    ],
+    "alignment-panel-14": [
+      909.198,
+      240.284,
+      6.1294,
+      2.48518
+    ],
+    "after-performance-label": [
+      1097.83,
+      103.051,
+      162.067,
+      13.5088
+    ],
+    "alignment-panel-15": [
+      1102.9,
+      133.832,
+      11.6957,
+      119.296
+    ],
+    "alignment-panel-16": [
+      1124.62,
+      133.665,
+      158.894,
+      128.485
+    ],
+    "alignment-panel-17": [
+      1119.44,
+      130.992,
+      13.3665,
+      123.64
+    ],
+    "alignment-panel-18": [
+      1127.46,
+      153.715,
+      107.6,
+      1.33665
+    ],
+    "alignment-panel-19": [
+      1131.41,
+      146.63,
+      15.8393,
+      16.1734
+    ],
+    "alignment-panel-20": [
+      1145.51,
+      150.707,
+      4.00995,
+      7.35157
+    ],
+    "alignment-panel-21": [
+      1132.2,
+      127.741,
+      94.597,
+      116.164
+    ],
+    "after-malicious-icon": [
+      1172.24,
+      126.313,
+      45.446,
+      50.7926
+    ],
+    "after-benign-icon": [
+      1141.5,
+      184.457,
+      48.7877,
+      48.1193
+    ],
+    "alignment-panel-22": [
+      1245.44,
+      127.698,
+      33.7857,
+      48.0399
+    ],
+    "alignment-panel-23": [
+      1217.02,
+      148.702,
+      24.728,
+      10.0249
+    ],
+    "projected-delta": [
+      1216.94,
+      130.421,
+      28.1311,
+      16.6105
+    ],
+    "after-parameter-label": [
+      1136.26,
+      264.253,
+      139.759,
+      16.9393
+    ],
+    "alignment-panel-24": [
+      1147.51,
+      227.899,
+      12.0298,
+      12.0298
+    ],
+    "alignment-panel-25": [
+      1150.79,
+      231.441,
+      1.47031,
+      2.2723
+    ],
+    "alignment-panel-26": [
+      1154.8,
+      231.441,
+      1.47031,
+      2.2723
+    ],
+    "alignment-panel-27": [
+      1150.46,
+      234.937,
+      6.1294,
+      2.48518
+    ],
+    "alignment-panel-28": [
+      1034.57,
+      155.051,
+      70.174,
+      1.33665
+    ],
+    "keep-label": [
+      1053.55,
+      158.657,
+      38.065,
+      16.9393
+    ],
+    "alignment-panel-29": [
+      1042.57,
+      181.104,
+      58.0009,
+      37.4499
+    ],
+    "eq6": [
+      1243.78,
+      281.447,
+      36.1443,
+      12.1199
+    ],
+    "alignment-panel-30": [
+      946.117,
+      292.799,
+      49.6434,
+      41.7406
+    ],
+    "alignment-panel-31": [
+      1139.09,
+      296.121,
+      51.806,
+      46.3781
+    ],
+    "projection-delta-label": [
+      1030.96,
+      318.128,
+      95.2682,
+      16.8043
+    ],
+    "alignment-panel-32": [
+      856.957,
+      345.691,
+      424.053,
+      178.777
+    ],
+    "alignment-panel-33": [
+      862.138,
+      324.137,
+      157.056,
+      50.1243
+    ],
+    "null-space-title": [
+      876.531,
+      340.082,
+      127.41,
+      25.4518
+    ],
+    "alignment-panel-34": [
+      872.831,
+      403.668,
+      65.4958,
+      62.8225
+    ],
+    "null-malicious-icon": [
+      883.525,
+      409.014,
+      44.7777,
+      50.7926
+    ],
+    "null-svd-label": [
+      889.155,
+      479.434,
+      35.095,
+      14.6069
+    ],
+    "singular-value-label": [
+      961.189,
+      375.844,
+      130.585,
+      18.1784
+    ],
+    "alignment-panel-35": [
+      950.873,
+      397.987,
+      19.5338,
+      99.5803
+    ],
+    "alignment-panel-36": [
+      1068.65,
+      398.655,
+      20.1915,
+      98.912
+    ],
+    "singular-x1": [
+      965.801,
+      402.63,
+      16.6442,
+      14.1371
+    ],
+    "singular-ellipsis": [
+      992.162,
+      411.886,
+      16.6172,
+      16.6386
+    ],
+    "singular-xn": [
+      977.163,
+      428.026,
+      18.0893,
+      14.1371
+    ],
+    "alignment-panel-37": [
+      1020.7,
+      443.266,
+      50.4585,
+      53.1318
+    ],
+    "zero-top": [
+      1025.74,
+      451.581,
+      9.96872,
+      15.2177
+    ],
+    "zero-ellipsis": [
+      1036.05,
+      464.894,
+      15.0593,
+      15.0787
+    ],
+    "zero-bottom": [
+      1051.13,
+      472.299,
+      9.96872,
+      15.2177
+    ],
+    "null-projector": [
+      1112.81,
+      382.423,
+      90.606,
+      28.8395
+    ],
+    "alignment-panel-38": [
+      1110.75,
+      455.129,
+      159.061,
+      38.0945
+    ],
+    "alignment-panel-39": [
+      1162.55,
+      431.737,
+      10.0249,
+      35.4212
+    ],
+    "alignment-panel-40": [
+      1166.51,
+      431.869,
+      73.1629,
+      37.8191
+    ],
+    "alignment-panel-41": [
+      1166.89,
+      461.351,
+      72.2042,
+      13.364
+    ],
+    "alignment-panel-42": [
+      1054.21,
+      492.088,
+      87.733,
+      17.0116
+    ],
+    "eq4": [
+      1218.38,
+      467.241,
+      36.1443,
+      12.1199
+    ],
+    "poison-training": [
+      218.542,
+      194.817,
+      63.4908,
+      31.4112
+    ],
+    "clean-training": [
+      219.21,
+      414.695,
+      72.8473,
+      31.4112
+    ],
+    "malicious-parameter-flow": [
+      771.914,
+      233.579,
+      67.5007,
+      31.4112
+    ],
+    "benign-parameter-flow": [
+      790.628,
+      410.017,
+      48.1193,
+      31.4112
+    ],
+    "eq3": [
+      804.379,
+      180.53,
+      36.1443,
+      12.1199
+    ],
+    "eq5": [
+      804.379,
+      401.077,
+      36.1443,
+      12.1199
+    ],
+    "distribute-label": [
+      38.98,
+      588.279,
+      82.9135,
+      14.1297
+    ],
+    "distribute-image": [
+      58.1442,
+      604.833,
+      57.4759,
+      60.8175
+    ],
+    "aggregate-image": [
+      157.056,
+      581.442,
+      48.7877,
+      50.7926
+    ],
+    "aggregate-label": [
+      208.069,
+      623.208,
+      95.4306,
+      18.8788
+    ],
+    "federated-training-1": [
+      129.822,
+      536.999,
+      475.68,
+      118.46
+    ],
+    "federated-training-2": [
+      146.53,
+      537.333,
+      11.6957,
+      111.944
+    ],
+    "federated-training-3": [
+      322.299,
+      613.522,
+      11.6957,
+      35.7553
+    ],
+    "federated-training-4": [
+      537.5,
+      613.522,
+      11.6957,
+      35.7553
+    ],
+    "federated-training-5": [
+      337.002,
+      611.182,
+      11.6957,
+      41.7703
+    ],
+    "federated-training-6": [
+      516.113,
+      611.182,
+      11.6957,
+      41.7703
+    ],
+    "benign-client-one": [
+      275.103,
+      581.866,
+      148.335,
+      23.2262
+    ],
+    "benign-client-two": [
+      450.872,
+      583.202,
+      148.335,
+      23.2262
+    ],
+    "clients-ellipsis": [
+      415.916,
+      618.35,
+      34.3171,
+      4.94025
+    ],
+    "global-model-network-1": [
+      657.072,
+      580.896,
+      28.1843,
+      14.8795
+    ],
+    "global-model-network-2": [
+      657.033,
+      593.366,
+      28.2627,
+      15.9246
+    ],
+    "global-model-network-3": [
+      656.528,
+      593.806,
+      29.2727,
+      41.0287
+    ],
+    "global-model-network-4": [
+      656.533,
+      581.348,
+      29.2629,
+      40.5015
+    ],
+    "global-model-network-5": [
+      657.053,
+      606.89,
+      28.2239,
+      15.4023
+    ],
+    "global-model-network-6": [
+      657.053,
+      619.882,
+      28.2239,
+      15.4023
+    ],
+    "global-model-network-7": [
+      684.14,
+      580.896,
+      28.1843,
+      14.8795
+    ],
+    "global-model-network-8": [
+      683.6,
+      581.348,
+      29.2629,
+      40.5015
+    ],
+    "global-model-network-9": [
+      684.1,
+      593.366,
+      28.2627,
+      15.9246
+    ],
+    "global-model-network-10": [
+      684.12,
+      606.89,
+      28.2239,
+      15.4023
+    ],
+    "global-model-network-11": [
+      683.595,
+      593.806,
+      29.2727,
+      41.0287
+    ],
+    "global-model-network-12": [
+      684.12,
+      619.882,
+      28.2239,
+      15.4023
+    ],
+    "global-model-network-13": [
+      648.107,
+      585.038,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-14": [
+      648.107,
+      611.563,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-15": [
+      675.175,
+      572.587,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-16": [
+      675.175,
+      598.571,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-17": [
+      675.175,
+      624.556,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-18": [
+      702.242,
+      585.038,
+      19.0472,
+      19.0472
+    ],
+    "global-model-network-19": [
+      702.242,
+      611.563,
+      19.0472,
+      19.0472
+    ],
+    "global-model-label": [
+      614.789,
+      644.427,
+      151.693,
+      18.9891
+    ],
+    "legend-1": [
+      804.506,
+      578.613,
+      55.4312,
+      32.9873
+    ],
+    "legend-projection-arrow": [
+      806.667,
+      620.205,
+      56.1392,
+      26.733
+    ],
+    "legend-training-arrow": [
+      1040.58,
+      581.776,
+      55.4709,
+      26.0646
+    ],
+    "legend-parameter-arrow": [
+      1043.25,
+      623.212,
+      55.4709,
+      26.0646
+    ],
+    "legend-alignment": [
+      882.429,
+      585.671,
+      110.926,
+      22.615
+    ],
+    "legend-projection": [
+      883.947,
+      624.434,
+      108.608,
+      22.4218
+    ],
+    "legend-training": [
+      1129.19,
+      585.003,
+      149.467,
+      22.615
+    ],
+    "legend-parameter": [
+      1116.52,
+      626.439,
+      169.945,
+      17.3989
+    ]
+  },
+  "outputs": {
+    "svg": {
+      "file": "figure.svg",
+      "sha256": "633224aed568cee91869799b0d91f237d853f8f89483207239965f70989d5a42"
+    },
+    "pdf": {
+      "file": "figure.pdf",
+      "sha256": "a78e6b241fefbeea46c2db6c069b7e53003316394f852232dbe515fbde1e92a8"
+    },
+    "png": {
+      "file": "figure.png",
+      "sha256": "73bb55a92b39a39b12982f20e0a2cb2168eb2278601407cab40539e36891f66a"
+    },
+    "size_preview": {
+      "file": "figure-size-preview.png",
+      "sha256": "66a3c92aa41ca58f5a3b968c2e8a9ed29383554064776c1ffa71f78be4d3a47f"
+    }
+  }
+}

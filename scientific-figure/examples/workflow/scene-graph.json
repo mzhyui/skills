@@ -1,0 +1,723 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "view_box": [
+      0,
+      0,
+      1440,
+      620
+    ],
+    "width_in": 7,
+    "background": "white"
+  },
+  "typography": {
+    "family": "DejaVu Sans",
+    "min_font_pt": 8
+  },
+  "palette": {
+    "ink": "#26364A",
+    "abstraction": "#B86B2C",
+    "composition": "#377DA1",
+    "validation": "#8061A7"
+  },
+  "panels": [
+    {
+      "id": "panel-abstraction",
+      "spec_id": "abstraction",
+      "box": [
+        20,
+        20,
+        440,
+        490
+      ],
+      "fill": "#FFF5E9",
+      "stroke": "#B86B2C"
+    },
+    {
+      "id": "panel-composition",
+      "spec_id": "composition",
+      "box": [
+        500,
+        20,
+        440,
+        490
+      ],
+      "fill": "#EEF7FC",
+      "stroke": "#377DA1"
+    },
+    {
+      "id": "panel-validation",
+      "spec_id": "validation",
+      "box": [
+        980,
+        20,
+        440,
+        490
+      ],
+      "fill": "#F5F0FC",
+      "stroke": "#8061A7"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "abstraction",
+      "spec_id": "abstraction",
+      "panel": "panel-abstraction",
+      "kind": "operation",
+      "box": [
+        20,
+        20,
+        440,
+        490
+      ],
+      "ports": {
+        "in": [
+          20,
+          308
+        ],
+        "out": [
+          460,
+          308
+        ],
+        "feedback": [
+          240,
+          510
+        ]
+      }
+    },
+    {
+      "id": "composition",
+      "spec_id": "composition",
+      "panel": "panel-composition",
+      "kind": "operation",
+      "box": [
+        500,
+        20,
+        440,
+        490
+      ],
+      "ports": {
+        "in": [
+          500,
+          308
+        ],
+        "out": [
+          940,
+          308
+        ],
+        "feedback": [
+          720,
+          510
+        ]
+      }
+    },
+    {
+      "id": "validation",
+      "spec_id": "validation",
+      "panel": "panel-validation",
+      "kind": "operation",
+      "box": [
+        980,
+        20,
+        440,
+        490
+      ],
+      "ports": {
+        "in": [
+          980,
+          308
+        ],
+        "out": [
+          1420,
+          308
+        ],
+        "feedback": [
+          1200,
+          510
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "specify-to-compose",
+      "spec_id": "specify-to-compose",
+      "from": "abstraction",
+      "to": "composition",
+      "from_port": "out",
+      "to_port": "in",
+      "type": "data",
+      "points": [
+        [
+          464,
+          308
+        ],
+        [
+          494,
+          308
+        ]
+      ],
+      "marker_end": "arrow"
+    },
+    {
+      "id": "compose-to-validate",
+      "spec_id": "compose-to-validate",
+      "from": "composition",
+      "to": "validation",
+      "from_port": "out",
+      "to_port": "in",
+      "type": "data",
+      "points": [
+        [
+          944,
+          308
+        ],
+        [
+          974,
+          308
+        ]
+      ],
+      "marker_end": "arrow"
+    },
+    {
+      "id": "revise-layout",
+      "spec_id": "revise-layout",
+      "from": "validation",
+      "to": "composition",
+      "from_port": "feedback",
+      "to_port": "feedback",
+      "type": "feedback",
+      "points": [
+        [
+          1200,
+          514
+        ],
+        [
+          1200,
+          557
+        ],
+        [
+          720,
+          557
+        ],
+        [
+          720,
+          516
+        ]
+      ],
+      "marker_end": "arrow",
+      "dash": "9 7"
+    }
+  ],
+  "labels": [
+    {
+      "id": "title-abstraction",
+      "parent": "panel-abstraction",
+      "text": "Scientific abstraction",
+      "position": [
+        90,
+        80
+      ],
+      "font_size": 26,
+      "anchor": "start",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "number-abstraction",
+      "parent": "panel-abstraction",
+      "text": "1",
+      "position": [
+        56,
+        79
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "white"
+    },
+    {
+      "id": "action-abstraction",
+      "parent": "panel-abstraction",
+      "text": "Extract entities and relations",
+      "position": [
+        240,
+        310
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "output-abstraction",
+      "parent": "panel-abstraction",
+      "text": "Diagram specification",
+      "position": [
+        240,
+        391
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "detail-abstraction",
+      "parent": "panel-abstraction",
+      "text": "Sources + exact notation",
+      "position": [
+        240,
+        430
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "title-composition",
+      "parent": "panel-composition",
+      "text": "Graphical composition",
+      "position": [
+        570,
+        80
+      ],
+      "font_size": 26,
+      "anchor": "start",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "number-composition",
+      "parent": "panel-composition",
+      "text": "2",
+      "position": [
+        536,
+        79
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "white"
+    },
+    {
+      "id": "action-composition",
+      "parent": "panel-composition",
+      "text": "Arrange the scientific story",
+      "position": [
+        720,
+        310
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "output-composition",
+      "parent": "panel-composition",
+      "text": "Positioned scene graph",
+      "position": [
+        720,
+        391
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "detail-composition",
+      "parent": "panel-composition",
+      "text": "Panels + icons + arrow routes",
+      "position": [
+        720,
+        430
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "title-validation",
+      "parent": "panel-validation",
+      "text": "Render and validate",
+      "position": [
+        1050,
+        80
+      ],
+      "font_size": 26,
+      "anchor": "start",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "number-validation",
+      "parent": "panel-validation",
+      "text": "3",
+      "position": [
+        1016,
+        79
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "white"
+    },
+    {
+      "id": "action-validation",
+      "parent": "panel-validation",
+      "text": "Inspect at manuscript size",
+      "position": [
+        1200,
+        310
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "output-validation",
+      "parent": "panel-validation",
+      "text": "SVG + PDF + previews",
+      "position": [
+        1200,
+        391
+      ],
+      "font_size": 26,
+      "anchor": "middle",
+      "weight": "bold",
+      "fill": "#26364A"
+    },
+    {
+      "id": "detail-validation",
+      "parent": "panel-validation",
+      "text": "Science + layout review",
+      "position": [
+        1200,
+        430
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "revision-label",
+      "parent": null,
+      "text": "Visual issues? Revise and render again",
+      "position": [
+        965,
+        601
+      ],
+      "font_size": 24,
+      "anchor": "middle",
+      "weight": "normal",
+      "fill": "#26364A"
+    },
+    {
+      "id": "illustrative-label",
+      "parent": null,
+      "text": "Illustrative figure-making workflow",
+      "position": [
+        20,
+        601
+      ],
+      "font_size": 24,
+      "anchor": "start",
+      "weight": "normal",
+      "fill": "#26364A"
+    }
+  ],
+  "decorations": [
+    {
+      "id": "icon-abstraction",
+      "spec_id": "abstraction",
+      "parent": "panel-abstraction",
+      "box": [
+        130,
+        125,
+        220,
+        140
+      ],
+      "role": "schematic operation illustration",
+      "primitives": [
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 196,
+            "y": 135,
+            "width": 106,
+            "height": 122,
+            "rx": 10,
+            "fill": "#F9DAB4",
+            "stroke": "#B86B2C"
+          }
+        },
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 177,
+            "y": 124,
+            "width": 106,
+            "height": 122,
+            "rx": 10,
+            "fill": "white",
+            "stroke": "#B86B2C"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 196 154 h 64",
+            "fill": "none",
+            "stroke": "#B86B2C"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 196 175 h 52",
+            "fill": "none",
+            "stroke": "#B86B2C"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 196 196 h 67",
+            "fill": "none",
+            "stroke": "#B86B2C"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 196 217 h 43",
+            "fill": "none",
+            "stroke": "#B86B2C"
+          }
+        }
+      ]
+    },
+    {
+      "id": "icon-composition",
+      "spec_id": "composition",
+      "parent": "panel-composition",
+      "box": [
+        610,
+        125,
+        220,
+        140
+      ],
+      "role": "schematic operation illustration",
+      "primitives": [
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 620,
+            "y": 142,
+            "width": 70,
+            "height": 44,
+            "rx": 10,
+            "fill": "white",
+            "stroke": "#377DA1"
+          }
+        },
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 750,
+            "y": 142,
+            "width": 70,
+            "height": 44,
+            "rx": 10,
+            "fill": "white",
+            "stroke": "#377DA1"
+          }
+        },
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 684,
+            "y": 222,
+            "width": 70,
+            "height": 44,
+            "rx": 10,
+            "fill": "white",
+            "stroke": "#377DA1"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 690 164 H 744",
+            "fill": "none",
+            "stroke": "#377DA1",
+            "marker-end": "url(#arrow)"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 785 186 V 205 H 719 V 216",
+            "fill": "none",
+            "stroke": "#377DA1",
+            "marker-end": "url(#arrow)"
+          }
+        }
+      ]
+    },
+    {
+      "id": "icon-validation",
+      "spec_id": "validation",
+      "parent": "panel-validation",
+      "box": [
+        1090,
+        125,
+        220,
+        140
+      ],
+      "role": "schematic operation illustration",
+      "primitives": [
+        {
+          "tag": "rect",
+          "attrs": {
+            "x": 1110,
+            "y": 133,
+            "width": 180,
+            "height": 128,
+            "rx": 12,
+            "fill": "white",
+            "stroke": "#8061A7"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 1110 163 H 1290",
+            "fill": "none",
+            "stroke": "#8061A7"
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": 1126,
+            "cy": 148,
+            "r": 3,
+            "fill": "#8061A7",
+            "stroke": "none"
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": 1141,
+            "cy": 148,
+            "r": 3,
+            "fill": "#8061A7",
+            "stroke": "none"
+          }
+        },
+        {
+          "tag": "circle",
+          "attrs": {
+            "cx": 1156,
+            "cy": 148,
+            "r": 3,
+            "fill": "#8061A7",
+            "stroke": "none"
+          }
+        },
+        {
+          "tag": "path",
+          "attrs": {
+            "d": "M 1160 213 L 1189 237 L 1242 188",
+            "fill": "none",
+            "stroke": "#8061A7",
+            "stroke-width": 7
+          }
+        }
+      ]
+    }
+  ],
+  "equations": [],
+  "panel_primitives": {
+    "panel-abstraction": [
+      {
+        "tag": "circle",
+        "attrs": {
+          "cx": 56,
+          "cy": 70,
+          "r": 22,
+          "fill": "#B86B2C",
+          "stroke": "none"
+        }
+      },
+      {
+        "tag": "rect",
+        "attrs": {
+          "x": 52,
+          "y": 350,
+          "width": 376,
+          "height": 108,
+          "rx": 17,
+          "fill": "white",
+          "stroke": "#B86B2C"
+        }
+      }
+    ],
+    "panel-composition": [
+      {
+        "tag": "circle",
+        "attrs": {
+          "cx": 536,
+          "cy": 70,
+          "r": 22,
+          "fill": "#377DA1",
+          "stroke": "none"
+        }
+      },
+      {
+        "tag": "rect",
+        "attrs": {
+          "x": 532,
+          "y": 350,
+          "width": 376,
+          "height": 108,
+          "rx": 17,
+          "fill": "white",
+          "stroke": "#377DA1"
+        }
+      }
+    ],
+    "panel-validation": [
+      {
+        "tag": "circle",
+        "attrs": {
+          "cx": 1016,
+          "cy": 70,
+          "r": 22,
+          "fill": "#8061A7",
+          "stroke": "none"
+        }
+      },
+      {
+        "tag": "rect",
+        "attrs": {
+          "x": 1012,
+          "y": 350,
+          "width": 376,
+          "height": 108,
+          "rx": 17,
+          "fill": "white",
+          "stroke": "#8061A7"
+        }
+      }
+    ]
+  }
+}

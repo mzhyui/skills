@@ -1,0 +1,1750 @@
+{
+  "schema_version": 1,
+  "canvas": {
+    "view_box": [
+      0,
+      0,
+      2043,
+      783
+    ],
+    "width_in": 14,
+    "background": "white"
+  },
+  "source": {
+    "path": "../图片2.png",
+    "sha256": "bdd66580da64f2d098e355be4f93bc62985dadd225acca718998357d0e324b6d"
+  },
+  "style_profile": "style-profile.md",
+  "nodes": [
+    {
+      "id": "privacy",
+      "kind": "panel",
+      "box": [
+        691,
+        23,
+        981,
+        171
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "legend",
+      "kind": "panel",
+      "box": [
+        1689,
+        23,
+        304,
+        171
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "learning",
+      "kind": "panel",
+      "box": [
+        689,
+        208,
+        1304,
+        268
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearning",
+      "kind": "panel",
+      "box": [
+        686,
+        494,
+        1307,
+        267
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "privacy-title",
+      "kind": "label",
+      "text": "Local Training with Adaptive Differential Privacy",
+      "position": [
+        704,
+        56
+      ],
+      "font_size": 28,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "learning-title",
+      "kind": "label",
+      "text": "Federated Learning",
+      "position": [
+        701,
+        238
+      ],
+      "font_size": 30,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearning-title",
+      "kind": "label",
+      "text": "Federated Unlearning",
+      "position": [
+        699,
+        523
+      ],
+      "font_size": 30,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-1",
+      "kind": "client",
+      "box": [
+        31,
+        42,
+        359,
+        214
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-1-name",
+      "kind": "label",
+      "text": "Client 1",
+      "position": [
+        216,
+        70
+      ],
+      "font_size": 27,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-0-a",
+      "kind": "label",
+      "text": "Local",
+      "position": [
+        110,
+        108
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-0-b",
+      "kind": "label",
+      "text": "Data",
+      "position": [
+        110,
+        136
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-2",
+      "kind": "client",
+      "box": [
+        31,
+        293,
+        359,
+        214
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-2-name",
+      "kind": "label",
+      "text": "Client 2",
+      "position": [
+        216,
+        321
+      ],
+      "font_size": 27,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-1-a",
+      "kind": "label",
+      "text": "Local",
+      "position": [
+        110,
+        359
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-1-b",
+      "kind": "label",
+      "text": "Data",
+      "position": [
+        110,
+        387
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-3",
+      "kind": "client",
+      "box": [
+        31,
+        546,
+        359,
+        214
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-3-name",
+      "kind": "label",
+      "text": "Client C",
+      "position": [
+        216,
+        574
+      ],
+      "font_size": 27,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-2-a",
+      "kind": "label",
+      "text": "Local",
+      "position": [
+        110,
+        612
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "data-2-b",
+      "kind": "label",
+      "text": "Data",
+      "position": [
+        110,
+        640
+      ],
+      "font_size": 23,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-departure",
+      "kind": "illustration",
+      "box": [
+        308,
+        520,
+        100,
+        100
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "server",
+      "kind": "illustration",
+      "box": [
+        516,
+        315,
+        110,
+        130
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "server-label",
+      "kind": "label",
+      "text": "Server",
+      "position": [
+        573,
+        478
+      ],
+      "font_size": 29,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "raw-update",
+      "kind": "illustration",
+      "box": [
+        721,
+        105,
+        285,
+        36
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "raw-update-label",
+      "kind": "label",
+      "text": "Update",
+      "position": [
+        864,
+        177
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "receive",
+      "kind": "label",
+      "text": "Receive",
+      "position": [
+        1063,
+        115
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "budget",
+      "kind": "label",
+      "text": "Budget",
+      "position": [
+        1063,
+        145
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "privacy-budget",
+      "kind": "illustration",
+      "box": [
+        1129,
+        94,
+        58,
+        59
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "budget-dollar",
+      "kind": "label",
+      "text": "$",
+      "position": [
+        1157,
+        127
+      ],
+      "font_size": 21,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "privacy-budget-label",
+      "kind": "label",
+      "text": "Privacy budget",
+      "position": [
+        1159,
+        177
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gaussion",
+      "kind": "label",
+      "text": "Gaussion",
+      "position": [
+        1251,
+        115
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "noise-label",
+      "kind": "label",
+      "text": "Noise",
+      "position": [
+        1253,
+        145
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "noisy-update",
+      "kind": "illustration",
+      "box": [
+        1343,
+        104,
+        287,
+        38
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "noisy-label",
+      "kind": "label",
+      "text": "Update with differential privacy",
+      "position": [
+        1493,
+        177
+      ],
+      "font_size": 25,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "annotation",
+      "kind": "label",
+      "text": "Annotation",
+      "position": [
+        1711,
+        60
+      ],
+      "font_size": 28,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "legend-learning",
+      "kind": "label",
+      "text": "Learning:",
+      "position": [
+        1711,
+        118
+      ],
+      "font_size": 26,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "legend-unlearning",
+      "kind": "label",
+      "text": "Unlearning:",
+      "position": [
+        1711,
+        158
+      ],
+      "font_size": 26,
+      "alignment": "start",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "update-dots",
+      "kind": "label",
+      "text": "⋮",
+      "position": [
+        850,
+        377
+      ],
+      "font_size": 29,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "updates-from-clients",
+      "kind": "label",
+      "text": "Updates from clients",
+      "position": [
+        860,
+        459
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-learning-a",
+      "kind": "label",
+      "text": "Aggregate",
+      "position": [
+        1035,
+        365
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-learning-b",
+      "kind": "label",
+      "text": "Update",
+      "position": [
+        1037,
+        394
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "global-model-back",
+      "kind": "illustration",
+      "box": [
+        1185,
+        241,
+        110,
+        110
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "global-model-middle",
+      "kind": "illustration",
+      "box": [
+        1152,
+        269,
+        110,
+        110
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "global-model-front",
+      "kind": "illustration",
+      "box": [
+        1125,
+        303,
+        110,
+        110
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "global-models-label",
+      "kind": "label",
+      "text": "Global models",
+      "position": [
+        1202,
+        459
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-models-label",
+      "kind": "label",
+      "text": "Select Models",
+      "position": [
+        1375,
+        360
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-label-one",
+      "kind": "label",
+      "text": "Select Updates",
+      "position": [
+        1654,
+        270
+      ],
+      "font_size": 21,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-label-two",
+      "kind": "label",
+      "text": "Select Updates",
+      "position": [
+        1654,
+        328
+      ],
+      "font_size": 21,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-label-last",
+      "kind": "label",
+      "text": "Select Updates",
+      "position": [
+        1654,
+        405
+      ],
+      "font_size": 21,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "model-dots",
+      "kind": "label",
+      "text": "⋮",
+      "position": [
+        1516,
+        381
+      ],
+      "font_size": 29,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-update-dots",
+      "kind": "label",
+      "text": "⋮",
+      "position": [
+        1858,
+        385
+      ],
+      "font_size": 29,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-models-label",
+      "kind": "label",
+      "text": "Selected models",
+      "position": [
+        1521,
+        458
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-updates-label",
+      "kind": "label",
+      "text": "Selected updates",
+      "position": [
+        1863,
+        458
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "remaining-dots",
+      "kind": "label",
+      "text": "⋮",
+      "position": [
+        855,
+        663
+      ],
+      "font_size": 29,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "remaining-label",
+      "kind": "label",
+      "text": "Updates from remaining clients",
+      "position": [
+        866,
+        744
+      ],
+      "font_size": 26,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "compute-0",
+      "kind": "label",
+      "text": "Compute",
+      "position": [
+        1047,
+        585
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "compute-1",
+      "kind": "label",
+      "text": "Direction",
+      "position": [
+        1047,
+        611
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "compute-2",
+      "kind": "label",
+      "text": "Consistency",
+      "position": [
+        1047,
+        637
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibrate-label",
+      "kind": "label",
+      "text": "Calibrate",
+      "position": [
+        1384,
+        585
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibrate-updates",
+      "kind": "label",
+      "text": "updates",
+      "position": [
+        1384,
+        612
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-unlearning-a",
+      "kind": "label",
+      "text": "Aggregate",
+      "position": [
+        1728,
+        585
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-unlearning-b",
+      "kind": "label",
+      "text": "Update",
+      "position": [
+        1728,
+        612
+      ],
+      "font_size": 22,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearned-model",
+      "kind": "illustration",
+      "box": [
+        1823,
+        540,
+        110.0,
+        110.0
+      ],
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearned-label",
+      "kind": "label",
+      "text": "Unlearned",
+      "position": [
+        1876,
+        680
+      ],
+      "font_size": 27,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearned-model-label",
+      "kind": "label",
+      "text": "model",
+      "position": [
+        1876,
+        713
+      ],
+      "font_size": 27,
+      "alignment": "middle",
+      "source_anchor": "reference pixels"
+    }
+  ],
+  "edges": [
+    {
+      "id": "model-1",
+      "points": [
+        [
+          571,
+          315
+        ],
+        [
+          571,
+          96
+        ],
+        [
+          399,
+          96
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "model-1",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "update-1",
+      "points": [
+        [
+          398,
+          126
+        ],
+        [
+          538,
+          126
+        ],
+        [
+          538,
+          309
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "update-1",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearn-model-1",
+      "points": [
+        [
+          570,
+          311
+        ],
+        [
+          570,
+          173
+        ],
+        [
+          402,
+          173
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "unlearn-model-1",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearn-update-1",
+      "points": [
+        [
+          398,
+          203
+        ],
+        [
+          538,
+          203
+        ],
+        [
+          538,
+          309
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "unlearn-update-1",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "model-2",
+      "points": [
+        [
+          506,
+          346
+        ],
+        [
+          392,
+          346
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "model-2",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "update-2",
+      "points": [
+        [
+          392,
+          377
+        ],
+        [
+          500,
+          377
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "update-2",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearn-model-2",
+      "points": [
+        [
+          508,
+          423
+        ],
+        [
+          395,
+          423
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "unlearn-model-2",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "unlearn-update-2",
+      "points": [
+        [
+          391,
+          453
+        ],
+        [
+          504,
+          453
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "unlearn-update-2",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "model-C",
+      "points": [
+        [
+          522,
+          504
+        ],
+        [
+          522,
+          617
+        ],
+        [
+          407,
+          617
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "model-C",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "update-C",
+      "points": [
+        [
+          403,
+          648
+        ],
+        [
+          547,
+          648
+        ],
+        [
+          547,
+          510
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "update-C",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "server-to-learning",
+      "points": [
+        [
+          637,
+          379
+        ],
+        [
+          682,
+          379
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "server-to-learning",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "server-to-unlearning",
+      "points": [
+        [
+          637,
+          395
+        ],
+        [
+          637,
+          627
+        ],
+        [
+          680,
+          627
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "server-to-unlearning",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "receive-budget",
+      "points": [
+        [
+          1010,
+          125
+        ],
+        [
+          1116,
+          125
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "receive budget",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "noise",
+      "points": [
+        [
+          1196,
+          125
+        ],
+        [
+          1318,
+          125
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Gaussion Noise",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "legend-blue",
+      "points": [
+        [
+          1869,
+          109
+        ],
+        [
+          1964,
+          109
+        ]
+      ],
+      "color": "#6ab6d5",
+      "meaning": "Learning",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "legend-red",
+      "points": [
+        [
+          1869,
+          145
+        ],
+        [
+          1964,
+          145
+        ]
+      ],
+      "color": "#ff7878",
+      "meaning": "Unlearning",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-learning",
+      "points": [
+        [
+          969,
+          375
+        ],
+        [
+          1110,
+          375
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Aggregate Update",
+      "source": "client-updates",
+      "target": "global-models",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-models",
+      "points": [
+        [
+          1311,
+          372
+        ],
+        [
+          1452,
+          372
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Select Models, lambda",
+      "source": "global-model-front",
+      "target": "selected-models",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-one",
+      "points": [
+        [
+          1585,
+          280
+        ],
+        [
+          1726,
+          280
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Select Updates, gamma",
+      "source": "selected-model-one",
+      "target": "selected-updates-one",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-two",
+      "points": [
+        [
+          1585,
+          338
+        ],
+        [
+          1726,
+          338
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Select Updates, gamma",
+      "source": "selected-model-two",
+      "target": "selected-updates-two",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "select-updates-last",
+      "points": [
+        [
+          1585,
+          415
+        ],
+        [
+          1726,
+          415
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Select Updates, gamma",
+      "source": "selected-model-last",
+      "target": "selected-updates-last",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "compute-direction",
+      "points": [
+        [
+          988,
+          589
+        ],
+        [
+          1100,
+          589
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Compute Direction Consistency",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "direction-old",
+      "points": [
+        [
+          1200,
+          655
+        ],
+        [
+          1149,
+          552
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "original update direction",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "direction-new",
+      "points": [
+        [
+          1200,
+          655
+        ],
+        [
+          1286,
+          570
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "remaining-client update direction",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibrate",
+      "points": [
+        [
+          1328,
+          593
+        ],
+        [
+          1440,
+          593
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Calibrate updates",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-old",
+      "points": [
+        [
+          1521,
+          655
+        ],
+        [
+          1470,
+          552
+        ]
+      ],
+      "color": "#89999d",
+      "meaning": "original update direction",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-new",
+      "points": [
+        [
+          1521,
+          655
+        ],
+        [
+          1607,
+          570
+        ]
+      ],
+      "color": "#89999d",
+      "meaning": "remaining-client update direction",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-result",
+      "points": [
+        [
+          1521,
+          655
+        ],
+        [
+          1574,
+          602
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "calibrated update",
+      "source": null,
+      "target": null,
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "aggregate-unlearning",
+      "points": [
+        [
+          1663,
+          595
+        ],
+        [
+          1803,
+          595
+        ]
+      ],
+      "color": "#282c2d",
+      "meaning": "Aggregate Update",
+      "source": null,
+      "target": "unlearned-model",
+      "source_anchor": "reference pixels"
+    }
+  ],
+  "equations": [
+    {
+      "id": "m1",
+      "latex": "M_t",
+      "box": [
+        471.5,
+        71.0,
+        29.0,
+        22.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "g1",
+      "latex": "\\tilde{g}_t^1",
+      "box": [
+        428.5,
+        96.5,
+        25.0,
+        31.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "mh1",
+      "latex": "\\hat{M}_t",
+      "box": [
+        472.0,
+        144.0,
+        30.0,
+        30.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gh1",
+      "latex": "\\hat{g}_t^1",
+      "box": [
+        429.5,
+        174.5,
+        25.0,
+        31.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "m2",
+      "latex": "M_t",
+      "box": [
+        460.5,
+        320.0,
+        29.0,
+        22.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "g2",
+      "latex": "\\tilde{g}_t^2",
+      "box": [
+        421.5,
+        346.5,
+        25.0,
+        31.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "mh2",
+      "latex": "\\hat{M}_t",
+      "box": [
+        461.0,
+        393.0,
+        30.0,
+        30.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gh2",
+      "latex": "\\hat{g}_t^2",
+      "box": [
+        421.5,
+        423.5,
+        25.0,
+        31.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "mc",
+      "latex": "M_t",
+      "box": [
+        472.5,
+        591.0,
+        29.0,
+        22.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gc",
+      "latex": "\\tilde{g}_t^C",
+      "box": [
+        423.0,
+        617.5,
+        28.0,
+        31.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "raw-g",
+      "latex": "g_t^c",
+      "box": [
+        873.0,
+        62.5,
+        32.0,
+        33.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "noisy-g",
+      "latex": "\\tilde{g}_t^c",
+      "box": [
+        1470.5,
+        62.0,
+        29.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-updates-one",
+      "latex": "\\tilde{g}_{1}^1,\\tilde{g}_{1}^2,\\cdots,\\tilde{g}_{1}^C",
+      "box": [
+        780.5,
+        257.0,
+        139.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-updates-two",
+      "latex": "\\tilde{g}_{2}^1,\\tilde{g}_{2}^2,\\cdots,\\tilde{g}_{2}^C",
+      "box": [
+        780.5,
+        315.0,
+        139.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "client-updates-last",
+      "latex": "\\tilde{g}_{T}^1,\\tilde{g}_{T}^2,\\cdots,\\tilde{g}_{T}^C",
+      "box": [
+        779.5,
+        392.0,
+        141.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "lambda",
+      "latex": "\\lambda",
+      "box": [
+        1370.5,
+        376.5,
+        11.0,
+        17.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-model-one",
+      "latex": "\\bar{M}_{1}",
+      "box": [
+        1499.5,
+        263.0,
+        35.0,
+        28.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gamma-one",
+      "latex": "\\gamma",
+      "box": [
+        1650.0,
+        287.5,
+        10.0,
+        15.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-updates-one",
+      "latex": "\\bar{g}_{1}^1,\\bar{g}_{1}^2,\\cdots,\\bar{g}_{1}^{C\\prime}",
+      "box": [
+        1789.5,
+        264.0,
+        145.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-model-two",
+      "latex": "\\bar{M}_{2}",
+      "box": [
+        1499.5,
+        321.0,
+        35.0,
+        28.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gamma-two",
+      "latex": "\\gamma",
+      "box": [
+        1650.0,
+        345.5,
+        10.0,
+        15.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-updates-two",
+      "latex": "\\bar{g}_{2}^1,\\bar{g}_{2}^2,\\cdots,\\bar{g}_{2}^{C\\prime}",
+      "box": [
+        1789.5,
+        322.0,
+        145.0,
+        32.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-model-last",
+      "latex": "\\bar{M}_{T'}",
+      "box": [
+        1495.5,
+        398.0,
+        43.0,
+        28.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "gamma-last",
+      "latex": "\\gamma",
+      "box": [
+        1650.0,
+        422.5,
+        10.0,
+        15.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "selected-updates-last",
+      "latex": "\\bar{g}_{T'}^1,\\bar{g}_{T'}^2,\\cdots,\\bar{g}_{T'}^{C\\prime}",
+      "box": [
+        1781.5,
+        398.0,
+        161.0,
+        34.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "remaining-one",
+      "latex": "\\hat{g}_{1}^1,\\hat{g}_{1}^2,\\cdots,\\hat{g}_{1}^{|C_t^r|}",
+      "box": [
+        772.5,
+        545.0,
+        155.0,
+        36.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "remaining-two",
+      "latex": "\\hat{g}_{2}^1,\\hat{g}_{2}^2,\\cdots,\\hat{g}_{2}^{|C_t^r|}",
+      "box": [
+        772.5,
+        598.0,
+        155.0,
+        36.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "remaining-last",
+      "latex": "\\hat{g}_{T'}^1,\\hat{g}_{T'}^2,\\cdots,\\hat{g}_{T'}^{|C_t^r|}",
+      "box": [
+        764.5,
+        673.5,
+        171.0,
+        39.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "direction-old-label",
+      "latex": "\\bar{g}_t^{c_r}",
+      "box": [
+        1164.5,
+        532.5,
+        31.0,
+        27.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "direction-new-label",
+      "latex": "\\hat{g}_t^{c_r}",
+      "box": [
+        1262.5,
+        587.5,
+        31.0,
+        29.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "cosine-equation",
+      "latex": "\\cos(\\theta_t^{c_r})=\\dfrac{\\langle\\bar{g}_t^{c_r},\\hat{g}_t^{c_r}\\rangle}{\\Vert\\bar{g}_t^{c_r}\\Vert_2\\Vert\\hat{g}_t^{c_r}\\Vert_2}",
+      "box": [
+        1093.5,
+        660.0,
+        253.0,
+        64.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-old-label",
+      "latex": "\\bar{g}_t^{c_r}",
+      "box": [
+        1482.0,
+        533.0,
+        30.0,
+        26.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-new-label",
+      "latex": "\\hat{g}_t^{c_r}",
+      "box": [
+        1588.0,
+        532.0,
+        30.0,
+        28.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-result-label",
+      "latex": "U_t^{c_r}",
+      "box": [
+        1577.0,
+        601.5,
+        40.0,
+        27.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    },
+    {
+      "id": "calibration-equation",
+      "latex": "U_t^{c_r}=\\cos(\\theta_t^{c_r})\\cdot\\dfrac{\\Vert\\bar{g}_t^{c_r}\\Vert_2}{\\Vert\\hat{g}_t^{c_r}\\Vert_2}\\cdot\\hat{g}_t^{c_r}",
+      "box": [
+        1429.5,
+        660.5,
+        283.0,
+        63.0
+      ],
+      "rendering": "STIX mathtext vector paths; editable LaTeX in generator",
+      "source_anchor": "reference pixels"
+    }
+  ],
+  "notes": [
+    "All geometry is vector. Labels are editable text; mathematics is outlined with exact editable source in this generator.",
+    "Icon boxes refer to outer schematic extents. Low-level drawing primitives are preserved in the SVG."
+  ]
+}

@@ -1,0 +1,1880 @@
+{
+  "source": "/home/mzhyui/git/plot/figures/fu-framework-rebuilt/figure.svg",
+  "status": "mechanical_checks_passed",
+  "errors": [],
+  "warnings": [],
+  "scientific_review": "not_performed",
+  "visual_review": "not_performed",
+  "limitations": [
+    "Checks do not establish scientific fidelity or visual quality.",
+    "Font audit handles presentation/inline absolute sizes without transforms; CSS and relative sizes require manual review.",
+    "Bounds and text intersections are heuristics; masks, clipping, hidden CSS, filters, strokes, and markers require visual inspection.",
+    "Font availability/substitution, glyph correctness, arrows, scene-graph consistency, and raster resolution need separate review.",
+    "The 96 dpi preview approximates manuscript scale; actual display zoom/density can differ."
+  ],
+  "source_sha256": "86a4301816b9cfa323342d5e07cb74c1e5fdf87bbc54a353577257d4cef3df7b",
+  "font_samples": [
+    {
+      "id": "training-number",
+      "size_pt": 17.25
+    },
+    {
+      "id": "training-title",
+      "size_pt": 17.25
+    },
+    {
+      "id": "training-subtitle",
+      "size_pt": 10.125
+    },
+    {
+      "id": "clients-heading",
+      "size_pt": 11.25
+    },
+    {
+      "id": "randomize-heading",
+      "size_pt": 11.25
+    },
+    {
+      "id": "noise-heading",
+      "size_pt": 13.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 9.72
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.5
+    },
+    {
+      "id": "noise-subtitle",
+      "size_pt": 10.125
+    },
+    {
+      "id": "message-1-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "message-2-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "message-j-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "message-n-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "shuffler-heading",
+      "size_pt": 12.75
+    },
+    {
+      "id": "shuffler-line-1",
+      "size_pt": 10.5
+    },
+    {
+      "id": "shuffler-line-2",
+      "size_pt": 10.5
+    },
+    {
+      "id": "client-1-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "client-1-role",
+      "size_pt": 10.125
+    },
+    {
+      "id": "client-2-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "client-2-role",
+      "size_pt": 10.125
+    },
+    {
+      "id": "client-j-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "client-j-role",
+      "size_pt": 10.125
+    },
+    {
+      "id": "client-n-label",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 14.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.26
+    },
+    {
+      "id": "client-n-role",
+      "size_pt": 10.125
+    },
+    {
+      "id": "history-heading",
+      "size_pt": 13.5
+    },
+    {
+      "id": "history-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "history-equation",
+      "size_pt": 13.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 9.72
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 9.72
+    },
+    {
+      "id": "tspan",
+      "size_pt": 9.72
+    },
+    {
+      "id": "tspan",
+      "size_pt": 13.5
+    },
+    {
+      "id": "privacy-boundary-1",
+      "size_pt": 10.5
+    },
+    {
+      "id": "privacy-boundary-2",
+      "size_pt": 10.5
+    },
+    {
+      "id": "unlearning-number",
+      "size_pt": 17.25
+    },
+    {
+      "id": "unlearning-title",
+      "size_pt": 17.25
+    },
+    {
+      "id": "unlearning-subtitle",
+      "size_pt": 10.125
+    },
+    {
+      "id": "withdrawal-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "tspan",
+      "size_pt": 12.0
+    },
+    {
+      "id": "tspan",
+      "size_pt": 8.64
+    },
+    {
+      "id": "withdrawal-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "request-heading",
+      "size_pt": 12.75
+    },
+    {
+      "id": "request-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.125
+    },
+    {
+      "id": "tspan",
+      "size_pt": 8.25
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.125
+    },
+    {
+      "id": "recomputation-heading",
+      "size_pt": 13.5
+    },
+    {
+      "id": "recomputation-description",
+      "size_pt": 10.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 10.5
+    },
+    {
+      "id": "tspan",
+      "size_pt": 8.25
+    },
+    {
+      "id": "recomputation-retained",
+      "size_pt": 12.0
+    },
+    {
+      "id": "recomputation-clip",
+      "size_pt": 10.5
+    },
+    {
+      "id": "replay-heading",
+      "size_pt": 13.5
+    },
+    {
+      "id": "replay-description",
+      "size_pt": 10.5
+    },
+    {
+      "id": "recovery-heading",
+      "size_pt": 13.5
+    },
+    {
+      "id": "recovery-description",
+      "size_pt": 10.5
+    },
+    {
+      "id": "model-heading",
+      "size_pt": 15.75
+    },
+    {
+      "id": "tspan",
+      "size_pt": 15.75
+    },
+    {
+      "id": "tspan",
+      "size_pt": 11.34
+    },
+    {
+      "id": "verification-number",
+      "size_pt": 17.25
+    },
+    {
+      "id": "verification-title",
+      "size_pt": 17.25
+    },
+    {
+      "id": "verification-subtitle",
+      "size_pt": 10.125
+    },
+    {
+      "id": "evaluation-heading",
+      "size_pt": 12.75
+    },
+    {
+      "id": "withdrawn-samples-heading",
+      "size_pt": 11.25
+    },
+    {
+      "id": "withdrawn-samples-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "mia-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "mia-value",
+      "size_pt": 10.875
+    },
+    {
+      "id": "mia-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "clean-samples-heading",
+      "size_pt": 11.25
+    },
+    {
+      "id": "clean-samples-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "utility-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "utility-value",
+      "size_pt": 11.625
+    },
+    {
+      "id": "utility-description",
+      "size_pt": 10.125
+    },
+    {
+      "id": "diagnostic-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "diagnostic-description",
+      "size_pt": 10.5
+    },
+    {
+      "id": "diagnostic-yes-label",
+      "size_pt": 10.5
+    },
+    {
+      "id": "diagnostic-no-label",
+      "size_pt": 10.5
+    },
+    {
+      "id": "passed-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "passed-description-1",
+      "size_pt": 9.0
+    },
+    {
+      "id": "passed-description-2",
+      "size_pt": 9.0
+    },
+    {
+      "id": "failed-heading",
+      "size_pt": 12.0
+    },
+    {
+      "id": "failed-description-1",
+      "size_pt": 9.0
+    },
+    {
+      "id": "failed-description-2",
+      "size_pt": 9.0
+    }
+  ],
+  "editable_text_count": 67,
+  "target": {
+    "width_in": 13.3333333333,
+    "height_in": 4.791666666654687,
+    "dpi": 300.0,
+    "min_font_pt": 8.0
+  },
+  "renderer": "Inkscape 1.2.2 (b0a8486541, 2022-12-01)",
+  "commands": [
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure.pdf"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure.png",
+      "--export-dpi=300.0"
+    ],
+    [
+      "/usr/bin/inkscape",
+      "/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure.svg",
+      "--export-area-page",
+      "--export-filename=/home/mzhyui/git/plot/figures/fu-framework-rebuilt/exports/figure-size-preview.png",
+      "--export-dpi=96"
+    ]
+  ],
+  "renderer_messages": [
+    "** (inkscape:2444976): WARNING **: 01:55:34.330: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2444987): WARNING **: 01:55:34.489: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2444997): WARNING **: 01:55:34.838: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function.",
+    "** (inkscape:2445007): WARNING **: 01:55:35.028: Failed to wrap object of type 'GtkRecentManager'. Hint: this error is commonly caused by failing to call a library init() function."
+  ],
+  "rendered_bounds_px": {
+    "render-check-1": [
+      0.0,
+      0.0,
+      1280.0,
+      460.0
+    ],
+    "training-panel": [
+      15.3675,
+      11.375,
+      409.258,
+      437.259
+    ],
+    "render-check-3": [
+      25.0,
+      21.0,
+      390.0,
+      33.0
+    ],
+    "training-number": [
+      36.7891,
+      30.8164,
+      8.63623,
+      15.1836
+    ],
+    "training-title": [
+      62.9775,
+      30.0415,
+      177.677,
+      20.855
+    ],
+    "training-subtitle": [
+      34.5537,
+      64.6331,
+      239.645,
+      12.241
+    ],
+    "clients-heading": [
+      31.8911,
+      94.5923,
+      128.108,
+      13.7183
+    ],
+    "randomize-heading": [
+      217.913,
+      94.5923,
+      154.043,
+      13.7183
+    ],
+    "render-check-9": [
+      197.0,
+      118.0,
+      89.0,
+      192.0
+    ],
+    "noise-heading": [
+      213.91,
+      128.214,
+      55.1626,
+      15.5127
+    ],
+    "noise-subtitle": [
+      202.783,
+      147.633,
+      77.4998,
+      9.49878
+    ],
+    "render-check-12": [
+      204.0,
+      169.0,
+      10.0,
+      6.0
+    ],
+    "render-check-13": [
+      204.0,
+      176.0,
+      10.0,
+      6.0
+    ],
+    "render-check-14": [
+      204.0,
+      183.0,
+      10.0,
+      6.0
+    ],
+    "message-1-label": [
+      236.71,
+      166.908,
+      24.795,
+      21.1924
+    ],
+    "render-check-16": [
+      204.0,
+      207.0,
+      10.0,
+      6.0
+    ],
+    "render-check-17": [
+      204.0,
+      214.0,
+      10.0,
+      6.0
+    ],
+    "render-check-18": [
+      204.0,
+      221.0,
+      10.0,
+      6.0
+    ],
+    "message-2-label": [
+      236.71,
+      204.908,
+      24.795,
+      21.1924
+    ],
+    "render-check-20": [
+      204.0,
+      245.0,
+      10.0,
+      6.0
+    ],
+    "render-check-21": [
+      204.0,
+      252.0,
+      10.0,
+      6.0
+    ],
+    "render-check-22": [
+      204.0,
+      259.0,
+      10.0,
+      6.0
+    ],
+    "message-j-label": [
+      236.71,
+      242.908,
+      24.795,
+      21.1924
+    ],
+    "render-check-24": [
+      204.0,
+      283.0,
+      10.0,
+      6.0
+    ],
+    "render-check-25": [
+      204.0,
+      290.0,
+      10.0,
+      6.0
+    ],
+    "render-check-26": [
+      204.0,
+      297.0,
+      10.0,
+      6.0
+    ],
+    "message-n-label": [
+      236.71,
+      280.908,
+      24.795,
+      21.1924
+    ],
+    "render-check-28": [
+      321.4,
+      130.4,
+      84.2,
+      172.2
+    ],
+    "render-check-29": [
+      340.4,
+      154.4,
+      45.2,
+      25.2
+    ],
+    "render-check-30": [
+      340.4,
+      154.4,
+      45.2,
+      13.2
+    ],
+    "render-check-31": [
+      340.4,
+      178.4,
+      45.2,
+      13.2
+    ],
+    "render-check-32": [
+      340.4,
+      166.4,
+      45.2,
+      25.2
+    ],
+    "render-check-33": [
+      334.15,
+      151.15,
+      7.7,
+      7.7
+    ],
+    "render-check-34": [
+      334.15,
+      163.15,
+      7.7,
+      7.7
+    ],
+    "render-check-35": [
+      334.15,
+      175.15,
+      7.7,
+      7.7
+    ],
+    "render-check-36": [
+      334.15,
+      187.15,
+      7.7,
+      7.7
+    ],
+    "render-check-37": [
+      384.15,
+      151.15,
+      7.7,
+      7.7
+    ],
+    "render-check-38": [
+      384.15,
+      163.15,
+      7.7,
+      7.7
+    ],
+    "render-check-39": [
+      384.15,
+      175.15,
+      7.7,
+      7.7
+    ],
+    "render-check-40": [
+      384.15,
+      187.15,
+      7.7,
+      7.7
+    ],
+    "shuffler-heading": [
+      334.655,
+      217.03,
+      58.23,
+      12.1772
+    ],
+    "shuffler-line-1": [
+      341.092,
+      241.286,
+      45.0693,
+      12.6943
+    ],
+    "shuffler-line-2": [
+      329.901,
+      260.73,
+      67.2109,
+      12.25
+    ],
+    "render-check-44": [
+      34.0,
+      159.0,
+      119.0,
+      36.0
+    ],
+    "render-check-45": [
+      40.44,
+      168.64,
+      20.72,
+      20.72
+    ],
+    "render-check-46": [
+      40.58,
+      174.38,
+      20.44,
+      5.04
+    ],
+    "render-check-47": [
+      40.58,
+      179.28,
+      20.44,
+      5.04
+    ],
+    "render-check-48": [
+      40.58,
+      184.18,
+      20.44,
+      5.04
+    ],
+    "render-check-49": [
+      40.44,
+      164.44,
+      20.72,
+      9.52
+    ],
+    "client-1-label": [
+      87.0229,
+      160.42,
+      17.912,
+      16.3801
+    ],
+    "client-1-role": [
+      81.5211,
+      182.633,
+      29.3928,
+      9.49878
+    ],
+    "client-1-to-noise": [
+      154.85,
+      174.32,
+      39.3,
+      7.36
+    ],
+    "message-1-to-shuffler": [
+      287.85,
+      174.32,
+      31.3,
+      7.36
+    ],
+    "render-check-54": [
+      34.0,
+      197.0,
+      119.0,
+      36.0
+    ],
+    "render-check-55": [
+      40.44,
+      206.64,
+      20.72,
+      20.72
+    ],
+    "render-check-56": [
+      40.58,
+      212.38,
+      20.44,
+      5.04
+    ],
+    "render-check-57": [
+      40.58,
+      217.28,
+      20.44,
+      5.04
+    ],
+    "render-check-58": [
+      40.58,
+      222.18,
+      20.44,
+      5.04
+    ],
+    "render-check-59": [
+      40.44,
+      202.44,
+      20.72,
+      9.52
+    ],
+    "client-2-label": [
+      87.0229,
+      198.42,
+      17.9788,
+      16.3801
+    ],
+    "client-2-role": [
+      81.5211,
+      220.633,
+      29.3928,
+      9.49878
+    ],
+    "client-2-to-noise": [
+      154.85,
+      212.32,
+      39.3,
+      7.36
+    ],
+    "message-2-to-shuffler": [
+      287.85,
+      212.32,
+      31.3,
+      7.36
+    ],
+    "render-check-64": [
+      34.0,
+      235.0,
+      119.0,
+      36.0
+    ],
+    "render-check-65": [
+      40.44,
+      244.64,
+      20.72,
+      20.72
+    ],
+    "render-check-66": [
+      40.58,
+      250.38,
+      20.44,
+      5.04
+    ],
+    "render-check-67": [
+      40.58,
+      255.28,
+      20.44,
+      5.04
+    ],
+    "render-check-68": [
+      40.58,
+      260.18,
+      20.44,
+      5.04
+    ],
+    "render-check-69": [
+      40.44,
+      240.44,
+      20.72,
+      9.52
+    ],
+    "client-j-label": [
+      88.5425,
+      236.42,
+      14.5187,
+      19.2924
+    ],
+    "client-j-role": [
+      76.4026,
+      258.633,
+      39.208,
+      12.2805
+    ],
+    "client-j-to-noise": [
+      154.85,
+      250.32,
+      39.3,
+      7.36
+    ],
+    "message-j-to-shuffler": [
+      287.85,
+      250.32,
+      31.3,
+      7.36
+    ],
+    "render-check-74": [
+      34.0,
+      273.0,
+      119.0,
+      36.0
+    ],
+    "render-check-75": [
+      40.44,
+      282.64,
+      20.72,
+      20.72
+    ],
+    "render-check-76": [
+      40.58,
+      288.38,
+      20.44,
+      5.04
+    ],
+    "render-check-77": [
+      40.58,
+      293.28,
+      20.44,
+      5.04
+    ],
+    "render-check-78": [
+      40.58,
+      298.18,
+      20.44,
+      5.04
+    ],
+    "render-check-79": [
+      40.44,
+      278.44,
+      20.72,
+      9.52
+    ],
+    "client-n-label": [
+      87.0229,
+      274.42,
+      18.5265,
+      16.3801
+    ],
+    "client-n-role": [
+      81.5211,
+      296.633,
+      29.3928,
+      9.49878
+    ],
+    "client-n-to-noise": [
+      154.85,
+      288.32,
+      39.3,
+      7.36
+    ],
+    "message-n-to-shuffler": [
+      287.85,
+      288.32,
+      31.3,
+      7.36
+    ],
+    "shuffler-to-history": [
+      359.82,
+      304.85,
+      7.36,
+      23.3
+    ],
+    "render-check-85": [
+      34.0,
+      332.0,
+      372.0,
+      62.0
+    ],
+    "render-check-86": [
+      45.28,
+      351.68,
+      26.64,
+      26.64
+    ],
+    "render-check-87": [
+      45.46,
+      359.06,
+      26.28,
+      6.48
+    ],
+    "render-check-88": [
+      45.46,
+      365.36,
+      26.28,
+      6.48
+    ],
+    "render-check-89": [
+      45.46,
+      371.66,
+      26.28,
+      6.48
+    ],
+    "render-check-90": [
+      45.28,
+      346.28,
+      26.64,
+      12.24
+    ],
+    "history-heading": [
+      84.958,
+      339.511,
+      108.009,
+      16.374
+    ],
+    "history-description": [
+      84.3889,
+      359.633,
+      206.798,
+      12.2805
+    ],
+    "history-equation": [
+      140.412,
+      371.808,
+      194.512,
+      20.077
+    ],
+    "privacy-boundary-1": [
+      112.331,
+      405.286,
+      215.236,
+      12.7354
+    ],
+    "privacy-boundary-2": [
+      171.178,
+      423.286,
+      97.0156,
+      12.7354
+    ],
+    "unlearning-panel": [
+      435.367,
+      11.375,
+      409.258,
+      437.259
+    ],
+    "render-check-97": [
+      445.0,
+      21.0,
+      390.0,
+      33.0
+    ],
+    "unlearning-number": [
+      455.969,
+      30.7715,
+      11.2529,
+      15.2285
+    ],
+    "unlearning-title": [
+      483.786,
+      30.0415,
+      167.974,
+      20.855
+    ],
+    "unlearning-subtitle": [
+      454.389,
+      64.6331,
+      195.776,
+      12.2805
+    ],
+    "render-check-101": [
+      452.0,
+      88.0,
+      115.0,
+      47.0
+    ],
+    "render-check-102": [
+      459.496,
+      102.276,
+      18.648,
+      18.648
+    ],
+    "render-check-103": [
+      459.622,
+      107.442,
+      18.396,
+      4.536
+    ],
+    "render-check-104": [
+      459.622,
+      111.852,
+      18.396,
+      4.536
+    ],
+    "render-check-105": [
+      459.622,
+      116.262,
+      18.396,
+      4.536
+    ],
+    "render-check-106": [
+      459.496,
+      98.496,
+      18.648,
+      8.568
+    ],
+    "withdrawal-heading": [
+      494.165,
+      95.8984,
+      55.3356,
+      16.7541
+    ],
+    "withdrawal-description": [
+      493.893,
+      115.633,
+      55.7402,
+      9.49878
+    ],
+    "render-check-109": [
+      596.0,
+      88.0,
+      232.0,
+      47.0
+    ],
+    "request-heading": [
+      642.452,
+      95.2046,
+      139.445,
+      15.5474
+    ],
+    "request-description": [
+      624.248,
+      115.495,
+      175.84,
+      14.5472
+    ],
+    "withdrawal-to-request": [
+      569.85,
+      107.32,
+      21.3,
+      7.36
+    ],
+    "request-to-recomputation": [
+      708.32,
+      135.85,
+      7.36,
+      14.3
+    ],
+    "render-check-114": [
+      452.0,
+      154.0,
+      376.0,
+      93.0
+    ],
+    "render-check-115": [
+      452.0,
+      154.0,
+      376.0,
+      27.0
+    ],
+    "recomputation-heading": [
+      542.582,
+      160.511,
+      194.282,
+      16.3213
+    ],
+    "recomputation-description": [
+      514.277,
+      187.286,
+      250.905,
+      14.8557
+    ],
+    "recomputation-retained": [
+      515.637,
+      205.898,
+      248.609,
+      14.5547
+    ],
+    "recomputation-clip": [
+      540.428,
+      227.143,
+      199.11,
+      12.8789
+    ],
+    "recomputation-to-replay": [
+      636.32,
+      248.85,
+      7.36,
+      15.3
+    ],
+    "render-check-121": [
+      452.0,
+      267.0,
+      376.0,
+      44.0
+    ],
+    "render-check-122": [
+      467.0,
+      273.5,
+      11.5,
+      5.5
+    ],
+    "render-check-123": [
+      467.0,
+      279.0,
+      6.0,
+      24.0
+    ],
+    "render-check-124": [
+      473.0,
+      273.5,
+      5.5,
+      29.5
+    ],
+    "render-check-125": [
+      479.0,
+      276.5,
+      10.5,
+      5.0
+    ],
+    "render-check-126": [
+      479.0,
+      281.5,
+      5.5,
+      19.5
+    ],
+    "render-check-127": [
+      484.5,
+      276.5,
+      5.0,
+      24.5
+    ],
+    "render-check-128": [
+      490.0,
+      280.0,
+      9.0,
+      4.0
+    ],
+    "render-check-129": [
+      490.0,
+      284.0,
+      5.0,
+      15.0
+    ],
+    "render-check-130": [
+      495.0,
+      280.0,
+      4.0,
+      19.0
+    ],
+    "render-check-131": [
+      500.0,
+      283.0,
+      8.0,
+      3.5
+    ],
+    "render-check-132": [
+      500.0,
+      286.5,
+      4.5,
+      11.0
+    ],
+    "render-check-133": [
+      504.5,
+      283.0,
+      3.5,
+      14.5
+    ],
+    "replay-heading": [
+      614.125,
+      272.511,
+      105.671,
+      16.374
+    ],
+    "replay-description": [
+      561.265,
+      294.143,
+      211.661,
+      12.8789
+    ],
+    "replay-to-recovery": [
+      636.32,
+      312.85,
+      7.36,
+      14.3
+    ],
+    "render-check-137": [
+      452.0,
+      330.0,
+      376.0,
+      44.0
+    ],
+    "recovery-heading": [
+      530.761,
+      335.326,
+      217.995,
+      16.5586
+    ],
+    "recovery-description": [
+      524.551,
+      357.286,
+      230.795,
+      12.7354
+    ],
+    "recovery-to-model": [
+      636.32,
+      375.85,
+      7.36,
+      20.3
+    ],
+    "render-check-141": [
+      484.0,
+      399.0,
+      312.0,
+      35.0
+    ],
+    "render-check-142": [
+      497.675,
+      402.945,
+      10.5399,
+      5.38
+    ],
+    "render-check-143": [
+      497.675,
+      407.675,
+      5.81,
+      21.29
+    ],
+    "render-check-144": [
+      502.835,
+      402.945,
+      5.38,
+      26.0199
+    ],
+    "render-check-145": [
+      507.995,
+      405.525,
+      9.67991,
+      4.95
+    ],
+    "render-check-146": [
+      507.995,
+      409.825,
+      5.38,
+      17.42
+    ],
+    "render-check-147": [
+      512.725,
+      405.525,
+      4.95,
+      21.7199
+    ],
+    "render-check-148": [
+      517.455,
+      408.535,
+      8.38991,
+      4.09
+    ],
+    "render-check-149": [
+      517.455,
+      411.975,
+      4.95,
+      13.55
+    ],
+    "render-check-150": [
+      521.755,
+      408.535,
+      4.09,
+      16.9899
+    ],
+    "render-check-151": [
+      526.055,
+      411.115,
+      7.52991,
+      3.66
+    ],
+    "render-check-152": [
+      526.055,
+      414.125,
+      4.52,
+      10.11
+    ],
+    "render-check-153": [
+      529.925,
+      411.115,
+      3.66,
+      13.1199
+    ],
+    "model-heading": [
+      573.303,
+      409.316,
+      182.965,
+      22.1025
+    ],
+    "verification-panel": [
+      855.367,
+      11.375,
+      409.258,
+      437.259
+    ],
+    "render-check-156": [
+      865.0,
+      21.0,
+      390.0,
+      33.0
+    ],
+    "verification-number": [
+      876.07,
+      30.7715,
+      11.062,
+      15.4531
+    ],
+    "verification-title": [
+      902.966,
+      29.8057,
+      196.286,
+      21.0908
+    ],
+    "verification-subtitle": [
+      874.389,
+      64.6331,
+      250.66,
+      12.2805
+    ],
+    "render-check-160": [
+      873.0,
+      88.0,
+      374.0,
+      25.0
+    ],
+    "evaluation-heading": [
+      963.877,
+      94.2046,
+      191.408,
+      15.4146
+    ],
+    "render-check-162": [
+      873.0,
+      126.0,
+      374.0,
+      82.0
+    ],
+    "render-check-163": [
+      892.5,
+      135.5,
+      24.0,
+      30.0
+    ],
+    "render-check-164": [
+      896.55,
+      135.55,
+      19.9,
+      22.9
+    ],
+    "render-check-165": [
+      900.5,
+      140.5,
+      24.0,
+      30.0
+    ],
+    "render-check-166": [
+      904.55,
+      140.55,
+      19.9,
+      22.9
+    ],
+    "render-check-167": [
+      908.5,
+      145.5,
+      24.0,
+      30.0
+    ],
+    "render-check-168": [
+      912.55,
+      145.55,
+      19.9,
+      22.9
+    ],
+    "withdrawn-samples-heading": [
+      881.258,
+      176.592,
+      73.4692,
+      10.6348
+    ],
+    "withdrawn-samples-description": [
+      880.087,
+      193.633,
+      75.8518,
+      12.241
+    ],
+    "render-check-171": [
+      988.0,
+      140.42,
+      17.94,
+      8.58
+    ],
+    "render-check-172": [
+      988.0,
+      149.0,
+      9.36,
+      37.44
+    ],
+    "render-check-173": [
+      997.36,
+      140.42,
+      8.58,
+      46.02
+    ],
+    "render-check-174": [
+      1006.72,
+      145.1,
+      16.38,
+      7.8
+    ],
+    "render-check-175": [
+      1006.72,
+      152.9,
+      8.58,
+      30.42
+    ],
+    "render-check-176": [
+      1015.3,
+      145.1,
+      7.8,
+      38.22
+    ],
+    "render-check-177": [
+      1023.88,
+      150.56,
+      14.04,
+      6.24
+    ],
+    "render-check-178": [
+      1023.88,
+      156.8,
+      7.8,
+      23.4
+    ],
+    "render-check-179": [
+      1031.68,
+      150.56,
+      6.24,
+      29.64
+    ],
+    "render-check-180": [
+      1039.48,
+      155.24,
+      12.48,
+      5.46
+    ],
+    "render-check-181": [
+      1039.48,
+      160.7,
+      7.02,
+      17.16
+    ],
+    "render-check-182": [
+      1046.5,
+      155.24,
+      5.46,
+      22.62
+    ],
+    "withdrawn-samples-to-model": [
+      951.85,
+      159.32,
+      29.3,
+      7.36
+    ],
+    "withdrawn-model-to-result": [
+      1054.85,
+      159.32,
+      26.3,
+      7.36
+    ],
+    "render-check-185": [
+      1087.0,
+      134.0,
+      150.0,
+      65.0
+    ],
+    "mia-heading": [
+      1109.6,
+      142.898,
+      104.672,
+      14.6328
+    ],
+    "mia-value": [
+      1099.31,
+      162.939,
+      124.878,
+      10.2661
+    ],
+    "mia-description": [
+      1096.2,
+      181.633,
+      131.902,
+      12.2805
+    ],
+    "render-check-189": [
+      873.0,
+      221.0,
+      374.0,
+      82.0
+    ],
+    "render-check-190": [
+      892.5,
+      230.5,
+      24.0,
+      30.0
+    ],
+    "render-check-191": [
+      896.55,
+      230.55,
+      19.9,
+      22.9
+    ],
+    "render-check-192": [
+      900.5,
+      235.5,
+      24.0,
+      30.0
+    ],
+    "render-check-193": [
+      904.55,
+      235.55,
+      19.9,
+      22.9
+    ],
+    "render-check-194": [
+      908.5,
+      240.5,
+      24.0,
+      30.0
+    ],
+    "render-check-195": [
+      912.55,
+      240.55,
+      19.9,
+      22.9
+    ],
+    "clean-samples-heading": [
+      886.865,
+      271.592,
+      62.937,
+      10.5542
+    ],
+    "clean-samples-description": [
+      896.807,
+      288.633,
+      42.4512,
+      12.241
+    ],
+    "render-check-198": [
+      988.0,
+      235.42,
+      17.94,
+      8.58
+    ],
+    "render-check-199": [
+      988.0,
+      244.0,
+      9.36,
+      37.44
+    ],
+    "render-check-200": [
+      997.36,
+      235.42,
+      8.58,
+      46.02
+    ],
+    "render-check-201": [
+      1006.72,
+      240.1,
+      16.38,
+      7.8
+    ],
+    "render-check-202": [
+      1006.72,
+      247.9,
+      8.58,
+      30.42
+    ],
+    "render-check-203": [
+      1015.3,
+      240.1,
+      7.8,
+      38.22
+    ],
+    "render-check-204": [
+      1023.88,
+      245.56,
+      14.04,
+      6.24
+    ],
+    "render-check-205": [
+      1023.88,
+      251.8,
+      7.8,
+      23.4
+    ],
+    "render-check-206": [
+      1031.68,
+      245.56,
+      6.24,
+      29.64
+    ],
+    "render-check-207": [
+      1039.48,
+      250.24,
+      12.48,
+      5.46
+    ],
+    "render-check-208": [
+      1039.48,
+      255.7,
+      7.02,
+      17.16
+    ],
+    "render-check-209": [
+      1046.5,
+      250.24,
+      5.46,
+      22.62
+    ],
+    "clean-samples-to-model": [
+      951.85,
+      254.32,
+      29.3,
+      7.36
+    ],
+    "clean-model-to-result": [
+      1054.85,
+      254.32,
+      26.3,
+      7.36
+    ],
+    "render-check-212": [
+      1087.0,
+      229.0,
+      150.0,
+      65.0
+    ],
+    "utility-heading": [
+      1109.16,
+      237.898,
+      105.789,
+      14.5547
+    ],
+    "utility-value": [
+      1111.75,
+      257.245,
+      101.106,
+      14.0999
+    ],
+    "utility-description": [
+      1108.97,
+      276.495,
+      105.798,
+      9.69653
+    ],
+    "evaluations-to-diagnostic": [
+      1056.32,
+      304.85,
+      7.36,
+      11.3
+    ],
+    "render-check-217": [
+      914.25,
+      318.25,
+      291.499,
+      59.5
+    ],
+    "diagnostic-heading": [
+      993.387,
+      337.898,
+      133.102,
+      14.6328
+    ],
+    "diagnostic-description": [
+      1017.45,
+      354.73,
+      84.9297,
+      9.46777
+    ],
+    "diagnostic-yes": [
+      970.85,
+      361.85,
+      20.3,
+      30.3
+    ],
+    "diagnostic-no": [
+      1128.85,
+      361.85,
+      20.3,
+      30.3
+    ],
+    "diagnostic-yes-label": [
+      948.806,
+      375.403,
+      18.1836,
+      9.61816
+    ],
+    "diagnostic-no-label": [
+      1156.98,
+      375.403,
+      13.877,
+      6.7334
+    ],
+    "render-check-224": [
+      873.0,
+      396.0,
+      180.0,
+      45.0
+    ],
+    "passed-heading": [
+      902.605,
+      399.898,
+      120.891,
+      14.6328
+    ],
+    "passed-description-1": [
+      918.53,
+      416.674,
+      89.0449,
+      10.8809
+    ],
+    "passed-description-2": [
+      942.149,
+      428.674,
+      41.7539,
+      8.44336
+    ],
+    "render-check-228": [
+      1067.0,
+      396.0,
+      180.0,
+      45.0
+    ],
+    "failed-heading": [
+      1120.19,
+      399.898,
+      73.75,
+      14.5078
+    ],
+    "failed-description-1": [
+      1101.85,
+      416.674,
+      110.227,
+      8.44336
+    ],
+    "failed-description-2": [
+      1116.18,
+      428.674,
+      81.6328,
+      8.44336
+    ]
+  },
+  "outputs": {
+    "svg": {
+      "file": "figure.svg",
+      "sha256": "ae995854c01fd1695187642eb659e43ef2b98724b21aae2597a1beb9973fdc5e"
+    },
+    "pdf": {
+      "file": "figure.pdf",
+      "sha256": "1de46c0707d540ed5944d9c6c32a6f056312d7dc1a95cb2eb5b95852d2a4b45a"
+    },
+    "png": {
+      "file": "figure.png",
+      "sha256": "47388ab0cde0c706bc1e164e3fdcb99ae638aacc79a5c62b4e9667267181d936"
+    },
+    "size_preview": {
+      "file": "figure-size-preview.png",
+      "sha256": "6f216bc67337357c3eb6f22a1ef9a8ff45339cc7ac4fc65457740566e59c1146"
+    }
+  }
+}

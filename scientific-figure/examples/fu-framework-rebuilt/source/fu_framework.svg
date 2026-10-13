@@ -1,0 +1,2303 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1280"
+   height="460"
+   viewBox="0 0 1280 460"
+   version="1.1"
+   id="svg136"
+   sodipodi:docname="causaltrace_reading_group_20261007_182641.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview136"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.66733203"
+     inkscape:cx="302.6979"
+     inkscape:cy="215.03539"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="1072"
+     inkscape:window-y="212"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="training" />
+  <defs
+     id="defs4">
+    <marker
+       id="arrow-2563B8"
+       viewBox="0 0 8 8"
+       refX="7"
+       refY="4"
+       markerWidth="5"
+       markerHeight="5"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 8 4 L 0 8 Z"
+         fill="#2563B8"
+         id="path1" />
+    </marker>
+    <marker
+       id="arrow-C95A1E"
+       viewBox="0 0 8 8"
+       refX="7"
+       refY="4"
+       markerWidth="5"
+       markerHeight="5"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 8 4 L 0 8 Z"
+         fill="#C95A1E"
+         id="path2" />
+    </marker>
+    <marker
+       id="arrow-14804A"
+       viewBox="0 0 8 8"
+       refX="7"
+       refY="4"
+       markerWidth="5"
+       markerHeight="5"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 8 4 L 0 8 Z"
+         fill="#14804A"
+         id="path3" />
+    </marker>
+    <marker
+       id="arrow-CC3A46"
+       viewBox="0 0 8 8"
+       refX="7"
+       refY="4"
+       markerWidth="5"
+       markerHeight="5"
+       orient="auto-start-reverse">
+      <path
+         d="M 0 0 L 8 4 L 0 8 Z"
+         fill="#CC3A46"
+         id="path4" />
+    </marker>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="1280"
+     height="460"
+     fill="#FFFFFF"
+     id="rect4" />
+  <g
+     id="training">
+    <rect
+       id="training-panel"
+       x="20"
+       y="12"
+       width="404"
+       height="436"
+       rx="14"
+       stroke="#87B8EE"
+       stroke-width="1.2"
+       fill="#FFFFFF" />
+    <circle
+       id="training-number-disc"
+       cx="50"
+       cy="40"
+       r="16"
+       fill="#2563B8" />
+    <text
+       id="training-number"
+       x="50"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="24"
+       font-weight="700"
+       fill="#FFFFFF"
+       text-anchor="middle">1</text>
+    <text
+       id="training-title"
+       x="74"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="23"
+       font-weight="700"
+       fill="#14263D"
+       text-anchor="start">Federated training</text>
+    <text
+       id="training-subtitle"
+       x="38"
+       y="71"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="start">Client-side randomization and stored reports</text>
+    <rect
+       id="clients-badge"
+       x="38"
+       y="88"
+       width="132"
+       height="24"
+       rx="12"
+       stroke="#DCEAFF"
+       stroke-width="1.2"
+       fill="#DCEAFF" />
+    <text
+       id="clients-heading"
+       x="104"
+       y="105"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       font-weight="700"
+       fill="#2563B8"
+       text-anchor="middle">Participating clients</text>
+    <rect
+       id="randomize-badge"
+       x="184"
+       y="88"
+       width="222"
+       height="24"
+       rx="12"
+       stroke="#DCEAFF"
+       stroke-width="1.2"
+       fill="#DCEAFF" />
+    <text
+       id="randomize-heading"
+       x="295"
+       y="105"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       font-weight="700"
+       fill="#2563B8"
+       text-anchor="middle">Randomize &amp; aggregate</text>
+    <rect
+       id="noise-card"
+       x="194"
+       y="120"
+       width="94"
+       height="194"
+       rx="8"
+       stroke="#87B8EE"
+       stroke-width="1.2"
+       fill="#F7FAFF" />
+    <text
+       id="noise-heading"
+       x="241"
+       y="137"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="400"
+       fill="#2563B8"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan4">ε</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan5">0</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan6">-LDP</tspan></text>
+    <text
+       id="noise-subtitle"
+       x="241"
+       y="153"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">randomization</text>
+    <rect
+       id="shuffler-card"
+       x="319.47018"
+       y="140.15894"
+       width="86"
+       height="150"
+       rx="8"
+       stroke="#2563b8"
+       stroke-width="1.2"
+       fill="#eef5ff" />
+    <g
+       id="shuffler-icon"
+       transform="translate(12.470199,-148.84106)">
+      <path
+         d="m 331.5,326.5 c 0,-1.657 1.567,-3 3.5,-3 1.933,0 3.5,1.343 3.5,3 0,1.657 -1.567,3 -3.5,3 -1.933,0 -3.5,-1.343 -3.5,-3 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path6" />
+      <path
+         d="m 362.5,334 c 0,-1.933 1.343,-3.5 3,-3.5 1.657,0 3,1.567 3,3.5 0,1.933 -1.343,3.5 -3,3.5 -1.657,0 -3,-1.567 -3,-3.5 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path7" />
+      <path
+         d="m 331.5,334 c 0,-1.933 1.567,-3.5 3.5,-3.5 1.933,0 3.5,1.567 3.5,3.5 0,1.933 -1.567,3.5 -3.5,3.5 -1.933,0 -3.5,-1.567 -3.5,-3.5 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path8" />
+      <path
+         d="m 362.5,342 c 0,-1.933 1.343,-3.5 3,-3.5 1.657,0 3,1.567 3,3.5 0,1.933 -1.343,3.5 -3,3.5 -1.657,0 -3,-1.567 -3,-3.5 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path9" />
+      <path
+         d="m 331.5,342 c 0,-1.933 1.567,-3.5 3.5,-3.5 1.933,0 3.5,1.567 3.5,3.5 0,1.933 -1.567,3.5 -3.5,3.5 -1.933,0 -3.5,-1.567 -3.5,-3.5 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path10" />
+      <path
+         d="m 362.5,349 c 0,-1.933 1.343,-3.5 3,-3.5 1.657,0 3,1.567 3,3.5 0,1.933 -1.343,3.5 -3,3.5 -1.657,0 -3,-1.567 -3,-3.5 z"
+         stroke="#2563b8"
+         stroke-width="1.16525"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path11" />
+      <path
+         d="m 338.5,326.5 23,15"
+         stroke="#2563b8"
+         stroke-width="0.822572"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path12" />
+      <path
+         d="m 338.5,334.5 23,7"
+         stroke="#2563b8"
+         stroke-width="0.822572"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path13" />
+      <path
+         d="m 338.5,341.5 23,-1"
+         stroke="#2563b8"
+         stroke-width="0.822572"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path14" />
+    </g>
+    <text
+       id="shuffler-heading"
+       x="362.47018"
+       y="231.15894"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17px"
+       font-weight="700"
+       fill="#2563b8"
+       text-anchor="middle">Shuffler</text>
+    <text
+       id="shuffler-line-1"
+       x="362.47018"
+       y="249.15894"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">optional</text>
+    <text
+       id="shuffler-line-2"
+       x="362.47018"
+       y="265.15894"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">permutation</text>
+    <rect
+       id="client-1-card"
+       x="36.940399"
+       y="142.80795"
+       width="110"
+       height="36"
+       rx="6"
+       stroke="#87b8ee"
+       stroke-width="1.2"
+       fill="#f9fcff" />
+    <g
+       id="client-1-icon"
+       transform="translate(-31.559603,-130.69205)">
+      <rect
+         x="78.500099"
+         y="284.5"
+         width="20"
+         height="13"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         id="rect14" />
+      <path
+         d="m 78.5001,284.5 c 0,-2.209 4.4771,-4 10,-4 5.5228,0 10,1.791 10,4 0,2.209 -4.4772,4 -10,4 -5.5229,0 -10,-1.791 -10,-4 z"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path15" />
+      <path
+         d="m 78.5001,290.5 c 0,2.762 4.4771,5 10,5 5.5229,0 10,-2.238 10,-5"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path16" />
+      <path
+         d="m 78.5001,296.5 c 0,2.209 4.4771,4 10,4 5.5229,0 10,-1.791 10,-4"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path17" />
+    </g>
+    <text
+       id="client-1-label"
+       x="96.940399"
+       y="157.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18px"
+       font-weight="400"
+       fill="#2563b8"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan17">C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96px"
+         baseline-shift="sub"
+         id="tspan18">1</tspan></text>
+    <text
+       id="client-1-role"
+       x="96.940399"
+       y="173.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">client</text>
+    <path
+       id="client-1-to-noise"
+       d="m 148.9404,160.80795 h 40"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <circle
+       id="message-1-dot"
+       cx="211"
+       cy="182"
+       r="3.5"
+       fill="#2563B8" />
+    <text
+       id="message-1-label"
+       x="250"
+       y="188"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="400"
+       fill="#2563B8"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan19">g̃</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan20">i</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="super"
+         id="tspan21">(t)</tspan></text>
+    <path
+       id="message-1-to-shuffler"
+       d="m 289.4702,158.15894 h 27"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <rect
+       id="client-2-card"
+       x="36.940399"
+       y="180.80795"
+       width="110"
+       height="36"
+       rx="6"
+       stroke="#87b8ee"
+       stroke-width="1.2"
+       fill="#f9fcff" />
+    <g
+       id="client-2-icon"
+       transform="translate(-31.559603,-92.692053)">
+      <rect
+         x="78.500099"
+         y="284.5"
+         width="20"
+         height="13"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         id="rect21" />
+      <path
+         d="m 78.5001,284.5 c 0,-2.209 4.4771,-4 10,-4 5.5228,0 10,1.791 10,4 0,2.209 -4.4772,4 -10,4 -5.5229,0 -10,-1.791 -10,-4 z"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path21" />
+      <path
+         d="m 78.5001,290.5 c 0,2.762 4.4771,5 10,5 5.5229,0 10,-2.238 10,-5"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path22" />
+      <path
+         d="m 78.5001,296.5 c 0,2.209 4.4771,4 10,4 5.5229,0 10,-1.791 10,-4"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path23" />
+    </g>
+    <text
+       id="client-2-label"
+       x="96.940399"
+       y="195.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18px"
+       font-weight="400"
+       fill="#2563b8"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan23">C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96px"
+         baseline-shift="sub"
+         id="tspan24">2</tspan></text>
+    <text
+       id="client-2-role"
+       x="96.940399"
+       y="211.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">client</text>
+    <path
+       id="client-2-to-noise"
+       d="m 148.9404,198.80795 h 40"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <circle
+       id="message-2-dot"
+       cx="211"
+       cy="220"
+       r="3.5"
+       fill="#2563B8" />
+    <text
+       id="message-2-label"
+       x="250"
+       y="226"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="400"
+       fill="#2563B8"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan25">g̃</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan26">i</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="super"
+         id="tspan27">(t)</tspan></text>
+    <path
+       id="message-2-to-shuffler"
+       d="m 289.4702,196.15894 h 27"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <rect
+       id="client-j-card"
+       x="36.940399"
+       y="218.80795"
+       width="110"
+       height="36"
+       rx="6"
+       stroke="#cc3a46"
+       stroke-width="1.2"
+       fill="#fff0f1" />
+    <g
+       id="client-j-icon"
+       transform="translate(-31.559603,-54.692053)">
+      <rect
+         x="78.500099"
+         y="284.5"
+         width="20"
+         height="13"
+         stroke="#cc3a46"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         id="rect27" />
+      <path
+         d="m 78.5001,284.5 c 0,-2.209 4.4771,-4 10,-4 5.5228,0 10,1.791 10,4 0,2.209 -4.4772,4 -10,4 -5.5229,0 -10,-1.791 -10,-4 z"
+         stroke="#cc3a46"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path27" />
+      <path
+         d="m 78.5001,290.5 c 0,2.762 4.4771,5 10,5 5.5229,0 10,-2.238 10,-5"
+         stroke="#cc3a46"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path28" />
+      <path
+         d="m 78.5001,296.5 c 0,2.209 4.4771,4 10,4 5.5229,0 10,-1.791 10,-4"
+         stroke="#cc3a46"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path29" />
+    </g>
+    <text
+       id="client-j-label"
+       x="96.940399"
+       y="233.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18px"
+       font-weight="400"
+       fill="#cc3a46"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan29">C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96px"
+         baseline-shift="sub"
+         id="tspan30">j</tspan></text>
+    <text
+       id="client-j-role"
+       x="96.940399"
+       y="249.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#cc3a46"
+       text-anchor="middle">leaving</text>
+    <path
+       id="client-j-to-noise"
+       d="m 148.9404,236.80795 h 40"
+       stroke="#cc3a46"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-CC3A46)" />
+    <circle
+       id="message-j-dot"
+       cx="211"
+       cy="258"
+       r="3.5"
+       fill="#CC3A46" />
+    <text
+       id="message-j-label"
+       x="250"
+       y="264"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="400"
+       fill="#CC3A46"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan31">g̃</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan32">i</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="super"
+         id="tspan33">(t)</tspan></text>
+    <path
+       id="message-j-to-shuffler"
+       d="m 289.4702,234.15894 h 27"
+       stroke="#cc3a46"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-CC3A46)" />
+    <rect
+       id="client-n-card"
+       x="36.940399"
+       y="256.80795"
+       width="110"
+       height="36"
+       rx="6"
+       stroke="#87b8ee"
+       stroke-width="1.2"
+       fill="#f9fcff" />
+    <g
+       id="client-n-icon"
+       transform="translate(-31.559603,-16.692053)">
+      <rect
+         x="78.500099"
+         y="284.5"
+         width="20"
+         height="13"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         id="rect33" />
+      <path
+         d="m 78.5001,284.5 c 0,-2.209 4.4771,-4 10,-4 5.5228,0 10,1.791 10,4 0,2.209 -4.4772,4 -10,4 -5.5229,0 -10,-1.791 -10,-4 z"
+         stroke="#2563b8"
+         stroke-width="0.976798"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path33" />
+      <path
+         d="m 78.5001,290.5 c 0,2.762 4.4771,5 10,5 5.5229,0 10,-2.238 10,-5"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path34" />
+      <path
+         d="m 78.5001,296.5 c 0,2.209 4.4771,4 10,4 5.5229,0 10,-1.791 10,-4"
+         stroke="#2563b8"
+         stroke-width="0.719685"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path35" />
+    </g>
+    <text
+       id="client-n-label"
+       x="96.940399"
+       y="271.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18px"
+       font-weight="400"
+       fill="#2563b8"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan35">C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96px"
+         baseline-shift="sub"
+         id="tspan36">n</tspan></text>
+    <text
+       id="client-n-role"
+       x="96.940399"
+       y="287.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">client</text>
+    <path
+       id="client-n-to-noise"
+       d="m 148.9404,274.80795 h 40"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <circle
+       id="message-n-dot"
+       cx="211"
+       cy="296"
+       r="3.5"
+       fill="#2563B8" />
+    <text
+       id="message-n-label"
+       x="250"
+       y="302"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="400"
+       fill="#2563B8"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan37">g̃</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan38">i</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="super"
+         id="tspan39">(t)</tspan></text>
+    <path
+       id="message-n-to-shuffler"
+       d="m 289.4702,272.15894 h 27"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <path
+       id="shuffler-to-history"
+       d="m 362.4702,291.15894 v 13"
+       stroke="#2563b8"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-2563B8)" />
+    <rect
+       id="history-card"
+       x="38"
+       y="331"
+       width="368"
+       height="64"
+       rx="8"
+       stroke="#87B8EE"
+       stroke-width="1.2"
+       fill="#F9FCFF" />
+    <g
+       id="history-icon"
+       transform="translate(-35 -157)">
+      <rect
+         x="87"
+         y="504"
+         width="31"
+         height="19"
+         stroke="#2563B8"
+         stroke-width="1.51076"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         id="rect39" />
+      <path
+         d="M87 503.5C87 499.91 93.9396 497 102.5 497 111.06 497 118 499.91 118 503.5 118 507.09 111.06 510 102.5 510 93.9396 510 87 507.09 87 503.5Z"
+         stroke="#2563B8"
+         stroke-width="1.51076"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path39" />
+      <path
+         d="M87.5001 513.5C87.5001 517.366 94.4397 520.5 103 520.5 111.561 520.5 118.5 517.366 118.5 513.5"
+         stroke="#2563B8"
+         stroke-width="1.11318"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path40" />
+      <path
+         d="M87.5001 521.5C87.5001 525.366 94.4397 528.5 103 528.5 111.561 528.5 118.5 525.366 118.5 521.5"
+         stroke="#2563B8"
+         stroke-width="1.11318"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path41" />
+    </g>
+    <text
+       id="history-heading"
+       x="94"
+       y="351"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="700"
+       fill="#14263D"
+       text-anchor="start">Server history</text>
+    <text
+       id="history-description"
+       x="94"
+       y="367"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="start">Round aggregates and retained reports</text>
+    <text
+       id="history-equation"
+       x="222"
+       y="388"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="400"
+       fill="#2563B8"
+       text-anchor="middle"><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan41">{ ḡ</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.24"
+         baseline-shift="super"
+         id="tspan42">(t)</tspan><tspan
+         font-family="STIX Two Math, Latin Modern Math, DejaVu Serif, serif"
+         id="tspan43">, { g̃</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.24"
+         baseline-shift="sub"
+         id="tspan44">i</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.24"
+         baseline-shift="super"
+         id="tspan45">(t)</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan46"> } }  t = 1, …, T</tspan></text>
+    <text
+       id="privacy-boundary-1"
+       x="222"
+       y="416"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">Privacy boundary: each client perturbs</text>
+    <text
+       id="privacy-boundary-2"
+       x="222"
+       y="433"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">its update locally.</text>
+  </g>
+  <g
+     id="unlearning">
+    <rect
+       id="unlearning-panel"
+       x="436"
+       y="12"
+       width="404"
+       height="436"
+       rx="14"
+       stroke="#F2B183"
+       stroke-width="1.2"
+       fill="#FFFFFF" />
+    <circle
+       id="unlearning-number-disc"
+       cx="466"
+       cy="40"
+       r="16"
+       fill="#C95A1E" />
+    <text
+       id="unlearning-number"
+       x="466"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="24"
+       font-weight="700"
+       fill="#FFFFFF"
+       text-anchor="middle">2</text>
+    <text
+       id="unlearning-title"
+       x="490"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="23"
+       font-weight="700"
+       fill="#14263D"
+       text-anchor="start">Client unlearning</text>
+    <text
+       id="unlearning-subtitle"
+       x="454"
+       y="71"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="start">Exclude, replay, and privately repair</text>
+    <rect
+       id="withdrawal-card"
+       x="454"
+       y="88"
+       width="116"
+       height="46"
+       rx="8"
+       stroke="#E9ABB2"
+       stroke-width="1.2"
+       fill="#FFF9F5" />
+    <g
+       id="withdrawal-icon"
+       transform="translate(13.5 -152.5)">
+      <rect
+         x="450.5"
+         y="257.5"
+         width="24"
+         height="15"
+         stroke="#CC3A46"
+         stroke-width="1.17218"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         id="rect46" />
+      <path
+         d="M450.5 257.5C450.5 254.739 455.873 252.5 462.5 252.5 469.127 252.5 474.5 254.739 474.5 257.5 474.5 260.261 469.127 262.5 462.5 262.5 455.873 262.5 450.5 260.261 450.5 257.5Z"
+         stroke="#CC3A46"
+         stroke-width="1.17218"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path46" />
+      <path
+         d="M450.5 264.5C450.5 267.262 455.873 269.5 462.5 269.5 469.128 269.5 474.5 267.262 474.5 264.5"
+         stroke="#CC3A46"
+         stroke-width="0.863622"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path47" />
+      <path
+         d="M450.5 271.5C450.5 273.709 455.873 275.5 462.5 275.5 469.128 275.5 474.5 273.709 474.5 271.5"
+         stroke="#CC3A46"
+         stroke-width="0.863622"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path48" />
+    </g>
+    <text
+       id="withdrawal-heading"
+       x="530"
+       y="106"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="15.5"
+       font-weight="400"
+       fill="#CC3A46"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan48">Client C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="11.16"
+         baseline-shift="sub"
+         id="tspan49">j</tspan></text>
+    <text
+       id="withdrawal-description"
+       x="530"
+       y="124"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">withdraws</text>
+    <path
+       id="withdrawal-to-request"
+       d="M 572 111 H 592"
+       stroke="#C95A1E"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-C95A1E)" />
+    <rect
+       id="request-card"
+       x="596"
+       y="88"
+       width="226"
+       height="46"
+       rx="8"
+       stroke="#F2B183"
+       stroke-width="1.2"
+       fill="#FFFDFB" />
+    <text
+       id="request-heading"
+       x="709"
+       y="106"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17"
+       font-weight="700"
+       fill="#C95A1E"
+       text-anchor="middle">Unlearning request</text>
+    <text
+       id="request-description"
+       x="709"
+       y="125"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan50">Remove C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="9.36"
+         baseline-shift="sub"
+         id="tspan51">j</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan52"> from training history</tspan></text>
+    <path
+       id="request-to-recomputation"
+       d="M 709 135 V 148"
+       stroke="#C95A1E"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-C95A1E)" />
+    <rect
+       id="recomputation-card"
+       x="454"
+       y="151"
+       width="368"
+       height="94"
+       rx="8"
+       stroke="#F2B183"
+       stroke-width="1.2"
+       fill="#FFFDFB" />
+    <text
+       id="recomputation-heading"
+       x="638"
+       y="176"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="19"
+       font-weight="700"
+       fill="#14263D"
+       text-anchor="middle">Server-side recomputation</text>
+    <text
+       id="recomputation-description"
+       x="638"
+       y="191"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan53">Reconstruct each round aggregate without C</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="9.72"
+         baseline-shift="sub"
+         id="tspan54">j</tspan></text>
+    <text id="recomputation-retained" x="638" y="216" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#14263D" text-anchor="middle">Decode and average retained messages</text>
+    <text id="recomputation-clip" x="638" y="236" font-family="Arial, Helvetica, sans-serif" font-size="13.5" fill="#54667C" text-anchor="middle">Apply aggregate clipping afterward</text>
+    <path
+       id="recomputation-to-replay"
+       d="M 638 246 V 258"
+       stroke="#C95A1E"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-C95A1E)" />
+    <rect
+       id="replay-card"
+       x="478"
+       y="261"
+       width="320"
+       height="46"
+       rx="8"
+       stroke="#F2B183"
+       stroke-width="1.2"
+       fill="#FFF8F2" />
+    <text
+       id="replay-heading"
+       x="638"
+       y="281"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="700"
+       fill="#C95A1E"
+       text-anchor="middle">History replay</text>
+    <text
+       id="replay-description"
+       x="638"
+       y="299"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">Restart from the original initialization</text>
+    <path
+       id="replay-to-recovery"
+       d="M 638 308 V 320"
+       stroke="#C95A1E"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-C95A1E)" />
+    <rect
+       id="recovery-card"
+       x="478"
+       y="323"
+       width="320"
+       height="46"
+       rx="8"
+       stroke="#F2B183"
+       stroke-width="1.2"
+       fill="#FFF8F2" />
+    <text
+       id="recovery-heading"
+       x="638"
+       y="343"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="17.5"
+       font-weight="700"
+       fill="#C95A1E"
+       text-anchor="middle">Private recovery / fine-tuning</text>
+    <text
+       id="recovery-description"
+       x="638"
+       y="361"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5"
+       font-weight="400"
+       fill="#54667C"
+       text-anchor="middle">Fresh locally randomized client gradients</text>
+    <path
+       id="recovery-to-model"
+       d="M 638 370 V 399"
+       stroke="#C95A1E"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-C95A1E)" />
+    <rect
+       id="model-card"
+       x="490"
+       y="402"
+       width="308"
+       height="32"
+       rx="8"
+       stroke="#C95A1E"
+       stroke-width="1.2"
+       fill="#FFF2E7" />
+    <g
+       id="model-icon"
+       transform="translate(-6.5 -176.5)">
+      <path
+         d="M512.5 588.5 518.5 584.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path64" />
+      <path
+         d="M512.5 588.5 515.5 595.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path65" />
+      <path
+         d="M518.5 584.5 525.5 587.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path66" />
+      <path
+         d="M518.5 584.5 515.5 595.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path67" />
+      <path
+         d="M518.5 584.5 526.5 597.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path68" />
+      <path
+         d="M525.5 587.5 526.5 597.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path69" />
+      <path
+         d="M515.5 595.5 526.5 597.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path70" />
+      <path
+         d="M515.5 595.5 519.5 603.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path71" />
+      <path
+         d="M526.5 597.5 519.5 603.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path72" />
+      <path
+         d="M525.5 587.5 519.5 603.5"
+         stroke="#C95A1E"
+         stroke-width="0.646404"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path73" />
+      <path
+         d="M510.5 589C510.5 588.172 511.172 587.5 512 587.5 512.828 587.5 513.5 588.172 513.5 589 513.5 589.828 512.828 590.5 512 590.5 511.172 590.5 510.5 589.828 510.5 589Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path74" />
+      <path
+         d="M516.5 584.5C516.5 583.396 517.396 582.5 518.5 582.5 519.605 582.5 520.5 583.396 520.5 584.5 520.5 585.605 519.605 586.5 518.5 586.5 517.396 586.5 516.5 585.605 516.5 584.5Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path75" />
+      <path
+         d="M523.5 587.5C523.5 586.396 524.396 585.5 525.5 585.5 526.605 585.5 527.5 586.396 527.5 587.5 527.5 588.605 526.605 589.5 525.5 589.5 524.396 589.5 523.5 588.605 523.5 587.5Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path76" />
+      <path
+         d="M513.5 596C513.5 595.172 514.396 594.5 515.5 594.5 516.605 594.5 517.5 595.172 517.5 596 517.5 596.828 516.605 597.5 515.5 597.5 514.396 597.5 513.5 596.828 513.5 596Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path77" />
+      <path
+         d="M525.5 598C525.5 597.172 526.172 596.5 527 596.5 527.828 596.5 528.5 597.172 528.5 598 528.5 598.828 527.828 599.5 527 599.5 526.172 599.5 525.5 598.828 525.5 598Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path78" />
+      <path
+         d="M517.5 603.5C517.5 602.396 518.396 601.5 519.5 601.5 520.605 601.5 521.5 602.396 521.5 603.5 521.5 604.605 520.605 605.5 519.5 605.5 518.396 605.5 517.5 604.605 517.5 603.5Z"
+         stroke="#C95A1E"
+         stroke-width="0.5621"
+         stroke-miterlimit="8"
+         fill="#FFFFFF"
+         fill-rule="evenodd"
+         id="path79" />
+    </g>
+    <text
+       id="model-heading"
+       x="658"
+       y="423"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="18"
+       font-weight="700"
+       fill="#14263D"
+       text-anchor="middle"><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         id="tspan79">Unlearned model θ</tspan><tspan
+         font-family="Arial, Helvetica, sans-serif"
+         font-size="12.96"
+         baseline-shift="sub"
+         id="tspan80">−j</tspan></text>
+  </g>
+  <g
+     id="verification"
+     transform="translate(4.9006645,0.52980136)">
+    <rect
+       id="verification-panel"
+       x="852"
+       y="12"
+       width="404"
+       height="436"
+       rx="14"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#ffffff" />
+    <circle
+       id="verification-number-disc"
+       cx="882"
+       cy="40"
+       r="16"
+       fill="#14804a" />
+    <text
+       id="verification-number"
+       x="882"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="24px"
+       font-weight="700"
+       fill="#ffffff"
+       text-anchor="middle">3</text>
+    <text
+       id="verification-title"
+       x="906"
+       y="48"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="23px"
+       font-weight="700"
+       fill="#14263d"
+       text-anchor="start">Removal verification</text>
+    <text
+       id="verification-subtitle"
+       x="870"
+       y="71"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13.5px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="start">Evaluate retained utility and removal evidence</text>
+    <rect
+       id="evaluation-badge"
+       x="894"
+       y="88"
+       width="320"
+       height="24"
+       rx="12"
+       stroke="#ddf5e7"
+       stroke-width="1.2"
+       fill="#ddf5e7" />
+    <text
+       id="evaluation-heading"
+       x="1054"
+       y="105"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">Post-unlearning evaluation</text>
+    <rect
+       id="withdrawn-evaluation-card"
+       x="892"
+       y="126"
+       width="346"
+       height="84"
+       rx="8"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#fbfffc" />
+    <g
+       id="withdrawn-samples-icon"
+       transform="translate(89.5,-154.5)">
+      <path
+         d="m 820.5,292.5 h 11.724 l 5.276,5.351 V 314.5 h -17 z"
+         stroke="#cc3a46"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path80" />
+      <path
+         d="m 831.5,292.5 v 6 h 6"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path81" />
+      <path
+         d="m 823.5,302.5 h 9"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path82" />
+      <path
+         d="m 823.5,306.5 h 8"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path83" />
+      <path
+         d="m 829.5,295.5 h 11.724 l 5.276,5.351 V 317.5 h -17 z"
+         stroke="#cc3a46"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path84" />
+      <path
+         d="m 841.5,295.5 v 5 h 5"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path85" />
+      <path
+         d="m 833.5,305.5 h 8"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path86" />
+      <path
+         d="m 833.5,309.5 h 8"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path87" />
+      <path
+         d="m 839.5,298.5 h 11.724 l 5.276,5.351 V 320.5 h -17 z"
+         stroke="#cc3a46"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path88" />
+      <path
+         d="m 851.5,298.5 v 5 h 5"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path89" />
+      <path
+         d="m 842.5,308.5 h 9"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path90" />
+      <path
+         d="m 842.5,311.5 h 9"
+         stroke="#cc3a46"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path91" />
+    </g>
+    <text
+       id="withdrawn-samples-heading"
+       x="933.57617"
+       y="188.73509"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13px"
+       font-weight="700"
+       fill="#cc3a46"
+       text-anchor="middle">Withdrawn</text>
+    <text
+       id="withdrawn-samples-description"
+       x="933.31128"
+       y="203"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">client samples</text>
+    <path
+       id="withdrawn-samples-to-model"
+       d="m 967,160 h 21"
+       stroke="#cc3a46"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-CC3A46)" />
+    <g
+       id="withdrawn-model-icon"
+       transform="matrix(1.7430036,0,0,1.5362666,-600.9468,-315.91108)">
+      <path
+         d="m 916.5,307.5 10,-8"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path92" />
+      <path
+         d="m 916.5,307.5 6,10"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path93" />
+      <path
+         d="m 926.5,299.5 11,5"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path94" />
+      <path
+         d="m 926.5,299.5 -4,18"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path95" />
+      <path
+         d="m 926.5,299.5 13,21"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path96" />
+      <path
+         d="m 937.5,304.5 2,16"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path97" />
+      <path
+         d="m 922.5,317.5 17,3"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path98" />
+      <path
+         d="m 922.5,317.5 6,12"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path99" />
+      <path
+         d="m 939.5,320.5 -11,9"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path100" />
+      <path
+         d="m 937.5,304.5 -9,25"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path101" />
+      <path
+         d="m 914.5,307 c 0,-1.381 1.119,-2.5 2.5,-2.5 1.381,0 2.5,1.119 2.5,2.5 0,1.381 -1.119,2.5 -2.5,2.5 -1.381,0 -2.5,-1.119 -2.5,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path102" />
+      <path
+         d="m 923.5,299.5 c 0,-1.657 1.343,-3 3,-3 1.657,0 3,1.343 3,3 0,1.657 -1.343,3 -3,3 -1.657,0 -3,-1.343 -3,-3 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path103" />
+      <path
+         d="m 934.5,305 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path104" />
+      <path
+         d="m 919.5,318 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path105" />
+      <path
+         d="m 936.5,321 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path106" />
+      <path
+         d="m 925.5,329.5 c 0,-1.657 1.119,-3 2.5,-3 1.381,0 2.5,1.343 2.5,3 0,1.657 -1.119,3 -2.5,3 -1.381,0 -2.5,-1.343 -2.5,-3 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path107" />
+    </g>
+    <path
+       id="withdrawn-model-to-result"
+       d="m 1047,160 h 20"
+       stroke="#14804a"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-14804A)" />
+    <rect
+       id="withdrawn-result-card"
+       x="1072"
+       y="135"
+       width="152"
+       height="66"
+       rx="8"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#effbf3" />
+    <text
+       id="mia-heading"
+       x="1148"
+       y="155"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="15px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">MIA diagnostic</text>
+    <text
+       id="mia-value"
+       x="1148"
+       y="174"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="14px"
+       font-weight="700"
+       fill="#14263d"
+       text-anchor="middle">AUC / balanced acc.</text>
+    <text
+       id="mia-description"
+       x="1148"
+       y="189"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="11.5px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">Compare with retraining</text>
+    <rect
+       id="clean-evaluation-card"
+       x="892"
+       y="222"
+       width="346"
+       height="84"
+       rx="8"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#fbfffc" />
+    <g
+       id="clean-samples-icon"
+       transform="translate(89.5,-167.5)">
+      <path
+         d="m 820.5,401.5 h 11.724 l 5.276,5.108 V 422.5 h -17 z"
+         stroke="#14804a"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path108" />
+      <path
+         d="m 831.5,401.5 v 5 h 6"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path109" />
+      <path
+         d="m 823.5,411.5 h 9"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path110" />
+      <path
+         d="m 823.5,414.5 h 8"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path111" />
+      <path
+         d="m 829.5,404.5 h 11.724 l 5.276,5.108 V 425.5 h -17 z"
+         stroke="#14804a"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path112" />
+      <path
+         d="m 841.5,404.5 v 5 h 5"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path113" />
+      <path
+         d="m 833.5,413.5 h 8"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path114" />
+      <path
+         d="m 833.5,417.5 h 8"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path115" />
+      <path
+         d="m 839.5,406.5 h 11.724 l 5.276,5.351 V 428.5 h -17 z"
+         stroke="#14804a"
+         stroke-width="1.04871"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path116" />
+      <path
+         d="m 851.5,406.5 v 6 h 5"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="none"
+         fill-rule="evenodd"
+         id="path117" />
+      <path
+         d="m 842.5,416.5 h 9"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path118" />
+      <path
+         d="m 842.5,420.5 h 9"
+         stroke="#14804a"
+         stroke-width="0.757375"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path119" />
+    </g>
+    <text
+       id="clean-samples-heading"
+       x="930"
+       y="285"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">Clean test</text>
+    <text
+       id="clean-samples-description"
+       x="930"
+       y="299"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">samples</text>
+    <path
+       id="clean-samples-to-model"
+       d="m 967,256 h 21"
+       stroke="#14804a"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-14804A)" />
+    <g
+       id="clean-model-icon"
+       transform="matrix(1.8209844,0,0,1.6073246,-673.72656,-245.25582)">
+      <path
+         d="m 916.5,307.5 10,-8"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path120" />
+      <path
+         d="m 916.5,307.5 6,10"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path121" />
+      <path
+         d="m 926.5,299.5 11,5"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path122" />
+      <path
+         d="m 926.5,299.5 -4,18"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path123" />
+      <path
+         d="m 926.5,299.5 13,21"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path124" />
+      <path
+         d="m 937.5,304.5 2,16"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path125" />
+      <path
+         d="m 922.5,317.5 17,3"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path126" />
+      <path
+         d="m 922.5,317.5 6,12"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path127" />
+      <path
+         d="m 939.5,320.5 -11,9"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path128" />
+      <path
+         d="m 937.5,304.5 -9,25"
+         stroke="#36495d"
+         stroke-width="0.993176"
+         stroke-linecap="round"
+         stroke-miterlimit="8"
+         fill="none"
+         fill-rule="evenodd"
+         id="path129" />
+      <path
+         d="m 914.5,307 c 0,-1.381 1.119,-2.5 2.5,-2.5 1.381,0 2.5,1.119 2.5,2.5 0,1.381 -1.119,2.5 -2.5,2.5 -1.381,0 -2.5,-1.119 -2.5,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path130" />
+      <path
+         d="m 923.5,299.5 c 0,-1.657 1.343,-3 3,-3 1.657,0 3,1.343 3,3 0,1.657 -1.343,3 -3,3 -1.657,0 -3,-1.343 -3,-3 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path131" />
+      <path
+         d="m 934.5,305 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path132" />
+      <path
+         d="m 919.5,318 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path133" />
+      <path
+         d="m 936.5,321 c 0,-1.381 1.343,-2.5 3,-2.5 1.657,0 3,1.119 3,2.5 0,1.381 -1.343,2.5 -3,2.5 -1.657,0 -3,-1.119 -3,-2.5 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path134" />
+      <path
+         d="m 925.5,329.5 c 0,-1.657 1.119,-3 2.5,-3 1.381,0 2.5,1.343 2.5,3 0,1.657 -1.119,3 -2.5,3 -1.381,0 -2.5,-1.343 -2.5,-3 z"
+         stroke="#36495d"
+         stroke-width="0.863622"
+         stroke-miterlimit="8"
+         fill="#ffffff"
+         fill-rule="evenodd"
+         id="path135" />
+    </g>
+    <path
+       id="clean-model-to-result"
+       d="m 1047,256 h 20"
+       stroke="#14804a"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-14804A)" />
+    <rect
+       id="clean-result-card"
+       x="1072"
+       y="231"
+       width="152"
+       height="66"
+       rx="8"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#effbf3" />
+    <text
+       id="utility-heading"
+       x="1148"
+       y="251"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="15px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">Retained utility</text>
+    <text
+       id="utility-value"
+       x="1148"
+       y="270"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="15px"
+       font-weight="700"
+       fill="#14263d"
+       text-anchor="middle">Clean accuracy</text>
+    <text
+       id="utility-description"
+       x="1148"
+       y="285"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="11.5px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">vs. reference model</text>
+    <path
+       id="evaluations-to-diagnostic"
+       d="m 1065,308 v 10"
+       stroke="#14804a"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-14804A)" />
+    <path
+       id="diagnostic-diamond"
+       d="m 1065,319 140,28 -140,28 -140,-28 z"
+       fill="#eaf8ef"
+       stroke="#14804a"
+       stroke-width="1.2" />
+    <text
+       id="diagnostic-heading"
+       x="1065"
+       y="347"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="16px"
+       font-weight="700"
+       fill="#14263d"
+       text-anchor="middle">Removal diagnostic</text>
+    <text
+       id="diagnostic-description"
+       x="1065"
+       y="363"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="13px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">Passes criteria?</text>
+    <path
+       id="diagnostic-yes"
+       d="m 1008,364 -21,26"
+       stroke="#14804a"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-14804A)" />
+    <path
+       id="diagnostic-no"
+       d="m 1122,364 20,26"
+       stroke="#cc3a46"
+       stroke-width="1.5"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       marker-end="url(#arrow-CC3A46)" />
+    <text
+       id="diagnostic-yes-label"
+       x="985.24506"
+       y="375.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">yes</text>
+    <text
+       id="diagnostic-no-label"
+       x="1143.0331"
+       y="375.80795"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12px"
+       font-weight="700"
+       fill="#cc3a46"
+       text-anchor="middle">no</text>
+    <rect
+       id="passed-card"
+       x="892"
+       y="393"
+       width="169"
+       height="43"
+       rx="8"
+       stroke="#8fd2ac"
+       stroke-width="1.2"
+       fill="#ebfaf1" />
+    <path
+       id="passed-icon"
+       d="m 899,405 4,4 7,-9"
+       stroke="#14804a"
+       stroke-width="1.8"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round" />
+    <text
+       id="passed-heading"
+       x="984"
+       y="410"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="15.5px"
+       font-weight="700"
+       fill="#14804a"
+       text-anchor="middle">Diagnostic passed</text>
+    <text
+       id="passed-description-1"
+       x="976.5"
+       y="423"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12.2px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">Empirical removal</text>
+    <text
+       id="passed-description-2"
+       x="976.5"
+       y="434"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12.2px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">evidence</text>
+    <rect
+       id="failed-card"
+       x="1073"
+       y="393"
+       width="165"
+       height="43"
+       rx="8"
+       stroke="#e9abb2"
+       stroke-width="1.2"
+       fill="#fff0f1" />
+    <path
+       id="failed-icon"
+       d="m 1092,400 9,9 m 0,-9 -9,9"
+       stroke="#cc3a46"
+       stroke-width="1.8"
+       fill="none"
+       stroke-linecap="round"
+       stroke-linejoin="round" />
+    <text
+       id="failed-heading"
+       x="1164"
+       y="410"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="16px"
+       font-weight="700"
+       fill="#cc3a46"
+       text-anchor="middle">Not passed</text>
+    <text
+       id="failed-description-1"
+       x="1155.5"
+       y="423"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12.2px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">Fails or is inconclusive</text>
+    <text
+       id="failed-description-2"
+       x="1155.5"
+       y="434"
+       font-family="Arial, Helvetica, sans-serif"
+       font-size="12.2px"
+       font-weight="400"
+       fill="#54667c"
+       text-anchor="middle">under the criteria</text>
+  </g>
+</svg>
