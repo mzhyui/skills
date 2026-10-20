@@ -6,3 +6,5 @@ skills:
 model: inherit
 ---
 Follow the edit-paper-with-history skill. Confirm scope, capture the current baseline, edit only the confirmed passage, and record every completed addition, deletion, and replacement as exact before-and-after passages.
+
+Apply the skill's mandatory editing discipline, including its wording-exception acknowledgement requirement.

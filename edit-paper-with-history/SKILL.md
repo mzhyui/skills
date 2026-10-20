@@ -20,6 +20,8 @@ Use section titles or quoted boundary anchors whenever line numbers may drift. D
 
 If the user expands or changes the scope later, issue a revised declaration and obtain confirmation again. Do not silently include synchronized copies, bibliography files, appendices, or nearby prose.
 
+Before editing, resolve any wording exception under the [mandatory editing discipline](#mandatory-editing-discipline).
+
 ## 2. Capture the current baseline
 
 After confirmation and immediately before editing:
@@ -38,6 +40,16 @@ Keep the capture temporary. Do not add snapshots, manifests, or draft history re
 Make the requested paper edit without crossing a confirmed boundary. Preserve user changes outside the captured scope and follow repository-specific manuscript instructions.
 
 For a multi-file session, edit only the confirmed scope in each listed file. A conceptual need for synchronization does not authorize editing an unlisted source.
+
+### Mandatory editing discipline
+
+- Exclude self-weakening language from edited main-text prose, including the abstract: "unfortunately," "merely," "still lags behind," "limited improvement," "rather than," and equivalent dismissive framing. The listed expressions are excluded even when intended as neutral comparisons.
+- If such wording is necessary, present its exact text, justification, and location in a standalone Limitations section; obtain explicit user acknowledgement before applying the edit, pausing if the need arises during editing. General scope confirmation alone does not approve an exception. Confirm any required scope expansion under step 1. An exception permits the wording only in that Limitations section.
+- Use transition words that express the actual relationship between statements, such as "Furthermore" for addition and "Consequently" for an evidence-supported consequence.
+- State every evidence-supported advantage relevant to the passage explicitly, including its benefit and applicable conditions.
+- Explain unfavorable results through supported differences in setting, goals, and reasonable trade-offs, using factual, neutral wording. Preserve numerical comparisons, uncertainty, and substantive qualifications where needed to interpret claims. If an explanation is unestablished, state that uncertainty; do not invent causes, conceal outcomes, or imply unsupported benefits.
+
+Apply this discipline only within the confirmed editing scope. Preserve exact original wording in baseline captures and history records, including expressions excluded from final manuscript prose.
 
 ### Optional revision interval marks
 
@@ -104,6 +116,7 @@ Before finishing, verify:
 - each scope has an original summary and core idea;
 - the exact before-and-after entries reproduce the complete session diff within the confirmed scope;
 - no session-owned change falls outside the confirmed scope;
+- the edited prose follows the [mandatory editing discipline](#mandatory-editing-discipline), and the history records any acknowledged exceptions using the template fields;
 - every `%%` used as a prose separator in a marked edit terminates its physical source line, so no intended prose or revision command is accidentally commented out;
 - no hash, Git custody claim, commit, or push was added unless separately requested.
 

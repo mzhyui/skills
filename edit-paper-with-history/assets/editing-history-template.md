@@ -20,6 +20,16 @@
 - Core idea: `<central claim, argument, or purpose>`
 - Preserved constraints: `<qualifications, evidence boundaries, terminology, citations, or notation>`
 
+## Acknowledged wording exceptions
+
+Write `None` if no exception was used. Otherwise, record each exception:
+
+- Exact wording: `<approved wording>`
+- Justification: `<why this wording is necessary>`
+- Location: `<repository-relative path and standalone Limitations section locator>`
+- User acknowledgement: `<exact acknowledgement and conversation locator or timestamp, if available>`
+- Scope expansion: `<revised confirmed scope and user confirmation, or not applicable>`
+
 ## Exact changes
 
 ### Change 1 — `<short factual label>`
@@ -48,6 +58,7 @@ After:
 - [ ] The record covers every session-owned change in the confirmed scope.
 - [ ] Exact before-and-after passages agree with the baseline-to-final diff.
 - [ ] No session-owned change falls outside the confirmed scope.
+- [ ] The edited prose follows the skill's mandatory editing discipline, and any acknowledged wording exceptions are recorded above.
 - [ ] All paths are repository-relative.
 - [ ] Both timestamps include timezones.
 - [ ] No hashes or Git custody claims are included.
