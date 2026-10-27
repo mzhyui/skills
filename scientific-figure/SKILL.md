@@ -47,6 +47,8 @@ Read [the design and review guide](references/design-and-review.md) for illustra
 
 Generate `figure.svg` with native vector geometry and editable text, semantic group IDs, and named arrow markers. Save the generator when using code; direct SVG authoring is also reproducible source. Implement illustrations as compact vectors where practical. Optional AI-generated bitmap illustrations may help depict physical objects, but keep scientific labels, arrows, equations, and decisions in the vector layer. Identify embedded raster assets in delivery.
 
+When constructing arrows, read [arrow construction](references/arrow-construction.md). Stop the shaft inside the broad part of the head, before its taper; a line ending at the triangle tip leaves a visible bump even with a butt cap. Preserve the intended tip and use an unstroked head. Prefer the bundled `scripts/arrow_geometry.py` helper for straight/polyline routes, or a single filled arrow outline with equivalent geometry.
+
 For complex math, use locally rendered LaTeX or another reliable math renderer. Keep equation source and its mapping to vector paths; outlined math is visually editable but is no longer editable text. Never simplify notation merely because a renderer struggles with it. Prefer supported text or SVG `tspan` subscripts for simple notation.
 
 The worked [example generator](assets/example-workflow.py) illustrates this three-stage figure-making process, not a research algorithm. Use it only as a style and implementation example; it is not a fixed layout for all methods.

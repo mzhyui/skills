@@ -8,7 +8,11 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import sys
 import xml.etree.ElementTree as ET
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from arrow_geometry import add_arrow
 
 SVG = "http://www.w3.org/2000/svg"
 ET.register_namespace("", SVG)
@@ -114,8 +118,10 @@ None for this illustrative workflow. No inaccessible linked reference image was 
         elif i == 1:
             for xx, yy, ww, hh in [(x+120, 142, 70, 44), (x+250, 142, 70, 44), (x+184, 222, 70, 44)]:
                 primitive(icon, "rect", x=xx, y=yy, width=ww, height=hh, rx=10, fill="white", stroke=accent)
-            for d in [f"M {x+190} 164 H {x+244}", f"M {x+285} 186 V 205 H {x+219} V 216"]:
-                primitive(icon, "path", d=d, fill="none", stroke=accent, **{"marker-end": "url(#arrow)"})
+            routes = [[(x+190, 164), (x+244, 164)], [(x+285, 186), (x+285, 205), (x+219, 205), (x+219, 216)]]
+            for j, points in enumerate(routes):
+                primitive(icon, "arrow", identifier=f"{icon}-edge-{j}", points=points,
+                          color=accent, stroke_width=2.6, head_length=8, head_width=8)
         else:
             primitive(icon, "rect", x=x+130, y=133, width=180, height=128, rx=12, fill="white", stroke=accent)
             primitive(icon, "path", d=f"M {x+130} 163 H {x+310}", fill="none", stroke=accent)
@@ -124,8 +130,10 @@ None for this illustrative workflow. No inaccessible linked reference image was 
             primitive(icon, "path", d=f"M {x+180} 213 L {x+209} 237 L {x+262} 188", fill="none", stroke=accent, **{"stroke-width": 7})
     for i, (eid, origin, dest) in enumerate([("specify-to-compose", "abstraction", "composition"), ("compose-to-validate", "composition", "validation")]):
         x = 460 + i*480
-        scene["edges"].append({"id": eid, "spec_id": eid, "from": origin, "to": dest, "from_port": "out", "to_port": "in", "type": "data", "points": [[x+4, 308], [x+34, 308]], "marker_end": "arrow"})
-    scene["edges"].append({"id": "revise-layout", "spec_id": "revise-layout", "from": "validation", "to": "composition", "from_port": "feedback", "to_port": "feedback", "type": "feedback", "points": [[1200, 514], [1200, 557], [720, 557], [720, 516]], "marker_end": "arrow", "dash": "9 7"})
+        scene["edges"].append({"id": eid, "spec_id": eid, "from": origin, "to": dest, "from_port": "out", "to_port": "in", "type": "data", "points": [[x+4, 308], [x+34, 308]], "marker_end": f"{eid}-head"})
+    scene["edges"].append({"id": "revise-layout", "spec_id": "revise-layout", "from": "validation", "to": "composition", "from_port": "feedback", "to_port": "feedback", "type": "feedback", "points": [[1200, 514], [1200, 557], [720, 557], [720, 516]], "marker_end": "revise-layout-head", "dash": "9 7"})
+    scene["arrow_geometry"] = {"stroke_width": 2.6, "head_length": 8, "head_width": 8,
+                               "route_endpoint": "intended tip; rendered shaft is shortened inside head"}
     label("revision-label", None, "Visual issues? Revise and render again", 965, 601, 24)
     label("illustrative-label", None, "Illustrative figure-making workflow", 20, 601, 24, "start")
     # Persist every illustrative primitive before generating the SVG.
@@ -141,8 +149,13 @@ None for this illustrative workflow. No inaccessible linked reference image was 
     element(root, "title").text = "Scientific figure generation: abstraction, composition, and validation"
     element(root, "desc").text = "Illustrative workflow with a visual-revision feedback loop. All content uses editable SVG text and native vector primitives."
     defs = element(root, "defs")
-    marker = element(defs, "marker", id="arrow", markerWidth=8, markerHeight=8, refX=7, refY=4, orient="auto", markerUnits="userSpaceOnUse")
-    element(marker, "path", d="M 0 0 L 8 4 L 0 8 Z", fill=INK, stroke="none")
+
+    def draw_primitive(parent, primitive):
+        if primitive["tag"] == "arrow":
+            add_arrow(parent, defs, **primitive["attrs"])
+        else:
+            element(parent, primitive["tag"], **primitive["attrs"])
+
     element(root, "rect", id="background", x=0, y=0, width=1440, height=620, fill="white", stroke="none")
     groups = {None: root}
     for panel in scene["panels"]:
@@ -151,14 +164,14 @@ None for this illustrative workflow. No inaccessible linked reference image was 
         x, y, w, h = panel["box"]
         element(group, "rect", x=x, y=y, width=w, height=h, rx=24, fill=panel["fill"], stroke=panel["stroke"])
         for p in scene["panel_primitives"].get(panel["id"], []):
-            element(group, p["tag"], **p["attrs"])
+            draw_primitive(group, p)
     for icon in scene["decorations"]:
         group = element(groups[icon["parent"]], "g", id=icon["id"])
         for p in icon["primitives"]:
-            element(group, p["tag"], **p["attrs"])
+            draw_primitive(group, p)
     for edge in scene["edges"]:
-        points = " ".join(f"{x},{y}" for x, y in edge["points"])
-        element(root, "polyline", id=edge["id"], points=points, fill="none", stroke=INK, **{"marker-end": f"url(#{edge['marker_end']})", "stroke-dasharray": edge.get("dash", "none")})
+        add_arrow(root, defs, edge["id"], edge["points"], color=INK, stroke_width=2.6,
+                  head_length=8, head_width=8, dash=edge.get("dash"))
     for item in scene["labels"]:
         x, y = item["position"]
         element(groups[item["parent"]], "text", id=item["id"], x=x, y=y, fill=item["fill"], **{"font-size": item["font_size"], "text-anchor": item["anchor"], "font-weight": item["weight"]}).text = item["text"]

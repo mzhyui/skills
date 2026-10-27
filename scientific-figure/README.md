@@ -28,6 +28,8 @@ The renderer accepts an SVG master, including one reconstructed from PNG or impo
 
 The helper and workflow generator use Python 3's standard library. Rendering requires Inkscape. Poppler (`pdftoppm`, `pdfinfo`, `pdffonts`) supports PDF preview and inspection. Use fonts specified by the selected example or record substitutions. No image-generation API is required.
 
+For arrows, use the standard-library [geometry helper](scripts/arrow_geometry.py) and [construction guide](references/arrow-construction.md). The helper keeps the shaft inside the broad part of the head while preserving the intended tip, including on bent and dashed routes. Retain the helper beside a standalone generator if copying the generator outside this skill.
+
 The FU-framework example uses Tinos for its intended appearance. The archived federated-unlearning generator additionally uses Matplotlib; Batman uses Pillow. Those two generators and GBHINDER require missing original reference PNGs; see the [example index](examples/README.md).
 
 ## Generate and render safely
@@ -65,4 +67,4 @@ From this directory:
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-The real-export test needs Inkscape and skips explicitly when it is absent. The remaining tests exercise input validation, diagnostic boundaries, physical font scaling, and preservation of existing files.
+The real-export test needs Inkscape; the arrow silhouette test also uses Pillow. These tests skip explicitly if their dependencies are absent. Other tests exercise arrow-tip preservation and shaft containment, invalid routes, input validation, diagnostic boundaries, physical font scaling, and preservation of existing files.

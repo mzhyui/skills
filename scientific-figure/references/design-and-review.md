@@ -28,6 +28,7 @@ Check:
 
 - Readable stage titles, body labels, subscripts, and legends at the intended width. Check longer multilingual labels and fallback glyphs when applicable.
 - No clipping, unintended text overlap, crowding, or confusing arrow crossings. Check arrowheads at both ends of loops. Automated text-box overlap warnings need interpretation; deliberate multiline math may overlap bounding boxes without touching ink.
+- Inspect enlarged PNG and PDF-rendered arrowheads for protruding shafts, blunt tips, shoulders, gaps, and inherited head outlines. Check thick/thin arrows, bends, dashed paths, and legend samples; apply [arrow construction](arrow-construction.md) when repairing them.
 - Consistent edge weights, panel spacing, alignment, icon style, and color semantics. Check a grayscale view when colors encode meaning; differentiate critical paths by more than hue.
 - Adequate contrast on the chosen background and a practical transparent-background appearance. Check on white for publication even if an editor uses a dark canvas.
 - PDF and PNG agree, page dimensions match the brief, and raster assets have adequate effective resolution. Check equations in the PDF because its text/font treatment can differ from PNG.
