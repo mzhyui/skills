@@ -24,27 +24,15 @@ python3 <skill-path>/scripts/record_tool.py finish --manifest <temporary-manifes
 
 Write the note from the finalized manifest. Then rerun `finish` with the same paths, `--record-path`, and `--refresh`; update custody content if needed and validate. Keep the record outside every `--task-path` scope so `--record-path` can include it in custody without making implementation diff counts self-referential.
 
-## Required record shape
+## Record content and presentation
 
-In addition to the v3 lifecycle metadata and `## Lifecycle`, use:
+Use the body and folded appendix in [readable-records.md](readable-records.md). The visible body uses `## Outcome`, `## Task and Scope`, `## Implementation`, `## Validation`, `## Evidence Boundary`, and `## Next Steps`, in that order. Add `## Interface and Behavior Changes` only when a contract or behavior changed. Use descriptive topic subheadings where useful; no fixed level-three headings are required.
 
-1. `## Outcome`
-2. `## Task and Scope`
-3. `## Lifecycle`
-4. `## Implementation`
-5. `## Validation`
-6. `## Evidence Ledger`
-7. `## Git Custody`
-8. `## Evidence Boundary`
-9. `## Next Steps`
+For `function-fix`, explain the verified preserved contract and corrective change. For `fresh-implementation`, explain the plan source, starting status, core functions, and implementation result.
 
-Add `## Interface and Behavior Changes` only when an API, CLI, schema, protocol, file format, default, validation rule, output, or compatibility behavior changed.
+Summarize validation by what was established, keeping failed, partial, and not-run checks visible with their consequences. The aggregate metadata state is `fail` if any check failed, `partial` if none failed but one is partial, `pass` if at least one passed and all others passed or were not run, and `not-run` otherwise. A `pass` aggregate does not mean every check ran; disclose material omissions in the body.
 
-For `function-fix`, include `### Preserved Contract` and `### Corrective Change`. For `fresh-implementation`, include `### Plan and Starting Status` and `### Core Functions and Result`.
-
-Begin validation with `### Test Result`, reporting the aggregate manifest state. Then use `### <ID> - <result>` for every check, reproduce its exact command in a `text` fence, and state the observed summary. The aggregate is `fail` if any check failed, `partial` if none failed but one is partial, `pass` if at least one passed and all others passed or were not run, and `not-run` otherwise.
-
-Preserve the v2 evidence-ledger and Git-custody contracts: classify every `E*` and `V*` item, bind hashes when available, separate task-owned and pre-existing changes, reproduce the exact scoped-diff token, and use `unavailable` instead of inference.
+Put full v3 metadata, `## Check Details`, `## Evidence Ledger`, `## Git Custody`, and `## Lifecycle` in the final appendix. Use descriptive check headings with `Check`, `Result`, and `Evidence` fields, followed by the exact command and observed summary. Keep check receipts once, in Check Details; Evidence Ledger holds sources. Preserve hashes, source classifications, all Git ownership distinctions, the exact scoped-diff token, lifecycle events, and relationships. Use `unavailable` instead of inference. Legacy numbered check sections remain accepted.
 
 Run:
 

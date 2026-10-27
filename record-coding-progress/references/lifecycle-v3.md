@@ -11,7 +11,7 @@ Use one task type appropriate to the selected mode:
 
 Task type describes the work. Mode describes the record shape. For coding, implementation class independently states whether the verified public contract was preserved.
 
-Every v3 note uses these metadata lines. Use the manifest values exactly and render absent optional values as shown:
+Every v3 note uses these metadata lines, normally under `## Record Metadata` in the final folded appendix. Show the outcome before the full metadata; fields may be split between the title area and appendix but must occur only once. Use the manifest values exactly and render absent optional values as shown:
 
 ```markdown
 - Record format: `3`
@@ -65,7 +65,7 @@ Use `blocked` only with a concrete blocker reason. Use `in-progress` plus `unres
 
 ## Lifecycle and relationships
 
-The note must include `## Lifecycle`, state the current blocker or `None`, and reproduce each manifest event on one table row:
+The final appendix must include `## Lifecycle`, state the current blocker or `None`, and reproduce each manifest event on one table row:
 
 ```markdown
 | ID | At | Action | From | To | Actor | Reason |

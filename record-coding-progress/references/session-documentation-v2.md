@@ -19,9 +19,9 @@ python3 <skill-path>/scripts/record_tool.py add-source --manifest <temporary-man
 Do not inspect or record Git state merely because the destination is a repository.
 For a local source artifact, pass `--file <path>` so the tool computes and binds its SHA-256.
 
-## Required record shape
+## Required record content
 
-Use these metadata lines exactly:
+Use these metadata lines exactly in the final appendix:
 
 ```markdown
 # <Title>
@@ -43,12 +43,14 @@ Use these required headings:
 5. `## Evidence Boundary`
 6. `## Next Steps`
 
+For presentation, follow [readable-records.md](readable-records.md): keep Outcome, Context and Scope, Findings and Decisions, any technical design, Evidence Boundary, and Next Steps in the body. Put full metadata and Evidence Ledger in a final folded appendix, along with Lifecycle for v3. The list above specifies required content, not reading order. Do not add check or Git sections.
+
 Add `## Technical Design or Experimental Plan` only when algorithms, equations, interfaces, schemas, protocols, milestones, metrics, or gates are central.
 
 ## Content contract
 
 - Lead with the durable conclusion or decision, not a chat recap.
-- Organize findings by topic. Mark each material item `verified`, `user-stated`, `inferred`, or `proposed`, and cite an `E*` source ID.
+- Organize findings by topic. Mark each material item `verified`, `user-stated`, `inferred`, or `proposed`, and link to a named source where useful. Keep `E*` IDs in the appendix.
 - Preserve necessary equations, data contracts, alternatives, and rationale without hidden reasoning or large code blocks.
 - In the evidence ledger, map each source ID to one class (`verified`, `user-stated`, `inferred`, or `proposed`), its kind, locator, optional hash, and supported conclusion. Record the current user statement as a `user` source when no external artifact was used.
 - State what was inspected or demonstrated separately from what remains unimplemented, unrun, or unestablished.

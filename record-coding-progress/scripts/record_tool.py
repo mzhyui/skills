@@ -79,6 +79,7 @@ SESSION_FORBIDDEN_HEADINGS = (
     "Implementation",
     "Interface and Behavior Changes",
     "Validation",
+    "Check Details",
     "Git Custody",
     "Core Code and Functions",
     "Git Information",
@@ -886,10 +887,6 @@ def section_text(text: str, heading: str) -> str:
     return match.group(1) if match else ""
 
 
-def has_level_three_heading(text: str, heading: str) -> bool:
-    return bool(re.search(rf"^###\s+{re.escape(heading)}\s*$", text, re.MULTILINE))
-
-
 def evidence_id_has_class(text: str, evidence_id: str) -> bool:
     for line in text.splitlines():
         if re.search(rf"\b{re.escape(evidence_id)}\b", line) and any(
@@ -976,43 +973,8 @@ def validate_note_v2(manifest: dict[str, Any], note: Path) -> list[str]:
                 "metadata Implementation class must match manifest implementation_kind: "
                 f"{implementation_kind}"
             )
-        else:
-            implementation = section_text(text, "Implementation")
-            required_implementation_headings = (
-                ("Preserved Contract", "Corrective Change")
-                if implementation_kind == "function-fix"
-                else ("Plan and Starting Status", "Core Functions and Result")
-            )
-            for heading in required_implementation_headings:
-                if not has_level_three_heading(implementation, heading):
-                    errors.append(
-                        f"{implementation_kind} records require implementation heading: "
-                        f"### {heading}"
-                    )
-            validation = section_text(text, "Validation")
-            if not has_level_three_heading(validation, "Test Result"):
-                errors.append(
-                    "coding records with implementation_kind require validation heading: "
-                    "### Test Result"
-                )
 
-    for check in manifest["checks"]:
-        if check["id"] not in text:
-            errors.append(f"check {check['id']} is absent from the note")
-        elif not evidence_id_has_class(evidence_ledger, check["id"]):
-            errors.append(
-                f"check {check['id']} must be classified as verified in the Evidence Ledger"
-            )
-        expected_heading = rf"^###\s+{re.escape(check['id'])}\s+-\s+{re.escape(check['result'])}\s*$"
-        if not re.search(expected_heading, text, re.MULTILINE):
-            errors.append(f"check {check['id']} must report result `{check['result']}` in its heading")
-        if check["command"] not in text:
-            errors.append(f"exact command for {check['id']} is absent from the note")
-        if normalized_whitespace(check["summary"]) not in normalized_whitespace(text):
-            errors.append(f"observed summary for {check['id']} is absent from the note")
-        artifact = check.get("artifact")
-        if artifact and artifact["sha256"] not in text:
-            errors.append(f"artifact hash for {check['id']} is absent from the note")
+    validate_checks(manifest, text, errors)
 
     git_data = manifest.get("git", {})
     if git_data.get("available"):
@@ -1268,23 +1230,49 @@ def validate_v3_sources(manifest: dict[str, Any], text: str, errors: list[str]) 
             errors.append(f"source hash for {source['id']} is absent from the note")
 
 
-def validate_v3_checks(manifest: dict[str, Any], text: str, errors: list[str]) -> None:
+def validate_checks(manifest: dict[str, Any], text: str, errors: list[str]) -> None:
+    """Accept named appendix checks and legacy numbered validation sections."""
     evidence_ledger = section_text(text, "Evidence Ledger")
+    details = section_text(text, "Check Details")
+    named_blocks: dict[str, list[str]] = {}
+    for block in re.split(r"(?=^###[ \t]+)", details, flags=re.MULTILINE):
+        if not block.startswith("### "):
+            continue
+        check_id = metadata_value(block, "Check")
+        if check_id:
+            named_blocks.setdefault(check_id, []).append(block)
+    known_ids = {check["id"] for check in manifest["checks"]}
+    for check_id in named_blocks.keys() - known_ids:
+        errors.append(f"unknown check {check_id} in Check Details")
+
     for check in manifest["checks"]:
-        if check["id"] not in text:
-            errors.append(f"check {check['id']} is absent from the note")
-        elif not evidence_id_has_class(evidence_ledger, check["id"]):
-            errors.append(f"check {check['id']} must be classified as verified in the Evidence Ledger")
-        expected_heading = rf"^###\s+{re.escape(check['id'])}\s+-\s+{re.escape(check['result'])}\s*$"
-        if not re.search(expected_heading, text, re.MULTILINE):
-            errors.append(f"check {check['id']} must report result `{check['result']}` in its heading")
-        if check["command"] not in text:
-            errors.append(f"exact command for {check['id']} is absent from the note")
-        if normalized_whitespace(check["summary"]) not in normalized_whitespace(text):
-            errors.append(f"observed summary for {check['id']} is absent from the note")
+        check_id = check["id"]
+        blocks = named_blocks.get(check_id, [])
+        if blocks:
+            if len(blocks) != 1:
+                errors.append(f"check {check_id} must have exactly one Check Details entry")
+            evidence = blocks[0]
+            if metadata_value(evidence, "Result") != check["result"]:
+                errors.append(f"check {check_id} must report result `{check['result']}` in its entry")
+            if metadata_value(evidence, "Evidence") != "verified":
+                errors.append(f"check {check_id} must be classified as verified in its entry")
+            # Bind each command/outcome to its own check, not a neighboring entry.
+        else:
+            evidence = text
+            if check_id not in text:
+                errors.append(f"check {check_id} is absent from the note")
+            elif not evidence_id_has_class(evidence_ledger, check_id):
+                errors.append(f"check {check_id} must be classified as verified in the Evidence Ledger")
+            expected_heading = rf"^###\s+{re.escape(check_id)}\s+-\s+{re.escape(check['result'])}\s*$"
+            if not re.search(expected_heading, text, re.MULTILINE):
+                errors.append(f"check {check_id} must report result `{check['result']}` in its heading or Check Details entry")
+        if check["command"] not in evidence:
+            errors.append(f"exact command for {check_id} is absent from its check evidence")
+        if normalized_whitespace(check["summary"]) not in normalized_whitespace(evidence):
+            errors.append(f"observed summary for {check_id} is absent from its check evidence")
         artifact = check.get("artifact")
-        if artifact and artifact["sha256"] not in text:
-            errors.append(f"artifact hash for {check['id']} is absent from the note")
+        if artifact and artifact["sha256"] not in evidence:
+            errors.append(f"artifact hash for {check_id} is absent from its check evidence")
 
 
 def validate_v3_git(manifest: dict[str, Any], text: str, errors: list[str]) -> None:
@@ -1398,21 +1386,7 @@ def validate_note_v3(manifest: dict[str, Any], note: Path) -> list[str]:
         if "git" in manifest:
             errors.append("session-documentation manifest must not contain Git evidence")
         return errors
-    implementation = section_text(text, "Implementation")
-    required_implementation_headings = (
-        ("Preserved Contract", "Corrective Change")
-        if manifest["implementation_kind"] == "function-fix"
-        else ("Plan and Starting Status", "Core Functions and Result")
-    )
-    for heading in required_implementation_headings:
-        if not has_level_three_heading(implementation, heading):
-            errors.append(
-                f"{manifest['implementation_kind']} records require implementation heading: ### {heading}"
-            )
-    validation = section_text(text, "Validation")
-    if not has_level_three_heading(validation, "Test Result"):
-        errors.append("coding records require validation heading: ### Test Result")
-    validate_v3_checks(manifest, text, errors)
+    validate_checks(manifest, text, errors)
     validate_v3_git(manifest, text, errors)
     return errors
 

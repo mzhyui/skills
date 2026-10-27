@@ -1,6 +1,6 @@
 # Coding-progress record v2
 
-Use this mode for a material implementation result. Keep the record complete but non-repetitive: put each fact in its most specific section and cite its evidence ID elsewhere.
+Use this mode for a material implementation result. Keep the record complete but non-repetitive: put each fact in its most specific section and link to descriptively named details where useful.
 
 ## Start and finish evidence capture
 
@@ -20,7 +20,7 @@ After writing the note, rerun `finish` with the same paths plus `--refresh`, upd
 
 ## Required record shape
 
-Use these metadata lines exactly:
+Use these metadata lines exactly, preferably in the final appendix described in [readable-records.md](readable-records.md):
 
 ```markdown
 # <Title>
@@ -34,7 +34,7 @@ Use these metadata lines exactly:
 - Evidence state: `verified`, `mixed`, or `unverified`
 ```
 
-Use these required headings:
+Use these required headings; order the body and appendix as described below:
 
 1. `## Outcome`
 2. `## Task and Scope`
@@ -49,14 +49,17 @@ Add `## Interface and Behavior Changes` only when an API, CLI, schema, protocol,
 
 ## Content contract
 
-- **Outcome:** direct verdict, deliverables, limitations.
-- **Task and Scope:** request, target, starting state, constraints, decisions, assumptions, exclusions. For a `function-fix`, identify the evidence-backed pre-existing contract and the defect boundary. For a `fresh-implementation`, identify the confirmed plan source (a file source or relevant current context), the applicable plan detail, and the original implementation status.
-- **Implementation:** concise execution sequence plus a table of repository-relative core paths, symbols, behavioral changes, and roles. A `function-fix` must use `### Preserved Contract` and `### Corrective Change`; state the contract kept and focus on the changes made. A `fresh-implementation` must use `### Plan and Starting Status` and `### Core Functions and Result`; state what was planned, what existed before, the core functions, and the implementation result.
-- **Validation:** begin with `### Test Result`, stating the observed test outcome or `Not run: <reason>`. Then use one subsection per manifest check. Use `### <ID> - <result>`, reproduce the exact command in a `text` code fence, and state the observed summary. Record `not-run` reasons.
-- **Evidence Ledger:** map every `E*` and `V*` ID used by a material claim to one class (`verified`, `user-stated`, `inferred`, or `proposed`), its locator/check, and the supported conclusion. Validation observations are `verified` even when their result is not a pass.
-- **Git Custody:** branch, baseline/final HEAD, history relation, commits since baseline, explicit scopes, task-owned changes, pre-existing changes, overlaps, outside-scope changes, ownership caveats, and the manifest's exact scoped-diff token (`files=N; insertions=N; deletions=N; binary_files=N; untracked_files=N`). Do not call a commit task-owned without separate evidence. Use `unavailable` rather than inference; unborn repositories have no HEAD.
-- **Evidence Boundary:** what the work establishes and does not establish.
-- **Next Steps:** only unresolved work, dependencies, or `None`.
+Apply [readable-records.md](readable-records.md): Outcome → Task and Scope → Implementation → optional Interface and Behavior Changes → Validation → Evidence Boundary → Next Steps. Put metadata, Check Details, Evidence Ledger, and Git Custody in the final folded appendix. No fixed level-three body headings are required.
+
+- **Outcome:** direct verdict and the limitation that determines its scope.
+- **Task and Scope:** request, target, starting state, and material constraints or exclusions.
+- **Implementation:** explain changes by topic and identify core paths/functions where useful. For `function-fix`, identify the evidence-backed pre-existing contract, defect boundary, and corrective change. For `fresh-implementation`, identify the confirmed plan source and applicable detail, original implementation status, core functions, and result.
+- **Validation:** summarize outcomes and their implications by validation area. Group routine checks. Explain failures, partial results, skips, and not-run checks; do not paste commands or use check IDs as headings in the body.
+- **Check Details:** one descriptively named entry per manifest check, with tool-assigned `Check`, exact `Result`, `Evidence: verified`, exact command, observed summary, and artifact hash when captured. Record not-run reasons. Existing numbered headings with check classifications in Evidence Ledger remain valid.
+- **Evidence Ledger:** map every source ID to its class (`verified`, `user-stated`, `inferred`, or `proposed`), locator, captured hash, and supported conclusion. Check entries in Check Details need not be repeated here.
+- **Git Custody:** branch, baseline/final HEAD, history relation, commits since baseline, explicit scopes, task-owned changes, pre-existing changes, overlaps, outside-scope changes, ownership caveats, record path, and the manifest's exact scoped-diff token (`files=N; insertions=N; deletions=N; binary_files=N; untracked_files=N`). Do not call a commit task-owned without separate evidence. Use `unavailable` rather than inference; unborn repositories have no HEAD.
+- **Evidence Boundary:** substantive limits, without repeating conclusions already explained.
+- **Next Steps:** unresolved work, dependencies, or `None`.
 
 Run:
 

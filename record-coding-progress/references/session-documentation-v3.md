@@ -20,7 +20,7 @@ python3 <skill-path>/scripts/record_tool.py finish --manifest <temporary-manifes
 
 Session validation state is always `not-applicable`.
 
-## Required record shape
+## Required record content
 
 In addition to the v3 lifecycle metadata and `## Lifecycle`, use:
 
@@ -32,9 +32,11 @@ In addition to the v3 lifecycle metadata and `## Lifecycle`, use:
 6. `## Evidence Boundary`
 7. `## Next Steps`
 
+For presentation, follow [readable-records.md](readable-records.md): keep Outcome, Context and Scope, Findings and Decisions, any technical design, Evidence Boundary, and Next Steps in the body. Put full metadata and Evidence Ledger in a final folded appendix, along with Lifecycle for v3. The list above specifies required content, not reading order. Do not add check or Git sections.
+
 Add `## Technical Design or Experimental Plan` only when algorithms, equations, interfaces, schemas, protocols, milestones, metrics, or gates are central.
 
-Lead with the durable conclusion or decision. Organize findings by topic, classify every material item as `verified`, `user-stated`, `inferred`, or `proposed`, and cite its `E*` source. Do not imply code changes, experiments, or inspections that did not occur. Omit implementation inventories, command-validation sections, diffs, commits, branches, and worktree state.
+Lead with the durable conclusion or decision. Organize findings by topic, classify every material item as `verified`, `user-stated`, `inferred`, or `proposed`, and link to its named source where useful. Keep `E*` IDs in the appendix. Do not imply code changes, experiments, or inspections that did not occur. Omit implementation inventories, command-validation sections, diffs, commits, branches, and worktree state.
 
 Run:
 

@@ -42,6 +42,85 @@ def git(repo: Path, *args: str) -> str:
 
 
 class RecordToolTests(unittest.TestCase):
+    def named_check(self, check: dict, title: str) -> str:
+        return (
+            f"### {title}\n\n- Check: `{check['id']}`\n"
+            f"- Result: `{check['result']}`\n- Evidence: `verified`\n\n"
+            f"```text\n{check['command']}\n```\n\n{check['summary']}\n\n"
+        )
+
+    def test_named_checks_bind_results_commands_summaries_and_hashes(self) -> None:
+        checks = [
+            {"id": "V1", "result": "fail", "command": "python contract_tests.py",
+             "summary": "One contract failed.", "artifact": {"sha256": "a" * 64}},
+            {"id": "V10", "result": "not-run", "command": "python gpu_tests.py",
+             "summary": "GPU unavailable; tests not run."},
+        ]
+        first = self.named_check(checks[0], "Contract tests") + "a" * 64 + "\n\n"
+        second = self.named_check(checks[1], "GPU qualification")
+        good = "## Check Details\n\n" + first + second
+        errors: list[str] = []
+        record_module.validate_checks({"checks": checks}, good, errors)
+        self.assertEqual(errors, [])
+        mutations = {
+            "false pass": good.replace("Result: `fail`", "Result: `pass`"),
+            "wrong class": good.replace("Evidence: `verified`", "Evidence: `proposed`"),
+            "missing check": "## Check Details\n\n" + first,
+            "duplicate check": good + first,
+            "unknown check": good + second.replace("`V10`", "`V11`"),
+            "borrowed command": good.replace(checks[0]["command"], "other command")
+                + checks[0]["command"],
+            "borrowed summary": good.replace(checks[0]["summary"], "Other observation.")
+                + checks[0]["summary"],
+            "borrowed hash": good.replace("a" * 64, "hash omitted") + "a" * 64,
+        }
+        for name, note in mutations.items():
+            with self.subTest(name=name):
+                errors = []
+                record_module.validate_checks({"checks": checks}, note, errors)
+                self.assertTrue(errors, name)
+
+    def test_folded_record_validates_and_remains_discoverable_in_v2_and_v3(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manifest = self.start_v3(root, root)
+            run_tool("add-check", "--manifest", str(manifest), "--command", "python tests.py",
+                     "--result", "partial", "--summary", "Three passed; GPU check blocked.")
+            run_tool("finish", "--manifest", str(manifest), "--status", "done",
+                     "--resolution", "completed", "--evidence-state", "verified",
+                     "--actor", "tester", "--reason", "bounded task complete")
+            data = json.loads(manifest.read_text())
+            note = root / "readable.md"
+            self.write_v3_note(manifest, note)
+            original = note.read_text()
+            metadata = original.split("## Outcome")[0].split("\n", 1)[1]
+            body = (
+                "# Readable result\n\n## Outcome\n\nImplementation complete; GPU validation blocked.\n\n"
+                "## Task and Scope\n\nImplement the confirmed local test capability.\n\n"
+                "## Implementation\n\n### Test execution\n\nThe new runner implements the confirmed "
+                "plan; no runner existed before.\n\n## Validation\n\nThree checks passed; the GPU "
+                "check remains blocked.\n\n## Evidence Boundary\n\nGPU behavior remains unverified.\n\n"
+                "## Next Steps\n\nRun on a GPU.\n\n"
+            )
+            appendix = (
+                "<details>\n<summary>Record details</summary>\n\n## Record Metadata\n"
+                + metadata + "## Check Details\n\n"
+                + self.named_check(data["checks"][0], "Runner checks")
+                + "## Evidence Ledger\n\nNone.\n\n## Git Custody\n\nGit evidence unavailable.\n\n"
+                + "## Lifecycle\n" + record_module.section_text(original, "Lifecycle")
+                + "\n</details>\n"
+            )
+            note.write_text(body + appendix)
+            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+            entry = record_module.note_index_entry(note, root)
+            self.assertEqual(entry["status"], "done")
+            self.assertEqual(entry["record_id"], data["record_id"])
+            # The presentation is also accepted for existing v2 manifests, without migration.
+            data["schema_version"] = 2
+            note.write_text((body + appendix).replace("Record format: `3`", "Record format: `2`")
+                            .replace("Status: `done`", "Status: `completed`"))
+            self.assertEqual(record_module.validate_note_v2(data, note), [])
+
     def make_repo(self, root: Path) -> Path:
         repo = root / "repo"
         repo.mkdir()
@@ -501,19 +580,7 @@ None.
                 ),
                 encoding="utf-8",
             )
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn(
-                "fresh-implementation records require implementation heading: "
-                "### Core Functions and Result",
-                result.stderr,
-            )
+            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
 
     def test_coding_start_requires_implementation_kind(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:

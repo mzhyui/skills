@@ -7,6 +7,14 @@ description: Record durable, repository-adaptive progress notes with explicit ta
 
 Create a precise, self-contained handoff. Follow repository instructions and local Markdown conventions. Never record hidden reasoning, credentials, environment variables, tokens, or unsupported claims.
 
+## Write for the reader
+
+Read [references/readable-records.md](references/readable-records.md) when writing a record. Lead with the outcome, then explain the starting problem, meaningful changes, validation findings, limits, and next steps. Organize by topic rather than tool-call order. Use connected prose and descriptive subheadings; use a table only when it makes results or changes easier to compare.
+
+Keep the visible body useful without decoding evidence IDs. Name checks by what they establish, such as “CUDA contract tests” or “Target qualification.” Summarize routine checks together; keep failures, partial results, and blockers visible. Do not use `V1`–`V10` as the body's outline or repeat every result in an evidence ledger.
+
+Put exact commands, check IDs, source hashes, full metadata, Git custody, and lifecycle events in a final folded **Record details** appendix. Retain those facts once, with descriptive links from the body where useful. This is a presentation change for v2/v3, not a new record version; old layouts remain valid. Legacy v1 notes keep their existing contract.
+
 ## Route the record
 
 Choose exactly one mode:
@@ -53,15 +61,15 @@ Use `scripts/record_tool.py` to keep deterministic evidence outside model contex
 2. Add every material source with `add-source --manifest <path> --kind <kind> --locator <locator>`. The `--locator` is required and must identify the source (file path, URL, or description). Classify conclusions as `verified`, `user-stated`, `inferred`, or `proposed`.
 3. Add each observed check with `add-check --manifest <path> --command <command> --result <pass|fail|partial|not-run> --summary <summary>`. All three flags are required. The tool assigns check IDs automatically (V1, V2, ...) in the order added; do not supply `--id`. The `--summary` must state the observed outcome (e.g., "17/17 tests pass", "build fails with error X"). The tool records commands as data and never executes them.
 4. Use `transition` and `add-link` when lifecycle state or local relationships change. A blocked state requires its concrete reason. Do not edit lifecycle IDs manually.
-5. Run `finish` with the actual status, evidence state, actor, reason, conditional resolution, and every coding task path. Write the Markdown record from the finalized manifest, including exact commands and observed summaries for every check.
+5. Run `finish` with the actual status, evidence state, actor, reason, conditional resolution, and every coding task path. Write the reader-facing body from the finalized manifest; include exact commands and observed summaries for every check in the appendix.
 6. Rerun `finish --refresh` with the same coding paths plus `--record-path <note-path>`. Refresh recaptures custody without changing lifecycle timestamps or adding an event. Update the note's custody fields, then run `validate --manifest <path> --note <note-path>` and fix every error.
 
 Keep the JSON manifest under `/tmp`; do not add it to the repository. The Markdown record must remain understandable without the manifest.
 
 ## Preserve evidence boundaries
 
-- State the outcome first and each material fact once.
-- Tie conclusions to evidence IDs instead of repeating source detail.
+- State the outcome first. Summarize significance in the body and keep exact receipts in the appendix; do not copy whole results into multiple sections.
+- Tie conclusions to descriptive source/check links where useful. Keep evidence IDs in the appendix instead of scattering opaque references through the prose.
 - Distinguish implementation readiness from experimental, production, held-out, or scientific validation.
 - Never turn a skipped, partial, blocked, or failed check into a pass.
 - In coding mode, separate task-owned, pre-existing, overlapping, and out-of-scope changes.

@@ -5,4 +5,4 @@ skills:
   - record-coding-progress
 model: inherit
 ---
-Follow the record-coding-progress skill. Route the record to the correct mode and destination, select the v3 task type and lifecycle state, automatically classify coding work as a function fix or fresh implementation, capture evidence with the record tool, and preserve evidence and authorization boundaries.
+Follow the record-coding-progress skill. Route the record to the correct mode and destination, select the v3 task type and lifecycle state, automatically classify coding work as a function fix or fresh implementation, capture evidence with the record tool, and preserve evidence and authorization boundaries. Write an outcome-first body organized by topic, with named validation findings; keep exact checks, source IDs/hashes, full metadata, lifecycle, and custody in a final folded appendix.

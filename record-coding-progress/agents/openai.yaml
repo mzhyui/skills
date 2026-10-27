@@ -1,7 +1,7 @@
 interface:
   display_name: "Record Coding Progress"
-  short_description: "Record evidence-bound work lifecycle and results"
-  default_prompt: "Use $record-coding-progress to preserve this work as a v3 lifecycle record with explicit task type, status, resolution, evidence, validation, and custody."
+  short_description: "Write readable handoffs with evidence in an appendix"
+  default_prompt: "Use $record-coding-progress to write a readable, outcome-first handoff with topic-based findings and a folded appendix preserving v3 metadata, checks, sources, lifecycle, and custody."
 
 policy:
   allow_implicit_invocation: true
