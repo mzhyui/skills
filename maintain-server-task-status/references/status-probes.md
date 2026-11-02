@@ -34,8 +34,10 @@ exists.
 
 ## Selective V11 audit modes
 
-`status_probe.py selective-v11` accepts repeated `--status-json`, `--task-id`,
-and `--task-root` arguments.
+`status_probe.py selective-v11` requires `--status-schema`, the exact `schema`
+value the workflow's official status files declare, and accepts repeated
+`--status-json`, `--task-id`, and `--task-root` arguments. Take the schema from
+the workflow's own contract, not from the file being validated.
 
 - `auto` is the routine default. It merges the official statuses, fails closed
   on duplicate active task states, and evaluates all requested task gates
@@ -48,8 +50,8 @@ and `--task-root` arguments.
   and shutdown or cleanup gates.
 
 When a task is absent from every supplied official status, treat it as a
-completion blocker. The 84-task placeholder rows in separate selective roots
-must not be summed; pass only the exact assigned task IDs.
+completion blocker. Do not sum placeholder rows that separate selective roots
+list for unassigned tasks; pass only the exact assigned task IDs.
 
 ## Verdict vocabulary
 

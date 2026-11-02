@@ -252,12 +252,15 @@ def audit_retained_manifest(
 
 def load_official_statuses(
     paths: list[Path],
+    schema: str,
 ) -> list[tuple[Path, dict[str, Any], dict[str, dict[str, Any]]]]:
     statuses = []
     for path in paths:
         official = load_object(path, "official V11 status")
-        if official.get("schema") != "weight-spectrometry-v11-attack-status/v1":
-            raise ProbeError(f"official V11 status schema is unsupported: {path}")
+        if official.get("schema") != schema:
+            raise ProbeError(
+                f"official V11 status schema does not match --status-schema: {path}"
+            )
         task_rows = official.get("tasks")
         if not isinstance(task_rows, list):
             raise ProbeError(f"official V11 status tasks must be a list: {path}")
@@ -306,7 +309,7 @@ def resolve_official_task(
 
 def command_selective_v11(args: argparse.Namespace) -> dict[str, Any]:
     status_paths = list(dict.fromkeys(Path(path) for path in args.status_json))
-    statuses = load_official_statuses(status_paths)
+    statuses = load_official_statuses(status_paths, args.status_schema)
     task_roots = list(dict.fromkeys(Path(path) for path in args.task_root))
     requested = set(args.task_id)
     if not requested:
@@ -457,12 +460,21 @@ def build_parser() -> argparse.ArgumentParser:
     host.add_argument("--target", required=True, help="'local' or an SSH target")
     host.add_argument("--checkout", required=True)
     host.add_argument("--python", default="python3")
-    host.add_argument("--process-pattern", default="scripts/ws.py")
+    host.add_argument(
+        "--process-pattern",
+        required=True,
+        help="Worker command-line pattern for pgrep.",
+    )
     host.add_argument("--timeout", type=int, default=10)
     host.set_defaults(handler=command_host)
 
     selective = subparsers.add_parser(
         "selective-v11", help="Audit official status and retained assets."
+    )
+    selective.add_argument(
+        "--status-schema",
+        required=True,
+        help="Exact 'schema' value every official status JSON must declare.",
     )
     selective.add_argument(
         "--status-json",

@@ -1,6 +1,6 @@
 ---
 name: maintain-server-task-status
-description: Capture and maintain fresh, durable, evidence-bound server and task status for local machines, server 223, AutoDL, and other compute hosts. Use for server, worker, job, queue, task-cell, assignment, dispatch, recovery, resume, shutdown, or distributed-progress requests. Probe current evidence, distinguish liveness from completion, use shared-storage fallback only with verified custody, and update the repository status ledger.
+description: Capture and maintain fresh, durable, evidence-bound server and task status for local machines, remote servers, AutoDL, and other compute hosts. Use for server, worker, job, queue, task-cell, assignment, dispatch, recovery, resume, shutdown, or distributed-progress requests. Probe current evidence, distinguish liveness from completion, use shared-storage fallback only with verified custody, and update the repository status ledger.
 ---
 
 # Maintain Server Task Status
@@ -24,6 +24,7 @@ Keep status requests read-only unless the user authorizes a mutation.
 
    ```bash
    python <skill-dir>/scripts/status_probe.py selective-v11 \
+     --status-schema <official-status-schema> \
      --status-json <cell-a-status.json> \
      --status-json <cell-b-status.json> \
      --task-id <assigned-task-a> --task-id <assigned-task-b>
@@ -64,6 +65,11 @@ Keep status requests read-only unless the user authorizes a mutation.
    fallback evidence, evidence boundary, snapshot path, and SHA-256.
 
 ## Conditional guidance
+
+- Read [references/autodl-pro-operations.md](references/autodl-pro-operations.md)
+  for AutoDL Pro API operations: secure authentication, private images, regional
+  creation, immediate shutdown, or shutdown after runtime verification. Use
+  `scripts/autodl_api.py` for redacted receipts; mutations require authorization.
 
 - Read [references/status-probes.md](references/status-probes.md) only when
   choosing or interpreting routine probes.
