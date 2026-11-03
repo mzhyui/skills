@@ -1,4 +1,4 @@
 interface:
   display_name: "Scientific Figure"
-  short_description: "Create, reference-match, and revise scientific figures"
-  default_prompt: "Use $scientific-figure to create a scientific figure, match a reference SVG/PNG/PDF's visual style, or revise an existing figure according to my written requirements; render and verify the result."
+  short_description: "Scientific figures with editable SVG and optional PPTX"
+  default_prompt: "Use $scientific-figure to create, reference-match, or revise my scientific figure; before plotting, confirm any unspecified output formats and, for a complex combined figure, whether to fetch external icons, then render and verify the selected artifacts."

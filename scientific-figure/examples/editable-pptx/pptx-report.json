@@ -1,0 +1,298 @@
+{
+  "source": "figure.pptx",
+  "sha256": "87bc30286da060f32f487a1350395173385b224508b83b4e4a31ecc01f54741e",
+  "status": "inspected",
+  "slides": [
+    {
+      "number": 1,
+      "part": "ppt/slides/slide1.xml",
+      "counts": {
+        "text_box": 9,
+        "shape": 10,
+        "group": 3,
+        "connector": 11,
+        "editable_text_objects": 12,
+        "attached_connectors": 2
+      },
+      "objects": [
+        {
+          "id": "2",
+          "name": "figure-title",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "From scientific source to editable figure"
+        },
+        {
+          "id": "3",
+          "name": "panel-abstraction",
+          "kind": "shape",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "4",
+          "name": "title-abstraction",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "1  Scientific abstraction"
+        },
+        {
+          "id": "5",
+          "name": "icon-abstraction",
+          "kind": "group",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "6",
+          "name": "icon-abstraction-page",
+          "kind": "shape",
+          "parent_group": "5",
+          "text": ""
+        },
+        {
+          "id": "7",
+          "name": "icon-abstraction-line-0",
+          "kind": "connector",
+          "parent_group": "5",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "8",
+          "name": "icon-abstraction-line-1",
+          "kind": "connector",
+          "parent_group": "5",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "9",
+          "name": "icon-abstraction-line-2",
+          "kind": "connector",
+          "parent_group": "5",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "10",
+          "name": "node-abstraction",
+          "kind": "shape",
+          "parent_group": null,
+          "text": "Read the source"
+        },
+        {
+          "id": "11",
+          "name": "output-abstraction",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "Diagram specification"
+        },
+        {
+          "id": "12",
+          "name": "panel-composition",
+          "kind": "shape",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "13",
+          "name": "title-composition",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "2  Graphical composition"
+        },
+        {
+          "id": "14",
+          "name": "icon-composition",
+          "kind": "group",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "15",
+          "name": "icon-composition-page",
+          "kind": "shape",
+          "parent_group": "14",
+          "text": ""
+        },
+        {
+          "id": "16",
+          "name": "icon-composition-line-0",
+          "kind": "connector",
+          "parent_group": "14",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "17",
+          "name": "icon-composition-line-1",
+          "kind": "connector",
+          "parent_group": "14",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "18",
+          "name": "icon-composition-line-2",
+          "kind": "connector",
+          "parent_group": "14",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "19",
+          "name": "node-composition",
+          "kind": "shape",
+          "parent_group": null,
+          "text": "Arrange the figure"
+        },
+        {
+          "id": "20",
+          "name": "output-composition",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "Positioned scene graph"
+        },
+        {
+          "id": "21",
+          "name": "panel-validation",
+          "kind": "shape",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "22",
+          "name": "title-validation",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "3  Render and validate"
+        },
+        {
+          "id": "23",
+          "name": "icon-validation",
+          "kind": "group",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "24",
+          "name": "icon-validation-page",
+          "kind": "shape",
+          "parent_group": "23",
+          "text": ""
+        },
+        {
+          "id": "25",
+          "name": "icon-validation-line-0",
+          "kind": "connector",
+          "parent_group": "23",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "26",
+          "name": "icon-validation-line-1",
+          "kind": "connector",
+          "parent_group": "23",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "27",
+          "name": "icon-validation-line-2",
+          "kind": "connector",
+          "parent_group": "23",
+          "text": "",
+          "connections": {}
+        },
+        {
+          "id": "28",
+          "name": "node-validation",
+          "kind": "shape",
+          "parent_group": null,
+          "text": "Inspect and revise"
+        },
+        {
+          "id": "29",
+          "name": "output-validation",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "SVG / PDF / PPTX"
+        },
+        {
+          "id": "30",
+          "name": "specify-to-compose",
+          "kind": "connector",
+          "parent_group": null,
+          "text": "",
+          "connections": {
+            "stCxn": {
+              "id": "10",
+              "idx": "3"
+            },
+            "endCxn": {
+              "id": "19",
+              "idx": "1"
+            }
+          }
+        },
+        {
+          "id": "31",
+          "name": "compose-to-validate",
+          "kind": "connector",
+          "parent_group": null,
+          "text": "",
+          "connections": {
+            "stCxn": {
+              "id": "19",
+              "idx": "3"
+            },
+            "endCxn": {
+              "id": "28",
+              "idx": "1"
+            }
+          }
+        },
+        {
+          "id": "32",
+          "name": "revise-layout-manual-route",
+          "kind": "shape",
+          "parent_group": null,
+          "text": ""
+        },
+        {
+          "id": "33",
+          "name": "feedback-label",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "Visual issues? Revise and render again"
+        },
+        {
+          "id": "34",
+          "name": "illustrative-label",
+          "kind": "text_box",
+          "parent_group": null,
+          "text": "Illustrative figure-making workflow"
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "visual_review": "not_performed",
+  "application_edit_test": "not_performed",
+  "scientific_fidelity": "not_performed",
+  "limitations": [
+    "Counts describe DrawingML structure, not visual fidelity or ease of editing.",
+    "Connector targets are checked; interactive reattachment is not tested.",
+    "Text fonts and geometry inherited from masters/themes are not resolved.",
+    "Master/layout/background artwork and notes are outside the slide-object inventory.",
+    "Pictures (including SVG) are not counted as native component geometry.",
+    "Graphic frames may contain tables/charts; their editability is not assessed."
+  ],
+  "size_in": [
+    7.0,
+    3.4
+  ]
+}

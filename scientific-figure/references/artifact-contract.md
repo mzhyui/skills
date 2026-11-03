@@ -6,7 +6,7 @@ Use this contract for a full framework figure. For an existing figure's small re
 
 Include:
 
-- **Brief:** audience, intended width/height, format, background, stylistic reference, assumptions.
+- **Brief:** audience, intended width/height, confirmed output formats, icon-fetching choice for complex combined figures, background, stylistic reference, assumptions. Record explicit prior choices or the user's pre-plot answers; do not substitute format defaults for an unanswered question.
 - **Sources:** stable source IDs, paths or supplied text, hashes when available, exact section/equation/line anchors. Save pasted methodology as `method-source.md` when it is the only source; keep it distinct from interpretation.
 - **Stages:** IDs, titles, input/output contracts, and operation membership.
 - **Nodes:** ID, stage, kind (input / operation / representation / decision / output), exact label/math, source anchors, scientific meaning. Record dimensions only when supported.
@@ -18,6 +18,10 @@ Include:
 ## `scene-graph.json`
 
 Use SVG user coordinates with origin at the top left. Coordinates are explicit so the scene can be implemented in SVG, TikZ, or another vector editor. This is an agent-facing interchange convention, not a universal renderer schema. The supplied export helper accepts SVG and does not validate this JSON.
+
+For a PowerPoint companion, map these same IDs and coordinates to named native
+objects. Record the mapping and any approximations in `pptx-editability.md`;
+the scene graph is not automatically accepted by a PPTX converter.
 
 Example structure (a deliberately partial illustration):
 
@@ -60,6 +64,10 @@ Thus a 20-unit font in a 1200-unit figure printed at 7 inches is 8.4 pt. Increas
 
 Typical contents:
 
+Use the user's confirmed output formats for the final deliverables. The list
+below illustrates a full bundle; extra working sources and render-validation
+previews can remain local without becoming requested final outputs.
+
 ```text
 diagram-spec.md
 scene-graph.json
@@ -71,13 +79,22 @@ exports/figure.pdf
 exports/figure.png
 exports/figure-size-preview.png
 exports/render-report.json
+exports/figure.pptx         # when PowerPoint editing is requested
+exports/pptx-report.json    # structural inventory, not a visual certificate
+exports/pptx-preview.png    # rendered from the PPTX itself
+pptx-editability.md         # native/picture objects, names, fonts, edit limits
 validation.md
 ```
 
 Names may follow repository conventions. Keep relative paths portable. Record font families and any fallback/substitution observed; SVG text depends on available fonts in an editor. PDF may embed or subset fonts; verify the exported result. Do not convert all text to paths in the sole editable master. Do not overwrite unrelated exports; use a distinct directory or the helper's deliberate `--overwrite` option for an authorized revision.
 
+For PPTX creation and verification, follow [editable PowerPoint](editable-powerpoint.md).
+Include its generator and source-to-object mapping. Record whether the SVG/scene
+graph or a subsequently edited PPTX is authoritative; edits do not synchronize
+automatically across formats.
+
 ## Mode-specific records
 
 For reference-guided creation, also save `style-profile.md` with the reference identity/page/crop, layout/design/font/line/icon observations, evidence and confidence, and implementation choices. Link it from the scene graph using `style_profile`. Save `reference-comparison.png` and record matched, adapted, or unresolved aspects in validation. Follow [reference matching](reference-matching.md).
 
-For revision, save `revision-record.md` with original-file identity/hash, literal user requirements, target objects/regions, exact before/after changes, necessary dependent edits, retained invariants, and per-requirement verification. Save `before-after.png`. A small edit can use this focused record without creating a full new specification or scene graph; synchronize any existing source records and generator. Follow [figure revision](figure-revision.md).
+For revision, save `revision-record.md` with original-file identity/hash, literal user requirements, confirmed output formats and applicable icon-fetching choice, target objects/regions, exact before/after changes, necessary dependent edits, retained invariants, and per-requirement verification. Save `before-after.png`. A small edit can use this focused record without creating a full new specification or scene graph; synchronize any existing source records and generator. Follow [figure revision](figure-revision.md).

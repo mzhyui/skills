@@ -22,11 +22,35 @@ The Claude installer includes the examples and resources and installs the compan
 
 For example: “Use page 2 of `reference.pdf` as the design reference for my Methods section. Deliver editable SVG and PDF with a reference comparison.” Or: “Revise `framework.svg`: rename Encoder to Feature encoder and make only feedback arrows dashed.”
 
+Before plotting, the agent asks which output formats to deliver: PNG, editable
+SVG, PDF, editable PPTX, or a combination. For a complex combined figure, it also
+asks whether to fetch matching icons from external libraries or use supplied/local
+assets and native shapes. It waits for the answers before fetching or composing.
+Choices already stated for the figure are honored without asking again. Source
+inspection can continue while answers are pending.
+
+For post-editing in PowerPoint, ask: “Also deliver `figure.pptx` with native
+editable labels, shapes, and connectors.” This adds a PowerPoint companion at
+the figure's aspect ratio, with named objects, an editability inventory, and a
+preview rendered from the PPTX. See [the PowerPoint workflow](references/editable-powerpoint.md)
+and [runnable native example](assets/example-editable-pptx.py). Complex artwork
+may remain separate picture objects with disclosed limits; the workflow does not
+promise lossless arbitrary SVG conversion or automatic synchronization after edits.
+
+Open the [editable sample PPTX](examples/editable-pptx/figure.pptx),
+[rendered preview](examples/editable-pptx/pptx-preview.png), and
+[validation record](examples/editable-pptx/validation.md) to inspect the result.
+
 The renderer accepts an SVG master, including one reconstructed from PNG or imported from PDF. Intake, style matching, and revision are agent workflows, not automatic CLI conversion. Rendering checks, visual review, and scientific fidelity remain separate; an export success is not scientific acceptance.
 
 ## Dependencies
 
 The helper and workflow generator use Python 3's standard library. Rendering requires Inkscape. Poppler (`pdftoppm`, `pdfinfo`, `pdffonts`) supports PDF preview and inspection. Use fonts specified by the selected example or record substitutions. No image-generation API is required.
+
+The optional native PowerPoint example requires `python-pptx`; `scripts/pptx_check.py`
+uses only the standard library. Render PPTX with PowerPoint or LibreOffice and
+inspect that result separately from the SVG exports. Dependencies stay in the
+surrounding environment; they are not bundled with this skill.
 
 For arrows, use the standard-library [geometry helper](scripts/arrow_geometry.py) and [construction guide](references/arrow-construction.md). The helper keeps the shaft inside the broad part of the head while preserving the intended tip, including on bent and dashed routes. Retain the helper beside a standalone generator if copying the generator outside this skill.
 
@@ -68,3 +92,8 @@ python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
 The real-export test needs Inkscape; the arrow silhouette test also uses Pillow. These tests skip explicitly if their dependencies are absent. Other tests exercise arrow-tip preservation and shaft containment, invalid routes, input validation, diagnostic boundaries, physical font scaling, and preservation of existing files.
+
+PowerPoint tests check picture-only detection, grouped-object inventory, invalid
+connection targets, source/output preservation, and native label/node editing
+through save/reopen. Native-generation tests explicitly skip without `python-pptx`;
+run them in a dependency-equipped environment when changing that workflow.

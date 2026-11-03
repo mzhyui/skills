@@ -1,6 +1,6 @@
 ---
 name: scientific-figure
-description: Create scientific framework figures from methodology, match the layout, design style, fonts, line styles, and icons of a reference SVG/PNG/PDF, or revise an existing SVG/PNG/PDF from written instructions. Use for scientific workflows and model architectures requiring editable SVG and reviewed publication exports; use ordinary plotting tools for data charts.
+description: Create scientific framework figures from methodology, match the layout, design style, fonts, line styles, and icons of a reference SVG/PNG/PDF, or revise an existing figure from written instructions. Use for scientific workflows and model architectures requiring editable SVG, optional PowerPoint (PPTX) with native editable objects, and reviewed publication exports; use ordinary plotting tools for data charts.
 ---
 
 # Scientific Figure
@@ -17,15 +17,51 @@ Turn a scientific method into an accurate, legible, editable figure. Work in thr
 
 Infer the mode from the request. “Use A's style for my method” makes A the visual reference; “change these labels in A” makes A the edit target. When both apply, preserve the edit target's content and apply the requested reference styling. Ask only if the file's role or a consequential requested change is ambiguous. A new methodology is not required for a cosmetic edit of an existing figure.
 
+## Confirm before plotting
+
+Before graphical composition, drawing, or export, resolve these choices with the
+user. Explicit choices already given for this figure count as confirmation; ask
+only about unanswered items. Bundle both questions into one short interaction
+when both apply.
+
+1. **Icon fetching for a complex combined figure:** when the figure combines
+   multiple panels, subsystems, or linked visual components, ask: “May I fetch
+   matching icons from external libraries for this figure, or should I use only
+   supplied/local icons and native shapes?” Wait for an explicit answer before
+   fetching icons or starting composition. A request for “more icons” alone does
+   not specify whether external fetching is wanted. For a simple figure, this
+   extra question is unnecessary unless external icon fetching is proposed.
+2. **Output artifact formats for every figure:** ask: “Which output formats do
+   you want: PNG, editable SVG, PDF, editable PPTX, or a combination?” Explain
+   distinctions briefly if needed: PNG is raster; SVG is editable vector; PDF is
+   a publication export; PPTX supports editing native slide objects. Accept any
+   requested combination or another supported format. A suggested bundle is a
+   recommendation, not a selection on the user's behalf.
+
+Explain that these are the skill's requested pre-plot choices. Keep unanswered
+choices pending; silence, elapsed time, or a preselected option is not consent.
+While waiting, inspect source material and clarify scientific content, but do
+not fetch external icons, compose the figure, or generate figure artifacts.
+Record the answers in the brief or revision record, then proceed without asking
+again unless the user changes the scope.
+
+If icon fetching is approved, choose sources that fit the requested subjects and
+style: for example, Tabler for generic infrastructure symbols and Lobe Icons for
+provider logos. Prefer package downloads or documented APIs; retain source and
+license information for imported assets. If declined, use supplied/local assets
+and native geometry. Neither choice authorizes changing scientific meaning.
+
 ## Establish the brief
 
 Read the supplied methodology and any repository figure conventions. Locate the actual source before drawing. Treat reference images as visual guidance; their operations, equations, and claims do not transfer to the user's method. If a linked reference cannot be viewed, disclose that and work from the supplied description.
 
-Use known constraints; ask only for missing information that changes scientific meaning or the required delivery. For creation with new scientific content, if no method was supplied, ask for it and prepare the reference profile or layout skeleton while waiting. For revision or faithful reconstruction, the existing figure and written requirements can supply the content; verify ambiguous text or scientific changes as needed. Label any requested demonstration as illustrative. Do not invent an algorithm to fill a panel.
+After the pre-plot choices are resolved, use known constraints; ask only for other missing information that changes scientific meaning or the required delivery. For creation with new scientific content, if no method was supplied, ask for it and prepare source inventories or reference notes while waiting. For revision or faithful reconstruction, the existing figure and written requirements can supply the content; verify ambiguous text or scientific changes as needed. Label any requested demonstration as illustrative. Do not invent an algorithm to fill a panel.
 
-For creation without a visual reference, default to a landscape, two-column figure approximately 7 inches wide, white or transparent background, editable SVG plus PDF, and PNG previews. For reference matching, preserve the reference's aspect ratio and visual language unless content or explicit constraints require adaptation. For revision, preserve the target's page/canvas size, background, and established typography unless instructed otherwise; do not silently resize or restyle it to these defaults. Record assumed print sizes as assumptions. Aim for at least 8 pt text at final size; flag conflicts with a requested exact match and make any deviation explicit. A venue's actual requirements override the default. A requested TikZ workflow remains valid; retain its `.tex` source and render it with the manuscript's engine.
+For creation without a visual reference, default to a landscape, two-column figure approximately 7 inches wide, with a white or transparent background. Suggest editable SVG plus PDF and PNG previews when useful, but deliver the formats selected in the pre-plot confirmation. For reference matching, preserve the reference's aspect ratio and visual language unless content or explicit constraints require adaptation. For revision, preserve the target's page/canvas size, background, and established typography unless instructed otherwise; do not silently resize or restyle it to these defaults. Record assumed print sizes as assumptions. Aim for at least 8 pt text at final size; flag conflicts with a requested exact match and make any deviation explicit. A venue's actual requirements override the default. A requested TikZ workflow remains valid; retain its `.tex` source and render it with the manuscript's engine.
 
 Use a new figure-specific output directory and preserve the supplied original. Preserve source manuscript files unless their editing or integration is requested. Load [the artifact contract](references/artifact-contract.md) when writing the specification and scene graph; update existing records or use focused change records for a small revision.
+
+When PowerPoint or PPTX editing is requested, read [editable PowerPoint](references/editable-powerpoint.md). Deliver a PPTX companion with native editable text, shapes, and connectors, preserving the figure's aspect ratio. Generate it from the same specification and geometry as the SVG; disclose picture objects and outlined equations. A whole-figure image on a slide does not satisfy editable-diagram delivery. Preserve any subsequent manual PPTX edits before regenerating.
 
 ## 1. Scientific abstraction
 
@@ -66,6 +102,10 @@ python /path/to/scientific-figure/scripts/render_check.py figure.svg \
 
 Set `--width-in` to the actual intended width; the example's 7 inches must not silently resize a revision. The helper requires Python 3 and Inkscape. It accepts an SVG master, including one reconstructed from PNG or imported from PDF; it does not ingest those formats directly. It creates a physically sized editable SVG, PDF, a 300 dpi PNG, a nominal 96 dpi size preview, and `render-report.json`. It checks local references, duplicate IDs, supported font sizes, rendered bounds, and text bounding-box intersections. It does not establish scientific correctness or certify visual quality. Read warnings and the limitations in its report. If Inkscape is absent, use a locally available SVG renderer and PDF exporter, recording differences and omitted checks. Do not claim unperformed checks passed.
 
+The helper's fixed export bundle does not override the user's format selection.
+Keep any extra source or preview formats needed for validation in the working
+directory, and distinguish them from the requested final deliverables.
+
 Then inspect the rendered image with the available image viewer, both enlarged and at target manuscript width. Inspect the PDF or an image rendered from it as well. Follow the checklist in the design and review guide. Repair errors in the source SVG or generator, synchronize the specification/scene graph when meaning or geometry changes, and rerender. Repeat until observed issues are resolved; if tools or unresolved source questions prevent completion, deliver an explicitly marked draft with the exact limitation.
 
 Write `validation.md` with separate results for:
@@ -74,5 +114,8 @@ Write `validation.md` with separate results for:
 2. **Automated checks:** exact command, renderer version, source/export hashes, errors and warnings. Rendering success alone is insufficient.
 3. **Visual review:** the actual previews inspected, final physical size, readable labels, arrows/loops, clipping, crossings, contrast, and math appearance. Record reviewer and remaining issues; automated checks never fill this section as passed.
 4. **Mode-specific review:** reference matching across layout, overall design, fonts, line styles, and icons; or requirement-by-requirement before/after verification and review of unchanged regions for revision.
+5. **PowerPoint review, when requested:** native-object inventory, source-to-slide reconciliation, edit/save/reopen test, and visual inspection of a render from the PPTX itself. State whether editing was checked programmatically or in an application; document image regions, manually routed arrows, and font/rendering differences.
 
-Deliver the applicable specification/scene graph or focused revision record, SVG, PDF, previews, validation record, and any generator or equation assets needed to reproduce them. Include the style profile and comparison preview for reference matching, or the change record and before/after preview for revision. Link the main figure and editable source in the response, identify the target size, and state material limitations such as font substitutions, reconstructed content, unreviewed math, or raster elements. Do not claim venue compliance without checking that venue's requirements.
+Deliver the confirmed artifact formats with the applicable specification/scene graph or focused revision record, validation record, and any generator or equation assets needed to reproduce them. Retain editable working sources and validation previews even when they are not requested as final deliverables. Include the style profile and comparison preview for reference matching, or the change record and before/after preview for revision. Link the selected figure artifacts in the response, identify the target size, and state material limitations such as font substitutions, reconstructed content, unreviewed math, or raster elements. Do not claim venue compliance without checking that venue's requirements.
+
+When requested, also link `figure.pptx` and include its preview, structural report, and editability notes. Keep the PPTX-rendered PDF separate from the SVG publication export; neither validates the other.

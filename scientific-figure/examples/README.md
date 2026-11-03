@@ -1,5 +1,11 @@
 # Archival examples
 
+The newer [native editable PowerPoint example](editable-pptx/figure.pptx) is
+separate from the five archives below. See its [preview](editable-pptx/pptx-preview.png),
+[editability notes](editable-pptx/pptx-editability.md), and
+[validation](editable-pptx/validation.md). Rebuild it using
+[`assets/example-editable-pptx.py`](../assets/example-editable-pptx.py).
+
 These five bundles were imported from the plot project's `examples/` directory. All 93 original files are preserved byte-for-byte, including generators, exports, provenance records, comparison images, assets, and historical validation. This index is new integration documentation.
 
 | Bundle | Preview | Editable source | PDF | Generator status |

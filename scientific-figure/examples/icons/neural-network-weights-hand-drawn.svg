@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Hand-drawn neural network weights (2–3–2)</title>
+  <desc id="desc">Minimal black and white line-art of a fully connected three-layer neural network: two inputs, three hidden units, and two outputs, with hand-lettered weight symbols.</desc>
+  <rect width="1024" height="1024" fill="#fff"/>
+  <!-- Edges: all adjacent layers are fully connected (6 + 6). -->
+  <g fill="none" stroke="#111" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Input to hidden -->
+    <path d="M 207,389 Q 349,341 510,303"/>
+    <path d="M 207,389 Q 347,449 514,511"/>
+    <path d="M 207,389 Q 345,556 516,720"/>
+    <path d="M 209,633 Q 361,449 510,303"/>
+    <path d="M 209,633 Q 366,565 514,511"/>
+    <path d="M 209,633 Q 353,672 516,720"/>
+    <!-- Hidden to output -->
+    <path d="M 510,303 Q 664,339 819,395"/>
+    <path d="M 510,303 Q 664,472 819,634"/>
+    <path d="M 514,511 Q 664,444 819,395"/>
+    <path d="M 514,511 Q 666,571 819,634"/>
+    <path d="M 516,720 Q 671,552 819,395"/>
+    <path d="M 516,720 Q 667,683 819,634"/>
+  </g>
+  <!-- Seven slightly irregular hand-drawn nodes; opaque white fills conceal wires. -->
+  <g fill="white" stroke="#0e0e0e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 207,326 C 245,325 271,355 272,389 C 275,424 247,455 207,457 C 171,461 141,435 139,400 C 135,364 161,331 197,327 Q 203,326 207,326 Z"/>
+    <path d="M 208,570 C 246,569 272,596 273,630 C 276,666 246,696 209,697 C 172,700 142,672 140,638 C 137,602 167,572 204,570 Z"/>
+    <path d="M 511,240 C 551,239 577,269 576,305 C 575,342 548,369 511,368 C 475,368 449,342 448,306 C 447,270 476,239 511,240 Z"/>
+    <path d="M 514,447 C 552,447 578,476 578,511 C 579,546 548,574 513,575 C 478,576 448,546 448,512 C 448,478 475,449 509,447 Z"/>
+    <path d="M 516,655 C 552,654 580,682 580,718 C 580,755 549,783 515,782 C 480,781 451,756 450,720 C 449,685 476,656 511,655 Z"/>
+    <path d="M 820,335 C 856,333 882,362 883,397 C 886,435 855,460 819,459 C 783,460 756,435 757,400 C 757,365 781,336 817,335 Z"/>
+    <path d="M 820,572 C 858,571 884,598 885,633 C 886,669 857,696 821,698 C 782,699 755,669 757,635 C 757,599 784,572 820,572 Z"/>
+  </g>
+  <!-- Small pen-like arc strokes inside nodes. -->
+  <g fill="none" stroke="#111" stroke-width="6.2" stroke-linecap="round">
+    <path d="M 159,389 Q 163,369 180,358"/>
+    <path d="M 161,631 Q 164,610 181,599"/>
+    <path d="M 469,301 Q 473,278 490,268"/>
+    <path d="M 470,508 Q 475,485 492,477"/>
+    <path d="M 473,717 Q 477,694 492,687"/>
+    <path d="M 778,393 Q 781,372 797,363"/>
+    <path d="M 779,631 Q 782,611 799,601"/>
+  </g>
+  <!-- Handwritten 'w' marks represent trainable edge weights. -->
+  <g fill="none" stroke="#111" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 332,307 l 8,18 10,-16 7,15 10,-19"/>
+    <path d="M 656,316 l 8,18 10,-16 7,15 10,-19"/>
+    <path d="M 332,702 l 8,18 10,-16 7,15 10,-19"/>
+    <path d="M 659,708 l 8,18 10,-16 7,15 10,-19"/>
+  </g>
+</svg>
