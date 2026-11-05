@@ -63,7 +63,7 @@ Run both `unittest` discovery commands before submitting changes. Keep dependenc
 
 ## Architecture notes
 
-- Scripts are standalone Python 3 CLIs (type-hinted, small functions, concise docstrings). The three status scripts (`status_ledger.py`, `status_probe.py`) coordinate: `status_ledger.py` reads/writes the repository status ledger; `status_probe.py` aggregates distributed status probes. `sympy_audit.py` is a restricted symbolic-audit tool. `record_tool.py` writes progress notes.
+- Scripts are standalone Python 3 CLIs (type-hinted, small functions, concise docstrings). The three status scripts (`status_ledger.py`, `status_probe.py`) coordinate: `status_ledger.py` reads/writes the repository status ledger; `status_probe.py` aggregates distributed status probes. `sympy_audit.py` is a restricted symbolic-audit tool. `record_tool.py` captures Git custody for, validates, and lists progress notes (it never writes the note itself).
 - Skills intentionally share vocabulary. Preserve existing JSON schemas and the established status/verdict terminology — do not rename across skills.
 - Status/progress skills are **read-only by default**; mutations require explicit authorization. The math auditor uses a restricted parser — never replace it with `eval` or an unrestricted expression parser.
 - Do not commit credentials, host secrets, generated logs, caches, or sensitive status artifacts (note the `__pycache__/` dirs already present under some skills).

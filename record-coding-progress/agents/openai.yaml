@@ -1,7 +1,7 @@
 interface:
   display_name: "Record Coding Progress"
-  short_description: "Write readable handoffs with evidence in an appendix"
-  default_prompt: "Use $record-coding-progress to write a readable, outcome-first handoff with topic-based findings and a folded appendix preserving v3 metadata, checks, sources, lifecycle, and custody."
+  short_description: "Write clear handoffs, evaluation readouts, and session records"
+  default_prompt: "Use $record-coding-progress to write a format-4 record: choose implementation, evaluation, or session; lead with the outcome, readout, or takeaways; keep commands and Git custody in the folded appendix; then validate it."
 
 policy:
   allow_implicit_invocation: true

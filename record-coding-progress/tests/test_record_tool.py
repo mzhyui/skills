@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import hashlib
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -9,9 +9,9 @@ import unittest
 from pathlib import Path
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "record_tool.py"
-sys.path.insert(0, str(SCRIPT.parent))
-import record_tool as record_module  # noqa: E402
+SKILL = Path(__file__).resolve().parents[1]
+SCRIPT = SKILL / "scripts" / "record_tool.py"
+FORMATS = SKILL / "references" / "record-formats.md"
 
 
 def run_tool(*args: str, expect: int = 0) -> subprocess.CompletedProcess[str]:
@@ -41,1705 +41,401 @@ def git(repo: Path, *args: str) -> str:
     return result.stdout.strip()
 
 
-class RecordToolTests(unittest.TestCase):
-    def named_check(self, check: dict, title: str) -> str:
-        return (
-            f"### {title}\n\n- Check: `{check['id']}`\n"
-            f"- Result: `{check['result']}`\n- Evidence: `verified`\n\n"
-            f"```text\n{check['command']}\n```\n\n{check['summary']}\n\n"
-        )
+def make_repo(root: Path) -> Path:
+    repo = root / "repo"
+    repo.mkdir()
+    git(repo, "init", "-q", "-b", "main")
+    git(repo, "config", "user.email", "test@example.com")
+    git(repo, "config", "user.name", "Test")
+    (repo / "README.md").write_text("start\n", encoding="utf-8")
+    git(repo, "add", "README.md")
+    git(repo, "commit", "-q", "-m", "initial")
+    return repo
 
-    def test_named_checks_bind_results_commands_summaries_and_hashes(self) -> None:
-        checks = [
-            {"id": "V1", "result": "fail", "command": "python contract_tests.py",
-             "summary": "One contract failed.", "artifact": {"sha256": "a" * 64}},
-            {"id": "V10", "result": "not-run", "command": "python gpu_tests.py",
-             "summary": "GPU unavailable; tests not run."},
-        ]
-        first = self.named_check(checks[0], "Contract tests") + "a" * 64 + "\n\n"
-        second = self.named_check(checks[1], "GPU qualification")
-        good = "## Check Details\n\n" + first + second
-        errors: list[str] = []
-        record_module.validate_checks({"checks": checks}, good, errors)
-        self.assertEqual(errors, [])
-        mutations = {
-            "false pass": good.replace("Result: `fail`", "Result: `pass`"),
-            "wrong class": good.replace("Evidence: `verified`", "Evidence: `proposed`"),
-            "missing check": "## Check Details\n\n" + first,
-            "duplicate check": good + first,
-            "unknown check": good + second.replace("`V10`", "`V11`"),
-            "borrowed command": good.replace(checks[0]["command"], "other command")
-                + checks[0]["command"],
-            "borrowed summary": good.replace(checks[0]["summary"], "Other observation.")
-                + checks[0]["summary"],
-            "borrowed hash": good.replace("a" * 64, "hash omitted") + "a" * 64,
-        }
-        for name, note in mutations.items():
-            with self.subTest(name=name):
-                errors = []
-                record_module.validate_checks({"checks": checks}, note, errors)
-                self.assertTrue(errors, name)
 
-    def test_folded_record_validates_and_remains_discoverable_in_v2_and_v3(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = self.start_v3(root, root)
-            run_tool("add-check", "--manifest", str(manifest), "--command", "python tests.py",
-                     "--result", "partial", "--summary", "Three passed; GPU check blocked.")
-            run_tool("finish", "--manifest", str(manifest), "--status", "done",
-                     "--resolution", "completed", "--evidence-state", "verified",
-                     "--actor", "tester", "--reason", "bounded task complete")
-            data = json.loads(manifest.read_text())
-            note = root / "readable.md"
-            self.write_v3_note(manifest, note)
-            original = note.read_text()
-            metadata = original.split("## Outcome")[0].split("\n", 1)[1]
-            body = (
-                "# Readable result\n\n## Outcome\n\nImplementation complete; GPU validation blocked.\n\n"
-                "## Task and Scope\n\nImplement the confirmed local test capability.\n\n"
-                "## Implementation\n\n### Test execution\n\nThe new runner implements the confirmed "
-                "plan; no runner existed before.\n\n## Validation\n\nThree checks passed; the GPU "
-                "check remains blocked.\n\n## Evidence Boundary\n\nGPU behavior remains unverified.\n\n"
-                "## Next Steps\n\nRun on a GPU.\n\n"
-            )
-            appendix = (
-                "<details>\n<summary>Record details</summary>\n\n## Record Metadata\n"
-                + metadata + "## Check Details\n\n"
-                + self.named_check(data["checks"][0], "Runner checks")
-                + "## Evidence Ledger\n\nNone.\n\n## Git Custody\n\nGit evidence unavailable.\n\n"
-                + "## Lifecycle\n" + record_module.section_text(original, "Lifecycle")
-                + "\n</details>\n"
-            )
-            note.write_text(body + appendix)
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
-            entry = record_module.note_index_entry(note, root)
-            self.assertEqual(entry["status"], "done")
-            self.assertEqual(entry["record_id"], data["record_id"])
-            # The presentation is also accepted for existing v2 manifests, without migration.
-            data["schema_version"] = 2
-            note.write_text((body + appendix).replace("Record format: `3`", "Record format: `2`")
-                            .replace("Status: `done`", "Status: `completed`"))
-            self.assertEqual(record_module.validate_note_v2(data, note), [])
+def custody(*args: str) -> dict:
+    return json.loads(run_tool("custody", "--json", *args).stdout)
 
-    def make_repo(self, root: Path) -> Path:
-        repo = root / "repo"
-        repo.mkdir()
-        git(repo, "init", "-q")
-        git(repo, "config", "user.name", "Record Test")
-        git(repo, "config", "user.email", "record@example.invalid")
-        (repo / "task.txt").write_text("before\n", encoding="utf-8")
-        (repo / "preexisting.txt").write_text("base\n", encoding="utf-8")
-        git(repo, "add", "task.txt", "preexisting.txt")
-        git(repo, "commit", "-q", "-m", "initial")
-        return repo
 
-    def start_v3(
-        self,
-        root: Path,
-        repo: Path,
-        *,
-        mode: str = "coding-progress",
-        task_type: str = "feature",
-        initial_status: str = "in-progress",
-        implementation_kind: str = "fresh-implementation",
-        extra: tuple[str, ...] = (),
-    ) -> Path:
-        manifest = root / f"{mode}-{task_type}-{len(list(root.glob('*.json')))}.json"
-        args = [
-            "start",
-            "--record-format",
-            "3",
-            "--mode",
-            mode,
-            "--task-type",
-            task_type,
-            "--task-slug",
-            "v3-test",
-            "--record-date",
-            "2026-09-03",
-            "--initial-status",
-            initial_status,
-            "--repo",
-            str(repo),
-            "--output",
-            str(manifest),
-        ]
-        if mode == "coding-progress":
-            args.extend(("--implementation-kind", implementation_kind))
-        args.extend(extra)
-        run_tool(*args)
-        return manifest
-
-    def write_v3_note(self, manifest_path: Path, note: Path) -> None:
-        data = json.loads(manifest_path.read_text(encoding="utf-8"))
-        components = ", ".join(data["components"]) or "None"
-        labels = ", ".join(data["labels"]) or "None"
-        metadata = [
-            "# V3 test record",
+def appendix(kind: str, *, status: str = "done", change: str | None = "fix") -> str:
+    lines = ["<details>", "<summary>Record details</summary>", "", "## Record details", ""]
+    lines += ["- Record format: `4`", f"- Kind: `{kind}`"]
+    if change:
+        lines.append(f"- Change type: `{change}`")
+    lines += ["- Date: `2026-11-05`", f"- Status: `{status}`", "- Project: demo", ""]
+    if kind == "session":
+        lines += ["## Sources", "", "- Current conversation — the user's question (user-stated).", ""]
+    else:
+        lines += [
+            "## Commands",
             "",
-            "- Record format: `3`",
-            f"- Record ID: `{data['record_id']}`",
-            f"- Mode: `{data['mode']}`",
-            f"- Task type: `{data['task_type']}`",
-            f"- Task slug: `{data['task_slug']}`",
-        ]
-        if data["mode"] == "coding-progress":
-            metadata.append(f"- Implementation class: `{data['implementation_kind']}`")
-        metadata.extend(
-            [
-                f"- Date: `{data['record_date']}`",
-                f"- Project: {data['repository']}",
-                f"- Priority: `{data['priority']}`",
-                f"- Owner: {data['owner']}",
-                f"- Components: {components}",
-                f"- Labels: {labels}",
-                f"- Status category: `{data['status_category']}`",
-                f"- Status: `{data['status']}`",
-                f"- Resolution: `{data['resolution']}`",
-                f"- Created at: `{data['created_at']}`",
-                f"- Started at: `{data['started_at']}`",
-                f"- Updated at: `{data['updated_at']}`",
-                f"- Completed at: `{data['completed_at'] or 'Not applicable'}`",
-                f"- Due date: `{data['due_date'] or 'Not applicable'}`",
-                f"- Evidence state: `{data['evidence_state']}`",
-                f"- Validation state: `{data['validation_state']}`",
-                "",
-                "## Outcome",
-                "",
-                "Recorded outcome [E1]." if data["sources"] else "Recorded outcome.",
-                "",
-            ]
-        )
-        lifecycle = [
-            "## Lifecycle",
+            "- Unit tests — `pass` — `python3 -m unittest` — 3 tests passed.",
             "",
-            f"Current blocker: {data.get('blocked_reason') or 'None'}",
+            "## Git",
             "",
-            "| ID | At | Action | From | To | Actor | Reason |",
-            "| --- | --- | --- | --- | --- | --- | --- |",
+            "Git: not applicable",
+            "",
         ]
-        lifecycle.extend(
-            f"| {event['id']} | {event['at']} | {event['action']} | {event['from']} | "
-            f"{event['to']} | {event['actor']} | {event['reason']} |"
-            for event in data["lifecycle"]
-        )
-        lifecycle.extend(
-            [
-                "",
-                "| ID | Type | Target |",
-                "| --- | --- | --- |",
-                *(f"| {link['id']} | {link['type']} | {link['target']} |" for link in data["links"]),
-            ]
-        )
-        if not data["links"]:
-            lifecycle.append("| None | None | None |")
-        body = [*metadata, *lifecycle, ""]
-        if data["mode"] == "coding-progress":
-            body.extend(["## Task and Scope", "", "Bounded v3 test scope.", "", "## Implementation", ""])
-            if data["implementation_kind"] == "function-fix":
-                body.extend(
-                    [
-                        "### Preserved Contract",
-                        "",
-                        "Contract preserved.",
-                        "",
-                        "### Corrective Change",
-                        "",
-                        "Correction applied.",
-                        "",
-                    ]
-                )
-            else:
-                body.extend(
-                    [
-                        "### Plan and Starting Status",
-                        "",
-                        "Plan source and starting status recorded.",
-                        "",
-                        "### Core Functions and Result",
-                        "",
-                        "Core result recorded.",
-                        "",
-                    ]
-                )
-            body.extend(["## Validation", "", "### Test Result", "", f"Aggregate: {data['validation_state']}.", ""])
-            for check in data["checks"]:
-                body.extend(
-                    [
-                        f"### {check['id']} - {check['result']}",
-                        "",
-                        "```text",
-                        check["command"],
-                        "```",
-                        "",
-                        f"Observed: {check['summary']}.",
-                        "",
-                    ]
-                )
-        else:
-            body.extend(
-                [
-                    "## Context and Scope",
-                    "",
-                    "Bounded session scope.",
-                    "",
-                    "## Findings and Decisions",
-                    "",
-                    "Finding recorded [E1].",
-                    "",
-                ]
-            )
-        body.extend(["## Evidence Ledger", ""])
-        for source in data["sources"]:
-            body.append(f"- {source['id']} [verified]: {source['locator']}")
-        for check in data["checks"]:
-            body.append(f"- {check['id']} [verified]: {check['summary']}")
-        if not data["sources"] and not data["checks"]:
-            body.append("None.")
-        body.append("")
-        if data["mode"] == "coding-progress":
-            body.extend(["## Git Custody", ""])
-            git_data = data["git"]
-            if not git_data["available"]:
-                body.extend(["Git evidence is unavailable.", ""])
-            else:
-                baseline = git_data["baseline"]
-                final = git_data["final"]
-                summary = final["scoped_diff"]
-                body.extend(
-                    [
-                        f"- Branch: {final['branch']}",
-                        f"- Baseline HEAD: {baseline['baseline_head'] or 'unavailable'}",
-                        f"- Final HEAD: {final['head'] or 'unavailable'}",
-                        f"- History relation: {final['history_relation']}",
-                        f"- Task paths: {', '.join(final['task_paths']) or 'None'}",
-                        f"- Task-owned paths: {', '.join(final['task_owned_changed_paths']) or 'None'}",
-                        f"- Pre-existing paths: {', '.join(final['preexisting_paths']) or 'None'}",
-                        f"- Pre-existing overlap: {', '.join(final['preexisting_overlap']) or 'None'}",
-                        f"- Outside-scope paths: {', '.join(final['outside_scope_changed_paths']) or 'None'}",
-                        f"- Record path: {final['record_path'] or 'None'}",
-                        "- Scoped diff: "
-                        f"files={summary['files']}; insertions={summary['insertions']}; "
-                        f"deletions={summary['deletions']}; binary_files={summary['binary_files']}; "
-                        f"untracked_files={summary['untracked_files']}",
-                        "",
-                    ]
-                )
-                for commit in final["commits_since_baseline"]:
-                    body.append(f"- Commit: {commit['hash']} {commit['subject']}")
-        body.extend(
-            [
-                "## Evidence Boundary",
-                "",
-                "Establishes only the recorded evidence.",
-                "",
-                "## Next Steps",
-                "",
-                "None.",
-                "",
-            ]
-        )
-        note.write_text("\n".join(body), encoding="utf-8")
+    return "\n".join([*lines, "</details>", ""])
 
-    def test_coding_manifest_classifies_scope_and_validates_note(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            (repo / "preexisting.txt").write_text("dirty before\n", encoding="utf-8")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            baseline = json.loads(manifest.read_text(encoding="utf-8"))["git"]["baseline"]
-            (repo / "task.txt").write_text("after\n", encoding="utf-8")
-            (repo / "outside.txt").write_text("unrelated\n", encoding="utf-8")
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "repository",
-                "--locator",
-                "task.txt",
-            )
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "python -m unittest",
-                "--result",
-                "pass",
-                "--summary",
-                "1 test passed",
-            )
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "task.txt",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            final = data["git"]["final"]
-            self.assertEqual(final["task_owned_changed_paths"], ["task.txt"])
-            self.assertIn("preexisting.txt", final["outside_scope_changed_paths"])
-            self.assertIn("outside.txt", final["outside_scope_changed_paths"])
-            self.assertEqual(final["preexisting_overlap"], [])
 
-            note = root / "note.md"
-            diff_token = (
-                f"files={final['scoped_diff']['files']}; "
-                f"insertions={final['scoped_diff']['insertions']}; "
-                f"deletions={final['scoped_diff']['deletions']}; "
-                f"binary_files={final['scoped_diff']['binary_files']}; "
-                f"untracked_files={final['scoped_diff']['untracked_files']}"
-            )
-            note.write_text(
-                f"""# Test record
-
-- Record format: `2`
-- Mode: `coding-progress`
-- Implementation class: `function-fix`
-- Date: `2026-07-29`
-- Project: {repo}
-- Status: `completed`
-- Evidence state: `verified`
+IMPLEMENTATION_BODY = """# Retry the upload client
 
 ## Outcome
 
-Implemented the task [E1].
+Uploads now retry transient 503 responses three times; permanent errors still fail fast.
 
-## Task and Scope
+## Change
 
-Task scope: task.txt. Outside scope: preexisting.txt and outside.txt.
+The client gave up on the first 503. The public `upload()` contract is unchanged.
 
-## Implementation
+## Checks
 
-### Preserved Contract
+Unit tests cover retry, back-off, and the permanent-error path; all pass.
 
-The task.txt input and output contract remains unchanged [E1].
-
-### Corrective Change
-
-Changed task.txt.
-
-## Validation
-
-### Test Result
-
-Pass: the recorded unit test passed.
-
-### V1 - pass
-
-```text
-python -m unittest
-```
-
-Observed: 1 test passed.
-
-## Evidence Ledger
-
-- E1 [verified]: repository source task.txt.
-- V1 [verified]: validation.
-
-## Git Custody
-
-- Branch: {final["branch"]}
-- Baseline HEAD: {baseline["baseline_head"]}
-- Final HEAD: {final["head"]}
-- History relation: {final["history_relation"]}
-- Explicit scope: task.txt
-- Outside scope: preexisting.txt, outside.txt
-- Scoped diff: {diff_token}
-
-## Evidence Boundary
-
-Establishes the tested implementation only.
-
-## Next Steps
+## Open items
 
 None.
-""",
-                encoding="utf-8",
-            )
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
 
-    def test_fresh_implementation_requires_plan_status_core_result_and_test_headings(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "fresh-implementation",
-                "--repo",
-                str(root),
-                "--output",
-                str(manifest),
-            )
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "confirmed plan in current conversation",
-            )
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "python -m unittest",
-                "--result",
-                "pass",
-                "--summary",
-                "1 test passed",
-            )
-            run_tool("finish", "--manifest", str(manifest))
-            note = root / "note.md"
-            note.write_text(
-                f"""# Fresh implementation record
+"""
 
-- Record format: `2`
-- Mode: `coding-progress`
-- Implementation class: `fresh-implementation`
-- Date: `2026-08-10`
-- Project: {root}
-- Status: `completed`
-- Evidence state: `mixed`
+EVALUATION_BODY = """# Detector evaluation on the development roster
 
-## Outcome
+## Readout
 
-Implemented the planned capability [E1].
+**Question.** Does the detector separate attacked from clean models?
 
-## Task and Scope
+**Answer.** Yes on this roster: it ranks every attack above every clean model.
+The roster is small.
 
-Plan source: confirmed plan in current conversation [E1]. Original status: unimplemented.
+| Measure | Result | Compared with | Meaning |
+| --- | --- | --- | --- |
+| AUROC (0.5 = chance) | 1.00 on 9 models | 0.71 for the previous method | Perfect ranking here |
 
-## Implementation
+**Decision.** Keep it as the default baseline.
 
-### Plan and Starting Status
+## Setup
 
-The confirmed plan was to add the capability; it was unimplemented before this work [E1].
+Nine VGG9 checkpoints, four attacked.
 
-### Core Functions and Result
+## Correctness checks
 
-The core record function now implements the capability.
+Unit tests and the independent verifier passed.
 
-## Validation
-
-### Test Result
-
-Pass: the unit test completed successfully.
-
-### V1 - pass
-
-```text
-python -m unittest
-```
-
-Observed: 1 test passed.
-
-## Evidence Ledger
-
-- E1 [user-stated]: confirmed plan in current conversation.
-- V1 [verified]: validation.
-
-## Git Custody
-
-Git evidence is unavailable because the project is not a Git checkout.
-
-## Evidence Boundary
-
-Establishes the recorded implementation and test only.
-
-## Next Steps
+## Open items
 
 None.
-""",
-                encoding="utf-8",
-            )
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
-            note.write_text(
-                note.read_text(encoding="utf-8").replace(
-                    "### Core Functions and Result",
-                    "### Implementation Result",
-                ),
-                encoding="utf-8",
-            )
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
 
-    def test_coding_start_requires_implementation_kind(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            result = run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--repo",
-                str(root),
-                "--output",
-                str(root / "manifest.json"),
-                expect=2,
-            )
-            self.assertIn("--implementation-kind is required", result.stderr)
+"""
 
-    def test_validator_rejects_false_check_result(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "pytest",
-                "--result",
-                "fail",
-                "--summary",
-                "one failure",
-            )
-            run_tool("finish", "--manifest", str(manifest), "--task-path", "task.txt")
-            note = root / "bad.md"
-            note.write_text(
-                """# Bad
+SESSION_BODY = """# Scoring mechanism review
 
-- Record format: `2`
-- Mode: `coding-progress`
-- Date: `2026-07-29`
-- Project: repo
-- Status: `completed`
-- Evidence state: `verified`
+## Takeaways
 
-## Outcome
-Bad.
-## Task and Scope
-Bad.
-## Implementation
-Bad.
-## Validation
-### V1 - pass
-pytest
-## Evidence Ledger
-V1 [verified]
-## Git Custody
-Unavailable.
-## Evidence Boundary
-Bad.
-## Next Steps
-None.
-""",
-                encoding="utf-8",
-            )
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn("must report result `fail`", result.stderr)
+- The stated mechanism does not drive the score.
+- The score measures distance from the parent model (inferred).
 
-    def test_session_mode_omits_git_and_rejects_forbidden_heading(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = root / "session.json"
-            run_tool(
-                "start",
-                "--mode",
-                "session-documentation",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "current conversation",
-            )
-            run_tool("finish", "--manifest", str(manifest))
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertNotIn("git", data)
-            note = root / "session.md"
-            note.write_text(
-                """# Session
+## Method
 
-- Record format: `2`
-- Mode: `session-documentation`
-- Date: `2026-07-29`
-- Project: test
-- Status: `concluded`
-- Evidence state: `mixed`
+The score projects each layer onto a reference subspace and measures the residual.
 
-## Outcome
-Decision [E1].
-## Context and Scope
-Bounded scope.
-## Findings and Decisions
-User-stated decision [E1].
-## Evidence Ledger
-E1 [user-stated]: current conversation.
-## Git Custody
-None.
-## Evidence Boundary
-No implementation.
-## Next Steps
-One next step.
-""",
-                encoding="utf-8",
-            )
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn("forbids heading: ## Git Custody", result.stderr)
+| Term | Meaning |
+| --- | --- |
+| C | Concentration of the residual across layers |
 
-    def test_session_requires_finalization_and_exact_source_locator(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = root / "session.json"
-            run_tool(
-                "start",
-                "--mode",
-                "session-documentation",
-                "--repo",
-                str(root),
-                "--output",
-                str(manifest),
-            )
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "design discussion",
-            )
-            note = root / "session.md"
-            note.write_text(
-                """# Session
+## Discussion
 
-- Record format: `2`
-- Mode: `session-documentation`
-- Date: `2026-07-29`
-- Project: test
-- Status: `concluded`
-- Evidence state: `mixed`
+The projected-update term is 0.14–1.3% of residual energy.
 
-## Outcome
-Decision [E1].
-## Context and Scope
-Bounded scope.
-## Findings and Decisions
-Decision [E1].
-## Evidence Ledger
-E1 is present without its locator.
-## Evidence Boundary
-No implementation.
-## Next Steps
-None.
-""",
-                encoding="utf-8",
-            )
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn("manifest must be finalized", result.stderr)
-            self.assertIn("source locator for E1", result.stderr)
-            run_tool("finish", "--manifest", str(manifest))
-            locked = run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "late source",
-                expect=2,
-            )
-            self.assertIn("after manifest finalization", locked.stderr)
+## Decisions
 
-    def test_classification_must_be_inside_evidence_ledger(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = root / "session.json"
-            run_tool(
-                "start",
-                "--mode",
-                "session-documentation",
-                "--repo",
-                str(root),
-                "--output",
-                str(manifest),
-            )
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "current user statement",
-            )
-            run_tool("finish", "--manifest", str(manifest))
-            note = root / "session.md"
-            note.write_text(
-                """# Session
-
-- Record format: `2`
-- Mode: `session-documentation`
-- Date: `2026-07-29`
-- Project: test
-- Status: `proposed`
-- Evidence state: `unverified`
-
-## Outcome
-Proposed conclusion [E1, proposed].
-## Context and Scope
-Current user statement.
-## Findings and Decisions
-Proposed conclusion [E1].
-## Evidence Ledger
-| ID | Kind | Locator |
+| Item | Status | Reason |
 | --- | --- | --- |
-| E1 | user | current user statement |
-## Evidence Boundary
-No implementation.
-## Next Steps
-None.
-""",
-                encoding="utf-8",
-            )
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn("classified in the Evidence Ledger", result.stderr)
+| Rewrite the mechanism prose now | rejected | The statistic is not fixed yet |
 
-    def test_non_git_and_artifact_hash(self) -> None:
+## Open items
+
+Run the scale-separated decomposition.
+
+"""
+
+
+def note(kind: str, body: str | None = None, **appendix_options: object) -> str:
+    bodies = {"implementation": IMPLEMENTATION_BODY, "evaluation": EVALUATION_BODY, "session": SESSION_BODY}
+    if kind != "implementation":
+        appendix_options.setdefault("change", None)
+    return (body if body is not None else bodies[kind]) + appendix(kind, **appendix_options)  # type: ignore[arg-type]
+
+
+class CustodyTests(unittest.TestCase):
+    def test_snapshot_separates_task_preexisting_and_outside_changes(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(root),
-                "--output",
-                str(manifest),
-            )
-            artifact = root / "result.json"
-            artifact.write_text('{"ok": true}\n', encoding="utf-8")
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "verify result.json",
-                "--result",
-                "partial",
-                "--summary",
-                "artifact inspected",
-                "--artifact",
-                str(artifact),
-            )
-            run_tool("finish", "--manifest", str(manifest))
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertFalse(data["git"]["available"])
-            expected = hashlib.sha256(artifact.read_bytes()).hexdigest()
-            self.assertEqual(data["checks"][0]["artifact"]["sha256"], expected)
+            repo = make_repo(root)
+            (repo / "src").mkdir()
+            (repo / "src" / "a.py").write_text("a = 1\n", encoding="utf-8")
+            git(repo, "add", "src/a.py")
+            git(repo, "commit", "-q", "-m", "add a")
+            (repo / "src" / "a.py").write_text("a = 2\n", encoding="utf-8")
+            (repo / "notes.txt").write_text("someone else's work\n", encoding="utf-8")
+            snapshot = root / "snapshot.json"
+            run_tool("start", "--repo", str(repo), "--output", str(snapshot))
 
-    def test_rejects_root_scope_and_manifest_overwrite(self) -> None:
+            (repo / "src" / "a.py").write_text("a = 3\nb = 4\n", encoding="utf-8")
+            (repo / "src" / "new.py").write_text("c = 5\n", encoding="utf-8")
+            (repo / "README.md").write_text("changed outside scope\n", encoding="utf-8")
+            data = custody("--snapshot", str(snapshot), "--path", "src")
+
+            self.assertEqual(data["task_changes"], ["src/a.py", "src/new.py"])
+            self.assertEqual(data["preexisting_in_task_paths"], ["src/a.py"])
+            self.assertEqual(data["outside_change_count"], 2)
+            self.assertEqual(data["history"], "same")
+            self.assertEqual(data["commits"], [])
+            self.assertEqual(data["diff"]["files"], 1)
+            self.assertEqual(data["diff"]["untracked_files"], 1)
+            self.assertEqual(data["diff"]["basis"], "baseline to working tree")
+
+            markdown = run_tool("custody", "--snapshot", str(snapshot), "--path", "src").stdout
+            self.assertIn("- Pre-existing changes in task paths: `src/a.py`", markdown)
+            self.assertIn("files=1; insertions=2; deletions=1; binary_files=0; untracked_files=1", markdown)
+            self.assertIn("- Changes outside task paths: 2 paths (not listed)", markdown)
+            self.assertNotIn("notes.txt", markdown)
+
+    def test_start_rejects_overwrite_snapshot_inside_repo_and_non_git(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            overwrite = run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-                expect=2,
-            )
-            self.assertIn("refusing to overwrite", overwrite.stderr)
-            root_scope = run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                ".",
-                expect=2,
-            )
-            self.assertIn("repository root cannot be used", root_scope.stderr)
+            repo = make_repo(root)
+            snapshot = root / "snapshot.json"
+            run_tool("start", "--repo", str(repo), "--output", str(snapshot))
+            self.assertIn("already exists", run_tool("start", "--repo", str(repo), "--output", str(snapshot), expect=2).stderr)
+            inside = run_tool("start", "--repo", str(repo), "--output", str(repo / "s.json"), expect=2)
+            self.assertIn("outside the repository", inside.stderr)
+            plain = root / "plain"
+            plain.mkdir()
+            result = run_tool("start", "--repo", str(plain), "--output", str(root / "p.json"), expect=2)
+            self.assertIn("Git: not applicable", result.stderr)
 
-    def test_finish_refresh_preserves_baseline_and_recaptures_final_state(self) -> None:
+    def test_custody_rejects_root_and_escaping_paths(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            baseline = json.loads(manifest.read_text(encoding="utf-8"))["git"]["baseline"]
-            (repo / "task.txt").write_text("first\n", encoding="utf-8")
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "task.txt",
-                "--record-path",
-                "progress/record.md",
-            )
-            first = json.loads(manifest.read_text(encoding="utf-8"))["git"]["final"]
-            (repo / "progress").mkdir()
-            (repo / "progress" / "record.md").write_text("first note\n", encoding="utf-8")
-            (repo / "later.txt").write_text("later\n", encoding="utf-8")
-            blocked = run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "task.txt",
-                "--record-path",
-                "progress/record.md",
-                expect=2,
-            )
-            self.assertIn("pass --refresh", blocked.stderr)
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "task.txt",
-                "--record-path",
-                "progress/record.md",
-                "--refresh",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(data["git"]["baseline"], baseline)
-            self.assertEqual(
-                data["git"]["final"]["task_owned_changed_paths"],
-                ["progress/record.md", "task.txt"],
-            )
-            self.assertEqual(data["git"]["final"]["scoped_diff"], first["scoped_diff"])
-            self.assertEqual(data["git"]["final"]["record_path"], "progress/record.md")
-            self.assertIn("later.txt", data["git"]["final"]["outside_scope_changed_paths"])
+            repo = make_repo(Path(temporary))
+            for path in (".", "../elsewhere", "/"):
+                run_tool("custody", "--repo", str(repo), "--baseline", "unavailable", "--path", path, expect=2)
+            run_tool("custody", "--repo", str(repo), "--baseline", "not-a-commit", "--path", "src", expect=2)
 
-    def test_late_start_can_mark_baseline_unavailable(self) -> None:
+    def test_late_start_with_unavailable_baseline(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
+            repo = make_repo(Path(temporary))
             (repo / "task.txt").write_text("late change\n", encoding="utf-8")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-                "--baseline-unavailable",
-            )
-            run_tool("finish", "--manifest", str(manifest), "--task-path", "task.txt")
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertIsNone(data["git"]["baseline"]["baseline_head"])
-            self.assertEqual(data["git"]["baseline"]["baseline_source"], "unavailable")
+            (repo / "README.md").write_text("edited\n", encoding="utf-8")
+            data = custody("--repo", str(repo), "--baseline", "unavailable", "--path", "task.txt", "--path", "README.md")
+            self.assertIsNone(data["baseline_head"])
+            self.assertIsNone(data["preexisting_in_task_paths"])
+            self.assertEqual(data["history"], "unavailable")
+            self.assertEqual(data["diff"]["basis"], "uncommitted changes only; no baseline")
+            self.assertEqual(data["diff"]["files"], 1)
+            markdown = run_tool("custody", "--repo", str(repo), "--baseline", "unavailable", "--path", "task.txt").stdout
+            self.assertIn("unavailable (no start snapshot)", markdown)
+            self.assertIn("- Commits since baseline: unavailable", markdown)
 
     def test_explicit_baseline_captures_commits_and_detached_head(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
+            repo = make_repo(Path(temporary))
             baseline = git(repo, "rev-parse", "HEAD")
             (repo / "task.txt").write_text("committed change\n", encoding="utf-8")
             git(repo, "add", "task.txt")
             git(repo, "commit", "-q", "-m", "change task")
             final_head = git(repo, "rev-parse", "HEAD")
             git(repo, "checkout", "-q", "--detach", final_head)
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-                "--baseline-head",
-                baseline,
-            )
-            run_tool("finish", "--manifest", str(manifest), "--task-path", "task.txt")
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            final = data["git"]["final"]
-            self.assertEqual(final["branch"], "detached")
-            self.assertEqual(final["task_owned_changed_paths"], ["task.txt"])
-            self.assertEqual(final["history_relation"], "ancestor")
-            self.assertEqual(final["commits_since_baseline"][0]["hash"], final_head)
-            self.assertEqual(final["commits_since_baseline"][0]["subject"], "change task")
+            data = custody("--repo", str(repo), "--baseline", baseline, "--path", "task.txt")
+            self.assertEqual(data["branch"], "detached")
+            self.assertEqual(data["task_changes"], ["task.txt"])
+            self.assertEqual(data["history"], "ancestor")
+            self.assertEqual(data["commits"], [{"hash": final_head, "subject": "change task"}])
 
     def test_diverged_history_does_not_attribute_commits(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
+            repo = make_repo(Path(temporary))
             common = git(repo, "rev-parse", "HEAD")
             (repo / "baseline-only.txt").write_text("baseline branch\n", encoding="utf-8")
             git(repo, "add", "baseline-only.txt")
             git(repo, "commit", "-q", "-m", "baseline branch commit")
-            explicit_baseline = git(repo, "rev-parse", "HEAD")
+            baseline = git(repo, "rev-parse", "HEAD")
             git(repo, "checkout", "-q", "-b", "other", common)
             (repo / "task.txt").write_text("other branch\n", encoding="utf-8")
             git(repo, "add", "task.txt")
             git(repo, "commit", "-q", "-m", "other branch commit")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-                "--baseline-head",
-                explicit_baseline,
-            )
-            run_tool("finish", "--manifest", str(manifest), "--task-path", "task.txt")
-            final = json.loads(manifest.read_text(encoding="utf-8"))["git"]["final"]
-            self.assertEqual(final["history_relation"], "diverged")
-            self.assertEqual(final["commits_since_baseline"], [])
+            data = custody("--repo", str(repo), "--baseline", baseline, "--path", "task.txt")
+            self.assertEqual(data["history"], "diverged")
+            self.assertEqual(data["commits"], [])
+            markdown = run_tool("custody", "--repo", str(repo), "--baseline", baseline, "--path", "task.txt").stdout
+            self.assertIn("None attributed (history diverged", markdown)
 
     def test_paths_with_spaces_rename_delete_and_untracked(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            repo = self.make_repo(root)
+            repo = make_repo(root)
             spaced = repo / "space dir"
             spaced.mkdir()
             (spaced / "old name.txt").write_text("old\n", encoding="utf-8")
             (spaced / "delete me.txt").write_text("delete\n", encoding="utf-8")
             git(repo, "add", "space dir")
             git(repo, "commit", "-q", "-m", "add spaced files")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
+            snapshot = root / "snapshot.json"
+            run_tool("start", "--repo", str(repo), "--output", str(snapshot))
             git(repo, "mv", "space dir/old name.txt", "space dir/new name.txt")
             git(repo, "rm", "-q", "space dir/delete me.txt")
             (spaced / "new untracked.txt").write_text("new\n", encoding="utf-8")
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "space dir",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            owned = data["git"]["final"]["task_owned_changed_paths"]
-            self.assertIn("space dir/new name.txt", owned)
-            self.assertIn("space dir/delete me.txt", owned)
-            self.assertIn("space dir/new untracked.txt", owned)
+            data = custody("--snapshot", str(snapshot), "--path", "space dir")
+            for path in ("space dir/new name.txt", "space dir/delete me.txt", "space dir/new untracked.txt"):
+                self.assertIn(path, data["task_changes"])
+            self.assertEqual(data["preexisting_in_task_paths"], [])
+            self.assertEqual(data["diff"]["untracked_files"], 1)
 
-    def test_check_command_is_recorded_as_data_and_artifact_hash_is_enforced(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            marker = root / "must-not-exist"
-            artifact = root / "artifact.txt"
-            artifact.write_text("evidence\n", encoding="utf-8")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-            )
-            command = f"touch {marker} | false"
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                command,
-                "--result",
-                "not-run",
-                "--summary",
-                "unsafe command intentionally not run",
-                "--artifact",
-                str(artifact),
-            )
-            self.assertFalse(marker.exists())
-            run_tool("finish", "--manifest", str(manifest), "--task-path", "task.txt")
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(data["checks"][0]["command"], command)
-            self.assertEqual(data["checks"][0]["result"], "not-run")
-            locked = run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "late",
-                "--result",
-                "pass",
-                "--summary",
-                "late",
-                expect=2,
-            )
-            self.assertIn("after manifest finalization", locked.stderr)
-
-    def test_source_file_hash_is_computed_and_mismatch_is_rejected(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            source = root / "source.txt"
-            source.write_text("source evidence\n", encoding="utf-8")
-            manifest = root / "session.json"
-            run_tool(
-                "start",
-                "--mode",
-                "session-documentation",
-                "--repo",
-                str(root),
-                "--output",
-                str(manifest),
-            )
-            mismatch = run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "artifact",
-                "--locator",
-                "source.txt",
-                "--file",
-                str(source),
-                "--sha256",
-                "0" * 64,
-                expect=2,
-            )
-            self.assertIn("does not match source file", mismatch.stderr)
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "artifact",
-                "--locator",
-                "source.txt",
-                "--file",
-                str(source),
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            expected = hashlib.sha256(source.read_bytes()).hexdigest()
-            self.assertEqual(data["sources"][0]["sha256"], expected)
-            self.assertEqual(data["sources"][0]["file"]["size"], source.stat().st_size)
-
-    def test_unborn_repository_records_unavailable_heads_and_staged_paths(self) -> None:
+    def test_unborn_repository_reports_staged_and_untracked_changes(self) -> None:
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             repo = root / "unborn"
             repo.mkdir()
             git(repo, "init", "-q")
+            snapshot = root / "snapshot.json"
+            run_tool("start", "--repo", str(repo), "--output", str(snapshot))
             (repo / "staged.txt").write_text("staged\n", encoding="utf-8")
             (repo / "untracked.txt").write_text("untracked\n", encoding="utf-8")
             git(repo, "add", "staged.txt")
-            manifest = root / "manifest.json"
-            run_tool(
-                "start",
-                "--mode",
-                "coding-progress",
-                "--implementation-kind",
-                "function-fix",
-                "--repo",
-                str(repo),
-                "--output",
-                str(manifest),
-                "--baseline-unavailable",
-            )
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--task-path",
-                "staged.txt",
-                "--task-path",
-                "untracked.txt",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertIsNone(data["git"]["baseline"]["head"])
-            self.assertIsNone(data["git"]["baseline"]["baseline_head"])
-            self.assertIsNone(data["git"]["final"]["head"])
-            self.assertEqual(
-                data["git"]["final"]["task_owned_changed_paths"],
-                ["staged.txt", "untracked.txt"],
-            )
-            self.assertEqual(data["git"]["final"]["scoped_diff"]["untracked_files"], 1)
+            data = custody("--snapshot", str(snapshot), "--path", "staged.txt", "--path", "untracked.txt")
+            self.assertIsNone(data["baseline_head"])
+            self.assertIsNone(data["final_head"])
+            self.assertEqual(data["task_changes"], ["staged.txt", "untracked.txt"])
+            self.assertEqual(data["diff"]["basis"], "staged changes; no commits yet")
+            self.assertEqual((data["diff"]["files"], data["diff"]["untracked_files"]), (1, 1))
 
-    def test_v3_coding_lifecycle_links_and_note_validation(self) -> None:
+
+class ValidateTests(unittest.TestCase):
+    def validate(self, text: str, expect: int = 0) -> subprocess.CompletedProcess[str]:
         with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = self.start_v3(
-                root,
-                repo,
-                task_type="bug",
-                implementation_kind="function-fix",
-                extra=(
-                    "--priority",
-                    "high",
-                    "--owner",
-                    "Codex",
-                    "--component",
-                    "workflow",
-                    "--component",
-                    "workflow",
-                    "--label",
-                    "v3",
-                    "--due-date",
-                    "2026-09-10",
-                ),
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertRegex(data["record_id"], r"^RCP-\d{8}T\d{6}Z-[0-9a-f]{8}$")
-            self.assertEqual(data["components"], ["workflow"])
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "repository",
-                "--locator",
-                "task.txt",
-            )
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "python3 -m unittest",
-                "--result",
-                "pass",
-                "--summary",
-                "18 tests passed",
-            )
-            run_tool(
-                "add-check",
-                "--manifest",
-                str(manifest),
-                "--command",
-                "ruff check",
-                "--result",
-                "not-run",
-                "--summary",
-                "ruff unavailable",
-            )
-            run_tool(
-                "add-link",
-                "--manifest",
-                str(manifest),
-                "--type",
-                "parent",
-                "--target",
-                "RCP-20260901T000000Z-00000000",
-            )
-            run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "validating",
-                "--actor",
-                "Codex",
-                "--reason",
-                "implementation complete",
-            )
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--status",
-                "done",
-                "--resolution",
-                "completed",
-                "--evidence-state",
-                "verified",
-                "--actor",
-                "Codex",
-                "--reason",
-                "validation complete",
-                "--task-path",
-                "task.txt",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(data["status_category"], "done")
-            self.assertEqual(data["validation_state"], "pass")
-            self.assertEqual(data["completed_at"], data["finalized_at"])
-            note = root / "v3.md"
-            self.write_v3_note(manifest, note)
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+            path = Path(temporary) / "2026-11-05-note.md"
+            path.write_text(text, encoding="utf-8")
+            return run_tool("validate", "--note", str(path), expect=expect)
 
-    def test_v3_session_documentation_validates_without_git_or_checks(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = self.start_v3(
-                root,
-                root,
-                mode="session-documentation",
-                task_type="research",
-                initial_status="proposed",
-                extra=("--started-at", "unavailable"),
-            )
-            run_tool(
-                "add-source",
-                "--manifest",
-                str(manifest),
-                "--kind",
-                "user",
-                "--locator",
-                "current research discussion",
-            )
-            run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "in-progress",
-                "--actor",
-                "Codex",
-                "--reason",
-                "research started",
-            )
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--status",
-                "done",
-                "--resolution",
-                "completed",
-                "--evidence-state",
-                "mixed",
-                "--actor",
-                "Codex",
-                "--reason",
-                "documentation concluded",
-            )
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(data["validation_state"], "not-applicable")
-            self.assertNotIn("git", data)
-            note = root / "session-v3.md"
-            self.write_v3_note(manifest, note)
-            run_tool("validate", "--manifest", str(manifest), "--note", str(note))
+    def assert_rejected(self, text: str, message: str) -> None:
+        self.assertIn(message, self.validate(text, expect=1).stderr)
 
-    def test_v3_rejects_wrong_task_type_slug_date_and_timestamp(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            for flag, value, expected in (
-                ("--task-type", "research", "not valid for coding-progress"),
-                ("--task-slug", "Bad Slug", "--task-slug"),
-                ("--record-date", "2026-02-30", "record date"),
-                ("--started-at", "2026-09-03T10:00:00", "timezone"),
-            ):
-                args = [
-                    "start",
-                    "--record-format",
-                    "3",
-                    "--mode",
-                    "coding-progress",
-                    "--task-type",
-                    "feature",
-                    "--task-slug",
-                    "valid-slug",
-                    "--record-date",
-                    "2026-09-03",
-                    "--implementation-kind",
-                    "fresh-implementation",
-                    "--repo",
-                    str(root),
-                    "--output",
-                    str(root / f"{flag[2:]}.json"),
-                ]
-                index = args.index(flag) if flag in args else -1
-                if index >= 0:
-                    args[index + 1] = value
-                else:
-                    args.extend((flag, value))
-                result = run_tool(*args, expect=2)
-                self.assertIn(expected, result.stderr)
+    def test_valid_records_of_each_kind_pass(self) -> None:
+        for kind in ("implementation", "evaluation", "session"):
+            with self.subTest(kind=kind):
+                self.assertIn(f"valid format-4 {kind} record", self.validate(note(kind)).stdout)
+        self.validate(note("implementation", change="new"))
+        self.validate(note("evaluation", EVALUATION_BODY.replace("## Correctness", "## Detailed results\n\nPer-dataset tables.\n\n## Correctness")))
 
-    def test_every_v3_transition_pair_matches_the_transition_table(self) -> None:
-        base_time = "2026-09-03T00:00:00Z"
-        for current in record_module.V3_STATUSES:
-            for target in record_module.V3_STATUSES:
-                manifest = {
-                    "schema_version": 3,
-                    "status": current,
-                    "status_category": record_module.STATUS_CATEGORIES[current],
-                    "resolution": "unresolved",
-                    "completed_at": None,
-                    "blocked_reason": "blocked" if current == "blocked" else None,
-                    "created_at": base_time,
-                    "updated_at": base_time,
-                    "lifecycle": [],
-                }
-                resolution = "completed" if target == "done" else "canceled" if target == "canceled" else None
-                allowed = target in record_module.ALLOWED_TRANSITIONS[current]
-                if allowed:
-                    record_module.apply_transition(
-                        manifest,
-                        target=target,
-                        actor="test",
-                        reason="matrix test",
-                        resolution=resolution,
-                        at=base_time,
-                    )
-                    self.assertEqual(manifest["status"], target)
-                else:
-                    with self.assertRaises(record_module.RecordError):
-                        record_module.apply_transition(
-                            manifest,
-                            target=target,
-                            actor="test",
-                            reason="matrix test",
-                            resolution=resolution,
-                            at=base_time,
-                        )
+    def test_reference_templates_match_the_validator(self) -> None:
+        reference = FORMATS.read_text(encoding="utf-8")
+        for kind, heading in (("implementation", "Implementation"), ("evaluation", "Evaluation"), ("session", "Session")):
+            with self.subTest(kind=kind):
+                section = reference.split(f"\n## {heading}\n", 1)[1]
+                template = re.search(r"~~~markdown\n(.*?)\n~~~", section, re.DOTALL).group(1)
+                self.assert_rejected(note(kind, template + "\n\n"), "unresolved template placeholder")
+                filled = re.sub(r"<[^<>\n]+>", "Filled in", template)
+                self.validate(note(kind, filled + "\n\n"))
 
-    def test_v3_requires_compatible_terminal_resolution_and_blocker_reason(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = self.start_v3(root, root)
-            missing_resolution = run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "done",
-                "--actor",
-                "Codex",
-                "--reason",
-                "done",
-                expect=2,
-            )
-            self.assertIn("resolution is not valid", missing_resolution.stderr)
-            blank_blocker = run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "blocked",
-                "--actor",
-                "Codex",
-                "--reason",
-                " ",
-                expect=2,
-            )
-            self.assertIn("--reason must be non-empty", blank_blocker.stderr)
-            wrong_cancel = run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "canceled",
-                "--actor",
-                "Codex",
-                "--reason",
-                "cancel",
-                "--resolution",
-                "completed",
-                expect=2,
-            )
-            self.assertIn("resolution is not valid", wrong_cancel.stderr)
-            out_of_order = run_tool(
-                "transition",
-                "--manifest",
-                str(manifest),
-                "--to",
-                "validating",
-                "--actor",
-                "Codex",
-                "--reason",
-                "backdated transition",
-                "--at",
-                "2000-01-01T00:00:00Z",
-                expect=2,
-            )
-            self.assertIn("precedes the last update", out_of_order.stderr)
+    def test_evaluation_readout_requires_results_table(self) -> None:
+        body = re.sub(r"\| Measure.*?\n\n", "", EVALUATION_BODY, flags=re.DOTALL)
+        self.assert_rejected(note("evaluation", body), "## Readout needs a results table")
 
-    def test_v3_resume_and_refresh_preserve_history_and_lifecycle_times(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            repo = self.make_repo(root)
-            manifest = self.start_v3(root, repo)
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--status",
-                "blocked",
-                "--evidence-state",
-                "verified",
-                "--actor",
-                "Codex",
-                "--reason",
-                "dependency unavailable",
-                "--task-path",
-                "task.txt",
-            )
-            before = json.loads(manifest.read_text(encoding="utf-8"))
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--refresh",
-                "--task-path",
-                "task.txt",
-            )
-            refreshed = json.loads(manifest.read_text(encoding="utf-8"))
-            for field in ("created_at", "updated_at", "finalized_at", "completed_at", "lifecycle"):
-                self.assertEqual(refreshed[field], before[field])
-            run_tool(
-                "resume",
-                "--manifest",
-                str(manifest),
-                "--actor",
-                "Codex",
-                "--reason",
-                "dependency restored",
-            )
-            resumed = json.loads(manifest.read_text(encoding="utf-8"))
-            self.assertEqual(resumed["status"], "in-progress")
-            self.assertEqual(resumed["resolution"], "unresolved")
-            self.assertIsNone(resumed["finalized_at"])
-            self.assertIsNone(resumed["git"]["final"])
-            self.assertEqual(len(resumed["lifecycle"]), len(before["lifecycle"]) + 1)
+    def test_session_requires_method_takeaway_bullets_and_decisions_table(self) -> None:
+        no_method = re.sub(r"## Method\n.*?(?=## Discussion)", "", SESSION_BODY, flags=re.DOTALL)
+        self.assert_rejected(note("session", no_method), "missing section: ## Method")
+        no_table = SESSION_BODY.replace("| Rewrite the mechanism prose now | rejected | The statistic is not fixed yet |", "")
+        no_table = re.sub(r"\| Item.*?\n\| ---.*?\n", "Decided nothing.\n", no_table)
+        self.assert_rejected(note("session", no_table), "## Decisions needs a table")
+        prose = SESSION_BODY.replace("- The stated", "The stated").replace("- The score", "The score")
+        self.assert_rejected(note("session", prose), "## Takeaways needs bullet points")
 
-    def test_v3_link_rejects_duplicate_self_and_second_parent(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            manifest = self.start_v3(root, root)
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            self_link = run_tool(
-                "add-link",
-                "--manifest",
-                str(manifest),
-                "--type",
-                "relates-to",
-                "--target",
-                data["record_id"],
-                expect=2,
-            )
-            self.assertIn("cannot link to itself", self_link.stderr)
-            run_tool("add-link", "--manifest", str(manifest), "--type", "parent", "--target", "parent-a")
-            duplicate = run_tool(
-                "add-link",
-                "--manifest",
-                str(manifest),
-                "--type",
-                "parent",
-                "--target",
-                "parent-a",
-                expect=2,
-            )
-            self.assertIn("duplicate link", duplicate.stderr)
-            second_parent = run_tool(
-                "add-link",
-                "--manifest",
-                str(manifest),
-                "--type",
-                "parent",
-                "--target",
-                "parent-b",
-                expect=2,
-            )
-            self.assertIn("only one parent", second_parent.stderr)
+    def test_change_type_is_required_for_implementation_only(self) -> None:
+        self.assert_rejected(note("implementation", change=None), "Change type `fix` or `new`")
+        self.assert_rejected(note("evaluation", change="fix"), "implementation records only")
 
-    def test_v3_validation_states_are_derived(self) -> None:
-        base = {"mode": "coding-progress", "checks": []}
-        self.assertEqual(record_module.validation_state(base), "not-run")
-        base["checks"] = [{"result": "not-run"}]
-        self.assertEqual(record_module.validation_state(base), "not-run")
-        base["checks"] = [{"result": "pass"}, {"result": "not-run"}]
-        self.assertEqual(record_module.validation_state(base), "pass")
-        base["checks"] = [{"result": "pass"}, {"result": "partial"}]
-        self.assertEqual(record_module.validation_state(base), "partial")
-        base["checks"] = [{"result": "partial"}, {"result": "fail"}]
-        self.assertEqual(record_module.validation_state(base), "fail")
-        self.assertEqual(
-            record_module.validation_state({"mode": "session-documentation", "checks": []}),
-            "not-applicable",
+    def test_metadata_values_are_checked(self) -> None:
+        self.assert_rejected(note("implementation").replace("`done`", "`completed`"), "Status must be one of")
+        self.assert_rejected(note("implementation").replace("2026-11-05", "Nov 5"), "Date must be YYYY-MM-DD")
+        self.assert_rejected(note("implementation").replace("`implementation`", "`coding-progress`"), "Kind must be one of")
+
+    def test_section_order_and_body_placement(self) -> None:
+        swapped = IMPLEMENTATION_BODY.replace("## Outcome", "## TEMP").replace("## Change", "## Outcome").replace("## TEMP", "## Change")
+        self.assert_rejected(note("implementation", swapped), "must appear in this order")
+        missing = IMPLEMENTATION_BODY.replace("## Checks\n\nUnit tests cover retry, back-off, and the permanent-error path; all pass.\n\n", "")
+        self.assert_rejected(note("implementation", missing), "missing section: ## Checks")
+
+    def test_commands_need_results_and_git_section(self) -> None:
+        text = note("implementation").replace("— `pass` — ", "— ")
+        self.assert_rejected(text, "Commands entry lacks")
+        self.assert_rejected(note("evaluation").replace("## Git\n\nGit: not applicable\n", ""), "missing appendix section: ## Git")
+
+    def test_blocked_record_names_its_blocker(self) -> None:
+        self.assert_rejected(note("implementation", status="blocked"), "must name the blocker")
+        blocked = IMPLEMENTATION_BODY.replace("## Open items\n\nNone.", "## Open items\n\nBlocked: staging credentials expired.")
+        self.validate(note("implementation", blocked, status="blocked"))
+
+    def test_placeholders_ignore_html_links_code_and_math(self) -> None:
+        allowed = IMPLEMENTATION_BODY.replace(
+            "None.",
+            "See <https://example.com/x>, `--path <task path>`, $a<b>c$, and <br> tags.\n\n```text\nrun <skill-path>\n```",
         )
+        self.validate(note("implementation", allowed))
+        self.assert_rejected(note("implementation", IMPLEMENTATION_BODY.replace("None.", "<next step>")), "<next step>")
 
-    def test_v3_validator_rejects_metadata_and_lifecycle_tampering(self) -> None:
+    def test_appendix_must_be_folded(self) -> None:
+        text = note("session").replace("<details>\n<summary>Record details</summary>\n", "").replace("</details>\n", "")
+        self.assert_rejected(text, "fold the appendix")
+
+    def test_fenced_headings_do_not_count_as_sections(self) -> None:
+        fenced = SESSION_BODY.replace(
+            "## Discussion\n", "## Discussion\n\n~~~markdown\n## Decisions\n\n| A | B |\n| --- | --- |\n~~~\n\n"
+        )
+        self.validate(note("session", fenced))
+
+    def test_legacy_notes_are_frozen(self) -> None:
+        legacy = "# Old\n\n## Outcome\n\nDone.\n\n- Record format: `3`\n- Date: `2026-10-01`\n"
+        self.assert_rejected(legacy, "format 3 notes are frozen")
+
+
+class ListTests(unittest.TestCase):
+    def test_list_reads_every_format_with_headlines_without_writing(self) -> None:
+        notes = {
+            "2026-08-01-v1.md": "# V1\n\n- Date: `2026-08-01`\n- Repository: `demo`\n- Status: `completed`\n\n"
+            "## Outcome\n\n- Result: Shipped the parser.\n",
+            "2026-09-01-v2.md": "# V2\n\n## Outcome\n\nThe migration finished on all\nhosts. Extra.\n\n"
+            "- Record format: `2`\n- Mode: `coding-progress`\n- Date: `2026-09-01`\n- Project: demo\n- Status: `completed`\n",
+            "nested/2026-10-01-v3.md": "# V3\n\n## Outcome\n\n**Done:** reviewed the design.\n\n"
+            "- Record format: `3`\n- Mode: `session-documentation`\n- Date: `2026-10-01`\n- Project: demo\n- Status: `done`\n",
+            "2026-11-05-v4.md": note("evaluation"),
+            "README.md": "# Progress\n\nNot a record.\n",
+        }
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            manifest = self.start_v3(root, root)
-            run_tool(
-                "finish",
-                "--manifest",
-                str(manifest),
-                "--status",
-                "done",
-                "--resolution",
-                "completed",
-                "--evidence-state",
-                "unverified",
-                "--actor",
-                "Codex",
-                "--reason",
-                "record complete",
-            )
-            note = root / "valid.md"
-            self.write_v3_note(manifest, note)
-            content = note.read_text(encoding="utf-8")
-            note.write_text(content.replace("- Status: `done`", "- Status: `blocked`"), encoding="utf-8")
-            result = run_tool("validate", "--manifest", str(manifest), "--note", str(note), expect=1)
-            self.assertIn("metadata Status must match manifest", result.stderr)
-            note.write_text(content.replace("record-tool", "tampered-actor", 1), encoding="utf-8")
-            result = run_tool("validate", "--manifest", str(manifest), "--note", str(note), expect=1)
-            self.assertIn("lifecycle event L1", result.stderr)
-            tampered_manifest = root / "tampered.json"
-            data = json.loads(manifest.read_text(encoding="utf-8"))
-            data["lifecycle"][-1]["from"] = "proposed"
-            tampered_manifest.write_text(json.dumps(data), encoding="utf-8")
-            note.write_text(content, encoding="utf-8")
-            result = run_tool(
-                "validate",
-                "--manifest",
-                str(tampered_manifest),
-                "--note",
-                str(note),
-                expect=1,
-            )
-            self.assertIn("does not continue the status chain", result.stderr)
+            for name, text in notes.items():
+                (root / name).parent.mkdir(parents=True, exist_ok=True)
+                (root / name).write_text(text, encoding="utf-8")
+            before = {path: path.read_bytes() for path in root.rglob("*")  if path.is_file()}
 
-    def test_list_filters_mixed_record_versions_without_writing(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            (root / "v1.md").write_text(
-                "# Legacy\n\n- Date: `2026-08-01`\n- Repository: demo\n- Status: `partial`\n",
-                encoding="utf-8",
-            )
-            (root / "v2.md").write_text(
-                "# V2\n\n- Record format: `2`\n- Mode: `coding-progress`\n- Date: `2026-08-02`\n"
-                "- Project: demo\n- Status: `completed`\n",
-                encoding="utf-8",
-            )
-            (root / "v3.md").write_text(
-                "# V3\n\n- Record format: `3`\n- Record ID: `RCP-20260903T000000Z-12345678`\n"
-                "- Mode: `coding-progress`\n- Task type: `feature`\n- Date: `2026-09-03`\n"
-                "- Project: demo\n- Priority: `high`\n- Components: workflow, cli\n- Labels: v3\n"
-                "- Status: `done`\n- Resolution: `completed`\n",
-                encoding="utf-8",
-            )
-            result = run_tool("list", "--root", str(root), "--json")
-            rows = json.loads(result.stdout)
-            self.assertEqual([row["record_format"] for row in rows], ["1", "2", "3"])
-            self.assertEqual(rows[0]["task_type"], "unavailable")
-            filtered = run_tool(
-                "list",
-                "--root",
-                str(root),
-                "--task-type",
-                "feature",
-                "--component",
-                "workflow",
-                "--since",
-                "2026-09-01",
-                "--json",
-            )
-            selected = json.loads(filtered.stdout)
-            self.assertEqual([row["path"] for row in selected], ["v3.md"])
-            self.assertEqual(sorted(path.name for path in root.iterdir()), ["v1.md", "v2.md", "v3.md"])
+            entries = json.loads(run_tool("list", "--root", str(root), "--json").stdout)
+            by_format = {entry["record_format"]: entry for entry in entries}
+            self.assertEqual(sorted(by_format), ["1", "2", "3", "4"])
+            self.assertEqual(by_format["1"]["headline"], "Result: Shipped the parser.")
+            self.assertEqual(by_format["2"]["headline"], "The migration finished on all hosts.")
+            self.assertEqual(by_format["3"]["headline"], "Done: reviewed the design.")
+            self.assertEqual(by_format["4"]["headline"], "Yes on this roster: it ranks every attack above every clean model.")
+            self.assertEqual(by_format["4"]["kind"], "evaluation")
+            self.assertEqual(by_format["3"]["path"], "nested/2026-10-01-v3.md")
+
+            filtered = json.loads(run_tool("list", "--root", str(root), "--json", "--kind", "evaluation").stdout)
+            self.assertEqual([entry["record_format"] for entry in filtered], ["4"])
+            dated = json.loads(run_tool("list", "--root", str(root), "--json", "--since", "2026-09-15").stdout)
+            self.assertEqual(sorted(entry["record_format"] for entry in dated), ["3", "4"])
+            table = run_tool("list", "--root", str(root), "--width", "20").stdout
+            self.assertIn("HEADLINE", table.splitlines()[0])
+            self.assertIn("…", table)
+            run_tool("list", "--root", str(root), "--since", "yesterday", expect=2)
+            self.assertEqual(before, {path: path.read_bytes() for path in root.rglob("*") if path.is_file()})
 
 
 if __name__ == "__main__":

@@ -9,7 +9,7 @@ self-contained directory installed "by skill scope" — not the whole repo.
 | `edit-paper-with-history` | Scoped paper edits with an auditable, exact change history |
 | `paper-math-auditor` | Read-only adversarial audit of paper mathematics |
 | `maintain-server-task-status` | Fresh, evidence-bound server/task status |
-| `record-coding-progress` | Durable progress / session documentation |
+| `record-coding-progress` | Clear implementation handoffs, evaluation readouts, and session records |
 | `clash-proxy` | Manage Clash proxy profiles, nodes, and port invariants |
 | `scientific-figure` | Create, reference-match, and revise scientific figures |
 
@@ -50,6 +50,3 @@ Each skill's Claude subagent definition lives in `claude/agent.md`; Codex
 metadata stays in `agents/openai.yaml`. The `/name` slash command is provided
 automatically by the installed skill. See `AGENTS.md` for the full
 conventions.
-
-## TODO
-- TODO 2026-10-10 git.V.34571: record-coding-progress should a progress reader to catch the important information

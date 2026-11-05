@@ -1,90 +1,63 @@
 ---
 name: record-coding-progress
-description: Record durable, repository-adaptive progress notes with explicit task type, lifecycle status, resolution, timestamps, local relationships, and evidence state. Use for substantial coding handoffs or when the user asks to record, conclude, summarize, or preserve current-session research, design, diagnosis, or decisions. Coding records classify function fixes versus fresh implementations and capture validation and Git custody; documentation records omit code-change boilerplate. Commit only when explicitly requested with this skill.
+description: Write a clear, durable progress record: an implementation handoff (a fix or a new capability), an evaluation readout (what an evaluation, benchmark, ablation, or experiment found and what it means), or a session record of research, design, diagnosis, or decisions (what method was discussed and what was decided). Use for substantial coding handoffs, finished evaluations, or when the user asks to record, conclude, summarize, or preserve session findings. Commit only when explicitly requested with this skill.
 ---
 
 # Record Coding Progress
 
-Create a precise, self-contained handoff. Follow repository instructions and local Markdown conventions. Never record hidden reasoning, credentials, environment variables, tokens, or unsupported claims.
+Write a record a teammate can act on after reading only its first section. Read [references/record-formats.md](references/record-formats.md) before writing: it holds the writing rules, a template for each kind, and examples.
 
-## Write for the reader
+## Choose the kind
 
-Read [references/readable-records.md](references/readable-records.md) when writing a record. Lead with the outcome, then explain the starting problem, meaningful changes, validation findings, limits, and next steps. Organize by topic rather than tool-call order. Use connected prose and descriptive subheadings; use a table only when it makes results or changes easier to compare.
+Pick the kind yourself; don't ask the user.
 
-Keep the visible body useful without decoding evidence IDs. Name checks by what they establish, such as “CUDA contract tests” or “Target qualification.” Summarize routine checks together; keep failures, partial results, and blockers visible. Do not use `V1`–`V10` as the body's outline or repeat every result in an evidence ledger.
+- **evaluation**: the main deliverable is a new measurement, such as an evaluation, benchmark, ablation, experiment run, or method comparison. Use it even when code was written to run the measurement; describe that code under Setup.
+- **implementation**: the main deliverable is code. Set `Change type`:
+  - `fix`: corrects a defect while a verified, pre-existing contract (interface, schema, protocol, intended behavior) stays the same. Name that contract.
+  - `new`: adds a capability, implements a plan, or changes a contract. Also use `new` when you can't verify that the contract existed before. Name the plan source (a file or the conversation).
 
-Put exact commands, check IDs, source hashes, full metadata, Git custody, and lifecycle events in a final folded **Record details** appendix. Retain those facts once, with descriptive links from the body where useful. This is a presentation change for v2/v3, not a new record version; old layouts remain valid. Legacy v1 notes keep their existing contract.
+  The evidence decides, not the user's wording: a requested "fix" that changes behavior is `new`.
+- **session**: no material code change and no new runs. Covers research, design, diagnosis, decisions, reviews, experiment plans, and analysis of existing outputs.
 
-## Route the record
+Skip recording minor, formatting-only, or unfinished work unless the user asks. Record requested partial or blocked work honestly.
 
-Choose exactly one mode:
+## Where it goes
 
-- **coding-progress**: material runtime, interface, schema, protocol, evaluation, reproducibility, bug-fix, or multi-file implementation work.
-- **session-documentation**: a requested research, design, diagnosis, decision, or experiment-plan record with no material code change.
+Use the user's explicit path; else a location the repository designates; else an existing `progress/`; else `<repository-root>/progress/`. Name the file `YYYY-MM-DD-<task-slug>.md`.
 
-For each `coding-progress` record, automatically classify the delivery; do not ask the user to choose it:
+If a format-4 note for the same task and day exists, update it in place. Notes in older formats (no `Record format: 4`) are frozen. Never rewrite or convert them; write a new note with `- Follows: <old note path>` instead.
 
-- **function-fix**: a defect correction whose verified, pre-existing public contract (interface, schema, protocol, and intended behavior) remains unchanged. Record the preserved contract and focus the handoff on the defect boundary and corrective changes.
-- **fresh-implementation**: a new capability, a newly implemented confirmed plan, an initial implementation, or any task whose contract changes or cannot be verified as pre-existing. Record the plan source and relevant plan detail, original status, core functions, implementation result, and test result.
+## Capture Git facts
 
-Use the evidence available in the current task to classify. A user calling something a “fix” is not enough: if the contract changes or its pre-task behavior is not verified, use `fresh-implementation`. When the classification is genuinely ambiguous, use `fresh-implementation` and state the uncertainty rather than claiming a preserved contract.
+For implementation and evaluation records, keep the snapshot outside the repository:
 
-Skip automatic recording for minor, formatting-only, diagnosis-only, or unfinished work unless the user explicitly asks to preserve it. Record requested partial or blocked outcomes honestly.
+1. Before changing anything: `python3 <skill-path>/scripts/record_tool.py start --repo <repo> --output /tmp/<slug>-snapshot.json`
+2. When done: `python3 <skill-path>/scripts/record_tool.py custody --snapshot /tmp/<slug>-snapshot.json --path <task path> [--path ...]`. Paste the output under `## Git` in the appendix.
 
-Resolve the destination in this order: explicit user path, repository-designated location, existing `progress/`, then `<repository-root>/progress/`. Use `YYYY-MM-DD-<task-slug>.md`.
+Pass each file or directory the task changed as `--path`, never the repository root. If recording starts late, replace `--snapshot` with `--repo <repo>` plus `--baseline <verified commit>` or `--baseline unavailable`. Never take the current HEAD as an unknown baseline. Outside a Git repository, write `Git: not applicable`.
 
-Never upgrade an existing record implicitly:
+## Write it
 
-- If the same-task same-day note is v3 and its original manifest is available, resume or update it with that manifest.
-- If the v3 manifest is unavailable, create a uniquely suffixed successor note and add a `supersedes` link; do not reconstruct evidence or overwrite history.
-- If the note is v2, continue it with record format 2 and [references/coding-progress-v2.md](references/coding-progress-v2.md) or [references/session-documentation-v2.md](references/session-documentation-v2.md).
-- If it lacks `Record format: 2` or `Record format: 3`, continue it as v1 using the applicable legacy template:
+Follow the template for the kind, then:
 
-  - coding: [references/progress-template.md](references/progress-template.md)
-  - documentation: [references/session-documentation-template.md](references/session-documentation-template.md)
+- List each check you actually ran under the appendix's `## Commands`: name, result (`pass`, `fail`, `partial`, or `not-run`), exact command, observed outcome. List an expected but skipped check as `not-run` with the reason.
+- Keep tests and verifiers apart from findings. A method that ran correctly and performed badly is a finding.
+- Keep this task's changes apart from changes already in the worktree. The `custody` output separates them.
+- In a session record, never imply code changes, runs, or inspections that didn't happen.
+- Never record secrets, credentials, environment-variable values, or hidden reasoning.
 
-Do not convert or bulk-migrate legacy notes.
+Validate, fix every error, then report the record path and the result:
 
-## Capture v3 evidence
+```text
+python3 <skill-path>/scripts/record_tool.py validate --note <note-path>
+```
 
-For a new record, read the shared lifecycle reference and only the selected mode reference:
+`record_tool.py list --root <progress-dir>` lists existing records of every format with their one-line headlines. It never writes.
 
-- shared lifecycle: [references/lifecycle-v3.md](references/lifecycle-v3.md)
-- coding: [references/coding-progress-v3.md](references/coding-progress-v3.md)
-- documentation: [references/session-documentation-v3.md](references/session-documentation-v3.md)
+## Preserve supplied documents
 
-Automatically select a mode-compatible task type from the lifecycle reference. Task type describes the work; mode describes the record; coding implementation class describes contract continuity. Keep these dimensions separate.
+When the user supplies a substantive Markdown design, protocol, analysis, or decision document and asks to record it "as is", include its full text under `## Verbatim user-supplied document`. Keep its wording, order, headings, tables, equations, and line breaks unchanged. Treat it as `(user-stated)`: including it does not verify the files, results, or claims it mentions.
 
-Use `scripts/record_tool.py` to keep deterministic evidence outside model context:
+## Commit mode
 
-1. Run `start --record-format 3` before implementation when coding mode applies, passing the task type, task slug, record date, and automatically selected `--implementation-kind function-fix` or `--implementation-kind fresh-implementation`. If invoked late, pass a verified `--baseline-head`; otherwise record the baseline as unavailable rather than inferring it. Pass `--started-at unavailable` when the actual task start is unknown.
-2. Add every material source with `add-source --manifest <path> --kind <kind> --locator <locator>`. The `--locator` is required and must identify the source (file path, URL, or description). Classify conclusions as `verified`, `user-stated`, `inferred`, or `proposed`.
-3. Add each observed check with `add-check --manifest <path> --command <command> --result <pass|fail|partial|not-run> --summary <summary>`. All three flags are required. The tool assigns check IDs automatically (V1, V2, ...) in the order added; do not supply `--id`. The `--summary` must state the observed outcome (e.g., "17/17 tests pass", "build fails with error X"). The tool records commands as data and never executes them.
-4. Use `transition` and `add-link` when lifecycle state or local relationships change. A blocked state requires its concrete reason. Do not edit lifecycle IDs manually.
-5. Run `finish` with the actual status, evidence state, actor, reason, conditional resolution, and every coding task path. Write the reader-facing body from the finalized manifest; include exact commands and observed summaries for every check in the appendix.
-6. Rerun `finish --refresh` with the same coding paths plus `--record-path <note-path>`. Refresh recaptures custody without changing lifecycle timestamps or adding an event. Update the note's custody fields, then run `validate --manifest <path> --note <note-path>` and fix every error.
-
-Keep the JSON manifest under `/tmp`; do not add it to the repository. The Markdown record must remain understandable without the manifest.
-
-## Preserve evidence boundaries
-
-- State the outcome first. Summarize significance in the body and keep exact receipts in the appendix; do not copy whole results into multiple sections.
-- Tie conclusions to descriptive source/check links where useful. Keep evidence IDs in the appendix instead of scattering opaque references through the prose.
-- Distinguish implementation readiness from experimental, production, held-out, or scientific validation.
-- Never turn a skipped, partial, blocked, or failed check into a pass.
-- In coding mode, separate task-owned, pre-existing, overlapping, and out-of-scope changes.
-- In a function-fix record, do not relabel a behavioral or interface change as contract preservation.
-- In a fresh-implementation record, bind a source plan file with `add-source --file` when one exists; otherwise add the relevant current-plan conversation as a `user` source. Do not invent a plan, original status, core function, or test result.
-- In documentation mode, never imply code changes, experiments, or inspections that did not occur.
-- Never fabricate or supply check IDs manually; they are assigned by `add-check` in insertion order. Never omit a required flag (`--locator` on `add-source`; `--command`, `--result`, `--summary` on `add-check`). If a check was not actually run, record it as `--result not-run` with an honest summary rather than inventing an outcome.
-- Keep lifecycle status, terminal resolution, evidence state, and validation state independent. A failed check can be verified evidence. Continuing partial work is `in-progress` and `unresolved`; `partial-handoff` is only for intentionally closed scope.
-
-## Preserve explicitly supplied Markdown documents
-
-When the user supplies a substantive Markdown-style design, protocol, analysis, or decision document in the conversation and explicitly asks to record it "as is", include its complete text in the record under `## Verbatim User-Supplied Document`. Preserve its original wording, ordering, headings, tables, equations, delimiters, and line breaks; do not normalize notation, repair Markdown, condense it, or replace it with a summary. You may add only the applicable metadata, required record sections, an evidence ledger, and an evidence-boundary statement around the verbatim document.
-
-Classify the supplied document as a `user-stated` source unless its individual claims were separately inspected. Its presence is a durable design record, not verification of cited files, literature, implementation status, experiment status, or scientific claims. Do not let an embedded "verification status" upgrade the record's own evidence state.
-
-## Optional commit mode
-
-Read [references/commit-mode.md](references/commit-mode.md) only when the user explicitly invokes this skill with `commit`, `commit changes`, or equivalent wording. Commit mode is forbidden for implicit invocation and session-documentation mode. Never push unless separately requested.
+Read [references/commit-mode.md](references/commit-mode.md) only when the user explicitly invokes this skill with `commit` or equivalent wording, for an implementation or evaluation record. Never commit otherwise or for session records. Never push unless asked separately.
